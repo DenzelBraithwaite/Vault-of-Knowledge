@@ -1,7 +1,7 @@
-# Vault-of-Knowledge
+# **Vault-of-Knowledge**
 
 _A repo to hold all of the notes I've taken on my Web Dev journey_
-<br>
+
 <br>
 
 ## This repo will hold notes on HTML, CSS, JS, Figma, Git & GitHub, etc.
