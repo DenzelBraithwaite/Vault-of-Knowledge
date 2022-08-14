@@ -1,6 +1,7 @@
-# Vault-of-Knowledge
+# **Vault-of-Knowledge**
 
 _A repo to hold all of the notes I've taken on my Web Dev journey_
+
 <br>
 <br>
 
