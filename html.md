@@ -1,9 +1,11 @@
-# Test
+# HTML
 
-test
+_Fundamentals, common tags and best practices_
 
-## test
+## Common tags
 
-_test_
+<br>
 
 **test**
+
+![Picture here](img/test.png)
