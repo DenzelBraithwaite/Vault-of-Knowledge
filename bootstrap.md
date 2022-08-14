@@ -8,4 +8,4 @@ _Fundamentals and common classes - Bootstrap (V5)_
 
 **bold**
 
-![Picture here](img/test.png)
+![Picture here](img/code_sample.png)

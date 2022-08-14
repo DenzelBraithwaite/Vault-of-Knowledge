@@ -8,4 +8,4 @@ _Fundamentals of Git CLI commands and useful info for GitHub and repos_
 
 **bold**
 
-![Picture here](img/test.png)
+![Picture here](img/code_sample.png)

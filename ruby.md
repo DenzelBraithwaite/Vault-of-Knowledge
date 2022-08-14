@@ -8,4 +8,4 @@ _Fundamentals, syntax and best practices_
 
 **bold**
 
-![Picture here](img/test.png)
+![Picture here](img/code_sample.png)

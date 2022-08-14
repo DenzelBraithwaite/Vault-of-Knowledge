@@ -407,10 +407,10 @@ ___
 
 ```
 Syntax: ![Alt message here](URL here)
-Example: ![Image of lines of code](img/code_sample.png)
+Example: ![Image of lines of code](../img/code_sample.png)
 ```
 Output:  
-![Image of lines of code](img/code_sample.png)
+![Image of lines of code](../img/code_sample.png)
 
 <br>
 
@@ -422,11 +422,11 @@ To add a link to an image, enclose the Markdown for the image in brackets, and t
 
 Example: 
 ```
-![A snippit of a mountain photo from markdownguide.org](img/linked_img_sample.png "Shiprock, New Mexico by Beau Rogers")
+![A snippit of a mountain photo from markdownguide.org](../img/linked_img_sample.png "Shiprock, New Mexico by Beau Rogers")
 ```
 
 Output:  
-![A snippit of a mountain photo from markdownguide.org](img/linked_img_sample.png "Shiprock, New Mexico by Beau Rogers")
+![A snippit of a mountain photo from markdownguide.org](../img/linked_img_sample.png "Shiprock, New Mexico by Beau Rogers")
 
 <br>
 
@@ -516,7 +516,7 @@ ___
 
 ## **Characters you can escape**
 
-![Characters you can escape](img/escape_chars.png)
+![Characters you can escape](../img/escape_chars.png)
 
 <br>
 

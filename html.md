@@ -8,4 +8,4 @@ _Fundamentals, common tags and best practices_
 
 **test**
 
-![Picture here](img/test.png)
+![Picture here](img/code_sample.png)

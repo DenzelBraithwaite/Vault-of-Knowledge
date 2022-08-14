@@ -8,4 +8,4 @@ _Tips & useful hotkeys_
 
 ## Hotkeys
 
-![Picture here](img/test.png)
+![Picture here](../img/code_sample.png)
