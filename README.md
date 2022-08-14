@@ -12,5 +12,6 @@ It will hold snapshots of code I've found useful, of code I've written and of ha
 This repo is private but may be released as public in the future as it grows, if I feel confident with the accuracy of my notes and would like to help out other new devs.
 
 Thanks for taking the time to read this, stay awesome :).<br>
-&nbsp;  
+&nbsp;
+
 **- Denzel**
