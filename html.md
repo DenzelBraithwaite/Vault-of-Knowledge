@@ -533,21 +533,6 @@ The \<progress> HTML element displays an indicator showing the completion progre
 <br>
 <br>
 
-## Interactive elements
-
-HTML offers a selection of elements which help to create interactive user interface objects.
-
-
-
-
-
-
-
-
-
-<br>
-<br>
-
 _For a more complete guide with more examples, visit: https://developer.mozilla.org/en-US/docs/Web/HTML/Element_
 
 ___
