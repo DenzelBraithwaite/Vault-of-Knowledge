@@ -71,7 +71,7 @@ Class selectors are your friend. They are probably the most useful and versatile
 
 #### **`Tag selector`**
 
-<mark>Tag selectors are at their most useful when changing properties that are unique to that HTML element.</mark> Like setting the list-style on a \<ul> or tab-size on a \<pre>. Also in reset stylesheets where you are specifically trying to unset styles that browsers apply to certain elements.
+<mark style="background-color: #282828; color: white">Tag selectors are at their most useful when changing properties that are unique to that HTML element.</mark> Like setting the list-style on a \<ul> or tab-size on a \<pre>. Also in reset stylesheets where you are specifically trying to unset styles that browsers apply to certain elements.
 
 Don’t rely on them too much though. It’s typically more useful to have a class define styling that you can use on any HTML element.
 
