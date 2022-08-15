@@ -4,7 +4,7 @@ _Fundamentals, common tags and best practices_
 
 <br>
 
-## **Overview**
+## Overview
 
 This study guide will hold a list of commonly use tags, along with best practices and examples.
 
