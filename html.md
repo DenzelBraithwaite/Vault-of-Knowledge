@@ -438,3 +438,116 @@ The _\<colgroup>_ HTML element defines a group of columns within a table.
 #### `<caption>`
 
 The _\<caption>_ HTML element specifies the caption (or title) of a table.
+
+<br>
+<br>
+
+## Forms
+
+HTML provides a number of elements which can be used together to create forms which the user can fill out and submit to the Web site or application. There's a great deal of further information about this available in the HTML forms guide.
+
+<br>
+
+#### `<form>`
+
+The \<form> HTML element represents a document section containing interactive controls for submitting information.
+
+<br>
+
+#### `<label>`
+
+The \<label> HTML element represents a caption for an item in a user interface.
+
+<br>
+
+#### `<input>`
+
+The \<input> HTML element is used to create interactive controls for web-based forms in order to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent. The \<input> element is one of the most powerful and complex in all of HTML due to the sheer number of combinations of input types and attributes.
+
+<br>
+
+#### `<output>`
+
+The \<output> HTML element is a container element into which a site or app can inject the results of a calculation or the outcome of a user action.
+
+<br>
+
+#### `<textarea>`
+
+The \<textarea> HTML element represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example a comment on a review or feedback form.
+
+<br>
+
+#### `<button>`
+
+The <button>button</button> HTML element is an interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology. Once activated, it then performs a programmable action, such as submitting a form or opening a dialog.
+
+<br>
+
+#### `<select>`
+
+The \<select> HTML element represents a control that provides a menu of options.
+
+<br>
+
+#### `<option>`
+
+The \<option> HTML element is used to define an item contained in a select, an optgroup, or a datalist element. As such, \<option> can represent menu items in popups and other lists of items in an HTML document.
+
+<br>
+
+#### `<optgroup>`
+
+The \<optgroup> HTML element 
+
+<br>
+
+#### `<datalist>`
+
+The \<datalist> HTML element contains a set of option elements that represent the permissible or recommended options available to choose from within other controls.
+
+<br>
+
+#### `<fieldset>`
+
+The \<fieldset> HTML element is used to group several controls as well as labels (label) within a web form.
+
+<br>
+
+#### `<legend>`
+
+The \<legend> HTML element represents a caption for the content of its parent fieldset.
+
+<br>
+
+#### `<meter>`
+
+The \<meter> HTML element represents either a scalar value within a known range or a fractional value.
+
+<br>
+
+#### `<progress>`
+
+The \<progress> HTML element displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
+
+<br>
+<br>
+
+## Interactive elements
+
+HTML offers a selection of elements which help to create interactive user interface objects.
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+
+_For a more complete guide with more examples, visit: https://developer.mozilla.org/en-US/docs/Web/HTML/Element_
+
+___
