@@ -90,6 +90,8 @@ The _\<address>_ HTML element indicates that the enclosed HTML provides contact 
 
 The _\<article>_ HTML element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include: a forum post, a magazine or newspaper article, or a blog entry, a product card, a user-submitted comment, an interactive widget or gadget, or any other independent item of content.
 
+> "The \<article> element is used to represent something that could be plucked out of your page and dropped into another and still make sense on its own. This might be a literal article or blog post, but could also be used for a social media post like a tweet or a Facebook wall post."
+
 <br>
 
 #### `<aside>`
@@ -118,9 +120,11 @@ The _\<h1>_ to _\<h6>_ HTML element represent six levels of section headings. \<
 
 #### `<main>`
 
-The _\<main>_ HTML element represents the dominant content of the body of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application.
+The _\<main>_ HTML element represents the dominant content of the body of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application. There must not be more than one visible \<main> element in a document. If more than one \<main> element is present in a document, all other instances must be hidden using the `hidden` attribute.
 
-> "So \<main> is where you put the good stuff, the important parts of a page, the reason the user came to this page in particular, not your site in general. In other words, the main content."
+> "So \<main> is where you put the good stuff, the important parts of a page, the reason the user came to this page in particular, not your site in general. In other words, the main content.😯😲🤯
+>
+>All that other stuff, logos and search forms and navigation and such, can go in a <header> or <footer> within the <body> but outside of <main>."
 
 <br>
 
@@ -133,6 +137,8 @@ The _\<nav>_ HTML element represents a section of a page whose purpose is to pro
 #### `<section>`
 
 The _\<section>_ HTML element represents a generic standalone section of a document, which doesn't have a more specific semantic element to represent it. Sections should always have a heading, with very few exceptions.
+  
+ > "Structurally speaking, it's basically just a <div> with special semantic meaning. A _\<section>_ begins a new "sectioning content" region, so it can have its own \<header> and/or \<footer>."
 
 <br>
 <br>
