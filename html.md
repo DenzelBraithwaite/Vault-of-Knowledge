@@ -124,7 +124,7 @@ The _\<main>_ HTML element represents the dominant content of the body of a docu
 
 > "So \<main> is where you put the good stuff, the important parts of a page, the reason the user came to this page in particular, not your site in general. In other words, the main content.😯😲🤯
 >
->All that other stuff, logos and search forms and navigation and such, can go in a <header> or <footer> within the <body> but outside of <main>."
+>All that other stuff, logos and search forms and navigation and such, can go in a \<header> or \<footer> within the \<body> but outside of \<main>."
 
 <br>
 
