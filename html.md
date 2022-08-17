@@ -120,6 +120,8 @@ The _\<h1>_ to _\<h6>_ HTML element represent six levels of section headings. \<
 
 The _\<main>_ HTML element represents the dominant content of the body of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application.
 
+> "So \<main> is where you put the good stuff, the important parts of a page, the reason the user came to this page in particular, not your site in general. In other words, the main content."
+
 <br>
 
 #### `<nav>`
