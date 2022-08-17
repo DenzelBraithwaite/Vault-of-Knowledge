@@ -520,6 +520,13 @@ ___
 
 <br>
 
-_For a more complete guide with more examples, visit: https://www.markdownguide.org/basic-syntax/_
+For a more complete guide with more examples, visit: https://www.markdownguide.org/basic-syntax/ _(Main source)_
+
+or
+
+https://www.markdownguide.org/extended-syntax/#:~:text=There%20are%20two%20ways%20to,text%2C%20or%20type%20emoji%20shortcodes _(Going a bit further)_
+
+<br>
+<br>
 
 ___
