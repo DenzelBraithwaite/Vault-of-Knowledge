@@ -13,6 +13,31 @@ This file will contain all of the common CSS terminology and concepts with brief
 
 ___
 
+<br>
+
+## **Quick notes**
+
+This section is a quick reference point for certain CSS guidelines that I'll need to review often, such as font-size scales or safe and reliable fonts.
+
+<br>
+
+#### **SPACING SYSTEM _(px)_**
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+<br>
+
+#### **FONT SIZE SYSTEM _(px)_**
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+<br>
+
+![font size guide](img/css/font_size_guide.png)
+![CSS grid terminology](img/css/grid_terminology.png)
+![CSS grid common properties](img/css/grid_common_props.png)
+
+<br>
+___
+
 ## **Fundamentals**
 
 <br>
@@ -42,6 +67,15 @@ ___
 ![Screenshot of CSS cheatsheet](img/css/css_guide14.png)
 ![Screenshot of CSS cheatsheet](img/css/css_guide15.png)
 ![Screenshot of CSS cheatsheet](img/css/css_guide16.png)
+
+<br>
+
+### **Design**
+
+<br>
+
+![website personalities guide](img/css/website_personalities.png)
+
 
 <br>
 
@@ -415,4 +449,5 @@ Finally, we have the codes that are used in a separate style sheet that is exter
 
 _For a more complete guide with more examples, visit: https://zendev.com/ultimate-guide-to-learning-css.html#comprehensive-resources_
 
+Or visit the slides for the Udemy HTML / CSS course.
 ___

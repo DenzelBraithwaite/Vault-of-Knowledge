@@ -84,6 +84,8 @@ Content sectioning elements allow you to organize the document content into logi
 
 The _\<address>_ HTML element indicates that the enclosed HTML provides contact information for a person or people, or for an organization.
 
+![HTML address tag example](img/address_example.png)
+
 <br>
 
 #### `<article>`
