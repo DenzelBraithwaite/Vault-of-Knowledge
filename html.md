@@ -90,6 +90,8 @@ The _\<address>_ HTML element indicates that the enclosed HTML provides contact 
 
 The _\<article>_ HTML element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include: a forum post, a magazine or newspaper article, or a blog entry, a product card, a user-submitted comment, an interactive widget or gadget, or any other independent item of content.
 
+> "The \<article> element is used to represent something that could be plucked out of your page and dropped into another and still make sense on its own. This might be a literal article or blog post, but could also be used for a social media post like a tweet or a Facebook wall post."
+
 <br>
 
 #### `<aside>`
@@ -100,13 +102,13 @@ The _\<aside>_ HTML element represents a portion of a document whose content is 
 
 #### `<footer>`
 
-The _\<footer>_ HTML element represents a footer for its nearest ancestor sectioning content or sectioning root element. A _\<footer>_ typically contains information about the author of the section, copyright data or links to related documents.
+The _\<footer>_ HTML element represents a footer for its nearest ancestor sectioning content or sectioning root element. A _\<footer>_ typically contains information about the author of the section, copyright data or links to related documents. You should use the _\<address>_ tag to store author info. Also worth noting, there can be multiple footer tags in a file, as it usually denotes the end of a section; however, you cannot use a _\<footer>_ tag inside of another _\<footer>_.
 
 <br>
 
 #### `<header>`
 
-The _\<header>_ HTML element represents introductory content, typically a group of introductory or navigational aids. It may contain some heading elements but also a logo, a search form, an author name, and other elements.
+The _\<header>_ HTML element represents introductory content, typically a group of introductory or navigational aids. It may contain some heading elements but also a logo, a search form, an author name, and other elements. The _\<header>_ tag is usually used at the top of a section and holds the heading (_\<h1-6>_) inside of it. You can have more than one _\<header>_ tag in a file, but you can't nest a _\<header>_ in a _\<header>_.
 
 <br>
 
@@ -118,7 +120,11 @@ The _\<h1>_ to _\<h6>_ HTML element represent six levels of section headings. \<
 
 #### `<main>`
 
-The _\<main>_ HTML element represents the dominant content of the body of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application.
+The _\<main>_ HTML element represents the dominant content of the body of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application. There must not be more than one visible \<main> element in a document. If more than one \<main> element is present in a document, all other instances must be hidden using the `hidden` attribute.
+
+> "So \<main> is where you put the good stuff, the important parts of a page, the reason the user came to this page in particular, not your site in general. In other words, the main content.😯😲🤯
+>
+>All that other stuff, logos and search forms and navigation and such, can go in a \<header> or \<footer> within the \<body> but outside of \<main>."
 
 <br>
 
@@ -131,6 +137,8 @@ The _\<nav>_ HTML element represents a section of a page whose purpose is to pro
 #### `<section>`
 
 The _\<section>_ HTML element represents a generic standalone section of a document, which doesn't have a more specific semantic element to represent it. Sections should always have a heading, with very few exceptions.
+  
+ > "Structurally speaking, it's basically just a <div> with special semantic meaning. A _\<section>_ begins a new "sectioning content" region, so it can have its own \<header> and/or \<footer>."
 
 <br>
 <br>
@@ -532,6 +540,9 @@ The \<progress> HTML element displays an indicator showing the completion progre
 
 <br>
 <br>
+
+## **Emmet plugin**
+https://emmet.io/
 
 _For a more complete guide with more examples, visit: https://developer.mozilla.org/en-US/docs/Web/HTML/Element_
 
