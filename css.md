@@ -41,6 +41,14 @@ This section is a quick reference point for certain CSS guidelines that I'll nee
 
 <br>
 
+#### **\<link> vs @import**
+
+Don't use @import when you can use \<link> since @import downloads sequencially but \<link> will download the resources in parallel, giving it a clear performance advantage. <mark>So use \<link> to add Google fonts to your project, not @import<\mark>
+
+<br>
+
+#### **Vertical spacing with anchors**
+
 > _"Anchors are inline elements, so vertical spacing doesn't work. It would need to be an inline-block, but not block because then it would take up all of the available space."_
 >
 > \- Jonas
