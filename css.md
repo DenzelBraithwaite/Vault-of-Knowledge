@@ -21,12 +21,12 @@ This section is a quick reference point for certain CSS guidelines that I'll nee
 
 <br>
 
-#### **SPACING SYSTEM _(px)_**
+#### **`Spacing system` _(px)_**
 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
 
 <br>
 
-#### **FONT SIZE SYSTEM _(px)_**
+#### **`Font size system` _(px)_**
 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
 
 <br>
@@ -36,6 +36,17 @@ This section is a quick reference point for certain CSS guidelines that I'll nee
 ![CSS grid common properties](img/css/grid_common_props.png)
 
 <br>
+
+#### **`Reminders`**
+
+<br>
+
+> _"Anchors are inline elements, so vertical spacing doesn't work. It would need to be an inline-block, but not block because then it would take up all of the available space."_
+>
+> \- Jonas
+
+<br>
+
 ___
 
 ## **Fundamentals**
