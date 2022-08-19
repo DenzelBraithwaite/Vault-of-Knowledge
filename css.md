@@ -41,6 +41,20 @@ This section is a quick reference point for certain CSS guidelines that I'll nee
 
 <br>
 
+#### **Accessibility**
+
+Use a contrast checker _(coolors has a good free one)_ to make sure that text on your page is accessible and easy to read.
+
+<br>
+
+> _"WCAG 2.0 level AA requires a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text. WCAG 2.1 requires a contrast ratio of at least 3:1 for graphics and user interface components (such as form input borders)."_
+
+<br>
+
+![Example of contrast ratio](img/css/contrast_checker.png)
+
+<br>
+
 #### **\<link> vs @import**
 
 Don't use @import when you can use \<link> since @import downloads sequencially but \<link> will download the resources in parallel, giving it a clear performance advantage. <mark>So use \<link> to add Google fonts to your project, not @import<\mark>
@@ -94,7 +108,7 @@ ___
 <br>
 
 ![website personalities guide](img/css/website_personalities.png)
-
+![Color theory, with examples](img/css/color_theory.png)
 
 <br>
 
