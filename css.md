@@ -51,7 +51,7 @@ Use a contrast checker _(coolors has a good free one)_ to make sure that text on
 
 <br>
 
-![Example of contrast ratio](img/css/contrast_checker.png)
+![Example of contrast ratio](img/design/contrast_checker.png)
 
 <br>
 
@@ -107,8 +107,10 @@ ___
 
 <br>
 
-![website personalities guide](img/css/website_personalities.png)
-![Color theory, with examples](img/css/color_theory.png)
+![website personalities guide](img/design/website_personalities.png)
+![Color theory, with examples](img/design/color_theory.png)
+![Adding gigh-res images to a websit](img/design/squoosh.png)
+![Examples of feature blocks](img/design/feature_blocks.png)
 
 <br>
 
@@ -480,7 +482,17 @@ Finally, we have the codes that are used in a separate style sheet that is exter
 <br>
 <br>
 
-_For a more complete guide with more examples, visit: https://zendev.com/ultimate-guide-to-learning-css.html#comprehensive-resources_
+___
 
-Or visit the slides for the Udemy HTML / CSS course.
+## **Resources**
+
+<br>
+
+For a more complete guide with more examples, visit:
+https://zendev.com/ultimate-guide-to-learning-css.html#comprehensive-resources
+
+Or
+
+Download the slides for the Udemy HTML / CSS course here:
+https://github.com/jonasschmedtmann/html-css-course/archive/master.zip
 ___

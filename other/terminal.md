@@ -9,3 +9,8 @@ _Common command and syntax_
 **bold**
 
 ![Picture here](../img/code_sample.png)
+___
+
+## **Resources**
+
+<br>

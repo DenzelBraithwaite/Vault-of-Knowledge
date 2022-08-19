@@ -543,9 +543,18 @@ The \<progress> HTML element displays an indicator showing the completion progre
 <br>
 <br>
 
-## **Emmet plugin**
+___
+
+## **Resources**
+
+<br>
+
+Emmet plugin:
 https://emmet.io/
 
-_For a more complete guide with more examples, visit: https://developer.mozilla.org/en-US/docs/Web/HTML/Element_
+or
+
+For a more complete guide with more examples, visit:
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element_
 
 ___

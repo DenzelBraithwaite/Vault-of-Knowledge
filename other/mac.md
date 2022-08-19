@@ -9,3 +9,8 @@ _Tips & useful hotkeys_
 ## Hotkeys
 
 ![Picture here](../img/code_sample.png)
+___
+
+## **Resources**
+
+<br>

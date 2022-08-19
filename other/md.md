@@ -520,7 +520,14 @@ ___
 
 <br>
 
-For a more complete guide with more examples, visit: https://www.markdownguide.org/basic-syntax/ _(Main source)_
+___
+
+## **Resources**
+
+<br>
+
+For a more complete guide with more examples, visit:
+https://www.markdownguide.org/basic-syntax/ _(Main source)_
 
 or
 

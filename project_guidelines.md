@@ -17,9 +17,16 @@ If you're starting a new project, remember to check this list off first before p
 
 <br>
 
+- Review design guide
 - Create a title
 - Create a color palette
 - 
+
+<br>
+
+#### **`Review design guide`**
+
+Before starting a project, review the '`css.md`' design section to start with a good focus and approach.
 
 <br>
 
