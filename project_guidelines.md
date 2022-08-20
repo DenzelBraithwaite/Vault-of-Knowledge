@@ -53,6 +53,8 @@ Now that the essential starting points are out of the way, here are the things t
 
 - something else (add general reminders here)
 
+- Add a lot of whitespace to separate sections (`200px` isn't too much)
+
 <br>
 
 #### **`Feature branches`**
