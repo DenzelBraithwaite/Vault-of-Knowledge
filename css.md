@@ -36,7 +36,9 @@ This section is a quick reference point for certain CSS guidelines that I'll nee
 <br>
 <br>
 
-#### **`Reminders`**
+___
+
+## **Reminders**
 
 <br>
 
@@ -53,11 +55,13 @@ Use a contrast checker _(coolors has a good free one)_ to make sure that text on
 ![Example of contrast ratio](img/design/contrast_checker.png)
 
 <br>
+<br>
 
 #### **\<link> vs @import**
 
 Don't use @import when you can use \<link> since @import downloads sequencially but \<link> will download the resources in parallel, giving it a clear performance advantage. <mark>So use \<link> to add Google fonts to your project, not @import<\mark>
 
+<br>
 <br>
 
 #### **Vertical spacing with anchors**
@@ -65,6 +69,24 @@ Don't use @import when you can use \<link> since @import downloads sequencially 
 > _"Anchors are inline elements, so vertical spacing doesn't work. It would need to be an inline-block, but not block because then it would take up all of the available space."_
 >
 > \- Jonas
+
+<br>
+<br>
+
+#### **Defining CSS color palette**
+
+You’ll often see custom properties being set “at the root.” Here’s what that means:
+
+<br>
+
+Example:
+![Code example of declaring color palette with root or HTML](img/css/root_html_color_palette.png)
+
+There is no particularly compelling reason to define custom properties like that. It’s just a way of setting custom properties as high up as they can go. If you like that, that’s totally fine. I find it somehow more normal-feeling to apply them to the html or body selectors when setting properties I intend to make available globally, or everywhere.
+
+<br>
+
+There is also no reason you need to set variables at this broad of a scope. It can be just as useful, and perhaps more readable and understandable, to set them right at the level you are going to use them (or fairly close in the DOM tree).
 
 <br>
 
