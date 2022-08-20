@@ -156,9 +156,24 @@ ___
 
 <br>
 
-### **Shadows**
+### **Spacing**
+
+![spacing scale in pixels](img/design/spacing_scale.png)
 
 <br>
+
+### **Visual hierarchy**
+
+![Visual hierarchy examples](img/design/visual_hierarchy1.png)
+
+![Visual hierarchy examples](img/design/visual_hierarchy2.png)
+
+![Visual hierarchy examples](img/design/visual_hierarchy3.png)
+
+<br>
+<br>
+
+### **Shadows**
 
 If the element is square, to make it round we give it a border-radius of 50%. To create an easy `button` look, we can specify a `border-radius` value _(`px`)_ that's bigger than the element is tall.
 
