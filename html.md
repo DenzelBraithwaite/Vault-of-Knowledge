@@ -49,6 +49,7 @@ ___
 ## **HTML Elements Reference**
 
 <br>
+<br>
 
 ## Main root
 
@@ -117,7 +118,7 @@ Content sectioning elements allow you to organize the document content into logi
 
 The _\<address>_ HTML element indicates that the enclosed HTML provides contact information for a person or people, or for an organization.
 
-![HTML address tag example](img/address_example.png)
+![HTML address tag example](img/html/address_example.png)
 
 <br>
 
@@ -586,8 +587,13 @@ An HTML entity is a piece of text (`"string"`) that begins with an ampersand _(`
 
 <br>
 
-> <span style="color: #007ACC;">Note</span>: Many characters have memorable entities. For example, the entity for the copyright symbol (©) is &copy;. For less memorable characters, such as &#8212; or &#x2014;, you can use a [reference chart](https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references)
+![HTML entities chart](img/html/html_entities.png)
 
+<br>
+
+> <span style="color: #007ACC;">Note</span>: Many characters have memorable entities. For example, the entity for the copyright symbol (`©`) is `&copy;`. For less memorable characters, such as `&#8212;` or `&#x2014;`, you can use a [reference chart](https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references)
+
+<br>
 <br>
 
 
@@ -605,5 +611,9 @@ or
 
 For a more complete guide with more examples, visit:
 https://developer.mozilla.org/en-US/docs/Web/HTML/Element_
+
+
+<br>
+<br>
 
 ___
