@@ -13,6 +13,39 @@ This study guide will hold a list of commonly use tags, along with best practice
 
 ___
 
+## **Quick notes**
+
+This section is a quick reference point for certain HTML guidelines that I'll need to review often, such as which semantic tags to use where, and other best practices to keep in mind.
+
+<br>
+
+#### **Creating a card**
+
+When creating a card, it's very common to use a `<figure>` tag to wrap the contents. Also acceptable could be an `<article>` tag.
+
+<br>
+
+#### **Images**
+
+Use the `<picture>` tag to specify which image (_`<img>`_) should be loaded, depending on the screen size. This will not load all images and then hide some, this also isn't the same as creating a media query (although similar), this simply only displays the specified source (_`<src>`_) depending on the user's screen size.
+
+<br>
+
+Example:
+```
+<picture>
+    <source media="(min-width: 650px)" srcset="img_food.jpg">
+
+    <source media="(min-width: 465px)" srcset="img_car.jpg">
+
+    <img src="img_girl.jpg">
+</picture>
+```
+
+<br>
+
+___
+
 ## **HTML Elements Reference**
 
 <br>
@@ -349,7 +382,7 @@ The _\<source>_ HTML element specifies multiple media resources for the picture,
 
 ## SVG
 
-You can embed SVG content directly into HTML documents, using the \<svg> element.
+You can embed SVG content directly into HTML documents, using the _\<svg>_ element.
 
 <br>
 
@@ -542,6 +575,22 @@ The \<progress> HTML element displays an indicator showing the completion progre
 
 <br>
 <br>
+
+___
+
+## **HTML entities**
+
+<br>
+
+An HTML entity is a piece of text (`"string"`) that begins with an ampersand _(`&`)_ and ends with a semicolon _(`;`)_. Entities are frequently used to display reserved characters _(which would otherwise be interpreted as HTML code)_, and invisible characters _(like non-breaking spaces)_. You can also use them in place of other characters that are difficult to type with a standard keyboard.
+
+<br>
+
+> <span style="color: #007ACC;">Note</span>: Many characters have memorable entities. For example, the entity for the copyright symbol (©) is &copy;. For less memorable characters, such as &#8212; or &#x2014;, you can use a [reference chart](https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references)
+
+<br>
+
+
 
 ___
 
