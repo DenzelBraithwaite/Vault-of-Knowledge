@@ -160,6 +160,10 @@ ___
 
 <br>
 
+If the element is square, to make it round we give it a border-radius of 50%. To create an easy `button` look, we can specify a `border-radius` value _(`px`)_ that's bigger than the element is tall.
+
+<br>
+
 #### **`Text shadows`**
 
 Adding shadow to text is often used to increase readability. For instance, if the text sits on top of a photo, it could be hard to read, but text shadow will increase the contrast, allowing it stand out more.
@@ -183,16 +187,16 @@ When using a box shadow, you normally want to give it a black color with a lot o
 <br>
 
 Example:
-![](img/css/shadow_code1.png)
-![](img/css/shadow_example1.png)
+![box-shadow property example](img/css/shadow_code1.png)
+![box-shadow example](img/css/shadow_example1.png)
 
 Scales the shadow to be bigger on all sides.
 
 <br>
 <br>
 
-![](img/css/shadow_code2.png)
-![](img/css/shadow_example2.png)
+![box-shadow property example](img/css/shadow_code2.png)
+![box-shadow example](img/css/shadow_example2.png)
 
 Only specifies the vertical value and color + opacity, leaving a block looking shadow with no blur.
 
@@ -200,8 +204,8 @@ Only specifies the vertical value and color + opacity, leaving a block looking s
 <br>
 <br>
 
-![](img/css/shadow_code3.png)
-![](img/css/shadow_example3.png)
+![box-shadow property example](img/css/shadow_code3.png)
+![box-shadow example](img/css/shadow_example3.png)
 
 Adds vertical shadow with thick blur and low opacity, creating an overall subtle, clean and elegant shadow.
 
@@ -217,6 +221,22 @@ Adds vertical shadow with thick blur and low opacity, creating an overall subtle
 ![Examples of when to use button shadows](img/design/hover_shadows.png)
 
 ![Examples of how to create shadow glows](img/design/glow_shadows.png)
+
+<br>
+<br>
+
+___
+
+### **Border-radius**
+
+Using a border-radius is a nice way to add to the overall website personality, and blend components together more seamlessly. It's often used with `buttons` and `photos`.
+
+<br>
+
+Example:
+![Button border-radius example](img/design/button_round_code.png)
+![Button border-radius example](img/design/button_square.png)
+![Button border-radius example](img/design/button_round.png)
 
 <br>
 <br>
