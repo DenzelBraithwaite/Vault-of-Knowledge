@@ -132,33 +132,43 @@ ___
 
 <br>
 
-#### **Personalities**
+### **Personalities**
 
 ![website personalities guide](img/design/website_personalities.png)
 
 <br>
 
-#### **Color theory**
+### **Color theory**
 
 ![Color theory, with examples](img/design/color_theory.png)
 
 <br>
 
-#### **Images**
+### **Images**
 
 ![Adding gigh-res images to a websit](img/design/squoosh.png)
 
 <br>
 
-#### **Icons**
+### **Icons**
 
 ![Examples of feature blocks](img/design/feature_blocks.png)
 
 <br>
 
-#### **Shadows**
+### **Shadows**
 
 <br>
+
+#### **`Text shadows`**
+
+Adding shadow to text is often used to increase readability. For instance, if the text sits on top of a photo, it could be hard to read, but text shadow will increase the contrast, allowing it stand out more.
+
+The properties for `text-shadow` are the same as `box-shadow` but without the optional radius property. They are listed below in the "Box shadows" section.
+
+<br>
+
+#### **`Box shadows`**
 
 When using a box shadow, you normally want to give it a black color with a lot of opacity, usually `0.1` or lower.
 
@@ -209,7 +219,7 @@ Adds vertical shadow with thick blur and low opacity, creating an overall subtle
 ![Examples of how to create shadow glows](img/design/glow_shadows.png)
 
 <br>
-
+<br>
 ___
 
 ## **Knowledge base**
