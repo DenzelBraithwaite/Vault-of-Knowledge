@@ -136,19 +136,67 @@ ___
 
 ![website personalities guide](img/design/website_personalities.png)
 
+<br>
+
 #### **Color theory**
 
 ![Color theory, with examples](img/design/color_theory.png)
+
+<br>
 
 #### **Images**
 
 ![Adding gigh-res images to a websit](img/design/squoosh.png)
 
+<br>
+
 #### **Icons**
 
 ![Examples of feature blocks](img/design/feature_blocks.png)
 
+<br>
+
 #### **Shadows**
+
+<br>
+
+When using a box shadow, you normally want to give it a black color with a lot of opacity, usually `0.1` or lower.
+
+<br>
+
+- `1st` value is the horizontal shadow _(Often set to 0)_
+- `2nd` value is the vertical shadow
+- `3rd` value is level of shadow blur
+- `4th` value is the radius. It scales the shadow up _`*Optional*`_
+- `5th` value is for the color _(and opacity)_
+
+<br>
+
+Example:
+![](img/css/shadow_code1.png)
+![](img/css/shadow_example1.png)
+
+Scales the shadow to be bigger on all sides.
+
+<br>
+<br>
+
+![](img/css/shadow_code2.png)
+![](img/css/shadow_example2.png)
+
+Only specifies the vertical value and color + opacity, leaving a block looking shadow with no blur.
+
+
+<br>
+<br>
+
+![](img/css/shadow_code3.png)
+![](img/css/shadow_example3.png)
+
+Adds vertical shadow with thick blur and low opacity, creating an overall subtle, clean and elegant shadow.
+
+<br>
+<br>
 
 ![Examples of when to use small shadows](img/design/small_shadows.png)
 
