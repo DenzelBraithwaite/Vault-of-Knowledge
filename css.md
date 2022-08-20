@@ -414,15 +414,28 @@ There are some exciting content selectors in the works which aren’t available 
 
 <br>
 
+___
 
+## **SVG**
 
+Scalable Vector Graphic _(SVG)_ is a unique type of image format. Unlike other varieties, `SVG`s don’t rely on unique pixels to make up the images you see, instead, they use ‘vector’ data. By using `SVG`s, you get images that can scale up to any resolution, which comes in handy for web design among plenty of other use cases.
 
+<br>
 
+#### **`Painting`**
 
+Basic coloring can be done by setting two attributes on the node: fill and stroke. <mark>Using fill sets the color inside the object and stroke sets the color of the line drawn around the object.</mark> You can use the same css color naming schemes that you use in HTML, whether that's color names (that is <span style="color: red;">red</span>), rgb values (that is <span style="color: red;">rgb(255,0,0)</span>), hex values, rgba values, etc.
 
+<br>
 
+Example:
+```
+ <rect x="10" y="10" width="100" height="100" stroke="blue" fill="purple" fill-opacity="0.5" stroke-opacity="0.8"/>
+```
 
+<br>
 
+___
 
 
 <br>
