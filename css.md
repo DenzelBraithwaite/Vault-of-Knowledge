@@ -32,9 +32,8 @@ This section is a quick reference point for certain CSS guidelines that I'll nee
 <br>
 
 ![font size guide](img/css/font_size_guide.png)
-![CSS grid terminology](img/css/grid_terminology.png)
-![CSS grid common properties](img/css/grid_common_props.png)
 
+<br>
 <br>
 
 #### **`Reminders`**
@@ -87,30 +86,57 @@ ___
 
 <br>
 
-![Screenshot of CSS cheatsheet](img/css/css_guide4.png)
-![Screenshot of CSS cheatsheet](img/css/css_guide5.png)
-![Screenshot of CSS cheatsheet](img/css/css_guide6.png)
-![Screenshot of CSS cheatsheet](img/css/css_guide7.png)
-![Screenshot of CSS cheatsheet](img/css/css_guide8.png)
-![Screenshot of CSS cheatsheet](img/css/css_guide9.png)
-![Screenshot of CSS cheatsheet](img/css/css_guide10.png)
-![Screenshot of CSS cheatsheet](img/css/css_guide11.png)
-![Screenshot of CSS cheatsheet](img/css/css_guide12.png)
-![Screenshot of CSS cheatsheet](img/css/css_guide13.png)
-![Screenshot of CSS cheatsheet](img/css/css_guide14.png)
-![Screenshot of CSS cheatsheet](img/css/css_guide15.png)
-![Screenshot of CSS cheatsheet](img/css/css_guide16.png)
+![CSS text properties](img/css/css_guide4.png)
+![CSS font properties](img/css/css_guide5.png)
+![CSS line box properties](img/css/css_guide6.png)
+![CSS background properties](img/css/css_guide7.png)
+![CSS border properties](img/css/css_guide8.png)
+![CSS box model properties](img/css/css_guide9.png)
+![CSS column, colors and grid properties](img/css/css_guide10.png)
+![CSS hyperlink, positioning and ruby properties](img/css/css_guide11.png)
+![CSS 3D/2D transform and generated content properties](img/css/css_guide12.png)
+![CSS list, markers and animations properties](img/css/css_guide13.png)
+![CSS transitions and UI properties](img/css/css_guide14.png)
+![CSS template layout and table properties](img/css/css_guide15.png)
+![CSS paged media and snippets properties](img/css/css_guide16.png)
+![CSS grid terminology](img/css/grid_terminology.png)
+![CSS grid common properties](img/css/grid_common_props.png)
 
 <br>
 
-### **Design**
+___
+
+## **Design**
 
 <br>
+
+#### **Personalities**
 
 ![website personalities guide](img/design/website_personalities.png)
+
+#### **Color theory**
+
 ![Color theory, with examples](img/design/color_theory.png)
+
+#### **Images**
+
 ![Adding gigh-res images to a websit](img/design/squoosh.png)
+
+#### **Icons**
+
 ![Examples of feature blocks](img/design/feature_blocks.png)
+
+#### **Shadows**
+
+![Examples of when to use small shadows](img/design/small_shadows.png)
+
+![Examples of when to use medium shadows](img/design/medium_shadows.png)
+
+![Examples of when to use large shadows](img/design/large_shadows.png)
+
+![Examples of when to use button shadows](img/design/hover_shadows.png)
+
+![Examples of how to create shadow glows](img/design/glow_shadows.png)
 
 <br>
 
@@ -435,7 +461,15 @@ Example:
 
 <br>
 
-___
+
+
+
+
+
+
+
+
+
 
 
 <br>
