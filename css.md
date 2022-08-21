@@ -136,6 +136,22 @@ ___
 
 ![website personalities guide](img/design/website_personalities.png)
 
+![website personalities serious / ](img/design/serious_elegant.png)
+
+![website personalities serious / ](img/design/minimalist_simple.png)
+
+![website personalities serious / ](img/design/plain_neutral.png)
+
+![website personalities serious / ](img/design/bold_confident.png)
+
+![website personalities serious / ](img/design/calm_peaceful.png)
+
+![website personalities serious / ](img/design/startup_upbeat.png)
+
+![website personalities serious / ](img/design/playful_fun.png)
+
+
+
 <br>
 
 ### **Color theory**
@@ -169,6 +185,17 @@ ___
 ![Visual hierarchy examples](img/design/visual_hierarchy2.png)
 
 ![Visual hierarchy examples](img/design/visual_hierarchy3.png)
+
+<br>
+<br>
+
+### **UI / UX**
+
+<br>
+
+![UI / UX](img/design/ui_ux.png)
+![UI / UX](img/design/ux_rules1.png)
+![UI / UX](img/design/ux_rules2.png)
 
 <br>
 <br>
