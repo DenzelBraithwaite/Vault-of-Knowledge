@@ -596,16 +596,53 @@ An HTML entity is a piece of text (`"string"`) that begins with an ampersand _(`
 <br>
 <br>
 
+___
+## **Emmet plugin**
 
+Emmet uses syntax similar to CSS selectors for describing elements’ positions inside generated tree and elements’ attributes. You can use elements’ names like `div` or `p` to generate HTML tags.
 
+Emmet doesn’t have a predefined set of available tag names, you can write any word and transform it into a tag: div → `<div></div>`, foo → `<foo></foo>` and so on.
+
+<br>
+<br>
+
+## Nesting operators
+
+Nesting operators are used to position abbreviation elements inside generated tree: whether it should be placed inside or near the context element.
+
+<br>
+
+#### **`Child: >`**
+
+You can use > operator to nest elements inside each other:
+
+```
+div>ul>li
+```  
+
+Will produce...
+
+```
+<div>
+    <ul>
+        <li></li>
+    </ul>
+</div>
+```
+
+<br>
+
+# <mark style="background-color: pink;">!!!Finish Emmet!!!</mark>
+
+[Read more here](https://docs.emmet.io/abbreviations/syntax/)
+
+<br>
+<br>
 ___
 
 ## **Resources**
 
 <br>
-
-Emmet plugin:
-https://emmet.io/
 
 or
 
