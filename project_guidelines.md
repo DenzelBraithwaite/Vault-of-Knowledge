@@ -18,9 +18,11 @@ If you're starting a new project, remember to check this list off first before p
 <br>
 
 - Review design guide
+
 - Create a title
 - Create a color palette
-- 
+- Create breakpoints
+- etc...
 
 <br>
 
@@ -41,6 +43,20 @@ A title should be long and meaningful... etc
 Use websites such as blah aand blah and check contrast ... etc
 
 <br>
+
+#### **`Create breakpoints`**
+
+Common breakpoints are blah and blah ....
+
+<br>
+
+#### **`Etc...`**
+
+lorem   ipsum dollar....
+
+<br>
+
+<br>
 <br>
 
 ## **During the project**
@@ -57,7 +73,7 @@ Now that the essential starting points are out of the way, here are the things t
 
 - When picking icons, pay attention to their designed optimal size (ex: `24px`).
 
-- 
+- When you use `display: flex` make sure to `align-items` as well
 
 <br>
 
