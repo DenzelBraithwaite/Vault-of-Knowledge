@@ -55,6 +55,10 @@ Now that the essential starting points are out of the way, here are the things t
 
 - Add a lot of whitespace to separate sections (`200px` isn't too much)
 
+- When picking icons, pay attention to their designed optimal size (ex: `24px`).
+
+- 
+
 <br>
 
 #### **`Feature branches`**
