@@ -643,12 +643,27 @@ ___
 ## **Resources**
 
 <br>
+<br>
 
-or
-
+### Documentation
 For a more complete guide with more examples, visit:
 https://developer.mozilla.org/en-US/docs/Web/HTML/Element_
 
+<br>
+
+Or
+
+<br>
+
+### Tools
+
+- HTML validator &rarr; [Validator](https://validator.w3.org/nu/#textarea)
+
+- Images &rarr; [Unsplash](https://unsplash.com/) | [Pexels](https://www.pexels.com/)
+
+- Image compressor &rarr; [Squoosh](https://squoosh.app/)
+
+- Icons &rarr; [Fontawesome](https://fontawesome.com/) | [Heroicons](https://heroicons.com/) | [Phosphoricons](https://phosphoricons.com/)_(science icons)_
 
 <br>
 <br>
