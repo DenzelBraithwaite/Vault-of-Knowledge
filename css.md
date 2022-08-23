@@ -36,6 +36,19 @@ This section is a quick reference point for certain CSS guidelines that I'll nee
 <br>
 <br>
 
+#### **`Accordions`**
+
+Accordions are useful when you want to toggle between hiding and showing large amounts of content. You can easily accomplish this by setting all 'items' in the accordion to `display: none` and then assigning a `visible` or `open` class which sets the display back to something like `block`.
+
+<br>
+
+![picture of CSS accordion](img/css/design/accordion.png)
+
+![picture of CSS code for accordion](img/css/design/accordion_code.png)
+
+<br>
+<br>
+
 ___
 
 ## **Reminders**
@@ -52,7 +65,7 @@ Use a contrast checker _(coolors has a good free one)_ to make sure that text on
 
 <br>
 
-![Example of contrast ratio](img/design/contrast_checker.png)
+![Example of contrast ratio](img/css/design/contrast_checker.png)
 
 <br>
 <br>
@@ -134,21 +147,21 @@ ___
 
 ### **Personalities**
 
-![website personalities guide](img/design/website_personalities.png)
+![website personalities guide](img/css/design/website_personalities.png)
 
-![website personalities serious / ](img/design/serious_elegant.png)
+![website personalities serious / ](img/css/design/serious_elegant.png)
 
-![website personalities serious / ](img/design/minimalist_simple.png)
+![website personalities serious / ](img/css/design/minimalist_simple.png)
 
-![website personalities serious / ](img/design/plain_neutral.png)
+![website personalities serious / ](img/css/design/plain_neutral.png)
 
-![website personalities serious / ](img/design/bold_confident.png)
+![website personalities serious / ](img/css/design/bold_confident.png)
 
-![website personalities serious / ](img/design/calm_peaceful.png)
+![website personalities serious / ](img/css/design/calm_peaceful.png)
 
-![website personalities serious / ](img/design/startup_upbeat.png)
+![website personalities serious / ](img/css/design/startup_upbeat.png)
 
-![website personalities serious / ](img/design/playful_fun.png)
+![website personalities serious / ](img/css/design/playful_fun.png)
 
 
 
@@ -156,35 +169,35 @@ ___
 
 ### **Color theory**
 
-![Color theory, with examples](img/design/color_theory.png)
+![Color theory, with examples](img/css/design/color_theory.png)
 
 <br>
 
 ### **Images**
 
-![Adding gigh-res images to a websit](img/design/squoosh.png)
+![Adding gigh-res images to a websit](img/css/design/squoosh.png)
 
 <br>
 
 ### **Icons**
 
-![Examples of feature blocks](img/design/feature_blocks.png)
+![Examples of feature blocks](img/css/design/feature_blocks.png)
 
 <br>
 
 ### **Spacing**
 
-![spacing scale in pixels](img/design/spacing_scale.png)
+![spacing scale in pixels](img/css/design/spacing_scale.png)
 
 <br>
 
 ### **Visual hierarchy**
 
-![Visual hierarchy examples](img/design/visual_hierarchy1.png)
+![Visual hierarchy examples](img/css/design/visual_hierarchy1.png)
 
-![Visual hierarchy examples](img/design/visual_hierarchy2.png)
+![Visual hierarchy examples](img/css/design/visual_hierarchy2.png)
 
-![Visual hierarchy examples](img/design/visual_hierarchy3.png)
+![Visual hierarchy examples](img/css/design/visual_hierarchy3.png)
 
 <br>
 <br>
@@ -193,9 +206,9 @@ ___
 
 <br>
 
-![UI / UX](img/design/ui_ux.png)
-![UI / UX](img/design/ux_rules1.png)
-![UI / UX](img/design/ux_rules2.png)
+![UI / UX](img/css/design/ui_ux.png)
+![UI / UX](img/css/design/ux_rules1.png)
+![UI / UX](img/css/design/ux_rules2.png)
 
 <br>
 <br>
@@ -254,15 +267,15 @@ Adds vertical shadow with thick blur and low opacity, creating an overall subtle
 <br>
 <br>
 
-![Examples of when to use small shadows](img/design/small_shadows.png)
+![Examples of when to use small shadows](img/css/design/small_shadows.png)
 
-![Examples of when to use medium shadows](img/design/medium_shadows.png)
+![Examples of when to use medium shadows](img/css/design/medium_shadows.png)
 
-![Examples of when to use large shadows](img/design/large_shadows.png)
+![Examples of when to use large shadows](img/css/design/large_shadows.png)
 
-![Examples of when to use button shadows](img/design/hover_shadows.png)
+![Examples of when to use button shadows](img/css/design/hover_shadows.png)
 
-![Examples of how to create shadow glows](img/design/glow_shadows.png)
+![Examples of how to create shadow glows](img/css/design/glow_shadows.png)
 
 <br>
 <br>
@@ -276,9 +289,9 @@ Using a border-radius is a nice way to add to the overall website personality, a
 <br>
 
 Example:
-![Button border-radius example](img/design/button_round_code.png)
-![Button border-radius example](img/design/button_square.png)
-![Button border-radius example](img/design/button_round.png)
+![Button border-radius example](img/css/design/button_round_code.png)
+![Button border-radius example](img/css/design/button_square.png)
+![Button border-radius example](img/css/design/button_round.png)
 
 <br>
 <br>
