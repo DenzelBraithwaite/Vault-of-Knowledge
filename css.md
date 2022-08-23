@@ -3,13 +3,29 @@
 _Styling, designing & layouts._
 
 <br>
+<br>
 
 ## Overview
 
-This file will contain all of the common CSS terminology and concepts with brief descriptions and examples.
+This guide is **massive** and constantly growing. There are several main focuses here.
+
+1. A _knowledge base_ of all selectors with a brief description
+
+2. Reference points for designing best practices and strategies
+
+3. Measurement guidelines (common px scales and breakpoints, etc.)
 
 <br>
-<br>
+
+The material I've found is a mixture of:
+
+- Udemy - HTML/CSS course
+
+- MDN docs
+
+- Stackoverflow
+
+- Other various websites
 
 ___
 
@@ -36,17 +52,30 @@ This section is a quick reference point for certain CSS guidelines that I'll nee
 <br>
 <br>
 
-#### **`Accordions`**
+#### **`Breakpoints`** 
 
-Accordions are useful when you want to toggle between hiding and showing large amounts of content. You can easily accomplish this by setting all 'items' in the accordion to `display: none` and then assigning a `visible` or `open` class which sets the display back to something like `block`.
+Breakpoints are the building blocks of responsive design. Use them to control when your layout can be adapted at a particular viewport or device size. <mark>Use media queries to architect your CSS by breakpoint.</mark> Media queries are a feature of CSS that allow you to conditionally apply styles based on a set of browser and operating system parameters.
+
+<br>
+
+Firstly, have `margin-left: auto; margin-right: auto;` on your container and set a max-width.
 
 <br>
 
-![picture of CSS accordion](img/css/design/accordion.png)
+Then follow these general guidelines:
 
-![picture of CSS code for accordion](img/css/design/accordion_code.png)
+- `mobile:` 0 - 600px (Most common view at 375px so maybe have your max-width at 360pxish for a bit of margin)
+
+- `mobile-landscape:` 600px - 700px (Most people just keep the same styles as mobile here
+
+- `tablet:` 700px - 1200px (Most common tablets view at 768px & 800px, container max-width should be slightly below 700px)
+
+- `laptop:` 1200px and more (Most common devices view at 1280px, 1366px, 1440px & 1920px) but its nice to have a container max-width at 1100px-ish to have a cleaner design  
 
 <br>
+
+> When to use which: min-width or max-width. If you are designing your website for smaller devices first then set your default CSS breakpoints with min-width and adjust for larger devices accordingly. Meanwhile, if you are designing for larger devices first then use max-width and then tune for smaller devices accordingly
+
 <br>
 
 ___
@@ -280,8 +309,6 @@ Adds vertical shadow with thick blur and low opacity, creating an overall subtle
 <br>
 <br>
 
-___
-
 ### **Border-radius**
 
 Using a border-radius is a nice way to add to the overall website personality, and blend components together more seamlessly. It's often used with `buttons` and `photos`.
@@ -295,6 +322,20 @@ Example:
 
 <br>
 <br>
+
+### **Accordions**
+
+Accordions are useful when you want to toggle between hiding and showing large amounts of content. You can easily accomplish this by setting all 'items' in the accordion to `display: none` and then assigning a `visible` or `open` class which sets the display back to something like `block`.
+
+<br>
+
+![picture of CSS accordion](img/css/design/accordion.png)
+
+![picture of CSS code for accordion](img/css/design/accordion_code.png)
+
+<br>
+<br>
+
 ___
 
 ## **Knowledge base**
@@ -689,6 +730,9 @@ ___
 ## **Resources**
 
 <br>
+<br>
+
+### Documentation
 
 For a more complete guide with more examples, visit:
 https://zendev.com/ultimate-guide-to-learning-css.html#comprehensive-resources
@@ -697,4 +741,31 @@ Or
 
 Download the slides for the Udemy HTML / CSS course here:
 https://github.com/jonasschmedtmann/html-css-course/archive/master.zip
+
+<br>
+<br>
+
+### Tools
+
+- Color palettes &rarr; [Open Color](https://yeun.github.io/open-color/)
+
+- Color palettes and contrast checker &rarr; [Coolors](https://coolors.co/)
+
+- Fonts &rarr; [Google Fonts](https://fonts.google.com/)
+
+- Scales _(measurements and spacing)_ &rarr; [Type Scale](https://type-scale.com/)
+
+- Illustrations &rarr; [Undraw](https://undraw.co/illustrations) | [Drawkit](https://drawkit.com/) | [Bioicons](https://bioicons.com/)_(Science illustrations)_
+
+- Create Curvy sections &rarr; [Shape Divider](https://www.shapedivider.app/)
+
+<br>
+
+### Inspiration
+
+- [Land-book](https://land-book.com/)
+
+- [Awwwards](https://www.awwwards.com/)
+
+- [One Page Love](https://onepagelove.com/page/2)
 ___
