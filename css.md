@@ -1,6 +1,8 @@
 # **CSS**
 
-_Styling, designing & layouts._
+> _"A big part of conquering responsive layouts is a change of mindset. Afterall, all websites are perfectly responsive if you turn off the CSS."_
+>  
+> Kevin Powell
 
 <br>
 <br>
@@ -50,6 +52,25 @@ This section is a quick reference point for certain CSS guidelines that I'll nee
 ![font size guide](img/css/font_size_guide.png)
 
 <br>
+<br>
+
+#### **`Naming conventions`**
+
+In every decent code editor, if you use `-` to separate combined-class-name you can easily highlight a desired portion by double-clicking it like: `col-`<mark style="background-color: #ced4da">md</mark>`-3`, and replace it (or even document globally) to `col-sm-3`. On the other hand, if you use underscore `_` like `class_name_here`, if you double-click it you'll end up highlighting the whole class-name like: <mark style="background-color: #ced4da">class_name_here</mark>. Such will force you to manually drag-select the desired portion instead.
+
+<br>
+
+CSS naming conventions:
+
+- SUIT CSS
+
+- BEM (Block, Element, Modifier),
+- OOCSS (Object-Oriented CSS)
+- SMACSS (Scalable and Modular Architecture for CSS)
+- Atomic CSS
+
+read more about those conventions []
+
 <br>
 
 #### **`Breakpoints`** 
