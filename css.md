@@ -69,7 +69,7 @@ CSS naming conventions:
 - SMACSS (Scalable and Modular Architecture for CSS)
 - Atomic CSS
 
-read more about those conventions []
+read more about those conventions [here :)](https://stackoverflow.com/questions/20811509/why-hyphen-separated-class-names-are-widely-used-in-css#:~:text=CSS%20Naming%20Convention%20Methodology)
 
 <br>
 
