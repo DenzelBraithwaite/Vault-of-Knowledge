@@ -144,7 +144,7 @@ Output:
 ## Blockquotes with Multiple Paragraphs
 
 Blockquotes can contain multiple paragraphs. Add a > on the blank lines between the paragraphs.
-```
+```md
 > Dorothy followed her through many of the beautiful rooms in her castle.
 >
 > The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
@@ -160,11 +160,13 @@ Output:
 ## Nested Blockquotes
 
 Blockquotes can be nested. Add a >> in front of the paragraph you want to nest.
-```
+
+```md
 > Dorothy followed her through many of the beautiful rooms in her castle.
 >
 > > The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
 ```
+
 Output:  
 > Dorothy followed her through many of the beautiful rooms in her castle.
 >
@@ -176,7 +178,7 @@ Output:
 
 Blockquotes can contain other Markdown formatted elements. Not all elements can be used — you’ll need to experiment to see which ones work.
 
-```
+```md
 > #### The quarterly results look great!
 >
 > -   Revenue was off the chart.
@@ -200,7 +202,7 @@ Output:
 For compatibility, put blank lines before and after blockquotes.
 
 ✅ Do this:
-```
+```md
 Try to put a blank line before...
 
 > This is a blockquote
@@ -209,7 +211,7 @@ Try to put a blank line before...
 ```
 
 ❌ Don't do this:
-```
+```md
 Without blank lines, this might not look right.
 > This is a blockquote
 Don't do this!
@@ -226,7 +228,7 @@ To create an ordered list, add line items with numbers followed by periods. The 
 <br>
 
 ✅ Do this:
-```
+```md
 1. First item
 2. Second item
 3. Third item
@@ -236,6 +238,7 @@ To create an ordered list, add line items with numbers followed by periods. The 
     3. It will count in order
 20. Then stop nesting by removing tab / space
 ```
+
 Output:
 1. First item
 2. Second item
@@ -250,7 +253,7 @@ Output:
 
 ✅ Or do this:
 
-```
+```html
 <ol>
   <li>First item</li>
   <li>Second item</li>
@@ -285,13 +288,13 @@ so it isn’t a great option from a compatibility perspective. For compatibility
 <br>
 
 ✅ Do this:
-```
+```md
 1. First item
 2. Second item
 ```
 
 ❌ Don't do this:
-```
+```md
 1) First item
 2) Second item
 ```
@@ -303,7 +306,7 @@ so it isn’t a great option from a compatibility perspective. For compatibility
 To create an unordered list, add dashes (-), asterisks (*), or plus signs (+) in front of line items. Indent one or more items to create a nested list.
 
 ✅ Do this:
-```
+```md
 - First item
 - Second item
 - Third item
@@ -326,7 +329,7 @@ Output:
 <br>
 
 ✅ Or do this:
-```
+```html
 <ul>
   <li>First item</li>
   <li>Second item</li>
@@ -338,6 +341,7 @@ Output:
   <li>Fourth item</li>
 </ul>
 ```
+
 Output:
 <ul>
   <li>First item</li>
@@ -355,17 +359,21 @@ Output:
 ## Starting Unordered List Items With Numbers
 
 If you need to start an unordered list item with a number followed by a period, you can use a backslash (\) to escape the period.
-```
+
+```md
 -   1968\. A great year!
 -   I think 1969 was second best.
 ```
+
 Or
-```
+
+```html
 <ul>
   <li>1968. A great year!</li>
   <li>I think 1969 was second best.</li>
 </ul>
 ```
+
 Output:
 -   1968\. A great year!
 -   I think 1969 was second best.
@@ -376,13 +384,16 @@ Output:
 
 Markdown applications don’t agree on how to handle different delimiters in the same list. For compatibility, don’t mix and match delimiters in the same list — pick one and stick with it.
 
+<br>
+
 ✅ Do this:
-```
+```md
 - First item
 - Second item
 - Third item
 - Fourth item
 ```
+
 Output:
 - First item
 - Second item
@@ -403,30 +414,19 @@ Output:
 
 ___
 
-## **Images**
-
-```
-Syntax: ![Alt message here](URL here)
-Example: ![Image of lines of code](../img/code_sample.png)
-```
-Output:  
-![Image of lines of code](../img/code_sample.png)
-
-<br>
-
 ## Linking Images
 
-To add a link to an image, enclose the Markdown for the image in brackets, and then add the link in parentheses.
+To add a link to an image, enclose the Markdown for the image in brackets, and then add the link in parentheses. You can also then add a space after the URL and include a description that will appear when the user hovers over it.
 
 <br>
 
 Example: 
-```
-![A snippit of a mountain photo from markdownguide.org](../img/linked_img_sample.png "Shiprock, New Mexico by Beau Rogers")
+```md
+![A photo of a mountain](../img/linked_img_sample.png "Shiprock, New Mexico by Beau Rogers")
 ```
 
 Output:  
-![A snippit of a mountain photo from markdownguide.org](../img/linked_img_sample.png "Shiprock, New Mexico by Beau Rogers")
+![A photo of a mountain](../img/linked_img_sample.png "Shiprock, New Mexico by Beau Rogers")
 
 <br>
 
@@ -446,7 +446,7 @@ For compatibility, put blank lines before and after horizontal rules.
 <br>
 
 ✅ Do this:
-```
+```md
 Try to put a blank line before...
 
 ---
@@ -457,7 +457,7 @@ Try to put a blank line before...
 <br>
 
 ❌ Don't do this:
-```
+```md
 Without blank lines, this would be a heading.
 ---
 Don't do this!
@@ -474,24 +474,26 @@ To create a link, enclose the link text in brackets (e.g., [Duck Duck Go]) and t
 <br>
 
 Example:
-```
+```md
 My favorite search engine is [Duck Duck Go](https://duckduckgo.com)
 ```
 
 Output: My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
 
 <br>
+<br>
 
 ## Adding Titles
 
 You can optionally add a title for a link. This will appear as a tooltip when the user hovers over the link. To add a title, enclose it in quotation marks after the URL.
 
-```
+```md
 My favorite search engine is [Duck Duck Go](https://duckduckgo.com 'The best search engine for privacy').
 ```
 
 Output: My favorite search engine is [Duck Duck Go](https://duckduckgo.com 'The best search engine for privacy').
 
+<br>
 <br>
 
 ## URLs and Email Addresses
@@ -501,14 +503,13 @@ To quickly turn a URL or email address into a link, enclose it in angle brackets
 <br>
 
 Example:
-```
+```md
 <https://www.markdownguide.org>
 <fake@example.com>
 ```
 
 Output:
-<https://www.markdownguide.org>
-<fake@example.com>
+<https://www.markdownguide.org> | <fake@example.com>
 
 <br>
 

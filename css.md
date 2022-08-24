@@ -394,15 +394,12 @@ You might argue that attribute selectors are even more useful than classes becau
 <br>
 
 Example:
-```
-/* CSS */
+```css
 [data-modal="open"] {
-
 }
+```
 
-
-<!-- HTML -->
-
+```html
 <!-- WILL match -->
 <div data-modal="open"></div>
 
@@ -428,7 +425,7 @@ There are several different positional selectors beyond :nth-child. Using simple
 <br>
 
 Example:
-```
+```html
 <style>
     :nth-child(2) {
 
@@ -454,7 +451,7 @@ Note that these are slightly different than pseudo elements, which you can recog
 
 <br>
 
-```
+```html
 <style>
     :empty {
 
@@ -494,9 +491,7 @@ The adjacent selector `A + B` should be familiar to you. It selects the element 
 
 <br>
 
-```
-<!-- HTML -->
-
+```html
 <table>
   <thead>
     <tr>
@@ -532,9 +527,7 @@ The adjacent selector `A + B` should be familiar to you. It selects the element 
   </tbody>
 </table>
 ```
-```
-/* CSS */
-
+```css
 table {
   border-collapse: collapse;
 }
@@ -605,7 +598,7 @@ You can use an index or an expression as the parameter for all of these structur
 <br>
 
 For example:
-```
+```css
 ul:last-of-type li:nth-last-of-type(2)::after {
   content: “ (2nd from end)”;
   /* Other styles… */
@@ -672,7 +665,7 @@ Basic coloring can be done by setting two attributes on the node: fill and strok
 <br>
 
 Example:
-```
+```html
  <rect x="10" y="10" width="100" height="100" stroke="blue" fill="purple" fill-opacity="0.5" stroke-opacity="0.8"/>
 ```
 
@@ -703,16 +696,13 @@ Span is a pretty simple, but useful tool for developers and designers. It's very
 <br>
 
 Exmaple:  
-```
-/* CSS */
-
+```css
 .italic {
     font-style: italic;
 }
+```
 
-
-<!-- HTML -->
-
+```html
 <span class="italic">This text shall be italic!</span>
 ```
 

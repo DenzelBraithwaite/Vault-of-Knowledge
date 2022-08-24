@@ -32,7 +32,7 @@ Use the `<picture>` tag to specify which image (_`<img>`_) should be loaded, dep
 <br>
 
 Example:
-```
+```html
 <picture>
     <source media="(min-width: 650px)" srcset="img_food.jpg">
 
@@ -616,13 +616,13 @@ Nesting operators are used to position abbreviation elements inside generated tr
 
 You can use > operator to nest elements inside each other:
 
-```
+```html
 div>ul>li
 ```  
 
 Will produce...
 
-```
+```html
 <div>
     <ul>
         <li></li>
