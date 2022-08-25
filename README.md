@@ -1,17 +1,19 @@
 # **Vault-of-Knowledge**
 
-_A repo to hold all of the notes I've taken on my Web Dev journey_
+<br>
+
+During my journey to becoming a web developer, I've always struggled to make notes for myself. All of my notes were scattered both on paper and digitally and it was hindering my learning. I decided to create a repo to hold all of my notes and to use Markdown to make it easier to digest. These notes are incomplete and evergrowing but currently have a focus on HTML, CSS and JavaScript. I'll also be including notes on similar topics such as Markdown, Git, Figma, Bootstrap, etc. Lastly, I'll include some slightly more unrelated notes on topics such as Mac tips, CLI / terminal terminology, etc.
 
 <br>
 
-## This repo will hold notes on HTML, CSS, JS, Figma, Git & GitHub, etc.
+Initially, this was meant to be a private repository for studying, but I've decided to make it public in the hopes that it might help someone else as well. I'd also like to allow contributions via pull requests to continue to grow this knowledge base.
 
-I've needed a place to hold my notes for quite some time now, and a friend of mine showed me all of the neat ways you can style a .md(README) file to make it stand out more.
-So this will be a constantly growing database of knowledge and cheatsheets to refer to in times of need.
-It will hold snapshots of code I've found useful, of code I've written and of handy examples.
-This repo is private but may be released as public in the future as it grows, if I feel confident with the accuracy of my notes and would like to help out other new devs.
+<br>
 
-Thanks for taking the time to read this, stay awesome :).<br>
-&nbsp;
+I am by no means an expert, these notes are a combination of MDN docs, a frontend Udemy course offerend by Jonas Schmedtman(Great teacher), Stackoverflow, my own personal notes and various other websites or web dev tips I've received. If there's ever a mistake or info that's incorrect or outdated, please let me know so I can correct it ASAP, or open a PR.
+
+Thanks a lot for taking the time to read this, stay awesome 🧑🏽‍💻
+
+<br>
 
 **- Denzel**
