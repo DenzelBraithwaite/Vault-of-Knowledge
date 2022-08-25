@@ -315,12 +315,6 @@ Setting an element's parent container to `flex` is an easy way to horizontally a
 
 There's a neat trick that's often used to center elements using `absolute` positioning and the `translate` property.
 
-```css
-.btn--left {
-  position: absolute;
-
-}
-```
 ![Centering with absolute positioning diagram](img/css/design/absolute_centering.png)
 
 
