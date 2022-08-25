@@ -21,7 +21,7 @@ This guide is **massive** and constantly growing. There are several main focuses
 
 The material I've found is a mixture of:
 
-- Udemy - HTML/CSS course
+- Udemy - HTML/CSS course [Check it out](https://www.udemy.com/course/design-and-develop-a-killer-website-with-html5-and-css3/)
 
 - MDN docs
 
