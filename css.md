@@ -33,7 +33,7 @@ ___
 
 <br>
 
-## **Quick notes**
+## **Tips & tricks**
 
 This section is a quick reference point for certain CSS guidelines that I'll need to review often, such as font-size scales or safe and reliable fonts.
 
@@ -72,6 +72,7 @@ CSS naming conventions:
 read more about those conventions [here :)](https://stackoverflow.com/questions/20811509/why-hyphen-separated-class-names-are-widely-used-in-css#:~:text=CSS%20Naming%20Convention%20Methodology)
 
 <br>
+<br>
 
 #### **`Breakpoints`** 
 
@@ -97,6 +98,7 @@ Then follow these general guidelines:
 
 > When to use which: min-width or max-width. If you are designing your website for smaller devices first then set your default CSS breakpoints with min-width and adjust for larger devices accordingly. Meanwhile, if you are designing for larger devices first then use max-width and then tune for smaller devices accordingly
 
+<br>
 <br>
 
 ___
@@ -138,11 +140,8 @@ Don't use @import when you can use \<link> since @import downloads sequencially 
 
 #### **Defining CSS color palette**
 
-You’ll often see custom properties being set “at the root.” Here’s what that means:
+You’ll often see custom properties being set at the `root`.
 
-<br>
-
-Example:
 ![Code example of declaring color palette with root or HTML](img/css/root_html_color_palette.png)
 
 There is no particularly compelling reason to define custom properties like that. It’s just a way of setting custom properties as high up as they can go. If you like that, that’s totally fine. I find it somehow more normal-feeling to apply them to the html or body selectors when setting properties I intend to make available globally, or everywhere.
@@ -193,25 +192,27 @@ ___
 
 ## **Design**
 
+Web <mark>designers</mark> conceptualize the idea and look of a website, creating a mockup based on visual, UX, and UI elements. Web developers determine whether the concept is financially and technically plausible, and if so, program and code the site.
+
 <br>
 
 ### **Personalities**
 
 ![website personalities guide](img/css/design/website_personalities.png)
 
-![website personalities serious / ](img/css/design/serious_elegant.png)
+![website personalities serious / elegant](img/css/design/serious_elegant.png)
 
-![website personalities serious / ](img/css/design/minimalist_simple.png)
+![website personalities minimalist / simple ](img/css/design/minimalist_simple.png)
 
-![website personalities serious / ](img/css/design/plain_neutral.png)
+![website personalities plain / neutral](img/css/design/plain_neutral.png)
 
-![website personalities serious / ](img/css/design/bold_confident.png)
+![website personalities bold / confident](img/css/design/bold_confident.png)
 
-![website personalities serious / ](img/css/design/calm_peaceful.png)
+![website personalities calm / peaceful](img/css/design/calm_peaceful.png)
 
-![website personalities serious / ](img/css/design/startup_upbeat.png)
+![website personalities startup / upbeat](img/css/design/startup_upbeat.png)
 
-![website personalities serious / ](img/css/design/playful_fun.png)
+![website personalities playful / fun](img/css/design/playful_fun.png)
 
 
 
@@ -235,12 +236,6 @@ ___
 
 <br>
 
-### **Spacing**
-
-![spacing scale in pixels](img/css/design/spacing_scale.png)
-
-<br>
-
 ### **Visual hierarchy**
 
 ![Visual hierarchy examples](img/css/design/visual_hierarchy1.png)
@@ -259,6 +254,75 @@ ___
 ![UI / UX](img/css/design/ui_ux.png)
 ![UI / UX](img/css/design/ux_rules1.png)
 ![UI / UX](img/css/design/ux_rules2.png)
+
+<br>
+
+### **Spacing**
+
+![spacing scale in pixels](img/css/design/spacing_scale.png)
+
+<br>
+
+### **Centering elements**
+
+There are a few quick tricks to centering elements on a page, here's a few of them.
+
+<br>
+
+#### **`Centering container`**
+
+Quickly center a _container_ by defining its width and setting its horizontal margin to auto.
+
+```css
+.container {
+  width: 1100px;
+  margin: 0 auto;
+}
+```
+
+<br>
+
+#### **`Image centering`**
+
+To center an image, repeat the same process as centering a container, but set it's `display` value to `block`.
+
+```css
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+```
+
+<br>
+
+#### **`Centering with Flexbox`**
+
+Setting an element's parent container to `flex` is an easy way to horizontally and vertically align it. This can even be useful to center one element or multiple.
+
+```css
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+```
+
+<br>
+
+#### **`Centering with absolute positioning`**
+
+There's a neat trick that's often used to center elements using `absolute` positioning and the `translate` property.
+
+```css
+.btn--left {
+  position: absolute;
+
+}
+```
+![Centering with absolute positioning diagram](img/css/design/absolute_centering.png)
+
 
 <br>
 <br>
@@ -291,7 +355,6 @@ When using a box shadow, you normally want to give it a black color with a lot o
 
 <br>
 
-Example:
 ![box-shadow property example](img/css/shadow_code1.png)
 ![box-shadow example](img/css/shadow_example1.png)
 
@@ -336,7 +399,6 @@ Using a border-radius is a nice way to add to the overall website personality, a
 
 <br>
 
-Example:
 ![Button border-radius example](img/css/design/button_round_code.png)
 ![Button border-radius example](img/css/design/button_square.png)
 ![Button border-radius example](img/css/design/button_round.png)
@@ -393,7 +455,6 @@ You might argue that attribute selectors are even more useful than classes becau
 
 <br>
 
-Example:
 ```css
 [data-modal="open"] {
 }
