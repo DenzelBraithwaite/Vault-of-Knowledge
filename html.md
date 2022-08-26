@@ -11,7 +11,7 @@ This study guide will hold a list of commonly use tags, along with best practice
 <br>
 <br>
 
-___
+---
 
 ## **Quick notes**
 
@@ -32,19 +32,20 @@ Use the `<picture>` tag to specify which image (_`<img>`_) should be loaded, dep
 <br>
 
 Example:
+
 ```html
 <picture>
-    <source media="(min-width: 650px)" srcset="img_food.jpg">
+    <source media="(min-width: 650px)" srcset="img_food.jpg" />
 
-    <source media="(min-width: 465px)" srcset="img_car.jpg">
+    <source media="(min-width: 465px)" srcset="img_car.jpg" />
 
-    <img src="img_girl.jpg">
+    <img src="img_girl.jpg" />
 </picture>
 ```
 
 <br>
 
-___
+---
 
 ## **HTML Elements Reference**
 
@@ -88,7 +89,7 @@ The _\<meta>_ HTML element represents Metadata that cannot be represented by oth
 
 #### `<style>`
 
-The _\<style\>_ HTML element contains style information for a document, or part of a document. It contains CSS, which is applied to the contents of the document containing the \<style\> element. 
+The _\<style\>_ HTML element contains style information for a document, or part of a document. It contains CSS, which is applied to the contents of the document containing the \<style\> element.
 
 <br>
 
@@ -160,7 +161,7 @@ The _\<main>_ HTML element represents the dominant content of the body of a docu
 
 > "So \<main> is where you put the good stuff, the important parts of a page, the reason the user came to this page in particular, not your site in general. In other words, the main content.😯😲🤯
 >
->All that other stuff, logos and search forms and navigation and such, can go in a \<header> or \<footer> within the \<body> but outside of \<main>."
+> All that other stuff, logos and search forms and navigation and such, can go in a \<header> or \<footer> within the \<body> but outside of \<main>."
 
 <br>
 
@@ -173,8 +174,8 @@ The _\<nav>_ HTML element represents a section of a page whose purpose is to pro
 #### `<section>`
 
 The _\<section>_ HTML element represents a generic standalone section of a document, which doesn't have a more specific semantic element to represent it. Sections should always have a heading, with very few exceptions.
-  
- > "Structurally speaking, it's basically just a <div> with special semantic meaning. A _\<section>_ begins a new "sectioning content" region, so it can have its own \<header> and/or \<footer>."
+
+> "Structurally speaking, it's basically just a <div> with special semantic meaning. A _\<section>_ begins a new "sectioning content" region, so it can have its own \<header> and/or \<footer>."
 
 <br>
 <br>
@@ -542,7 +543,7 @@ The \<option> HTML element is used to define an item contained in a select, an o
 
 #### `<optgroup>`
 
-The \<optgroup> HTML element 
+The \<optgroup> HTML element
 
 <br>
 
@@ -577,7 +578,7 @@ The \<progress> HTML element displays an indicator showing the completion progre
 <br>
 <br>
 
-___
+---
 
 ## **HTML entities**
 
@@ -596,7 +597,8 @@ An HTML entity is a piece of text (`"string"`) that begins with an ampersand _(`
 <br>
 <br>
 
-___
+---
+
 ## **Emmet plugin**
 
 Emmet uses syntax similar to CSS selectors for describing elements’ positions inside generated tree and elements’ attributes. You can use elements’ names like `div` or `p` to generate HTML tags.
@@ -611,15 +613,17 @@ Emmet doesn’t have a predefined set of available tag names, you can write any 
 Nesting operators are used to position abbreviation elements inside generated tree: whether it should be placed inside or near the context element.
 
 <br>
+<br>
 
 #### **`Child: >`**
 
-You can use > operator to nest elements inside each other:
+You can use the `>` operator to nest elements inside each other:
 
-```html
+```emmet
 div>ul>li
-```  
+```
 
+<br>
 Will produce...
 
 ```html
@@ -631,14 +635,402 @@ Will produce...
 ```
 
 <br>
+<br>
 
-# <mark style="background-color: pink;">!!!Finish Emmet!!!</mark>
+#### **`Sibling: +`**
 
-[Read more here](https://docs.emmet.io/abbreviations/syntax/)
+Use the `+` operator to place elements near each other, on the same level:
+
+```emmet
+div+p+bq
+```
+
+<br>
+
+...will output
+
+```html
+<div></div>
+<p></p>
+<blockquote></blockquote>
+```
 
 <br>
 <br>
-___
+
+#### **`Climb-up: ^`**
+
+With the `^` operator, you can climb one level up the tree and change context where following elements should appear:
+
+```
+div+div>p>span+em^bq
+```
+
+<br>
+
+...outputs
+
+```html
+<div></div>
+<div>
+    <p><span></span><em></em></p>
+    <blockquote></blockquote>
+</div>
+```
+
+<br>
+
+You can use as many `^` operators as you like, each operator will move one level up:
+
+```
+div+div>p>span+em^^^bq
+```
+
+<br>
+
+will output
+
+```html
+<div></div>
+<div>
+    <p><span></span><em></em></p>
+</div>
+<blockquote></blockquote>
+```
+
+<br>
+<br>
+
+#### **`Multiplication: *`**
+
+With the `*` operator you can define how many times element should be outputted:
+
+```emmet
+ul>li\*5
+```
+
+<br>
+
+...outputs
+
+```html
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+```
+
+<br>
+<br>
+
+#### **`Grouping: ()`**
+
+Parenthesises are used for grouping subtrees in complex abbreviations:
+
+<br>
+
+```emmet
+div>(header>ul>li\*2>a)+footer>p
+```
+
+<br>
+
+...expands to
+
+```html
+<div>
+    <header>
+        <ul>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+        </ul>
+    </header>
+    <footer>
+        <p></p>
+    </footer>
+</div>
+```
+
+<br>
+
+You can nest groups inside each other and combine them with the multiplication `*` operator:
+
+```emmet
+(div>dl>(dt+dd)\*3)+footer>p
+```
+
+<br>
+
+...produces
+
+```html
+<div>
+    <dl>
+        <dt></dt>
+        <dd></dd>
+        <dt></dt>
+        <dd></dd>
+        <dt></dt>
+        <dd></dd>
+    </dl>
+</div>
+<footer>
+    <p></p>
+</footer>
+```
+
+With groups, you can literally write full page mark-ups with a single abbreviation, but please don’t do that 😅.
+
+<br>
+<br>
+
+#### **`Attribute operators`**
+
+Attribute operators are used to modify attributes of outputted elements. For example, in HTML and XML you can quickly add class attributes to generated elements.
+
+<br>
+
+##### **ID and CLASS**
+
+In CSS, you use elem`#id` and elem`.class` notation to reach the elements with specified id or class attributes. In Emmet, you can use the very same syntax to add these attributes to specified element:
+
+```
+div#header+div.page+div#footer.class1.class2.class3
+```
+
+<br>
+
+...will output
+
+```html
+<div id="header"></div>
+<div class="page"></div>
+<div id="footer" class="class1 class2 class3"></div>
+```
+
+<br>
+<br>
+
+##### **Custom attributes**
+
+You can use `[attr]` notation (as in CSS) to add custom attributes to your element:
+
+```emmet
+td[title="Hello world!" colspan=3]
+```
+
+<br>
+
+...outputs
+
+```html
+<td title="Hello world!" colspan="3"></td>
+```
+
+<br>
+
+You can place as many attributes as you like inside square brackets.
+You don’t have to specify attribute values: `td[colspan title]` will produce
+
+```html
+<td colspan="" title=""></td>
+```
+
+<br>
+
+You can use single or double quotes for quoting attribute values.
+You don’t need to quote values if they don’t contain spaces: `td[title=hello colspan=3]` will work.
+
+<br>
+<br>
+
+#### **`Item numbering: $`**
+
+With the multiplication `*` operator you can repeat elements, but with `$` you can number them. Place the `$` operator inside element’s name, attribute’s name or attribute’s value to output current number of repeated element:
+
+```emmet
+ul>li.item$\*5
+```
+
+<br>
+
+...outputs to
+
+```html
+<ul>
+    <li class="item1"></li>
+    <li class="item2"></li>
+    <li class="item3"></li>
+    <li class="item4"></li>
+    <li class="item5"></li>
+</ul>
+```
+
+<br>
+
+You can use multiple `$` in a row to pad number with zeroes:
+
+```emmet
+ul>li.item$$$\*5
+```
+
+<br>
+
+...outputs to
+
+```html
+<ul>
+    <li class="item001"></li>
+    <li class="item002"></li>
+    <li class="item003"></li>
+    <li class="item004"></li>
+    <li class="item005"></li>
+</ul>
+```
+
+<br>
+<br>
+
+#### **`Changing numbering base and direction`**
+
+With the `@` modifier, you can change numbering direction (ascending or descending) and base (e.g. start value).
+
+<br>
+
+For example, to change direction, add `@-` after `$`:
+
+```emmet
+ul>li.item$@-\*5
+```
+
+<br>
+
+…outputs to
+
+```html
+<ul>
+    <li class="item5"></li>
+    <li class="item4"></li>
+    <li class="item3"></li>
+    <li class="item2"></li>
+    <li class="item1"></li>
+</ul>
+```
+
+<br>
+
+To change the counter base value, add `@N` modifier to `$`:
+
+```emmet
+ul>li.item$@3\*5
+```
+
+<br>
+
+…transforms to
+
+```html
+<ul>
+    <li class="item3"></li>
+    <li class="item4"></li>
+    <li class="item5"></li>
+    <li class="item6"></li>
+    <li class="item7"></li>
+</ul>
+```
+
+<br>
+
+You can use these modifiers together:
+
+```
+ul>li.item$@-3\*5
+```
+
+<br>
+
+…is transformed to
+
+```html
+<ul>
+    <li class="item7"></li>
+    <li class="item6"></li>
+    <li class="item5"></li>
+    <li class="item4"></li>
+    <li class="item3"></li>
+</ul>
+```
+
+<br>
+<br>
+
+#### **`Text: {}`**
+
+You can use curly braces to add text to element:
+
+```emmet
+a{Click me}
+```
+
+<br>
+
+...will produce
+
+```html
+<a href="">Click me</a>
+```
+
+<br>
+<br>
+
+Note that `{text}` is used and parsed as a separate element (like, `div`, `p` etc.) but has a special meaning when written right after element. For example, `a{click}` and `a>{click}` will produce the same output, but `a{click}+b{here}` and `a>{click}+b{here}` won’t:
+
+<br>
+
+```html
+<!-- a{click}+b{here} -->
+
+<a href="">click</a><b>here</b>
+```
+
+<br>
+
+```html
+<!-- a>{click}+b{here} -->
+
+<a href="">click<b>here</b></a>
+```
+
+In the second example, the `<b>` element is placed inside `<a>` element, and that’s the difference. When `{text}` is written right after an element, it doesn’t change its parent context.
+
+<br>
+<br>
+
+#### **`Notes on abbreviation formatting`**
+
+When you get familiar with Emmet’s abbreviations syntax, you may want to use some formatting to make your abbreviations more readable. For example, use spaces between elements and operators.
+
+<br>
+
+Like this:
+
+```emmet
+(header > ul.nav > li\*5) + footer
+```
+
+<br>
+
+<mark>But it won’t work, because space is a stop symbol where Emmet stops abbreviation parsing.</mark> Many users mistakenly think that each abbreviation should be written in a new line, but they are **wrong**; you can type and expand abbreviation anywhere in the text:
+
+[More complete guide here](https://docs.emmet.io/abbreviations/syntax/)
+
+<br>
+<br>
+
+---
 
 ## **Resources**
 
@@ -646,6 +1038,7 @@ ___
 <br>
 
 ### Documentation
+
 For a more complete guide with more examples, visit:
 https://developer.mozilla.org/en-US/docs/Web/HTML/Element_
 
@@ -657,15 +1050,15 @@ Or
 
 ### Tools
 
-- HTML validator &rarr; [Validator](https://validator.w3.org/nu/#textarea)
+-   HTML validator &rarr; [Validator](https://validator.w3.org/nu/#textarea)
 
-- Images &rarr; [Unsplash](https://unsplash.com/) | [Pexels](https://www.pexels.com/)
+-   Images &rarr; [Unsplash](https://unsplash.com/) | [Pexels](https://www.pexels.com/)
 
-- Image compressor &rarr; [Squoosh](https://squoosh.app/)
+-   Image compressor &rarr; [Squoosh](https://squoosh.app/)
 
-- Icons &rarr; [Fontawesome](https://fontawesome.com/) | [Heroicons](https://heroicons.com/) | [Phosphoricons](https://phosphoricons.com/)_(science icons)_
+-   Icons &rarr; [Fontawesome](https://fontawesome.com/) | [Heroicons](https://heroicons.com/) | [Phosphoricons](https://phosphoricons.com/)_(science icons)_
 
 <br>
 <br>
 
-___
+---
