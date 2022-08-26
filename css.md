@@ -1,7 +1,7 @@
 # **CSS**
 
 > _"A big part of conquering responsive layouts is a change of mindset. Afterall, all websites are perfectly responsive if you turn off the CSS."_
->  
+>
 > Kevin Powell
 
 <br>
@@ -21,15 +21,15 @@ This guide is **massive** and constantly growing. There are several main focuses
 
 The material I've found is a mixture of:
 
-- Udemy - HTML/CSS course [Check it out](https://www.udemy.com/course/design-and-develop-a-killer-website-with-html5-and-css3/)
+-   Udemy - HTML/CSS course [Check it out](https://www.udemy.com/course/design-and-develop-a-killer-website-with-html5-and-css3/)
 
-- MDN docs
+-   MDN docs
 
-- Stackoverflow
+-   Stackoverflow
 
-- Other various websites
+-   Other various websites
 
-___
+---
 
 <br>
 
@@ -38,13 +38,22 @@ ___
 This section is a quick reference point for certain CSS guidelines that I'll need to review often, such as font-size scales or safe and reliable fonts.
 
 <br>
+<br>
 
 #### **`Spacing system` _(px)_**
-2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
 
+Using a spacing system is highly recommended, it helps limit your options and prevents you from wasting time, although you can cheat and break your rule occasionally.
+
+Spacing scale example:
+`2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128`
+
+[Create a custom scale here](https://type-scale.com/)
+
+<br>
 <br>
 
 #### **`Font size system` _(px)_**
+
 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
 
 <br>
@@ -62,19 +71,19 @@ In every decent code editor, if you use `-` to separate combined-class-name you 
 
 CSS naming conventions:
 
-- SUIT CSS
+-   SUIT CSS
 
-- BEM (Block, Element, Modifier),
-- OOCSS (Object-Oriented CSS)
-- SMACSS (Scalable and Modular Architecture for CSS)
-- Atomic CSS
+-   BEM (Block, Element, Modifier),
+-   OOCSS (Object-Oriented CSS)
+-   SMACSS (Scalable and Modular Architecture for CSS)
+-   Atomic CSS
 
 read more about those conventions [here :)](https://stackoverflow.com/questions/20811509/why-hyphen-separated-class-names-are-widely-used-in-css#:~:text=CSS%20Naming%20Convention%20Methodology)
 
 <br>
 <br>
 
-#### **`Breakpoints`** 
+#### **`Breakpoints`**
 
 Breakpoints are the building blocks of responsive design. Use them to control when your layout can be adapted at a particular viewport or device size. <mark>Use media queries to architect your CSS by breakpoint.</mark> Media queries are a feature of CSS that allow you to conditionally apply styles based on a set of browser and operating system parameters.
 
@@ -86,13 +95,13 @@ Firstly, have `margin-left: auto; margin-right: auto;` on your container and se
 
 Then follow these general guidelines:
 
-- `mobile:` 0 - 600px (Most common view at 375px so maybe have your max-width at 360pxish for a bit of margin)
+-   `mobile:` 0 - 600px (Most common view at 375px so maybe have your max-width at 360pxish for a bit of margin)
 
-- `mobile-landscape:` 600px - 700px (Most people just keep the same styles as mobile here
+-   `mobile-landscape:` 600px - 700px (Most people just keep the same styles as mobile here
 
-- `tablet:` 700px - 1200px (Most common tablets view at 768px & 800px, container max-width should be slightly below 700px)
+-   `tablet:` 700px - 1200px (Most common tablets view at 768px & 800px, container max-width should be slightly below 700px)
 
-- `laptop:` 1200px and more (Most common devices view at 1280px, 1366px, 1440px & 1920px) but its nice to have a container max-width at 1100px-ish to have a cleaner design  
+-   `laptop:` 1200px and more (Most common devices view at 1280px, 1366px, 1440px & 1920px) but its nice to have a container max-width at 1100px-ish to have a cleaner design
 
 <br>
 
@@ -101,7 +110,7 @@ Then follow these general guidelines:
 <br>
 <br>
 
-___
+---
 
 ## **Reminders**
 
@@ -152,7 +161,7 @@ There is also no reason you need to set variables at this broad of a scope. It c
 
 <br>
 
-___
+---
 
 ## **Fundamentals**
 
@@ -164,7 +173,7 @@ ___
 
 <br>
 
-___
+---
 
 ## **Property references**
 
@@ -188,7 +197,7 @@ ___
 
 <br>
 
-___
+---
 
 ## **Design**
 
@@ -213,8 +222,6 @@ Web <mark>designers</mark> conceptualize the idea and look of a website, creatin
 ![website personalities startup / upbeat](img/css/design/startup_upbeat.png)
 
 ![website personalities playful / fun](img/css/design/playful_fun.png)
-
-
 
 <br>
 
@@ -275,8 +282,8 @@ Quickly center a _container_ by defining its width and setting its horizontal ma
 
 ```css
 .container {
-  width: 1100px;
-  margin: 0 auto;
+    width: 1100px;
+    margin: 0 auto;
 }
 ```
 
@@ -288,10 +295,10 @@ To center an image, repeat the same process as centering a container, but set it
 
 ```css
 img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
 }
 ```
 
@@ -303,9 +310,9 @@ Setting an element's parent container to `flex` is an easy way to horizontally a
 
 ```css
 .center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 ```
 
@@ -316,7 +323,6 @@ Setting an element's parent container to `flex` is an easy way to horizontally a
 There's a neat trick that's often used to center elements using `absolute` positioning and the `translate` property.
 
 ![Centering with absolute positioning diagram](img/css/design/absolute_centering.png)
-
 
 <br>
 <br>
@@ -341,11 +347,11 @@ When using a box shadow, you normally want to give it a black color with a lot o
 
 <br>
 
-- `1st` value is the horizontal shadow _(Often set to 0)_
-- `2nd` value is the vertical shadow
-- `3rd` value is level of shadow blur
-- `4th` value is the radius. It scales the shadow up _`*Optional*`_
-- `5th` value is for the color _(and opacity)_
+-   `1st` value is the horizontal shadow _(Often set to 0)_
+-   `2nd` value is the vertical shadow
+-   `3rd` value is level of shadow blur
+-   `4th` value is the radius. It scales the shadow up _`*Optional*`_
+-   `5th` value is for the color _(and opacity)_
 
 <br>
 
@@ -361,7 +367,6 @@ Scales the shadow to be bigger on all sides.
 ![box-shadow example](img/css/shadow_example2.png)
 
 Only specifies the vertical value and color + opacity, leaving a block looking shadow with no blur.
-
 
 <br>
 <br>
@@ -413,7 +418,7 @@ Accordions are useful when you want to toggle between hiding and showing large a
 <br>
 <br>
 
-___
+---
 
 ## **Knowledge base**
 
@@ -450,7 +455,7 @@ You might argue that attribute selectors are even more useful than classes becau
 <br>
 
 ```css
-[data-modal="open"] {
+[data-modal='open'] {
 }
 ```
 
@@ -459,7 +464,7 @@ You might argue that attribute selectors are even more useful than classes becau
 <div data-modal="open"></div>
 
 <!-- WILL match -->
-<aside class='closed' data-modal='open'></aside>
+<aside class="closed" data-modal="open"></aside>
 
 <!-- Will NOT match -->
 <div data-modal="false">Wrong value</div>
@@ -480,20 +485,19 @@ There are several different positional selectors beyond :nth-child. Using simple
 <br>
 
 Example:
+
 ```html
 <style>
     :nth-child(2) {
-
     }
 </style>
 
 <ul>
-  <li>nope</li>
-  <!-- WILL match -->
-  <li>yep, I'm #2</li>
-  <li>nope</li>
+    <li>nope</li>
+    <!-- WILL match -->
+    <li>yep, I'm #2</li>
+    <li>nope</li>
 </ul>
-
 ```
 
 <br>
@@ -509,7 +513,6 @@ Note that these are slightly different than pseudo elements, which you can recog
 ```html
 <style>
     :empty {
-
     }
 </style>
 
@@ -520,11 +523,10 @@ Note that these are slightly different than pseudo elements, which you can recog
 <aside data-blah><!-- nothin' --></aside>
 
 <!-- Will NOT match -->
-<div> </div>
+<div></div>
 
 <!-- Will NOT match -->
-<div>
-</div>
+<div></div>
 ```
 
 <br>
@@ -535,10 +537,10 @@ Combinator selectors are used to select child elements, as well as siblings, and
 
 <br>
 
-- General child selector (space): `A B`
-- Direct child selector: `A > B`
-- Adjacent sibling selector: `A + B`
-- General sibling selector: `A ~ B`
+-   General child selector (space): `A B`
+-   Direct child selector: `A > B`
+-   Adjacent sibling selector: `A + B`
+-   General sibling selector: `A ~ B`
 
 <br>
 
@@ -548,65 +550,67 @@ The adjacent selector `A + B` should be familiar to you. It selects the element 
 
 ```html
 <table>
-  <thead>
-    <tr>
-      <th>Location</th>
-      <th>Temperature</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>London</td>
-      <td>21&deg;C</td>
-    </tr>
-    <tr>
-      <td>New York</td>
-      <td>16&deg;C</td>
-    </tr>
-    <tr>
-      <td>Rome</td>
-      <td>23&deg;C</td>
-    </tr>
-    <tr>
-      <td>Berlin</td>
-      <td>14&deg;C</td>
-    </tr>
-    <tr>
-      <td>Sydney</td>
-      <td>25&deg;C</td>
-    </tr>
-    <tr>
-      <td>Reykjavik</td>
-      <td>10&deg;C</td>
-    </tr>
-  </tbody>
+    <thead>
+        <tr>
+            <th>Location</th>
+            <th>Temperature</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>London</td>
+            <td>21&deg;C</td>
+        </tr>
+        <tr>
+            <td>New York</td>
+            <td>16&deg;C</td>
+        </tr>
+        <tr>
+            <td>Rome</td>
+            <td>23&deg;C</td>
+        </tr>
+        <tr>
+            <td>Berlin</td>
+            <td>14&deg;C</td>
+        </tr>
+        <tr>
+            <td>Sydney</td>
+            <td>25&deg;C</td>
+        </tr>
+        <tr>
+            <td>Reykjavik</td>
+            <td>10&deg;C</td>
+        </tr>
+    </tbody>
 </table>
 ```
+
 ```css
 table {
-  border-collapse: collapse;
+    border-collapse: collapse;
 }
 
-table td, table th {
-  border : 1px solid #555;
-  padding: 0.5em 0.5em 0.4em;
+table td,
+table th {
+    border: 1px solid #555;
+    padding: 0.5em 0.5em 0.4em;
 }
 
 table thead th {
-  color: white;
-  background: #333;
+    color: white;
+    background: #333;
 }
 
 -table tbody td {
-  text-align: center;
+    text-align: center;
 }
 
 table tbody tr:first-child + tr {
-  color: red;
+    color: red;
 }
 
 table tbody tr:nth-child(4) ~ tr {
-  color: blue;
+    color: blue;
 }
 ```
 
@@ -615,7 +619,6 @@ Output:
 ![Table of global city temperatures](img/css/table.png)
 
 The New York row is selected because it immediately follows the first row, and the last two cities are highlighted, as the general sibling selector matches all cities after the fourth one.
-
 
 <br>
 
@@ -635,12 +638,12 @@ It can be a simple expression instead that makes the pseudo-class even more powe
 
 **Valid expressions are:**
 
-- `ul:nth-child(2)`: matches the second child element
-- `ul:nth-child(4n)` : matches every fourth child element (4, 8, 12, …)`
-- `ul:nth-child(2n + 1)` : matches every second child element offset by one (1, 3, 5, …)
-- `ul:nth-child(3n — 1)` : matches every third child element offset by negative one (2, 5, 8, …)
-- `ul:nth-child(odd)` : matches odd-numbered elements (1, 3, 5, …)
-- `ul:nth-child(even)` : matches even-numbered elements (2, 4, 6, …)
+-   `ul:nth-child(2)`: matches the second child element
+-   `ul:nth-child(4n)` : matches every fourth child element (4, 8, 12, …)`
+-   `ul:nth-child(2n + 1)` : matches every second child element offset by one (1, 3, 5, …)
+-   `ul:nth-child(3n — 1)` : matches every third child element offset by negative one (2, 5, 8, …)
+-   `ul:nth-child(odd)` : matches odd-numbered elements (1, 3, 5, …)
+-   `ul:nth-child(even)` : matches even-numbered elements (2, 4, 6, …)
 
 <br>
 
@@ -653,10 +656,11 @@ You can use an index or an expression as the parameter for all of these structur
 <br>
 
 For example:
+
 ```css
 ul:last-of-type li:nth-last-of-type(2)::after {
-  content: “ (2nd from end)”;
-  /* Other styles… */
+    content: “ (2nd from end) ”;
+    /* Other styles… */
 }
 ```
 
@@ -668,11 +672,11 @@ The next set of selectors are specialized structural selectors as they match spe
 
 <br>
 
-- `:first-child`
-- `:last-child`
-- `:only-child`
-- `:first-of-type`
-- `:last-of-type`
+-   `:first-child`
+-   `:last-child`
+-   `:only-child`
+-   `:first-of-type`
+-   `:last-of-type`
 
 <br>
 <br>
@@ -683,11 +687,11 @@ Content selectors belong to a specialized set of selectors for matching content.
 
 <br>
 
-- `::first-line`: matches the first line of a block-level element
+-   `::first-line`: matches the first line of a block-level element
 
-- ::`first-letter`: matches the first letter of the first line of a block-level element
+-   ::`first-letter`: matches the first letter of the first line of a block-level element
 
-- ::`selection`: matches the part of a document that has been highlighted by the user (such as clicking and dragging the mouse across text)
+-   ::`selection`: matches the part of a document that has been highlighted by the user (such as clicking and dragging the mouse across text)
 
 <br>
 
@@ -697,15 +701,15 @@ There are some exciting content selectors in the works which aren’t available 
 
 <br>
 
-- `::spelling-error`: check spelling and grammar for editable elements
+-   `::spelling-error`: check spelling and grammar for editable elements
 
-- `::grammar-error`: matches grammatical errors
+-   `::grammar-error`: matches grammatical errors
 
-- `::target-text`: the text directly targeted by the URL fragment. This is currently available as an experimental feature in Chrome and Edge
+-   `::target-text`: the text directly targeted by the URL fragment. This is currently available as an experimental feature in Chrome and Edge
 
 <br>
 
-___
+---
 
 ## **SVG**
 
@@ -720,22 +724,21 @@ Basic coloring can be done by setting two attributes on the node: fill and strok
 <br>
 
 Example:
+
 ```html
- <rect x="10" y="10" width="100" height="100" stroke="blue" fill="purple" fill-opacity="0.5" stroke-opacity="0.8"/>
+<rect
+    x="10"
+    y="10"
+    width="100"
+    height="100"
+    stroke="blue"
+    fill="purple"
+    fill-opacity="0.5"
+    stroke-opacity="0.8"
+/>
 ```
 
 <br>
-
-
-
-
-
-
-
-
-
-
-
 
 <br>
 <br>
@@ -750,7 +753,8 @@ Span is a pretty simple, but useful tool for developers and designers. It's very
 
 <br>
 
-Exmaple:  
+Exmaple:
+
 ```css
 .italic {
     font-style: italic;
@@ -762,6 +766,7 @@ Exmaple:
 ```
 
 Output:
+
 > _This text shall be italic!_
 
 <br>
@@ -791,7 +796,7 @@ Finally, we have the codes that are used in a separate style sheet that is exter
 <br>
 <br>
 
-___
+---
 
 ## **Resources**
 
@@ -813,25 +818,26 @@ https://github.com/jonasschmedtmann/html-css-course/archive/master.zip
 
 ### Tools
 
-- Color palettes &rarr; [Open Color](https://yeun.github.io/open-color/)
+-   Color palettes &rarr; [Open Color](https://yeun.github.io/open-color/)
 
-- Color palettes and contrast checker &rarr; [Coolors](https://coolors.co/)
+-   Color palettes and contrast checker &rarr; [Coolors](https://coolors.co/)
 
-- Fonts &rarr; [Google Fonts](https://fonts.google.com/)
+-   Fonts &rarr; [Google Fonts](https://fonts.google.com/)
 
-- Scales _(measurements and spacing)_ &rarr; [Type Scale](https://type-scale.com/)
+-   Scales _(measurements and spacing)_ &rarr; [Type Scale](https://type-scale.com/)
 
-- Illustrations &rarr; [Undraw](https://undraw.co/illustrations) | [Drawkit](https://drawkit.com/) | [Bioicons](https://bioicons.com/)_(Science illustrations)_
+-   Illustrations &rarr; [Undraw](https://undraw.co/illustrations) | [Drawkit](https://drawkit.com/) | [Bioicons](https://bioicons.com/)_(Science illustrations)_
 
-- Create Curvy sections &rarr; [Shape Divider](https://www.shapedivider.app/)
+-   Create Curvy sections &rarr; [Shape Divider](https://www.shapedivider.app/)
 
 <br>
 
 ### Inspiration
 
-- [Land-book](https://land-book.com/)
+-   [Land-book](https://land-book.com/)
 
-- [Awwwards](https://www.awwwards.com/)
+-   [Awwwards](https://www.awwwards.com/)
 
-- [One Page Love](https://onepagelove.com/page/2)
-___
+-   [One Page Love](https://onepagelove.com/page/2)
+
+---
