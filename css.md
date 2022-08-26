@@ -803,20 +803,22 @@ Finally, we have the codes that are used in a separate style sheet that is exter
 <br>
 <br>
 
-### Documentation
+#### **`Documentation`**
 
 For a more complete guide with more examples, visit:
-https://zendev.com/ultimate-guide-to-learning-css.html#comprehensive-resources
+
+<br>
+
+[CSS terms and definitions](https://www.impressivewebs.com/css-terms-definitions/)
 
 Or
 
-Download the slides for the Udemy HTML / CSS course here:
-https://github.com/jonasschmedtmann/html-css-course/archive/master.zip
+[Ultimate CSS guide](https://zendev.com/ultimate-guide-to-learning-css.html#comprehensive-resources)
 
 <br>
 <br>
 
-### Tools
+#### **`Tools`**
 
 -   Color palettes &rarr; [Open Color](https://yeun.github.io/open-color/)
 
@@ -831,13 +833,16 @@ https://github.com/jonasschmedtmann/html-css-course/archive/master.zip
 -   Create Curvy sections &rarr; [Shape Divider](https://www.shapedivider.app/)
 
 <br>
+<br>
 
-### Inspiration
+#### **`Inspiration`**
 
 -   [Land-book](https://land-book.com/)
 
 -   [Awwwards](https://www.awwwards.com/)
 
 -   [One Page Love](https://onepagelove.com/page/2)
+
+<br>
 
 ---
