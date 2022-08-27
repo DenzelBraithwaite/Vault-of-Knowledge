@@ -9,7 +9,7 @@ Anytime I start a new project, I will refer to this doc as a general guideline o
 <br>
 <br>
 
-___
+---
 
 ## **Starting a new project**
 
@@ -17,12 +17,13 @@ If you're starting a new project, remember to check this list off first before p
 
 <br>
 
-- Review design guide
+-   Review design guide
 
-- Create a title
-- Create a color palette
-- Create breakpoints
-- etc...
+-   Create a title
+-   Create a color palette
+-   Create breakpoints
+-   Create a reset stylesheet
+-   etc...
 
 <br>
 
@@ -50,9 +51,28 @@ Common breakpoints are blah and blah ....
 
 <br>
 
+#### **`Reset stylesheet`**
+
+Consider adding the following styles to create a `reset` stylesheet.
+
+```css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: ; /* Some sort of dark grey, not black*/
+}
+```
+
+However, using the `*` selector is considered a bad practice, since it can lead to unexpected behaviour.
+
+[More on resetting the default browser styles...](https://www.webfx.com/blog/web-design/css-tip-1-resetting-your-styles-with-css-reset/)
+
+<br>
+
 #### **`Etc...`**
 
-lorem   ipsum dollar....
+lorem ipsum dollar....
 
 <br>
 
@@ -65,15 +85,15 @@ Now that the essential starting points are out of the way, here are the things t
 
 <br>
 
-- Make feature branches / commits after initial markup is done
+-   Make feature branches / commits after initial markup is done
 
-- something else (add general reminders here)
+-   something else (add general reminders here)
 
-- Add a lot of whitespace to separate sections (`200px` isn't too much)
+-   Add a lot of whitespace to separate sections (`200px` isn't too much)
 
-- When picking icons, pay attention to their designed optimal size (ex: `24px`).
+-   When picking icons, pay attention to their designed optimal size (ex: `24px`).
 
-- When you use `display: flex` make sure to `align-items` as well
+-   When you use `display: flex` make sure to `align-items` as well
 
 <br>
 
@@ -90,8 +110,8 @@ Now that the project is nearing its final stages, here are a few things to check
 
 <br>
 
-- Use lighthouse to check optimization
-- Do something...
+-   Use lighthouse to check optimization
+-   Do something...
 
 <br>
 
@@ -102,4 +122,4 @@ Lighthouse can be used to check ...
 <br>
 <br>
 
-___
+---
