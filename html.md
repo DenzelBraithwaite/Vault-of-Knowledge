@@ -18,11 +18,24 @@ This study guide will hold a list of commonly use tags, along with best practice
 This section is a quick reference point for certain HTML guidelines that I'll need to review often, such as which semantic tags to use where, and other best practices to keep in mind.
 
 <br>
+<br>
+
+#### **Empty elements**
+
+Instead of leaving an element empty, you can leave a space in there. But a better practice would be to use an `html entity` such as `&nbsp;` _(`N`on `B`reaking `Sp`ace)_.
+
+```html
+<button class="dot">&nbsp;</button>
+```
+
+<br>
+<br>
 
 #### **Creating a card**
 
 When creating a card, it's very common to use a `<figure>` tag to wrap the contents. Also acceptable could be an `<article>` tag.
 
+<br>
 <br>
 
 #### **Images**
@@ -43,6 +56,7 @@ Example:
 </picture>
 ```
 
+<br>
 <br>
 
 ---
