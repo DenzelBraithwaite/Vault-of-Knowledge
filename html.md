@@ -501,6 +501,30 @@ The _\<caption>_ HTML element specifies the caption (or title) of a table.
 <br>
 <br>
 
+#### **Removing table inner border**
+
+The `border-collapse` CSS property sets whether cells inside a `<table>` have shared or separate borders.
+
+<br>
+
+```css
+border-collapse: collapse;
+```
+
+![table with collapsed borders](img/css/collapsed_border.png)
+
+<br>
+<br>
+
+```css
+border-collapse: separate;
+```
+
+![table with separated borders](img/css/separated_border.png)
+
+<br>
+<br>
+
 ## Forms
 
 HTML provides a number of elements which can be used together to create forms which the user can fill out and submit to the Web site or application. There's a great deal of further information about this available in the HTML forms guide.
