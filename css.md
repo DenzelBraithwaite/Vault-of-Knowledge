@@ -813,6 +813,10 @@ For a more complete guide with more examples, visit:
 
 Or
 
+[CSS guides and tips](https://css-tricks.com/)
+
+Or
+
 [Ultimate CSS guide](https://zendev.com/ultimate-guide-to-learning-css.html#comprehensive-resources)
 
 <br>
