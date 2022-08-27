@@ -190,6 +190,11 @@ There is also no reason you need to set variables at this broad of a scope. It c
 ![CSS 3D/2D transform and generated content properties](img/css/css_guide12.png)
 ![CSS list, markers and animations properties](img/css/css_guide13.png)
 ![CSS transitions and UI properties](img/css/css_guide14.png)
+
+<br>
+
+<mark>**tip:**</mark> We usually **don't** style an entire row or an entire header, just the cells 🤓. But there are exceptions, such as creating alternating background colors for each row.
+
 ![CSS template layout and table properties](img/css/css_guide15.png)
 ![CSS paged media and snippets properties](img/css/css_guide16.png)
 ![CSS grid terminology](img/css/grid_terminology.png)
