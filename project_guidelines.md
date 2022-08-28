@@ -23,7 +23,6 @@ If you're starting a new project, remember to check this list off first before p
 -   Create a color palette
 -   Create breakpoints
 -   Create a reset stylesheet
--   etc...
 
 <br>
 
@@ -35,19 +34,19 @@ Before starting a project, review the '`css.md`' design section to start with a 
 
 #### **`Creating a title`**
 
-A title should be long and meaningful... etc
+A title should be long and meaningful... <mark>**finish this**</mark>
 
 <br>
 
 #### **`Creating a color palette`**
 
-Use websites such as blah aand blah and check contrast ... etc
+Use websites such as blah aand blah and check contrast... <mark>**finish this**</mark>
 
 <br>
 
 #### **`Create breakpoints`**
 
-Common breakpoints are blah and blah ....
+Common breakpoints are blah and blah ... <mark>**finish this**</mark>
 
 <br>
 
@@ -57,24 +56,74 @@ Consider adding the following styles to create a `reset` stylesheet.
 
 ```css
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     color: ; /* Some sort of dark grey, not black*/
 }
+
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+a,
+address,
+cite,
+code,
+img,
+ol,
+ul,
+li,
+form,
+label,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+figure,
+figcaption,
+footer,
+header,
+menu,
+nav,
+section,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+}
 ```
 
-However, using the `*` selector is considered a bad practice, since it can lead to unexpected behaviour.
+However, using the `*` selector to reset styles such as padding and margin is considered a bad practice, since it can lead to unexpected behaviour.
 
 [More on resetting the default browser styles...](https://www.webfx.com/blog/web-design/css-tip-1-resetting-your-styles-with-css-reset/)
-
-<br>
-
-#### **`Etc...`**
-
-lorem ipsum dollar....
-
-<br>
 
 <br>
 <br>
@@ -87,8 +136,6 @@ Now that the essential starting points are out of the way, here are the things t
 
 -   Make feature branches / commits after initial markup is done
 
--   something else (add general reminders here)
-
 -   Add a lot of whitespace to separate sections (`200px` isn't too much)
 
 -   When picking icons, pay attention to their designed optimal size (ex: `24px`).
@@ -96,10 +143,11 @@ Now that the essential starting points are out of the way, here are the things t
 -   When you use `display: flex` make sure to `align-items` as well
 
 <br>
+<br>
 
 #### **`Feature branches`**
 
-After the initial ...
+After the initial ...<mark>**finish this**</mark>
 
 <br>
 <br>
@@ -111,15 +159,17 @@ Now that the project is nearing its final stages, here are a few things to check
 <br>
 
 -   Use lighthouse to check optimization
--   Do something...
+-   Do something...<mark>**finish this**</mark>
 
 <br>
 
 #### **`Lighthouse`**
 
-Lighthouse can be used to check ...
+Lighthouse can be used to check ...<mark>**finish this**</mark>
 
 <br>
 <br>
 
 ---
+
+Search for `"breakpoints"` in the [css guide](css.md#breakpoints)

@@ -93,7 +93,7 @@ Firstly, have `margin-left: auto; margin-right: auto;` on your container and se
 
 <br>
 
-Then follow these general guidelines:
+<p class="breakpoints"> Then follow these general guidelines:</p>
 
 -   `mobile:` 0 - 600px (Most common view at 375px so maybe have your max-width at 360pxish for a bit of margin)
 
@@ -106,6 +106,75 @@ Then follow these general guidelines:
 <br>
 
 > When to use which: min-width or max-width. If you are designing your website for smaller devices first then set your default CSS breakpoints with min-width and adjust for larger devices accordingly. Meanwhile, if you are designing for larger devices first then use max-width and then tune for smaller devices accordingly
+
+<br>
+<br>
+
+#### **`Styling a hovered child element`**
+
+I ran into a problem where I used an `SVG` chevron icon inside of a `<button>` but wanted to style the **entire** button when hovered. But since these are technically 2 separate elements, I needed to hover directly over the `SVG` in order for the hover effect to take effect, as opposed to immediately after hovering over the overall `<button>` area itself.
+
+<br>
+
+❌ My mistake:
+
+```html
+<head>
+    <style>
+        button:link,
+        button:visited {
+            height: 48px;
+            width: 48px;
+            border: 1px solid #087f5b;
+            border-radius: 50%;
+            background: none;
+            cursor: pointer;
+        }
+
+        button:active,
+        button:hover {
+            background-color: #087f5b;
+        }
+
+        .btn-icon {
+            width: 24px;
+            height: 24px;
+            stroke: #087f5b;
+        }
+
+        .btn-icon:hover,
+        .btn-icon:active {
+            fill: #fff; /* The mistake */
+        }
+    </style>
+</head>
+
+<!-- This SVG example was simplified, removing many attributes -->
+<body>
+    <button>
+        <svg class="btn-icon"></svg>
+    </button>
+</body>
+```
+
+As soon as the button was hovered, the background would change to <span style="color: #087f5b">green</span>, but the inner icon would only change if the cursor was directly over the icon itself.
+
+![Hovered button example](img/css/design/hovered_button_bad.png)
+
+<br>
+<br>
+
+✅ The correct way to target it
+
+```css
+button:hover .btn-icon {
+    fill: #fff;
+}
+```
+
+![Hovered button example](img/css/design/hovered_button_good.png)
+
+Instead of trying to target just the `btn-icon`, I needed to target the `btn-icon` **INSIDE** of a hovered `<button>`.
 
 <br>
 <br>
@@ -496,7 +565,7 @@ Example:
 <style>
     :nth-child(2) {
     }
-</style>
+</>
 
 <ul>
     <li>nope</li>
