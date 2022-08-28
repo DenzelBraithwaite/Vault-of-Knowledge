@@ -25,11 +25,13 @@ If you're starting a new project, remember to check this list off first before p
 -   Create a reset stylesheet
 
 <br>
+<br>
 
 #### **`Review design guide`**
 
 Before starting a project, review the '`css.md`' design section to start with a good focus and approach.
 
+<br>
 <br>
 
 #### **`Creating a title`**
@@ -37,19 +39,22 @@ Before starting a project, review the '`css.md`' design section to start with a 
 A title should be long and meaningful... <mark>**finish this**</mark>
 
 <br>
+<br>
 
 #### **`Creating a color palette`**
 
 Use websites such as blah aand blah and check contrast... <mark>**finish this**</mark>
 
 <br>
+<br>
 
 #### **`Create breakpoints`**
 
 Use common breakpoints to ensure accessibility across all devices. The most popular web browsing device is mobile and then desktop, with tablets taking last place by a significant amount.
 
-Refer to `"breakpoints"` in the [css guide](css.md#breakpoints)
+_Refer to [breakpoints](css.md#breakpoints) in the css guide._
 
+<br>
 <br>
 
 #### **`Reset stylesheet`**
