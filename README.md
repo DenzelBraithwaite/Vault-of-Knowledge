@@ -10,7 +10,7 @@ Initially, this was meant to be a private repository for studying, but I've deci
 
 <br>
 
-I am by no means an expert, these notes are a combination of MDN docs, a frontend Udemy course offerend by Jonas Schmedtman(Great teacher), Stackoverflow, my own personal notes and various other websites or web dev tips I've received. If there's ever a mistake or info that's incorrect or outdated, please let me know so I can correct it ASAP, or open a PR.
+I am by no means an expert, these notes are a combination of MDN docs, a [frontend Udemy course](https://www.udemy.com/course/design-and-develop-a-killer-website-with-html5-and-css3/) taught by Jonas Schmedtman(Great teacher), Stackoverflow, my own personal notes and various other websites or web dev tips I've received. If there's ever a mistake or info that's incorrect or outdated, please let me know so I can correct it ASAP, or open a PR.
 
 Thanks a lot for taking the time to read this, stay awesome 🧑🏽‍💻
 
