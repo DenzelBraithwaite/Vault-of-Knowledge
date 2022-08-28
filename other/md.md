@@ -39,7 +39,7 @@ Markdown applications don’t agree on how to handle a missing space between the
 
 <br>
 
-___
+---
 
 ## **Paragraphs**
 
@@ -57,7 +57,7 @@ _Don't put tabs or spaces in front of your paragraphs, keep them left-aligned._
 
 <br>
 
-___
+---
 
 ## **Line Breaks**
 
@@ -78,7 +78,7 @@ _For compatibility, use trailing white space or the \<br> HTML tag at the end of
 
 <br>
 
-___
+---
 
 ## **Emphasis**
 
@@ -123,12 +123,12 @@ _Note: The order of the em and strong tags might be reversed depending on the Ma
 
 Markdown applications don’t agree on how to handle underscores in the middle of a word. For compatibility, use asterisks to bold and italicize the middle of a word for emphasis.
 
-✅ Do this: `This is really***very***important text.` --> This is really***very***important text  
-❌ Don't do this: `This is really___very___important text.` --> This is really___very___important text.
+✅ Do this: `This is really***very***important text.` --> This is really**_very_**important text  
+❌ Don't do this: `This is really___very___important text.` --> This is really**_very_**important text.
 
 <br>
 
-___
+---
 
 ## **Blockquotes**
 
@@ -137,6 +137,7 @@ To create a blockquote, add a > in front of a paragraph.
 Example: `> I am a blockquote.`
 
 Output:
+
 > I am a blockquote.
 
 <br>
@@ -144,6 +145,7 @@ Output:
 ## Blockquotes with Multiple Paragraphs
 
 Blockquotes can contain multiple paragraphs. Add a > on the blank lines between the paragraphs.
+
 ```md
 > Dorothy followed her through many of the beautiful rooms in her castle.
 >
@@ -151,9 +153,10 @@ Blockquotes can contain multiple paragraphs. Add a > on the blank lines between 
 ```
 
 Output:
+
 > Dorothy followed her through many of the beautiful rooms in her castle.
-> 
->The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+>
+> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
 
 <br>
 
@@ -167,7 +170,8 @@ Blockquotes can be nested. Add a >> in front of the paragraph you want to nest.
 > > The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
 ```
 
-Output:  
+Output:
+
 > Dorothy followed her through many of the beautiful rooms in her castle.
 >
 > > The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
@@ -188,6 +192,7 @@ Blockquotes can contain other Markdown formatted elements. Not all elements can 
 ```
 
 Output:
+
 > #### The quarterly results look great!
 >
 > -   Revenue was off the chart.
@@ -202,6 +207,7 @@ Output:
 For compatibility, put blank lines before and after blockquotes.
 
 ✅ Do this:
+
 ```md
 Try to put a blank line before...
 
@@ -211,15 +217,17 @@ Try to put a blank line before...
 ```
 
 ❌ Don't do this:
+
 ```md
 Without blank lines, this might not look right.
+
 > This is a blockquote
-Don't do this!
+> Don't do this!
 ```
 
 <br>
 
-___
+---
 
 ## **Ordered Lists**
 
@@ -228,26 +236,28 @@ To create an ordered list, add line items with numbers followed by periods. The 
 <br>
 
 ✅ Do this:
+
 ```md
 1. First item
 2. Second item
 3. Third item
 4. Fourth item
     1. Tab or 4 spaces, use '1.' to start at 1.
-    9. Doesn't matter what number you use afterwards
+    2. Doesn't matter what number you use afterwards
     3. It will count in order
-20. Then stop nesting by removing tab / space
+5. Then stop nesting by removing tab / space
 ```
 
 Output:
+
 1. First item
 2. Second item
 3. Third item
 4. Fourth item
     1. Tab or 4 spaces, use '1.' to start at 1.
-    9. Doesn't matter what number you use afterwards
+    2. Doesn't matter what number you use afterwards
     3. It will count in order
-20. Then stop nesting by removing tab / space
+5. Then stop nesting by removing tab / space
 
 <br>
 
@@ -255,18 +265,19 @@ Output:
 
 ```html
 <ol>
-  <li>First item</li>
-  <li>Second item</li>
+    <li>First item</li>
+    <li>Second item</li>
     <ol>
         <li>First nested list item</li>
         <li>Second nested list item</li>
     </ol>
-  <li>Third item</li>
-  <li>Fourth item</li>
+    <li>Third item</li>
+    <li>Fourth item</li>
 </ol>
 ```
 
 Output:
+
 <ol>
   <li>First item</li>
   <li>Second item</li>
@@ -282,67 +293,73 @@ Output:
 
 ## Ordered List Best Practices
 
-CommonMark and a few other lightweight markup languages let you use a parenthesis ()) as a delimiter (e.g., 1) First item), but not all Markdown applications support this, 
+CommonMark and a few other lightweight markup languages let you use a parenthesis ()) as a delimiter (e.g., 1) First item), but not all Markdown applications support this,
 so it isn’t a great option from a compatibility perspective. For compatibility, use periods only.
 
 <br>
 
 ✅ Do this:
+
 ```md
 1. First item
 2. Second item
 ```
 
 ❌ Don't do this:
+
 ```md
-1) First item
-2) Second item
+1. First item
+2. Second item
 ```
 
 <br>
 
 ## Unordered Lists
 
-To create an unordered list, add dashes (-), asterisks (*), or plus signs (+) in front of line items. Indent one or more items to create a nested list.
+To create an unordered list, add dashes (-), asterisks (\*), or plus signs (+) in front of line items. Indent one or more items to create a nested list.
 
 ✅ Do this:
+
 ```md
-- First item
-- Second item
-- Third item
-- Fourth item
-    - Tab or 4 spaces, use '1.' to start at 1
-    - Doesn't matter what number you use afterwards
-    - It will count in order
-- Then stop nesting by removing tab / space
+-   First item
+-   Second item
+-   Third item
+-   Fourth item
+    -   Tab or 4 spaces, use '1.' to start at 1
+    -   Doesn't matter what number you use afterwards
+    -   It will count in order
+-   Then stop nesting by removing tab / space
 ```
 
 Output:
-- First item
-- Second item
-- Third item
-- Fourth item
-    - Tab or 4 spaces to start nesting another list
-    - Second item
-- Then stop nesting by removing tab / space
+
+-   First item
+-   Second item
+-   Third item
+-   Fourth item
+    -   Tab or 4 spaces to start nesting another list
+    -   Second item
+-   Then stop nesting by removing tab / space
 
 <br>
 
 ✅ Or do this:
+
 ```html
 <ul>
-  <li>First item</li>
-  <li>Second item</li>
+    <li>First item</li>
+    <li>Second item</li>
     <ul>
         <li>First nested list item</li>
         <li>Second nested list item</li>
     </ul>
-  <li>Third item</li>
-  <li>Fourth item</li>
+    <li>Third item</li>
+    <li>Fourth item</li>
 </ul>
 ```
 
 Output:
+
 <ul>
   <li>First item</li>
   <li>Second item</li>
@@ -369,12 +386,13 @@ Or
 
 ```html
 <ul>
-  <li>1968. A great year!</li>
-  <li>I think 1969 was second best.</li>
+    <li>1968. A great year!</li>
+    <li>I think 1969 was second best.</li>
 </ul>
 ```
 
 Output:
+
 -   1968\. A great year!
 -   I think 1969 was second best.
 
@@ -387,22 +405,25 @@ Markdown applications don’t agree on how to handle different delimiters in the
 <br>
 
 ✅ Do this:
+
 ```md
-- First item
-- Second item
-- Third item
-- Fourth item
+-   First item
+-   Second item
+-   Third item
+-   Fourth item
 ```
 
 Output:
-- First item
-- Second item
-- Third item
-- Fourth item
+
+-   First item
+-   Second item
+-   Third item
+-   Fourth item
 
 <br>
 
 ❌ Don't do this:
+
 ```
 + First item
 * Second item
@@ -412,7 +433,7 @@ Output:
 
 <br>
 
-___
+---
 
 ## Linking Images
 
@@ -420,21 +441,22 @@ To add a link to an image, enclose the Markdown for the image in brackets, and t
 
 <br>
 
-Example: 
+Example:
+
 ```md
-![A photo of a mountain](../img/linked_img_sample.png "Shiprock, New Mexico by Beau Rogers")
+![A photo of a mountain](../img/linked_img_sample.png 'Shiprock, New Mexico by Beau Rogers')
 ```
 
 Output:  
-![A photo of a mountain](../img/linked_img_sample.png "Shiprock, New Mexico by Beau Rogers")
+![A photo of a mountain](../img/linked_img_sample.png 'Shiprock, New Mexico by Beau Rogers')
 
 <br>
 
-___
+---
 
 ## **Horizontal Rules**
 
-To create a horizontal rule, use three or more asterisks (***), dashes (---), or underscores (___) on a line by themselves.
+To create a horizontal rule, use three or more asterisks (\*\*\*), dashes (---), or underscores (\_\_\_) on a line by themselves.
 The rendered output of all three looks identical:
 
 <br>
@@ -446,6 +468,7 @@ For compatibility, put blank lines before and after horizontal rules.
 <br>
 
 ✅ Do this:
+
 ```md
 Try to put a blank line before...
 
@@ -457,28 +480,38 @@ Try to put a blank line before...
 <br>
 
 ❌ Don't do this:
+
 ```md
-Without blank lines, this would be a heading.
----
+## Without blank lines, this would be a heading.
+
 Don't do this!
 ```
 
 <br>
 
-___
+---
 
 ## **Links**
 
-To create a link, enclose the link text in brackets (e.g., [Duck Duck Go]) and then follow it immediately with the URL in parentheses (e.g., (https://duckduckgo.com)).
+To create a link, enclose the link text in brackets (e.g., [Duck Duck Go]) and then follow it immediately with the URL in parentheses.
 
-<br>
-
-Example:
 ```md
 My favorite search engine is [Duck Duck Go](https://duckduckgo.com)
 ```
 
 Output: My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
+
+<br>
+<br>
+
+<mark>You can use links to jump to a section in your current file or even a section in a local file</mark> as well using a similar syntax. You'd just need to give an `ID` to the part you want to _jump_ to and provide that same `ID` in the file path.
+
+```md
+[Linking to the breakpoints section of css.md](../css.md#breakpoints)
+```
+
+Output:
+[Linking to the breakpoints section of css.md](../css.md#breakpoints)
 
 <br>
 <br>
@@ -503,6 +536,7 @@ To quickly turn a URL or email address into a link, enclose it in angle brackets
 <br>
 
 Example:
+
 ```md
 <https://www.markdownguide.org>
 <fake@example.com>
@@ -513,7 +547,7 @@ Output:
 
 <br>
 
-___
+---
 
 ## **Characters you can escape**
 
@@ -521,7 +555,7 @@ ___
 
 <br>
 
-___
+---
 
 ## **Resources**
 
@@ -537,4 +571,4 @@ https://www.markdownguide.org/extended-syntax/#:~:text=There%20are%20two%20ways%
 <br>
 <br>
 
-___
+---
