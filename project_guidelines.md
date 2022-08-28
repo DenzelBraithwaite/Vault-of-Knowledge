@@ -46,7 +46,9 @@ Use websites such as blah aand blah and check contrast... <mark>**finish this**<
 
 #### **`Create breakpoints`**
 
-Common breakpoints are blah and blah ... <mark>**finish this**</mark>
+Use common breakpoints to ensure accessibility across all devices. The most popular web browsing device is mobile and then desktop, with tablets taking last place by a significant amount.
+
+Refer to `"breakpoints"` in the [css guide](css.md#breakpoints)
 
 <br>
 
@@ -171,6 +173,3 @@ Lighthouse can be used to check ...<mark>**finish this**</mark>
 <br>
 
 ---
-
-Search for `"breakpoints"` in the [css guide](css.md#breakpoints)
-Search for `"THIS IS A TEST"` in the [css guide](css.md)
