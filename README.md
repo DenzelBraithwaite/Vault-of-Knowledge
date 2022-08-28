@@ -2,7 +2,7 @@
 
 <br>
 
-During my journey to becoming a web developer, I've always struggled to make notes for myself. All of my notes were scattered both on paper and digitally and it was hindering my learning. I decided to create a repo to hold all of my notes and to use Markdown to make it easier to digest. These notes are incomplete and evergrowing but currently have a focus on HTML, CSS and JavaScript. I'll also be including notes on similar topics such as Markdown, Git, Figma, Bootstrap, etc. Lastly, I'll include some slightly more unrelated notes on topics such as Mac tips, CLI / terminal terminology, etc.
+During my journey to becoming a web developer, I've always struggled to make notes for myself. All of my notes were scattered both on paper and digitally and it was affecting my learning. I decided to create a repo to hold all of my notes and to use Markdown to make it more readable. These notes are still growing and being worked on daily, but currently I'm focused on HTML, CSS and JavaScript. I'll also be including notes on similar topics such as Markdown, Git, Figma, Bootstrap, etc. Lastly, I'll include some slightly more unrelated notes on topics such as Mac tips, CLI / terminal terminology, etc.
 
 <br>
 
