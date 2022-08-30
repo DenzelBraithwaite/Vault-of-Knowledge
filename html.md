@@ -275,8 +275,33 @@ Use the HTML inline text semantic to define the meaning, structure, or style of 
 
 #### `<a>`
 
-The _\<a>_ HTML element (or anchor element), with its href attribute, creates a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address.
+The _\<a>_ HTML element (or anchor element), with its `href` attribute, creates a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address.
 
+> "The a element may be wrapped around entire paragraphs, lists, tables, and so forth, even entire sections, so long as there is no interactive content within (e.g. buttons or other links)."
+
+<br>
+
+In other words, you can nest any elements inside an `<a>` tag except the following:
+
+```html
+<a>
+<audio> <!--(if the controls attribute is present)-->
+<button>
+<details>
+<embed>
+<iframe>
+<img> <!--(if the usemap attribute is present)-->
+<input> <!--(if the type attribute is not in the hidden state)-->
+<keygen>
+<label>
+<menu> <!--(if the type attribute is in the toolbar state)-->
+<object> <!--(if the usemap attribute is present)-->
+<select>
+<textarea>
+<video> <!--(if the controls attribute is present)-->
+```
+
+<br>
 <br>
 
 #### `<br>`
