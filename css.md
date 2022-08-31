@@ -354,7 +354,7 @@ Now some components can be separated and viewed as smaller components that make 
 
 #### **`Forms`**
 
-...<mark>**finish this**</mark>ß
+...<mark>**finish this**</mark>
 
 <br>
 <br>
