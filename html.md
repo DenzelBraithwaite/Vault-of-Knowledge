@@ -59,6 +59,25 @@ Example:
 <br>
 <br>
 
+#### **Nav vs Menu**
+
+The `<nav>` and `<menu>` tag might seem the same, but there's actually a key difference. `<nav>` is far more common, and used on most site for navigation. It contains a bunch of links that typically lead to other places in the website or web application. **Menu** however, is far less common and is used for menu buttons in an actual web application _(such as outlook)_.
+
+<br>
+
+_Navigation links_
+
+![Gmail navigation](img/css/design/email_navigation.png)
+
+<br>
+
+_Menu buttons_
+
+![Gmail buttons](img/css/design/menu_buttons.png)
+
+<br>
+<br>
+
 ---
 
 ## **HTML Elements Reference**
@@ -292,7 +311,6 @@ In other words, you can nest any elements inside an `<a>` tag except the followi
 <iframe>
 <img> <!--(if the usemap attribute is present)-->
 <input> <!--(if the type attribute is not in the hidden state)-->
-<keygen>
 <label>
 <menu> <!--(if the type attribute is in the toolbar state)-->
 <object> <!--(if the usemap attribute is present)-->
