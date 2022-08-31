@@ -67,13 +67,13 @@ The `<nav>` and `<menu>` tag might seem the same, but there's actually a key dif
 
 _Navigation links_
 
-![Gmail navigation](img/css/design/email_navigation.png)
+![Gmail navigation](img/html/email_navigation.png)
 
 <br>
 
 _Menu buttons_
 
-![Gmail buttons](img/css/design/menu_buttons.png)
+![Gmail buttons](img/html/menu_buttons.png)
 
 <br>
 <br>
