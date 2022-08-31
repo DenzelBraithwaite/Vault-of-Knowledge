@@ -33,9 +33,9 @@ The material I've found is a mixture of:
 
 <br>
 
-## **Tips & tricks**
+## **Quick tips & tricks**
 
-This section is a quick reference point for certain CSS guidelines that I'll need to review often, such as font-size scales or safe and reliable fonts.
+This section is a quick reference point for certain CSS guidelines that I'll need to review often, such as font-size scales or safe and reliable fonts. I'll also leave some quick solutions to problems I've run into, so this section might seem a little "random" or disorganized compared to the rest of the guide.
 
 <br>
 <br>
@@ -179,6 +179,20 @@ Instead of trying to target just the `btn-icon`, I needed to target the `btn-ico
 <br>
 <br>
 
+#### **`Hero Banner fix cropped image`**
+
+If your goal is to create a large hero banner with a background image that covers the entire viewport, you may run into a problem where the background is cropped. Luckily, there's a very easy fix for this.
+
+<br>
+
+```css
+background-image: url(your_file_path_here.png);
+background-size: cover; /* This will resize the image to "cover" the element */
+```
+
+<br>
+<br>
+
 ---
 
 ## **Reminders**
@@ -228,6 +242,150 @@ There is no particularly compelling reason to define custom properties like that
 
 There is also no reason you need to set variables at this broad of a scope. It can be just as useful, and perhaps more readable and understandable, to set them right at the level you are going to use them (or fairly close in the DOM tree).
 
+<br>
+<br>
+
+---
+
+## **Components**
+
+_<p style="font-size: 12px;">I say the word "component" a lot here so... bear with me.</p>_
+
+<br>
+
+There are many components that make up modern websites, but the average user does not notice this. A few common ones are the hero section (or "banner"), cards, footers, containers, buttons, etc. I won't cover every single component, but I will list many below and explore a few of the more commonly used ones.
+
+<br>
+
+Now some components can be separated and viewed as smaller components that make up larger components, similarly, some small components are often designed with the intention to combine them with other components to create bigger component layouts. Some might be less of a `component` and more of a `utility class` such as the `.container`, but the important take away here is that you should use components like building blocks, and start to get comfortable creating your own component library for a project. A great example is the popular [Bootstrap](https://getbootstrap.com/) CSS library which can be used to create entire websites.
+
+<br>
+<br>
+
+#### **📝 List of components**
+
+<ul>
+    <li>Avatar</li>
+    <li>Button</li>
+    <li>Container</li>
+    <li>Breadcrumbs</li>
+    <li>Pagination</li>
+    <li>Alert and status bars</li>
+    <li>Statistics</li>
+    <li>Gallery</li>
+    <li>Feature box</li>
+    <li>Preview & profile cards</li>
+    <li>Accordion</li>
+    <li>Carousel</li>
+    <li>Customer testimonials</li>
+    <li>Customer logos</li>
+    <li>Featured-in logos</li>
+    <li>Steps</li>
+    <li>Forms</li>
+    <li>Tables</li>
+    <li>Pricing tables</li>
+    <li>Modal windows</li>
+</ul>
+
+<br>
+
+#### **Section components**
+
+<ul>
+    <li>Navigation</li>
+    <li>Hero section</li>
+    <li>Footer</li>
+    <li>Call-to-action section</li>
+    <li>Feature row</li>
+</ul>
+
+<span style="font-size: 10px">_Source: [Le Wagon](https://www.lewagon.com/) notes & Jonas Schmedtman's [HTML/CSS Udemy course](https://www.udemy.com/course/design-and-develop-a-killer-website-with-html5-and-css3/)_</span>
+
+<br>
+<br>
+
+#### **`Avatar`**
+
+...<mark>**finish this**</mark>
+
+<br>
+
+#### **`Button`**
+
+...<mark>**finish this**</mark>
+
+<br>
+
+#### **`Container`**
+
+...<mark>**finish this**</mark>
+
+<br>
+
+#### **`Pagination`**
+
+...<mark>**finish this**</mark>
+
+<br>
+
+#### **`Gallery`**
+
+...<mark>**finish this**</mark>
+
+<br>
+
+#### **`Feature box`**
+
+...<mark>**finish this**</mark>
+
+<br>
+
+#### **`Accordion`**
+
+...<mark>**finish this**</mark>
+
+<br>
+
+#### **`Carousel`**
+
+...<mark>**finish this**</mark>
+
+<br>
+
+#### **`Forms`**
+
+...<mark>**finish this**</mark>ß
+
+<br>
+<br>
+
+#### **Section components**
+
+<br>
+
+#### **`Navigation`**
+
+...<mark>**finish this**</mark>
+
+<br>
+
+#### **`Hero section`**
+
+...<mark>**finish this**</mark>
+
+<br>
+
+#### **`Footer`**
+
+...<mark>**finish this**</mark>
+
+<br>
+
+#### **`Feature row`**
+
+...<mark>**finish this**</mark>
+
+<br>
 <br>
 
 ---
