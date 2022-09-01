@@ -566,7 +566,7 @@ img {
 
 #### **`Centering with Flexbox`**
 
-Setting an element's parent container to `flex` is an easy way to horizontally and vertically align it. This can even be useful to center one element or multiple.
+Setting an element's parent container to `flex` is an easy way to horizontally and vertically align it. This can even be useful to center one element or multiple. This works because it treats the text aws a flex item.
 
 ```css
 .center {
