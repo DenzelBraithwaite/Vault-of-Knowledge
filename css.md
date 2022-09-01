@@ -306,8 +306,24 @@ Now some components can be separated and viewed as smaller components that make 
 
 #### **`Avatar`**
 
-...<mark>**finish this**</mark>
+Creating an avatar _(or a small circle which usually holds a user's profile image)_ is very simple, you just need to follow 2 crucial rules. To create a perfect circle, you need a perfect square with a `border-radius` of 50%.
 
+<br>
+
+```css
+/* You can create smaller or bigger variations easily */
+
+.avatar {
+    /* Create a square by setting an equal sized height and width */
+    height: 24px;
+    width: 24px;
+
+    /* Border radius turns that into a circle */
+    border-radius: 50%;
+}
+```
+
+<br>
 <br>
 
 #### **`Button`**
@@ -315,11 +331,13 @@ Now some components can be separated and viewed as smaller components that make 
 ...<mark>**finish this**</mark>
 
 <br>
+<br>
 
 #### **`Container`**
 
 ...<mark>**finish this**</mark>
 
+<br>
 <br>
 
 #### **`Pagination`**
@@ -327,11 +345,13 @@ Now some components can be separated and viewed as smaller components that make 
 ...<mark>**finish this**</mark>
 
 <br>
+<br>
 
 #### **`Gallery`**
 
 ...<mark>**finish this**</mark>
 
+<br>
 <br>
 
 #### **`Feature box`**
@@ -339,17 +359,20 @@ Now some components can be separated and viewed as smaller components that make 
 ...<mark>**finish this**</mark>
 
 <br>
+<br>
 
 #### **`Accordion`**
 
 ...<mark>**finish this**</mark>
 
 <br>
+<br>
 
 #### **`Carousel`**
 
 ...<mark>**finish this**</mark>
 
+<br>
 <br>
 
 #### **`Forms`**
@@ -496,11 +519,13 @@ Web <mark>designers</mark> conceptualize the idea and look of a website, creatin
 ![UI / UX](img/css/design/ux_rules2.png)
 
 <br>
+<br>
 
 ### **Spacing**
 
 ![spacing scale in pixels](img/css/design/spacing_scale.png)
 
+<br>
 <br>
 
 ### **Centering elements**
@@ -521,6 +546,7 @@ Quickly center a _container_ by defining its width and setting its horizontal ma
 ```
 
 <br>
+<br>
 
 #### **`Image centering`**
 
@@ -536,6 +562,7 @@ img {
 ```
 
 <br>
+<br>
 
 #### **`Centering with Flexbox`**
 
@@ -550,12 +577,47 @@ Setting an element's parent container to `flex` is an easy way to horizontally a
 ```
 
 <br>
+<br>
 
 #### **`Centering with absolute positioning`**
 
 There's a neat trick that's often used to center elements using `absolute` positioning and the `translate` property.
 
 ![Centering with absolute positioning diagram](img/css/design/absolute_centering.png)
+
+<br>
+<br>
+
+#### **`Space-between trick`**
+
+Usually, if I wanted to achieve a deisn like this:
+
+![Email menu buttons](img/css/design/menu_buttons.png)
+
+<br>
+
+I would use a Flexbox and put the 4 first buttons in one `<div>`, and the last button outside of that `<div>` but inside of the flex container. Then I'd give it a property of `space-between` like so.
+
+```css
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+```
+
+<br>
+
+But you could also simply keep them all in the same container, and give the `selector:last-child` a margin left or right of `auto`
+
+```css
+button:last-child {
+    margin-left: auto;
+}
+```
+
+<br>
+
+This will make the left margin of the last "button" in this case, take up all of the remaining space. Similar to centering, when we give both the left and right margin `auto`, so they both take half of the remaining space, centering the element.
 
 <br>
 <br>
