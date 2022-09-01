@@ -78,6 +78,13 @@ _Menu buttons_
 <br>
 <br>
 
+#### **\<body> misconception**
+
+The `<body>` does not magically take up the entire height of the screen. It behaves like any other element, whilch will only take the space it needs.
+
+<br>
+<br>
+
 ---
 
 ## **HTML Elements Reference**
