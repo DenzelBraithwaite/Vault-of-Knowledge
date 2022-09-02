@@ -9,7 +9,8 @@ _Wireframing and prototyping_
 **bold**
 
 ![Picture here](img/code_sample.png)
-___
+
+---
 
 ## **Resources**
 

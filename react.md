@@ -9,7 +9,8 @@ _Fundamentals, syntax and best practices_
 **bold**
 
 ![Picture here](img/code_sample.png)
-___
+
+---
 
 ## **Resources**
 

@@ -8,8 +8,7 @@ _Fundamentals, syntax and best practices_
 
 **bold**
 
-![Picture here](img/code_sample.png)
-___
+## ![Picture here](img/code_sample.png)
 
 ## **Resources**
 
