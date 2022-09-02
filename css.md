@@ -301,7 +301,7 @@ Now some components can be separated and viewed as smaller components that make 
     <li>Feature row</li>
 </ul>
 
-<span style="font-size: 10px">_Source: [Le Wagon](https://www.lewagon.com/) notes & Jonas Schmedtman's [HTML/CSS Udemy course](https://www.udemy.com/course/design-and-develop-a-killer-website-with-html5-and-css3/)_</span>
+<span style="font-size: 10px">_Source: [Le Wagon](https://www.lewagon.com/) notes & Jonas Schmedtmann's [HTML/CSS Udemy course](https://www.udemy.com/course/design-and-develop-a-killer-website-with-html5-and-css3/)_</span>
 
 <br>
 <br>
