@@ -27,6 +27,8 @@ The material I've found is a mixture of:
 
 -   Stackoverflow
 
+-   Kevin Powell's [21 day responsive challenge](https://www.kevinpowell.co/courses/)
+
 -   Other various websites
 
 ---
@@ -407,6 +409,35 @@ Creating an avatar _(or a small circle which usually holds a user's profile imag
 #### **`Feature row`**
 
 ...<mark>**finish this**</mark>
+
+<br>
+<br>
+
+---
+
+## **Responsive design**
+
+<br>
+<br>
+
+Whenever you run into an issue where your design is no longer responsive, try to ask yourself "What did **I** do to cause this problem?", because by default, websites are responsive.
+
+<br>
+
+Some of the ways we can ruin this natural responsivness is by setting fixed heights and widths and using non-responsive units such as pixels. Units like `percentage` and `em` or `rem` are naturally responsive.
+
+<br>
+<br>
+
+#### **`Height`**
+
+If you need to give something a `height`, don't. This can cause issues down the road with different screen sizes, as content can begin to overflow its parent container.
+
+Simply removing the height can make your layout responsive again. But if you need more background for your content, you can try adding padding instead. If you really want to be fully responsive, you can use units such as `em` and `rem` to define your padding.
+
+<br>
+
+> The default html `font-size` is 16 pixels, and `em` is always looking at the `font-size` of it's parent container, and if one was not set, it continues to go _'up'_ until it finds a defined font size. If none were set, it reaches the root, which by default is 16 pixels. So `1em = 16px`.
 
 <br>
 <br>
