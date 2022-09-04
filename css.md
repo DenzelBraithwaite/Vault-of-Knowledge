@@ -436,7 +436,7 @@ As a general rule, use `px` when you want the size to be fixed and use `rem` or 
 
 #### **`Font size`**
 
-When using `em` for font size, the unit is based off of the parent's font size. Using `rem` for font size, the unit is based off of the `root::` or the `<html>`'s font size (default of 16px).
+When using `em` for font size, the unit is based off of the parent's font size. Using `rem` for font size, the unit is based off of the `:root` or the `<html>`'s font size (default of 16px).
 
 ```css
 /* Default is 16px */
@@ -488,7 +488,7 @@ However, when working with other CSS properties, such as `padding` or `margin`, 
 <br>
 <br>
 
-One of the benefits of setting measurements based on `em` and `rem` is when you create a `@media` query. You can simply change the `root::` or `<html>` font size and the rest of the page will adjust automatically.
+One of the benefits of setting measurements based on `em` and `rem` is when you create a `@media` query. You can simply change the `:root` or `<html>` font size and the rest of the page will adjust automatically.
 
 ```css
 @media (min-width: 700px) {
@@ -497,6 +497,15 @@ One of the benefits of setting measurements based on `em` and `rem` is when you 
     }
 }
 ```
+
+<br>
+<br>
+
+#### **`When to use which?`**
+
+We say that `ems` are **_compounding_** or **_cascading_** because they 'stack' with every 'layer', making it difficult to keep track of in many situations. As a general rule, use `rem` for font size and `em` for things like padding. This is a safe and more predictable approach if you're uncertain. `em` will be adaptive with your font size, `rem` will be more of a fixed size based off of your root font size.
+
+So why not just use `pixels`? It's mostly because we don't want to use a static value. Using rems can make it a lot easier when you want to change font sizes across your entire site.
 
 <br>
 <br>
