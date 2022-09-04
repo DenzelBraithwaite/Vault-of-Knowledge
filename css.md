@@ -107,7 +107,7 @@ Firstly, have `margin-left: auto; margin-right: auto;` on your container and se
 
 <br>
 
-> When to use which: min-width or max-width. If you are designing your website for smaller devices first then set your default CSS breakpoints with min-width and adjust for larger devices accordingly. Meanwhile, if you are designing for larger devices first then use max-width and then tune for smaller devices accordingly
+> When to use which: `min-width` or `max-width`. If you are designing your website for smaller devices first then set your default CSS breakpoints with `min-width` and adjust for larger devices accordingly. Meanwhile, if you are designing for larger devices first then use `max-width` and then tune for smaller devices accordingly
 
 <br>
 <br>
@@ -499,6 +499,12 @@ One of the benefits of setting measurements based on `em` and `rem` is when you 
 ```
 
 <br>
+
+> _"The default html `font-size` is 16 pixels, and `em` is always looking at the `font-size` of it's parent container, and if one was not set, it continues to go _'up'_ until it finds a defined font size. If none were set, it reaches the root, which by default is 16 pixels. So `1em = 16px`."_
+>
+> -Kevin Powell
+
+<br>
 <br>
 
 #### **`When to use which?`**
@@ -510,15 +516,30 @@ So why not just use `pixels`? It's mostly because we don't want to use a static 
 <br>
 <br>
 
-#### **Height**
+#### **Height and width**
 
 If you need to give something a `height`, don't. This can cause issues down the road with different screen sizes, as content can begin to overflow its parent container.
 
 Simply removing the height can make your layout responsive again. But if you need more background for your content, you can try adding padding instead. If you really want to be fully responsive, you can use units such as `em` and `rem` to define your padding.
 
 <br>
+<br>
 
-> The default html `font-size` is 16 pixels, and `em` is always looking at the `font-size` of it's parent container, and if one was not set, it continues to go _'up'_ until it finds a defined font size. If none were set, it reaches the root, which by default is 16 pixels. So `1em = 16px`.
+When adding width, a common thing you can do is set a width in `percentage` and a `max-width` in `pixels`. So your element will always try to occupy 80`%` for example, of it's parent container, but if it gets too big (past our `max-width` size) it will stop growing.
+
+```css
+.container {
+    margin: 0 auto;
+    padding: 16px;
+
+    width: 80%;
+    max-width: 600px;
+}
+```
+
+<br>
+
+There is also of course the `min-width` property, which by no means should be avoided if you have a specific reason to use it, but in general, having a `min-width` is like setting a `width`, it will 'fight' against things being responsive, it won't make things easier to be responsive. Even for `@media` queries, it's common to use the `max-width` property. Take a look at [this quote](#breakpoints) in the 'Breakpoints' section of this guide for some clarity.
 
 <br>
 <br>
