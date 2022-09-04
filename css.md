@@ -422,14 +422,86 @@ Creating an avatar _(or a small circle which usually holds a user's profile imag
 
 Whenever you run into an issue where your design is no longer responsive, try to ask yourself "What did **I** do to cause this problem?", because by default, websites are responsive.
 
-<br>
-
 Some of the ways we can ruin this natural responsivness is by setting fixed heights and widths and using non-responsive units such as pixels. Units like `percentage` and `em` or `rem` are naturally responsive.
 
 <br>
 <br>
 
-#### **`Height`**
+#### **em vs rem...vs px😅**
+
+As a general rule, use `px` when you want the size to be fixed and use `rem` or `em` when you want the size to be adaptive/dynamic. `rem` was created to solve some of the problems that `em` would create, since `em` inherits from its parent, but `rem` is always based off of the root.
+
+<br>
+<br>
+
+#### **`Font size`**
+
+When using `em` for font size, the unit is based off of the parent's font size. Using `rem` for font size, the unit is based off of the `root::` or the `<html>`'s font size (default of 16px).
+
+```css
+/* Default is 16px */
+.grid {
+}
+
+.child-of-grid {
+    font-size: 20px;
+}
+
+.grandchild-of-grid {
+    font-size: 1em; /* 1em = 20px */
+    font-size: 1rem; /* 1rem = 16px */
+}
+
+.great-grandchild-of-grid {
+    font-size: 1em; /* 1em = 40px (20px * 2)*/
+    font-size: 1rem; /* 1rem = 16px */
+}
+```
+
+<br>
+<br>
+
+#### **`Other properties`**
+
+However, when working with other CSS properties, such as `padding` or `margin`, measuring with `em` is based off of the targetted element's font-size. `rem` will still work the same though.
+
+```css
+/* Default is 16px */
+.grid {
+}
+
+.child-of-grid {
+    font-size: 20px;
+}
+
+.grandchild-of-grid {
+    font-size: 24px;
+    padding: 1em; /* 1em = 24px */
+}
+
+.great-grandchild-of-grid {
+    margin: 2em; /* 2em = 2 * 24px (48px) */
+    padding: 1rem; /* 1rem = 1 * 16px */
+}
+```
+
+<br>
+<br>
+
+One of the benefits of setting measurements based on `em` and `rem` is when you create a `@media` query. You can simply change the `root::` or `<html>` font size and the rest of the page will adjust automatically.
+
+```css
+@media (min-width: 700px) {
+    html {
+        font-size: 24px;
+    }
+}
+```
+
+<br>
+<br>
+
+#### **Height**
 
 If you need to give something a `height`, don't. This can cause issues down the road with different screen sizes, as content can begin to overflow its parent container.
 
