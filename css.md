@@ -337,7 +337,19 @@ Creating an avatar _(or a small circle which usually holds a user's profile imag
 
 #### **`Container`**
 
-...<mark>**finish this**</mark>
+Containers are _invisible_ components used for **containing** content within a certain area of the page. A common way of creating one is to create a `div` and assign it some type of `.container` class. Then you usually center it and give it a `width` and `max-width`.
+
+```css
+.container {
+    width: 80%;
+    max-width: 750px;
+    margin: 0 auto;
+
+    /* If you want to avoid overwriting top and bottom margins, you can set the left and right margin individually */
+    margin-left: auto;
+    margin-right: auto;
+}
+```
 
 <br>
 <br>
