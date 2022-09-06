@@ -45,6 +45,8 @@ A title should be long and meaningful... <mark>**finish this**</mark>
 
 Use websites such as blah aand blah and check contrast... <mark>**finish this**</mark>
 
+To start, choose three colors for your palette: a main (or `primary`) color, `secondary` color, and `accent` color. Then, use the `60/30/10` rule to apply these colors in your website design. According to this rule, <mark>60% of the color used should be the main color, 30% the secondary color, and 10% the accent color.</mark>
+
 <br>
 <br>
 
