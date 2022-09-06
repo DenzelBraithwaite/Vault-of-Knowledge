@@ -15,5 +15,8 @@ I am by no means an expert, these notes are a combination of MDN docs, a [fronte
 Thanks a lot for taking the time to read this, stay awesome 🧑🏽‍💻
 
 <br>
+<br>
 
-**- Denzel**
+![Cartoon close-up of me, Denzel](img/cartoon_me.webp)
+
+<div style="display: flex; justify-content: center; font-weight: 700;">😁 Denzel</div>
