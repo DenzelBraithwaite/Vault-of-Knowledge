@@ -101,6 +101,8 @@ Media query example:
 }
 ```
 
+Remember to always write `media queries` at the <mark>**bottom** of your stylesheet.</mark> Otherwise certain rules might get overwritten.
+
 <br>
 <br>
 
