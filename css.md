@@ -91,6 +91,19 @@ Breakpoints are the building blocks of responsive design. Use them to control wh
 
 <br>
 
+Media query example:
+
+```css
+@media (max-width: 1100px) {
+    selector {
+        /* Declaration */
+    }
+}
+```
+
+<br>
+<br>
+
 Firstly, have `margin-left: auto; margin-right: auto;` on your container and set a max-width.
 
 <br>
