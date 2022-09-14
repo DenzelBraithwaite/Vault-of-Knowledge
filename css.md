@@ -112,6 +112,8 @@ Firstly, have `margin-left: auto; margin-right: auto;` on your container and se
 
 <p class="breakpoints"> Then follow these general guidelines:</p>
 
+<mark>Might Change this soon</mark>
+
 -   `mobile:` 0 - 600px (Most common view at 375px so maybe have your max-width at 360pxish for a bit of margin)
 
 -   `mobile-landscape:` 600px - 700px (Most people just keep the same styles as mobile here
@@ -345,7 +347,23 @@ Creating an avatar _(or a small circle which usually holds a user's profile imag
 
 #### **`Button`**
 
-...<mark>**finish this**</mark>
+Buttons are a very common component on just about any webpage or form. Button design varies, but it usually consists of styling an `anchor<a>` with some `padding`, occasionally a `border` and often some `border-radius`.
+
+<br>
+<br>
+
+If you want perfectly rounded sides for your button, an easy trick is to give the border radius a very high value in pixels, and it will be perfect every time.
+
+```css
+.btn {
+    color: #fff;
+    background-color: #e8590c;
+    padding: 16px 32px; /* Or you can use em for responsiveness */
+    border-radius: 100px;
+}
+```
+
+<mark>**finish this, add image example!**</mark>
 
 <br>
 <br>
