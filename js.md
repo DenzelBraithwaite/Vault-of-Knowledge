@@ -343,6 +343,8 @@ teaMenu.indexOf('oolong'); // outputs 2, black = 0, green = 1, oolong = 2
 
 teaMenu.indexOf('guayusa'); // outputs -1 since the item does not exist in the array
 
+teaMenu.includes('green'); // outputs true since the item exists in the array
+
 teaMenu.length; // This is actually a property and not a method, it will return the length
 ```
 
