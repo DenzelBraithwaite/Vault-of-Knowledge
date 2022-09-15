@@ -289,6 +289,63 @@ Strict mode will also forbid the use of certain variable names if those names ar
 **Functions**
 Leave notes on all ways to create a function, how to call a function, what higher functions are, the return keyword, etc.
 
+Functions are not a data type, they're a value. That's why we can store them in variables and use them in places that expect a value.
+
+Function delcaration vs expression:
+
+```js
+// function declaration
+function functionName(parameter) {
+    // do something and or return something
+}
+
+// function expression
+const functionName = function (parameter) {
+    // do something and or return something
+};
+
+// Arrow functions
+const functionName = parameter => {
+    // Do something or return something
+};
+```
+
+Function declarations are hoisted, so they can be used before they were declared, as opposed to function expression which requires the function to be defined before you can call it.
+
+<mark>**finish this**</mark>
+
+<br>
+<br>
+
+**Arrays**
+
+<mark>**finish this**</mark>
+
+<br>
+<br>
+
+**Array methods**
+
+Arrays are zero indexed, meaning when you count the index of each item, you start at 0.
+
+```js
+const teaMenu = ['black', 'green', 'oolong', 'white', 'herbal'];
+
+teaMenu.pop(); // Will remove the last item('herbal') from the array
+
+teaMenu.push('yellow'); // Will add an item('yellow') to the end of the array
+
+teaMenu.shift(); // Will remove the first item('black') from the array
+
+teaMenu.unshift('black'); // Will add an item('black') to the beginning of the array
+
+teaMenu.indexOf('oolong'); // outputs 2, black = 0, green = 1, oolong = 2
+
+teaMenu.indexOf('guayusa'); // outputs -1 since the item does not exist in the array
+
+teaMenu.length; // This is actually a property and not a method, it will return the length
+```
+
 <mark>**finish this**</mark>
 
 <br>
