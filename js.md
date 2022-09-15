@@ -219,7 +219,28 @@ All other values are **_truthy_**
 <br>
 <br>
 
-**Switch statement**
+**Switch statement** <mark>**finish this**</mark>
+
+```js
+const food = 'salad';
+
+switch (food) {
+    case 'spaghetti': // if (food === 'spaghetti')
+        console.log('Yay, spaghetti for supper today!');
+        break;
+    case 'burgers':
+        console.log('Yay, burgers for supper today!');
+        break;
+    case 'salad':
+        console.log('Aww, salad for supper today...');
+        break;
+    default:
+        console.log("I gotta figure out what I'm eating today");
+}
+```
+
+<br>
+<br>
 
 ## **Fundamentals**
 
