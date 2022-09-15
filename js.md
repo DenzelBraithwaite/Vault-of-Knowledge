@@ -269,6 +269,31 @@ if (true) {
 }
 ```
 
+<br>
+<br>
+
+**Strict mode**
+Use strict mode by adding one line to the top of you js file. It must be the very first line (excluding comments, since they're ignore). This will forbid you from doing certain things and it will also raise visible errors in the console instead of failing silently.
+
+Strict mode will also forbid the use of certain variable names if those names are reserved for future features / keywords that might be released.
+
+```js
+'use strict';
+```
+
+<mark>**finish this**</mark>
+
+<br>
+<br>
+
+**Functions**
+Leave notes on all ways to create a function, how to call a function, what higher functions are, the return keyword, etc.
+
+<mark>**finish this**</mark>
+
+<br>
+<br>
+
 ## **Fundamentals**
 
 This will hold the fundamentals...<mark>**finish this**</mark>
