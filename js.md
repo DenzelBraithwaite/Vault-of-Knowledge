@@ -140,11 +140,13 @@ console.log('Hey ' + "I'm" + num + ' years old.');
 ```
 
 **String template literals** <mark>**finish this**</mark>
-Use template literals to create multi-line strings.
+Use template literals to create multi-line strings. Template literals expect `expressions` not `statements`.
 
 ```js
 const num = 5;
 console.log(`Hey I'm ${num} years old.`);
+
+console.log(`${let num = 5}`) // Don't use a statement, this will raise an error.
 ```
 
 <br>
@@ -174,6 +176,13 @@ if (true === false) {
 } else {
     console.log("This won't run");
 }
+```
+
+The `conditional ternary operator (?)` is used to write a conditional statement in one line.
+
+```js
+const numOfBeers = 6;
+numOfBeers <= 3 ? console.log('Drive home safely') : console.log('Take a cab');
 ```
 
 <br>
@@ -241,6 +250,24 @@ switch (food) {
 
 <br>
 <br>
+
+**`Expression` vs `Statements`**
+
+An expression is a piece of code that produces a value.
+
+```js
+3 + 4; // This is an expression
+2020; // This is an expression
+true && true; // This is an expression
+```
+
+If declarations are complete senteces, expressions are like words that make-up that sentence.
+
+```js
+if (true) {
+    const variableName = "Doesn't matter"; // This is a statement, doesn't produce any value.
+}
+```
 
 ## **Fundamentals**
 
