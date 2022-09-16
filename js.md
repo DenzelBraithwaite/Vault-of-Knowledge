@@ -594,7 +594,28 @@ I may have slightly overcomplicated this, but it was to show the flexibility of 
 
 **While loops**
 
-w
+```js
+let pushups = 0;
+
+while (pushups <= 9) {
+    pushups++;
+    console.log(`${pushups} pushups! 💪🏽`);
+}
+
+/*
+Outputs:
+"1 pushups! 💪🏽"
+"2 pushups! 💪🏽"
+"3 pushups! 💪🏽"
+"4 pushups! 💪🏽"
+"5 pushups! 💪🏽"
+"6 pushups! 💪🏽"
+"7 pushups! 💪🏽"
+"8 pushups! 💪🏽"
+"9 pushups! 💪🏽"
+"10 pushups! 💪🏽"
+*/
+```
 
 <mark>**finish this**</mark>
 
