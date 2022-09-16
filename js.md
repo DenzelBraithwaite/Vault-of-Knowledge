@@ -432,12 +432,113 @@ const computer = {
 
     repairSpeakers: function () {
         return (this.speakers = 'Brand new speakers');
+    },
+
+    addHardware: function () {
+        this.ram = '16GB ram';
+        return;
     }
 };
 
 console.log(computer.repairSpeakers()); // Updates speakers property and outputs the value: 'Brand new speakers'
 
 console.log(computer['repairSpeakers']()); // Updates speakers property and outputs the value: 'Brand new speakers'
+
+computer.addHardware(); // Adds ram property with a value of '16GB ram'
+console.log(computer.ram); // Outputs the ram property
+```
+
+<mark>**finish this**</mark>
+
+<br>
+<br>
+
+## **Loops**
+
+Loops are useful when you want to iterate or '_loop_' over data a certain number of times.
+
+#### **`For loop`**
+
+The `for` loop will keep running while the condition is true.
+
+syntax:
+
+```js
+for (let counter = 1; counter <= 10; counter++) {
+    if (counter === 10) {
+        console.log(`${counter} chubby bunny 🐰🐰!!!`);
+    } else {
+        console.log(`${counter} chubby bunny 🐰!`);
+    }
+}
+
+/*
+Outputs:
+"1 chubby bunny 🐰!"
+"2 chubby bunny 🐰!"
+"3 chubby bunny 🐰!"
+"4 chubby bunny 🐰!"
+"5 chubby bunny 🐰!"
+"6 chubby bunny 🐰!"
+"7 chubby bunny 🐰!"
+"8 chubby bunny 🐰!"
+"9 chubby bunny 🐰!"
+"10 chubby bunny 🐰!!!"
+*/
+```
+
+<mark>**finish this**</mark>
+
+<br>
+<br>
+
+**`Continue` and `Break` statement**
+
+Continue is used to exit the current iteration of the loop, and continue to the next one. Break is used to completely stop the loop.
+
+```js
+// Using 'if (x % 2 === 0)' will determine if a number is even.
+for (let i = 0; i <= 20; i++) {
+    if (i % 2 === 0) {
+        console.log(i);
+    }
+}
+
+/*
+Outputs:
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+*/
+
+// Using the keyword 'continue' skips a number if it is NOT cleanly divisible by 2, meaning, if the number is odd.
+for (let i = 0; i <= 20; i++) {
+    if (i % 2 > 0) {
+        continue;
+    }
+    console.log(i);
+}
+
+/*
+Outputs:
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+*/
 ```
 
 <mark>**finish this**</mark>
