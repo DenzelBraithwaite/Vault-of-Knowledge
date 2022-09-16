@@ -353,6 +353,97 @@ teaMenu.length; // This is actually a property and not a method, it will return 
 <br>
 <br>
 
+## **Objects**
+
+Objects have key - value pairs, the keys are also referred to as properties. The easiest way to create an object is by using the curly braces, this is called object literal notation.
+
+```js
+const denzel = {
+    // Order doesn't matter, so the browser will display it in the console alphabetically, like this.
+    age: 26,
+    favoritecolors: ['teal', 'pink', 'purple']
+    firstName: Denzel,
+    friendly: true,
+    lastname: Braithwaite,
+};
+```
+
+<mark>**finish this**</mark>
+
+<br>
+<br>
+
+### **Bracket notation vs dot notation**
+
+You can access a property from an object by using either bracket or dot notation. The main difference is, when using square brackets, you can put any expression _(something that produces a value)_ between the brackets and it will work, but the same is not true for dot notation.
+
+```js
+const burger = {
+    tomato: true,
+    lettuce: true,
+    onions: false,
+    cheese: true,
+    doublePatty: false,
+    buns: true
+};
+
+const patty = 'Patty';
+
+console.log(burger.tomato); // Outputs true
+console.log(burger['double' + patty]); // Outputs false
+console.log(burger.'double' + patty); // raises error: Unexpected String
+```
+
+<mark>**finish this**</mark>
+
+<br>
+<br>
+
+**Adding properties**
+
+```js
+const burger = {
+    buns: true,
+    patty: true
+};
+
+// Adds the key/property tomato with a value of true.
+burger.tomato = true;
+
+// Adds the key/property onions with a value of false.
+burger['onions'] = false;
+```
+
+<mark>**finish this**</mark>
+
+<br>
+<br>
+
+**Adding a function to an object**
+
+Any function that is attached to an object is called a `mthod`. You can create an object method by add a function expression as a value for an object's property. This works since a property expects a value, and an expression produces a value.
+
+```js
+const computer = {
+    mouse: 'Awesome mouse',
+    keyboard: 'gaing keyboard',
+    speakers: 'broken speakers',
+
+    repairSpeakers: function () {
+        return (this.speakers = 'Brand new speakers');
+    }
+};
+
+console.log(computer.repairSpeakers()); // Updates speakers property and outputs the value: 'Brand new speakers'
+
+console.log(computer['repairSpeakers']()); // Updates speakers property and outputs the value: 'Brand new speakers'
+```
+
+<mark>**finish this**</mark>
+
+<br>
+<br>
+
 ## **Fundamentals**
 
 This will hold the fundamentals...<mark>**finish this**</mark>
