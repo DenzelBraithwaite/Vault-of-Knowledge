@@ -496,6 +496,8 @@ Outputs:
 
 Continue is used to exit the current iteration of the loop, and continue to the next one. Break is used to completely stop the loop.
 
+`Continue:`
+
 ```js
 // Using 'if (x % 2 === 0)' will determine if a number is even.
 for (let i = 0; i <= 20; i++) {
@@ -506,6 +508,7 @@ for (let i = 0; i <= 20; i++) {
 
 /*
 Outputs:
+0
 2
 4
 6
@@ -528,6 +531,7 @@ for (let i = 0; i <= 20; i++) {
 
 /*
 Outputs:
+0
 2
 4
 6
@@ -540,6 +544,57 @@ Outputs:
 20
 */
 ```
+
+`Break:`
+
+```js
+// Using the keyword 'break' breaks the iteration/loop if the condition is met.
+for (let i = 0; i <= 10; i++) {
+    if (i === 5) {
+        break;
+    }
+    console.log(i);
+}
+
+// Outputs 0, 1, 2, 3, 4
+```
+
+<mark>**finish this**</mark>
+
+<br>
+<br>
+
+**Loops inside of loops**
+
+Nesting loops inside of loops is pretty simple, the difficult part is wrapping your head around the logic, but once that sinks in, it's really quite simple.
+
+```js
+const letters = ['a', 'b', 'c'];
+const numbers = [1, 2, 3, 4, 5];
+
+for (
+    let letterCounter = 0;
+    letterCounter <= letters.length - 1;
+    letterCounter++
+) {
+    for (let numIndex = numbers.length - 1; numIndex >= 0; numIndex--) {
+        console.log(
+            `current letter: ${letters[letterCounter]} and the current number is ${numbers[numIndex]}`
+        );
+    }
+}
+```
+
+I may have slightly overcomplicated this, but it was to show the flexibility of nesting loops inside of loops, such as having one counter that increments(`++`) and another that decrements(`--`).
+
+<mark>**finish this**</mark>
+
+<br>
+<br>
+
+**While loops**
+
+w
 
 <mark>**finish this**</mark>
 
