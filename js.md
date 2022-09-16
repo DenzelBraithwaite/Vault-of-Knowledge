@@ -13,8 +13,7 @@
 
 ## Overview
 
-This guide will serve as a reference point for JavaScript fundamentals, syntax, tips, tricks and best practices.
-_Fundamentals, syntax, tips, tricks and best practices_
+This guide will serve as a reference point for JavaScript fundamentals, syntax, tips, tricks and best practices. For quick testing, you can use the console or one of many free websites that allow you to write and test code.
 
 <br>
 
@@ -22,9 +21,11 @@ The material I've found is a mixture of:
 
 -   Udemy - [The Complete JavaScript Course](https://www.udemy.com/course/the-complete-javascript-course/)
 
--   MDN docs
+-   [MDN docs](https://developer.mozilla.org/en-US/)
 
--   Stackoverflow
+-   [Stackoverflow](https://stackoverflow.com/)
+
+-   [JS bin](https://jsbin.com/?js,console) _(For quickly testing code snippets)_
 
 -   Other various websites
 
