@@ -622,6 +622,17 @@ Outputs:
 <br>
 <br>
 
+## **Dom Manipulation**
+
+How to select a class and ID
+
+```js
+document.querySelector('.className');
+document.querySelector('#IDName');
+```
+
+<mark>**finish this**</mark>
+
 ## **Fundamentals**
 
 This will hold the fundamentals...<mark>**finish this**</mark>
