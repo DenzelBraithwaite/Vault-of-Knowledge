@@ -631,6 +631,12 @@ document.querySelector('.className');
 document.querySelector('#IDName');
 ```
 
+How to listen for events and add event handlers
+
+```js
+document.querySelector('.className').addEventListener('action', function () {});
+```
+
 <mark>**finish this**</mark>
 
 ## **Fundamentals**
