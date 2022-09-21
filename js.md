@@ -440,12 +440,12 @@ const computer = {
     }
 };
 
-console.log(computer.repairSpeakers()); // Updates speakers property and outputs the value: 'Brand new speakers'
+console.log(computer.repairSpeakers()); // Updates speakers property and outputs the value: 'Brand new speakers'.
 
-console.log(computer['repairSpeakers']()); // Updates speakers property and outputs the value: 'Brand new speakers'
+console.log(computer['repairSpeakers']()); // Updates speakers property and outputs the value: 'Brand new speakers'.
 
-computer.addHardware(); // Adds ram property with a value of '16GB ram'
-console.log(computer.ram); // Outputs the ram property
+computer.addHardware(); // Adds ram property with a value of '16GB ram'.
+console.log(computer.ram); // Outputs the ram property.
 ```
 
 <mark>**finish this**</mark>
@@ -637,10 +637,74 @@ document.querySelectorAll('.className'); // Matches all occurences.
 document.querySelector('#IDName');
 ```
 
-How to listen for events and add event handlers
+How to listen for events and add event handlers, starting with clicks.
 
 ```js
-document.querySelector('.className').addEventListener('action', function () {});
+// Syntax: document.querySelector('.className').addEventListener('which event to listen to', function (event object) {});
+
+// A use case example, the event argument is useless here though.
+document.querySelector('.modal').addEventListener('click', function (event) {
+    openModal();
+});
+
+// So we could refactor it like this:
+
+document.querySelector('.modal').addEventListener('click', openModal); // A use case example, the 'openModal' is a pointer at a function that would open the modal window.
+```
+
+<br>
+
+But what about keystrokes? You can listen for the `keypress`, `keydown` or `keyup` event, which are all similar with small changes. One notable difference is that they `keyup` event will only occur **after** you release the key, the other 2 will occur immediately when you press the key, and will continue to trigger as you hold down on the key.
+
+```js
+document
+    .querySelector('.className')
+    .addEventListener('keystroke / keydown / keyup', function (event) {
+        console.log(event.key); // Outputs the key that you pressed in the console.
+    });
+```
+
+<br>
+<br>
+
+Here's a bigger and more complete example of opening and closing a modal window using JavaScript to manipulate classes based on click and keystroke events.
+
+```js
+'use strict'; // Enable strict mode, this is recommended to avoid silent errors.
+
+const modal = document.querySelector('.modal'); // modal window that will appear and disappear on click.
+const overlay = document.querySelector('.overlay'); // Makes the rest of the screen darker to focus on the modal(pop-up) window.
+const btnOpenModal = document.querySelectorAll('.open-modal'); // Buttons that will open the modal when clicked.
+const btnCloseModal = document.querySelector('.close-modal'); // Button that will close the modal when clicked.
+
+// Function to close the modal window
+const closeModal = () => {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+};
+
+// Function to open the modal window
+const openModal = function () {
+    modal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+};
+
+// Loops through each button that opens the modal and adds an event listener for clicks.
+for (let i = 0; i < btnOpenModal.length; i++) {
+    btnOpenModal[i].addEventListener('click', openModal);
+}
+
+// Adds an event listener on the 'x' or close button, to use the closeModal function to close the modal when clicked.
+btnCloseModal.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal);
+
+// Adds an event listener on the entire 'document' to call the closeModal function to close the modal.
+// This will only happen if the escape key is released AND the modal DOES NOT contain a class named 'hidden'.
+// Notice the 'not' operator in the if statement, reversing 'contains' to 'does not contain'.
+document.addEventListener('keyup', event => {
+    if (event.key === 'Escape' && !modal.classList.contains('hidden'))
+        closeModal();
+});
 ```
 
 <mark>**finish this**</mark>
@@ -662,6 +726,20 @@ There are a few ways to link a...<mark>**finish this**</mark>
 
 ```js
 <script src="script.js"></script>
+```
+
+<br>
+<br>
+
+...<mark>**finish this**</mark>
+
+**Add class list**
+
+You can manipulate element classes using JS...
+
+```js
+const example = document.queySelector('.example');
+example.classList.remove('className'); // Do not use the dot for the class name
 ```
 
 <br>
