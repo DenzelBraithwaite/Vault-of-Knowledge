@@ -459,7 +459,7 @@ Loops are useful when you want to iterate or '_loop_' over data a certain number
 
 #### **`For loop`**
 
-The `for` loop will keep running while the condition is true.
+The `for` loop will keep running while the condition is true. If the code block is only 1 line, you can omit the curly braces.
 
 syntax:
 
@@ -485,6 +485,9 @@ Outputs:
 "9 chubby bunny 🐰!"
 "10 chubby bunny 🐰!!!"
 */
+
+// Simple for loop
+for (let i = 0; i > 3; i++) console.log(i);
 ```
 
 <mark>**finish this**</mark>
@@ -627,7 +630,10 @@ Outputs:
 How to select a class and ID
 
 ```js
-document.querySelector('.className');
+document.querySelector('.className'); // Only matches first occurence, not all elements with the class.
+
+document.querySelectorAll('.className'); // Matches all occurences.
+
 document.querySelector('#IDName');
 ```
 
