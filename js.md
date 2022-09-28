@@ -804,7 +804,33 @@ A runtime is like a box that contains all the JS related stuff we need. At the h
 
 **JS engine**
 
-Contains the `heap` and the `call stack`. <mark>Finish this...</mark>
+Contains the `memory heap` and the `call stack`. <mark>Finish this...</mark>
+
+<br>
+
+**The Execution Context**
+
+Before talking about the execution context, we need to understand what `top-level` code is. Top-level code is code that's **outside** of any function. Top-level code will be executed before any code **inside** of functions.
+
+So why is that important? Well, JavaScript code **always** runs inside an execution context, an execution context is like a box or a room which holds a piece of code and the necessary information to execute it, such as arguments or local variables passed in a function. No matter how large your file, there's only ever 1 **global** execution context which executes your top-level code.
+
+> "Imagine you order a pizza... Usually that pizza comes in a box, and it might also come with some other stuff like cuttlery or a receipt... So in this analogy, the pizza is the JS code to be executed and the box is the execution context for our pizza..."
+>
+> -Jonas Schmedtmann
+
+<br>
+
+Each execution context has a variable environment(holds let, const and var declarations, functions and an arguments object), a scope chain and a `this` keyword. There is an exception however, arrow functions don't have the `this` keyword nor an `arguments object`.
+<mark>Finish this...</mark>
+
+<br>
+
+**The Call Stack**
+
+Once the code is compiled, top-level code will start executing. First a `global execution context` will be created to run all the top-level code, which is code outside of any functions. After that, for every function call, a new execution context will be created containing all the necessary info to execute that function. The same goes for methods(functions attached to objects).
+
+Now when all of the code has been executed, the engine will wait for callback functions such as a `click` event. This is possible thanks to the event loop which will provide these callback functions.
+<mark>Finish this...</mark>
 
 <br>
 
