@@ -707,7 +707,35 @@ document.addEventListener('keyup', event => {
 });
 ```
 
-<mark>**finish this**</mark>
+<mark>**finish these:**</mark>
+
+-   Add notes on classList.toggle
+
+<br>
+<br>
+
+## **Theory, understanding JS**
+
+what happens under the hood... this section will be 100% theory lessons on how JavaScript works.
+
+<br>
+<br>
+
+## JavaScript engine
+
+A JavaScript engine is what allows JS code to run in or outside of the browser. Every browser has their own JS engine, but the most popular is the V8 engine used in Chrome and Node.js.
+
+#### **`Compilation VS Interpretation`**
+
+Computers only understand 0s and 1s, what we write is "human" code that must then be translated for the cpu to understand. This can be done with either `compilation` or `interpretation`.
+
+**Compilation:** The entire code is converted into machinde code and written to a binary file that a computer can understand and execute. But technically, you can compile that code and execute it at a later date, that's where `interpretation` differs.
+
+<br>
+
+**Interpretation:** There's an interpreter that runs through the source code and executes it line by line. It still gets converted to machine code, but it only happens right before it's executed and not earlier.
+
+<br>
 
 ## **Fundamentals**
 
