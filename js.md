@@ -725,16 +725,113 @@ what happens under the hood... this section will be 100% theory lessons on how J
 
 A JavaScript engine is what allows JS code to run in or outside of the browser. Every browser has their own JS engine, but the most popular is the V8 engine used in Chrome and Node.js.
 
+<br>
+
 #### **`Compilation VS Interpretation`**
 
 Computers only understand 0s and 1s, what we write is "human" code that must then be translated for the cpu to understand. This can be done with either `compilation` or `interpretation`.
 
-**Compilation:** The entire code is converted into machinde code and written to a binary file that a computer can understand and execute. But technically, you can compile that code and execute it at a later date, that's where `interpretation` differs.
+**Compilation:**
+
+he entire code is converted into machinde code and written to a binary file that a computer can understand and execute. But technically, you can compile that code and execute it at a later date, that's where `interpretation` differs.
 
 <br>
 
-**Interpretation:** There's an interpreter that runs through the source code and executes it line by line. It still gets converted to machine code, but it only happens right before it's executed and not earlier.
+**Interpretation:**
 
+There's an interpreter that runs through the source code and executes it line by line. It still gets converted to machine code, but it only happens right before it's executed and not earlier.
+
+JavaScript used to be an interpreted language, but the problem is that interpreted languages are much slower than compiled languages. With modern JS, low performance is no longer acceptable, so it uses a mix of compilation and interpretation.
+
+<br>
+
+**Just-in-time(JIT) compilation:**
+
+The entire code is convereted into machine code and then executed right away, as opposed to line by line or compiling all the code in a binary file and executing it later. This is a mixture of interpretation and compilation, but there's no portable binary file to execute later.
+
+<br>
+
+**Back to the JavaScript engine**
+
+So how does the JS engine read our code? There are a few steps the engine takes to translate and read/execute our code.
+
+1. Parsing
+2. Compilation
+3. Execution
+4. Optimization
+
+<br>
+
+**Parsing**
+
+Reads the code and translates it into the `Abstract Syntax Tree(AST)` data structure. Splits up each line of code into pieces and saving them in tree in a structured way. This also checks for error. This has nothing to do with the `DOM` tree, It's simply a representation of the code we write, inside of the engine.
+
+Eample: ![image of AST syntax]()
+
+<br>
+
+**Compilation**
+
+Takes the generated `AST` and compiles it into machine code(011101010011), then executes that code immediately because of `JIT compilation`.
+
+<br>
+
+**Execution**
+
+Runs the code in the `call stack` immiediately after compilation.
+
+<br>
+
+**Optimization**
+
+Modern JS engines will execute a _first draft_ version of your code which isn't really optimized. But then, behind the scenes it's optimizing your code and then swapping the executed code with the optimized verstion of that code. It can do this a few times without ever interrupting your executed code.
+
+This allows the code to load faster and run smoothly afterwards, and it happens in a completely separate place than the main thread in the call stack executing our code.
+
+<br>
+<br>
+
+## **JS Runtime in the browser**
+
+A runtime is like a box that contains all the JS related stuff we need. At the heart of a runtime is a JS engine, but there's more than just that.
+
+1. JS engine
+2. Web APIs
+3. Callback Queue
+4. Event loop
+
+<br>
+
+**JS engine**
+
+Contains the `heap` and the `call stack`. <mark>Finish this...</mark>
+
+<br>
+
+**Web APIs**
+
+<mark>Finish this...</mark>
+
+<br>
+
+**Callback Queue**
+
+<mark>Finish this...</mark>
+
+<br>
+
+**Event Loop**
+
+The event loop takes callback functions from the callback queue and puts them in the call stack so they can be executed.
+<mark>Finish this...</mark>
+
+<br>
+
+**JS Runtime in Node.js**
+
+The runtime in Node is similar to the browser runtime but since it's not in the browser it does not have web API, since those are provided by the browser. Instead, there are C++ bindings and a thread pool.
+
+<br>
 <br>
 
 ## **Fundamentals**
