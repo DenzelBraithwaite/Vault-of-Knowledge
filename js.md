@@ -63,13 +63,373 @@ If you use `typeof NaN` the console outputs 'Number', so "_Not a number_" is tec
 <br>
 
 `var` vs `let` vs `const`:
-`var` is the old way with global scope<mark>**finish this**</mark>
+`var` is the old way with function scope<mark>**finish this**</mark>
 
 `let` is a new way to declare a variable with a smaller scope. let creates a variable that can be reassigned.<mark>**finish this**</mark>
 
 `const` is a new way to declare a variable with a smaller scope. You cannot reassign a `const` variable. a `const` variable cannot be empty, it needs an initial value. Always decalre variables with `const` unless you know the variable will change, this can reduce the risk of potential bugs.<mark>**finish this**</mark>
 
 Extra: You could also technically write `phoneType = 'iPhone'` without the use of a `keyword` such as `let` or `const` and it would seem like it still worked, but this would create a property on the `global object` and not a variable in your local scope.
+
+<br>
+<br>
+
+## **Dom Manipulation**
+
+**How to select a class and ID**
+
+```js
+document.querySelector('.className'); // Only matches first occurence, not all elements with the class.
+
+document.querySelectorAll('.className'); // Matches all occurences.
+
+document.querySelector('#IDName');
+```
+
+**How to listen for events and add event handlers, starting with clicks.**
+
+```js
+// Syntax: document.querySelector('.className').addEventListener('which event to listen to', function (event object) {});
+
+// A use case example, the event argument is useless here though.
+document.querySelector('.modal').addEventListener('click', function (event) {
+    openModal();
+});
+
+// So we could refactor it like this:
+
+document.querySelector('.modal').addEventListener('click', openModal); // A use case example, the 'openModal' is a pointer at a function that would open the modal window.
+```
+
+<br>
+
+**But what about keystrokes?**
+
+You can listen for the `keypress`, `keydown` or `keyup` event, which are all similar with small changes. One notable difference is that they `keyup` event will only occur **after** you release the key, the other 2 will occur immediately when you press the key, and will continue to trigger as you hold down on the key.
+
+```js
+document
+    .querySelector('.className')
+    .addEventListener('keystroke / keydown / keyup', function (event) {
+        console.log(event.key); // Outputs the key that you pressed in the console.
+    });
+```
+
+<br>
+<br>
+
+Here's a bigger and more complete example of opening and closing a modal window using JavaScript to manipulate classes based on click and keystroke events.
+
+```js
+'use strict'; // Enable strict mode, this is recommended to avoid silent errors.
+
+const modal = document.querySelector('.modal'); // modal window that will appear and disappear on click.
+const overlay = document.querySelector('.overlay'); // Makes the rest of the screen darker to focus on the modal(pop-up) window.
+const btnOpenModal = document.querySelectorAll('.open-modal'); // Buttons that will open the modal when clicked.
+const btnCloseModal = document.querySelector('.close-modal'); // Button that will close the modal when clicked.
+
+// Function to close the modal window
+const closeModal = () => {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+};
+
+// Function to open the modal window
+const openModal = function () {
+    modal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+};
+
+// Loops through each button that opens the modal and adds an event listener for clicks.
+for (let i = 0; i < btnOpenModal.length; i++) {
+    btnOpenModal[i].addEventListener('click', openModal);
+}
+
+// Adds an event listener on the 'x' or close button, to use the closeModal function to close the modal when clicked.
+btnCloseModal.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal);
+
+// Adds an event listener on the entire 'document' to call the closeModal function to close the modal.
+// This will only happen if the escape key is released AND the modal DOES NOT contain a class named 'hidden'.
+// Notice the 'not' operator in the if statement, reversing 'contains' to 'does not contain'.
+document.addEventListener('keyup', event => {
+    if (event.key === 'Escape' && !modal.classList.contains('hidden'))
+        closeModal();
+});
+```
+
+<mark>**finish these:**</mark>
+
+-   Add notes on classList.toggle
+
+<br>
+<br>
+
+## **Theory, understanding JS**
+
+what happens under the hood... this section will be 100% theory lessons on how JavaScript works.
+
+<br>
+<br>
+
+## JavaScript engine
+
+A JavaScript engine is what allows JS code to run in or outside of the browser. Every browser has their own JS engine, but the most popular is the V8 engine used in Chrome and Node.js.
+
+<br>
+<br>
+
+#### **`Compilation VS Interpretation`**
+
+Computers only understand 0s and 1s, what we write is "human" code that must then be translated for the cpu to understand. This can be done with either `compilation` or `interpretation`.
+
+<br>
+<br>
+
+**Compilation:**
+
+he entire code is converted into machinde code and written to a binary file that a computer can understand and execute. But technically, you can compile that code and execute it at a later date, that's where `interpretation` differs.
+
+<br>
+<br>
+
+**Interpretation:**
+
+There's an interpreter that runs through the source code and executes it line by line. It still gets converted to machine code, but it only happens right before it's executed and not earlier.
+
+<br>
+
+JavaScript used to be an interpreted language, but the problem is that interpreted languages are much slower than compiled languages. With modern JS, low performance is no longer acceptable, so it uses a mix of compilation and interpretation.
+
+<br>
+<br>
+
+**Just-in-time(JIT) compilation:**
+
+The entire code is convereted into machine code and then executed right away, as opposed to line by line or compiling all the code in a binary file and executing it later. This is a mixture of interpretation and compilation, but there's no portable binary file to execute later.
+
+<br>
+<br>
+
+**Back to the JavaScript engine**
+
+So how does the JS engine read our code? There are a few steps the engine takes to translate and read/execute our code.
+
+<br>
+
+1. Parsing
+2. Compilation
+3. Execution
+4. Optimization
+
+<br>
+<br>
+
+**Parsing**
+
+Reads the code and translates it into the `Abstract Syntax Tree(AST)` data structure. Splits up each line of code into pieces and saving them in tree in a structured way. This also checks for error. This has nothing to do with the `DOM` tree, It's simply a representation of the code we write, inside of the engine.
+
+Eample: ![image of AST syntax]()
+
+<br>
+<br>
+
+**Compilation**
+
+Takes the generated `AST` and compiles it into machine code(011101010011), then executes that code immediately because of `JIT compilation`.
+
+<br>
+<br>
+
+**Execution**
+
+Runs the code in the `call stack` immiediately after compilation.
+
+<br>
+<br>
+
+**Optimization**
+
+Modern JS engines will execute a _first draft_ version of your code which isn't really optimized. But then, behind the scenes it's optimizing your code and then swapping the executed code with the optimized verstion of that code. It can do this a few times without ever interrupting your executed code.
+
+This allows the code to load faster and run smoothly afterwards, and it happens in a completely separate place than the main thread in the call stack executing our code.
+
+<br>
+<br>
+
+## **JS Runtime in the browser**
+
+A runtime is like a box that contains all the JS related stuff we need. At the heart of a runtime is a JS engine, but there's more than just that.
+
+<br>
+
+1. `JS engine`
+2. `Web APIs`
+3. `Callback Queue`
+4. `Event loop`
+
+<br>
+<br>
+
+**JS engine**
+
+Contains the `memory heap` and the `call stack`. <mark>Finish this...</mark>
+
+<br>
+
+**The Execution Context**
+
+Before talking about the execution context, we need to understand what `top-level` code is. Top-level code is code that's **outside** of any function. Top-level code will be executed before any code **inside** of functions.
+
+<br>
+
+So why is that important? Well, JavaScript code **always** runs inside an execution context, an execution context is like a box or a room which holds a piece of code and the necessary information to execute it, such as arguments or local variables passed in a function. No matter how large your file, there's only ever 1 **global** execution context which executes your top-level code.
+
+<br>
+
+> "Imagine you order a pizza... Usually that pizza comes in a box, and it might also come with some other stuff like cuttlery or a receipt... So in this analogy, the pizza is the JS code to be executed and the box is the execution context for our pizza..."
+>
+> -Jonas Schmedtmann
+
+<br>
+
+Each execution context has a variable environment(holds let, const and var declarations, functions and an arguments object), a scope chain and a `this` keyword. There is an exception however, arrow functions don't have the `this` keyword nor an `arguments object`.
+<mark>Finish this...</mark>
+
+<br>
+<br>
+
+**The Call Stack**
+
+Once the code is compiled, top-level code will start executing. First a `global execution context` will be created to run all the top-level code, which is code outside of any functions. After that, for every function call, a new execution context will be created containing all the necessary info to execute that function. The same goes for methods(functions attached to objects).
+
+<br>
+
+Now when all of the code has been executed, the engine will wait for callback functions such as a `click` event. This is possible thanks to the event loop which will provide these callback functions.
+<mark>Finish this...</mark>
+
+<br>
+
+**Web APIs**
+
+<mark>Finish this...</mark>
+
+<br>
+
+**Callback Queue**
+
+<mark>Finish this...</mark>
+
+<br>
+
+**Event Loop**
+
+The event loop takes callback functions from the callback queue and puts them in the call stack so they can be executed.
+<mark>Finish this...</mark>
+
+<br>
+
+**JS Runtime in Node.js**
+
+The runtime in Node is similar to the browser runtime but since it's not in the browser it does not have web API, since those are provided by the browser. Instead, there are C++ bindings and a thread pool.
+
+<br>
+<br>
+
+## **Scopes**
+
+Scopes determine where variables can be accessed from depending on where they were declared, and in JavaScript we use `lexical scoping`. That means the scope is determined by where you place functions and code blocks. In JavaScript we have the `global`, `function` and `block` scope.
+
+<br>
+
+All scopes can access variables of their parent scope as well. If you have a variable declared with a global scope, then a function(_`A`_), then another function inside that function(_`B`_), that last nested function(_`B`_) will still have access to variables in the global scope **through** its parent function(_`A`_). This is what we call the `scope-chain`.
+
+<br>
+<br>
+
+#### `Global scope`
+
+Variables declared in the global scope are accessible from anywhere in the file.
+
+```js
+const name = 'Denzel';
+
+console.log(name); // Outputs: 'Denzel'
+```
+
+<br>
+
+#### `Function scope`
+
+Variables declared in a function scope(also called local scope) are only available in that function. In `strict mode`, functions are also block scoped.
+
+```js
+const dogSpeak = () => {
+    const dog = {
+        speak: 'bark'
+    };
+};
+
+console.log(dog.speak); // ReferenceError
+```
+
+<br>
+
+#### `Block scope`
+
+Variables declared in a block scope are only available in that block. That is, code between curly braces, but only variables declared with `let` or `const`. If you use `var` to declare your variable, that variable will be accessible outside of the block. So we say `let` and `const` are `block scoped` while `var` is `function scoped`
+
+```js
+if (10 - 5 > 10) {
+    const calculator = 'broken';
+    var protractor = true;
+}
+
+console.log(calculator); // ReferenceError
+console.log(protractor); // Outputs: true
+```
+
+<br>
+<br>
+
+## **Fundamentals**
+
+<br>
+
+### **Primitive data types**
+
+...<mark>**finish this**</mark>
+
+<br>
+<br>
+
+#### **`Values & Variables`**
+
+In JavaScript, every value is either an object or a primitive value. A value is only primitive if it's not an object.
+
+There are 7 types of primitive data in JavaScript:
+
+1. Number (Floating point numbers, always have decimals)
+2. String (Sequence of characters in single or double quotes)
+3. Boolean (true or false)
+4. Undefined (variable declared with an empty value)
+5. Null (no valuem similar to undefined)
+6. Symbol (unique value that can't be changed)
+7. BigInt (ES2020, supports larger integers than the `number` type)
+
+<br>
+
+### **Linking a JS file**
+
+There are a few ways to link a...<mark>**finish this**</mark>
+
+1. Using `<script>` tags.
+
+2. Using a `style.js` file and linking it in your `html` file at the bottom of the `<body>`.
+
+```js
+<script src="script.js"></script>
+```
 
 <br>
 <br>
@@ -623,314 +983,6 @@ Outputs:
 <mark>**finish this**</mark>
 
 <br>
-<br>
-
-## **Dom Manipulation**
-
-How to select a class and ID
-
-```js
-document.querySelector('.className'); // Only matches first occurence, not all elements with the class.
-
-document.querySelectorAll('.className'); // Matches all occurences.
-
-document.querySelector('#IDName');
-```
-
-How to listen for events and add event handlers, starting with clicks.
-
-```js
-// Syntax: document.querySelector('.className').addEventListener('which event to listen to', function (event object) {});
-
-// A use case example, the event argument is useless here though.
-document.querySelector('.modal').addEventListener('click', function (event) {
-    openModal();
-});
-
-// So we could refactor it like this:
-
-document.querySelector('.modal').addEventListener('click', openModal); // A use case example, the 'openModal' is a pointer at a function that would open the modal window.
-```
-
-<br>
-
-But what about keystrokes? You can listen for the `keypress`, `keydown` or `keyup` event, which are all similar with small changes. One notable difference is that they `keyup` event will only occur **after** you release the key, the other 2 will occur immediately when you press the key, and will continue to trigger as you hold down on the key.
-
-```js
-document
-    .querySelector('.className')
-    .addEventListener('keystroke / keydown / keyup', function (event) {
-        console.log(event.key); // Outputs the key that you pressed in the console.
-    });
-```
-
-<br>
-<br>
-
-Here's a bigger and more complete example of opening and closing a modal window using JavaScript to manipulate classes based on click and keystroke events.
-
-```js
-'use strict'; // Enable strict mode, this is recommended to avoid silent errors.
-
-const modal = document.querySelector('.modal'); // modal window that will appear and disappear on click.
-const overlay = document.querySelector('.overlay'); // Makes the rest of the screen darker to focus on the modal(pop-up) window.
-const btnOpenModal = document.querySelectorAll('.open-modal'); // Buttons that will open the modal when clicked.
-const btnCloseModal = document.querySelector('.close-modal'); // Button that will close the modal when clicked.
-
-// Function to close the modal window
-const closeModal = () => {
-    modal.classList.add('hidden');
-    overlay.classList.add('hidden');
-};
-
-// Function to open the modal window
-const openModal = function () {
-    modal.classList.remove('hidden');
-    overlay.classList.remove('hidden');
-};
-
-// Loops through each button that opens the modal and adds an event listener for clicks.
-for (let i = 0; i < btnOpenModal.length; i++) {
-    btnOpenModal[i].addEventListener('click', openModal);
-}
-
-// Adds an event listener on the 'x' or close button, to use the closeModal function to close the modal when clicked.
-btnCloseModal.addEventListener('click', closeModal);
-overlay.addEventListener('click', closeModal);
-
-// Adds an event listener on the entire 'document' to call the closeModal function to close the modal.
-// This will only happen if the escape key is released AND the modal DOES NOT contain a class named 'hidden'.
-// Notice the 'not' operator in the if statement, reversing 'contains' to 'does not contain'.
-document.addEventListener('keyup', event => {
-    if (event.key === 'Escape' && !modal.classList.contains('hidden'))
-        closeModal();
-});
-```
-
-<mark>**finish these:**</mark>
-
--   Add notes on classList.toggle
-
-<br>
-<br>
-
-## **Theory, understanding JS**
-
-what happens under the hood... this section will be 100% theory lessons on how JavaScript works.
-
-<br>
-<br>
-
-## JavaScript engine
-
-A JavaScript engine is what allows JS code to run in or outside of the browser. Every browser has their own JS engine, but the most popular is the V8 engine used in Chrome and Node.js.
-
-<br>
-
-#### **`Compilation VS Interpretation`**
-
-Computers only understand 0s and 1s, what we write is "human" code that must then be translated for the cpu to understand. This can be done with either `compilation` or `interpretation`.
-
-**Compilation:**
-
-he entire code is converted into machinde code and written to a binary file that a computer can understand and execute. But technically, you can compile that code and execute it at a later date, that's where `interpretation` differs.
-
-<br>
-
-**Interpretation:**
-
-There's an interpreter that runs through the source code and executes it line by line. It still gets converted to machine code, but it only happens right before it's executed and not earlier.
-
-JavaScript used to be an interpreted language, but the problem is that interpreted languages are much slower than compiled languages. With modern JS, low performance is no longer acceptable, so it uses a mix of compilation and interpretation.
-
-<br>
-
-**Just-in-time(JIT) compilation:**
-
-The entire code is convereted into machine code and then executed right away, as opposed to line by line or compiling all the code in a binary file and executing it later. This is a mixture of interpretation and compilation, but there's no portable binary file to execute later.
-
-<br>
-
-**Back to the JavaScript engine**
-
-So how does the JS engine read our code? There are a few steps the engine takes to translate and read/execute our code.
-
-1. Parsing
-2. Compilation
-3. Execution
-4. Optimization
-
-<br>
-
-**Parsing**
-
-Reads the code and translates it into the `Abstract Syntax Tree(AST)` data structure. Splits up each line of code into pieces and saving them in tree in a structured way. This also checks for error. This has nothing to do with the `DOM` tree, It's simply a representation of the code we write, inside of the engine.
-
-Eample: ![image of AST syntax]()
-
-<br>
-
-**Compilation**
-
-Takes the generated `AST` and compiles it into machine code(011101010011), then executes that code immediately because of `JIT compilation`.
-
-<br>
-
-**Execution**
-
-Runs the code in the `call stack` immiediately after compilation.
-
-<br>
-
-**Optimization**
-
-Modern JS engines will execute a _first draft_ version of your code which isn't really optimized. But then, behind the scenes it's optimizing your code and then swapping the executed code with the optimized verstion of that code. It can do this a few times without ever interrupting your executed code.
-
-This allows the code to load faster and run smoothly afterwards, and it happens in a completely separate place than the main thread in the call stack executing our code.
-
-<br>
-<br>
-
-## **JS Runtime in the browser**
-
-A runtime is like a box that contains all the JS related stuff we need. At the heart of a runtime is a JS engine, but there's more than just that.
-
-1. JS engine
-2. Web APIs
-3. Callback Queue
-4. Event loop
-
-<br>
-
-**JS engine**
-
-Contains the `memory heap` and the `call stack`. <mark>Finish this...</mark>
-
-<br>
-
-**The Execution Context**
-
-Before talking about the execution context, we need to understand what `top-level` code is. Top-level code is code that's **outside** of any function. Top-level code will be executed before any code **inside** of functions.
-
-So why is that important? Well, JavaScript code **always** runs inside an execution context, an execution context is like a box or a room which holds a piece of code and the necessary information to execute it, such as arguments or local variables passed in a function. No matter how large your file, there's only ever 1 **global** execution context which executes your top-level code.
-
-> "Imagine you order a pizza... Usually that pizza comes in a box, and it might also come with some other stuff like cuttlery or a receipt... So in this analogy, the pizza is the JS code to be executed and the box is the execution context for our pizza..."
->
-> -Jonas Schmedtmann
-
-<br>
-
-Each execution context has a variable environment(holds let, const and var declarations, functions and an arguments object), a scope chain and a `this` keyword. There is an exception however, arrow functions don't have the `this` keyword nor an `arguments object`.
-<mark>Finish this...</mark>
-
-<br>
-
-**The Call Stack**
-
-Once the code is compiled, top-level code will start executing. First a `global execution context` will be created to run all the top-level code, which is code outside of any functions. After that, for every function call, a new execution context will be created containing all the necessary info to execute that function. The same goes for methods(functions attached to objects).
-
-Now when all of the code has been executed, the engine will wait for callback functions such as a `click` event. This is possible thanks to the event loop which will provide these callback functions.
-<mark>Finish this...</mark>
-
-<br>
-
-**Web APIs**
-
-<mark>Finish this...</mark>
-
-<br>
-
-**Callback Queue**
-
-<mark>Finish this...</mark>
-
-<br>
-
-**Event Loop**
-
-The event loop takes callback functions from the callback queue and puts them in the call stack so they can be executed.
-<mark>Finish this...</mark>
-
-<br>
-
-**JS Runtime in Node.js**
-
-The runtime in Node is similar to the browser runtime but since it's not in the browser it does not have web API, since those are provided by the browser. Instead, there are C++ bindings and a thread pool.
-
-<br>
-<br>
-
-## **Fundamentals**
-
-This will hold the fundamentals...<mark>**finish this**</mark>
-
-<br>
-<br>
-
-### **Linking a JS file**
-
-There are a few ways to link a...<mark>**finish this**</mark>
-
-1. Using `<script>` tags.
-
-2. Using a `style.js` file and linking it in your `html` file at the bottom of the `<body>`.
-
-```js
-<script src="script.js"></script>
-```
-
-<br>
-<br>
-
-...<mark>**finish this**</mark>
-
-**Add class list**
-
-You can manipulate element classes using JS...
-
-```js
-const example = document.queySelector('.example');
-example.classList.remove('className'); // Do not use the dot for the class name
-```
-
-<br>
-<br>
-
-### **Primitive data types**
-
-...<mark>**finish this**</mark>
-
-<br>
-<br>
-
-#### **`Values & Variables`**
-
-In JavaScript, every value is either an object or a primitive value. A value is only primitive if it's not an object.
-
-There are 7 types of primitive data in JavaScript:
-
-1. Number (Floating point numbers, always have decimals)
-2. String (Sequence of characters in single or double quotes)
-3. Boolean (true or false)
-4. Undefined (variable declared with an empty value)
-5. Null (no valuem similar to undefined)
-6. Symbol (unique value that can't be changed)
-7. BigInt (ES2020, supports larger integers than the `number` type)
-
-...<mark>**finish this**</mark>
-
-<br>
-
-#### **`...`**
-
-...<mark>**finish this**</mark>
-
-<br>
-
-#### **`...`**
-
-...<mark>**finish this**</mark>
-
 <br>
 
 ---
