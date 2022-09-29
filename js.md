@@ -273,7 +273,7 @@ A runtime is like a box that contains all the JS related stuff we need. At the h
 
 **JS engine**
 
-Contains the `memory heap` and the `call stack`. <mark>Finish this...</mark>
+the Js engine consists of several parts, but it can be simplified to 2 core functions: the `memory heap` and the `call stack`. The memory heap stores our data(variables, objects, etc) and the call stack determines which code should be run in what order.
 
 <br>
 
@@ -375,7 +375,7 @@ console.log(dog.speak); // ReferenceError
 
 <br>
 
-#### `Block scope`
+#### `Block scope(ES6)`
 
 Variables declared in a block scope are only available in that block. That is, code between curly braces, but only variables declared with `let` or `const`. If you use `var` to declare your variable, that variable will be accessible outside of the block. So we say `let` and `const` are `block scoped` while `var` is `function scoped`
 
