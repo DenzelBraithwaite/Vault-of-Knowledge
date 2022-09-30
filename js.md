@@ -229,7 +229,7 @@ So how does the JS engine read our code? There are a few steps the engine takes 
 
 Reads the code and translates it into the `Abstract Syntax Tree(AST)` data structure. Splits up each line of code into pieces and saving them in tree in a structured way. This also checks for error. This has nothing to do with the `DOM` tree, It's simply a representation of the code we write, inside of the engine.
 
-Eample: ![image of AST syntax]()
+Eample: ![image of AST syntax](img/js/jit-and-ast.png)
 
 <br>
 <br>
@@ -306,7 +306,9 @@ Once the code is compiled, top-level code will start executing. First a `global 
 <br>
 
 Now when all of the code has been executed, the engine will wait for callback functions such as a `click` event. This is possible thanks to the event loop which will provide these callback functions.
+
 <mark>Finish this...</mark>
+![Example of how the call stack works](img/js/call_stack.png)
 
 <br>
 
@@ -388,6 +390,8 @@ if (10 - 5 > 10) {
 console.log(calculator); // ReferenceError
 console.log(protractor); // Outputs: true
 ```
+
+![Summary on scoping rules](img/js/scoping.png)
 
 <br>
 <br>
