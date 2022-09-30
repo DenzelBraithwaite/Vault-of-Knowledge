@@ -392,6 +392,13 @@ console.log(protractor); // Outputs: true
 <br>
 <br>
 
+## **Hoisting and TDZ**
+
+Hoisting makes certain variables and functions available to use before they are declared, as long as they're in the same scope. The temporal dead zone (`TDZ`) is the space between the start of a scope and the beginning of the variable declaration where a variable **cannot** be accessed, because it was not declared yet. So if a variable is hoisted, it does not have a `TDZ`, since it's available even in the "_temporal dead zone_".
+
+![Slide of Hoisting in JS](img/js/hoisting.png)
+![Slide of TDZ in JS](img/js/tdz.png)
+
 ## **Fundamentals**
 
 <br>
