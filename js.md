@@ -13,7 +13,7 @@
 
 ## Overview
 
-This guide will serve as a reference point for JavaScript fundamentals, syntax, tips, tricks and best practices. For quick testing, you can use the console or one of many free websites that allow you to write and test code.
+This guide will serve as a reference point for JavaScript fundamentals, syntax, tips, tricks and best practices. For quick testing, you can use the console or one of many free websites that allow you to write and test code. Keep in mind that all notes here assume you are using `strict mode`.
 
 <br>
 
@@ -417,7 +417,41 @@ That being said, it's best to avoid writing code like that. Avoid `var` at all c
 ## **The `this` keyword**
 
 ![Slide for JavaScript 'this' keyword](img/js/the_this_keyword.png)
-<mark>finish this...</mark>
+
+<br>
+
+Here are some examples:
+
+```js
+'use strict';
+
+// Declared in the global scope, points at the "window" object.
+console.log(this);
+
+const nameLogger = function (name) {
+    console.log(name);
+    console.log(this);
+};
+// Undefined, it has a "this" keyword, but nothing to point to.
+nameLogger('Denzel');
+
+const nameLoggerArrow = name => {
+    console.log(name);
+    console.log(this);
+};
+// Arrow functions don't get "this" keyword, so it uses its parent scope "this" keyword, resulting in the "window" object.
+nameLoggerArrow('Denzel');
+
+const denzel = {
+    fName: 'Denzel',
+    lName: 'Braithwaite',
+    nameLogger: function () {
+        console.log(this.fName + ' ' + this.lName);
+    }
+};
+// Points to the object in which it was called, its "owner".
+denzel.nameLogger();
+```
 
 <br>
 <br>
