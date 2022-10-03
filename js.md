@@ -400,8 +400,26 @@ console.log(protractor); // Outputs: true
 
 Hoisting makes certain variables and functions available to use before they are declared, as long as they're in the same scope. The temporal dead zone (`TDZ`) is the space between the start of a scope and the beginning of the variable declaration where a variable **cannot** be accessed, because it was not declared yet. So if a variable is hoisted, it does not have a `TDZ`, since it's available even in the "_temporal dead zone_".
 
+<br>
+
 ![Slide of Hoisting in JS](img/js/hoisting.png)
 ![Slide of TDZ in JS](img/js/tdz.png)
+
+So but function **declarations** and variables defined with `var` are hoisted, but function **expressions**, arrow functions and variables defined with `const` or `let` are not. If you attempt to use a variable defined with `var` before it's defined though, it's value will be `undefined`. If you try to use a function declaration before it's defined, it will still work.
+
+<br>
+
+That being said, it's best to avoid writing code like that. Avoid `var` at all costs and use `const` always unless the variable will change, in which case use `let`. No matter how you define a function, do it before you call it for cleaner code, and declare your variables at the top of their scope.
+
+<br>
+<br>
+
+## **The `this` keyword**
+
+<mark>finish this...</mark>
+
+<br>
+<br>
 
 ## **Fundamentals**
 
