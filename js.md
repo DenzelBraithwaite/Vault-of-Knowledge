@@ -416,6 +416,7 @@ That being said, it's best to avoid writing code like that. Avoid `var` at all c
 
 ## **The `this` keyword**
 
+![Slide for JavaScript 'this' keyword](img/js/the_this_keyword.png)
 <mark>finish this...</mark>
 
 <br>
