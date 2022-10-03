@@ -23,6 +23,7 @@ If you're starting a new project, remember to check this list off first before p
 -   Create a color palette
 -   Create breakpoints
 -   Create a reset stylesheet
+-   Link a JavaScript file and use `strict mode`
 
 <br>
 <br>
