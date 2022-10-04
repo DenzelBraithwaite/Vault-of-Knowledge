@@ -879,7 +879,7 @@ computer.addHardware(); // Adds ram property with a value of '16GB ram'.
 console.log(computer.ram); // Outputs the ram property.
 ```
 
-But you should never use an arrow function to create a method, that's because arrow functions don't have the `this` keyword, and will instead point to the parent. It's better to just use function expression.
+But you should never use an arrow function to create a method, that's because arrow functions don't have the `this` keyword, and will instead point to the parent. It's better to just use a function expression.
 
 ```js
 const laptop = {
@@ -895,21 +895,51 @@ laptop.upgrade(); // Outputs: UPGRADED😤!!!
 console.log(laptop.brand); // Outputs: 'Macbook Pro 2021'
 
 const desktop = {
-    brand: 'Windows',
+    brand: 'Asus',
 
     downgrade: () => {
-        this.brand = 'iMac';
+        this.brand = 'Acer';
         console.log('Downgraded😓...');
     }
 };
-console.log(desktop.brand); // Outputs: Windows
+console.log(desktop.brand); // Outputs: Asus
 desktop.downgrade(); // Outputs: Downgraded😓...
-console.log(desktop.brand); // Outputs: Windows
+console.log(desktop.brand); // Outputs: Asus
 
-// Outputs: 'iMac', which is now a property on the global window object, NOT on the desktop object.
+// Outputs: 'Acer', which is now a property on the global window object, NOT on the desktop object.
 console.log(this.brand);
 ```
 
+The is one case where you could use an arrow function in a method, and that's if you add a function inside of a method. The function inside the method is technically, just a normal function and therefore it doesn't have a `this` keyword. So in that case, it would be good to refer to the parent's `this` keyword.
+
+````js
+const laptop = {
+    brand: 'HP',
+
+    info: function () {
+        const iAmAFunction = function () {
+            console.log(this.brand);
+        }
+        iAmAFunction();
+    }
+};
+
+// Outputs: Undefined, since there is no "brand" property on the window object.
+laptop.info()
+
+const desktop = {
+    brand: 'Acer',
+
+    info: function () {
+        const iAmAFunction = () => {
+            console.log(this.brand);
+        }
+        iAmAFunction();
+    }
+};
+
+// Outputs: Acer, since the arrow function doesn't have a "this" keyword, it points to the parent.
+desktop.info()
 <br>
 <br>
 
@@ -948,7 +978,7 @@ Outputs:
 
 // Simple for loop
 for (let i = 0; i > 3; i++) console.log(i);
-```
+````
 
 <mark>**finish this**</mark>
 
