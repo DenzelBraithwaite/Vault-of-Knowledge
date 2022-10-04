@@ -719,6 +719,7 @@ Strict mode will also forbid the use of certain variable names if those names ar
 <br>
 
 **Functions**
+
 Leave notes on all ways to create a function, how to call a function, what higher functions are, the return keyword, etc.
 
 Functions are not a data type, they're a value. That's why we can store them in variables and use them in places that expect a value.
@@ -743,8 +744,22 @@ const functionName = parameter => {
 ```
 
 Function declarations are hoisted, so they can be used before they were declared, as opposed to function expression which requires the function to be defined before you can call it.
-
 <mark>**finish this**</mark>
+
+**Arguments**
+
+When writing a function, you have the option to add `parameters`, these parameters will allow you to call the function and pass `arguments` in as values, which take the place of the `parameters`.
+
+```js
+const myFunction = function (parameter) {
+    console.log(parameter);
+};
+myFunction('argument'); // Outputs: 'argument'
+```
+
+But you can actually provide more arguments than parameters and depending on the function, less arguments than parameters. The only problem is that you won't have a local variable defined in your function to access their values, so how do you use them, and what's the point?
+
+Well, there is a keyword called `arguments` that functions have access to, just like how functions have the `this` keyword. This represents an array of arguments passed to that function, and you iterate through that value to access them all. This is useful if you ever have more arguments than parameters.
 
 <br>
 <br>
@@ -910,22 +925,22 @@ console.log(desktop.brand); // Outputs: Asus
 console.log(this.brand);
 ```
 
-The is one case where you could use an arrow function in a method, and that's if you add a function inside of a method. The function inside the method is technically, just a normal function and therefore it doesn't have a `this` keyword. So in that case, it would be good to refer to the parent's `this` keyword.
+There is one situation where you could use an arrow function in a method, and that's if you add a function inside of a method. The function inside the method is technically just a normal function and therefore it doesn't have a `this` keyword. So in that case, it would be good to refer to the parent's `this` keyword.
 
-````js
+```js
 const laptop = {
     brand: 'HP',
 
     info: function () {
         const iAmAFunction = function () {
             console.log(this.brand);
-        }
+        };
         iAmAFunction();
     }
 };
 
 // Outputs: Undefined, since there is no "brand" property on the window object.
-laptop.info()
+laptop.info();
 
 const desktop = {
     brand: 'Acer',
@@ -933,13 +948,17 @@ const desktop = {
     info: function () {
         const iAmAFunction = () => {
             console.log(this.brand);
-        }
+        };
         iAmAFunction();
     }
 };
 
 // Outputs: Acer, since the arrow function doesn't have a "this" keyword, it points to the parent.
-desktop.info()
+desktop.info();
+```
+
+An alternative would be to create a variable called `self` or `that`(_name doesn't matter_) outside of that function's scope but still in the method scope, then assign the value of `this` to `self`, and call `self` in the function instead of `this`. But this was the pre ES6 solution.
+
 <br>
 <br>
 
@@ -978,7 +997,7 @@ Outputs:
 
 // Simple for loop
 for (let i = 0; i > 3; i++) console.log(i);
-````
+```
 
 <mark>**finish this**</mark>
 
