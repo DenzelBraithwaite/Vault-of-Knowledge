@@ -62,12 +62,19 @@ If you use `typeof NaN` the console outputs 'Number', so "_Not a number_" is tec
 <br>
 <br>
 
-`var` vs `let` vs `const`:
-`var` is the old way with function scope<mark>**finish this**</mark>
+**`var` vs `const` vs `let`**
 
-`let` is a new way to declare a variable with a smaller scope. let creates a variable that can be reassigned.<mark>**finish this**</mark>
+`var` is the old way of declaring variables and it has a function scope. Variables declared with var in the global scope will add properties to the window(_global_) object as well, in general we should never use var anymore because it could lead to accidents. Var is als hoisted but if you call it before it's declared the value will be `undefined`.
 
-`const` is a new way to declare a variable with a smaller scope. You cannot reassign a `const` variable. a `const` variable cannot be empty, it needs an initial value. Always decalre variables with `const` unless you know the variable will change, this can reduce the risk of potential bugs.<mark>**finish this**</mark>
+<br>
+
+`const` is a modern(ES6) way to declare a variable with a block scope and no hoisting. You cannot reassign a `const` variable but you can update it if it's an array or an object for example. A `const` variable cannot be empty, it needs to be initialized with a value. Always decalre variables with `const` unless you know the variable will change, this can reduce the risk of potential bugs.
+
+<br>
+
+`let` is a modern(ES6) way to declare a variable with a block scope. `let` creates a variable that **can** be reassigned and is not hoisted. Only use `let` if you plan on reassigning your variable, otherwise use `const`.
+
+<br>
 
 Extra: You could also technically write `phoneType = 'iPhone'` without the use of a `keyword` such as `let` or `const` and it would seem like it still worked, but this would create a property on the `global object` and not a variable in your local scope.
 
