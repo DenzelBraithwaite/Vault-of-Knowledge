@@ -759,7 +759,7 @@ myFunction('argument'); // Outputs: 'argument'
 
 But you can actually provide more arguments than parameters and depending on the function, less arguments than parameters. The only problem is that you won't have a local variable defined in your function to access their values, so how do you use them, and what's the point?
 
-Well, there is a keyword called `arguments` that functions have access to, just like how functions have the `this` keyword. This represents an array of arguments passed to that function, and you iterate through that value to access them all. This is useful if you ever have more arguments than parameters.
+Well, there is a keyword called `arguments` that functions have access to, just like how functions have the `this` keyword. This represents an array of arguments passed to that function, and you iterate through that value to access them all. This is useful if you ever have more arguments than parameters. However remember, <mark>the arguments keyword does not exist in arrow functions, only regular function expression and declaration.</mark>
 
 <br>
 <br>
