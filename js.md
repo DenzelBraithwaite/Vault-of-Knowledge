@@ -853,7 +853,7 @@ burger['onions'] = false;
 
 **Adding a function to an object**
 
-Any function that is attached to an object is called a `mthod`. You can create an object method by add a function expression as a value for an object's property. This works since a property expects a value, and an expression produces a value.
+Any function that is attached to an object is called a `method`. You can create an object method by add a function expression as a value for an object's property. This works since a property expects a value, and an expression produces a value.
 
 ```js
 const computer = {
@@ -879,7 +879,36 @@ computer.addHardware(); // Adds ram property with a value of '16GB ram'.
 console.log(computer.ram); // Outputs the ram property.
 ```
 
-<mark>**finish this**</mark>
+But you should never use an arrow function to create a method, that's because arrow functions don't have the `this` keyword, and will instead point to the parent. It's better to just use function expression.
+
+```js
+const laptop = {
+    brand: 'Windows',
+
+    upgrade: function () {
+        this.brand = 'Macbook Pro 2021';
+        console.log('UPGRADED😤!!!');
+    }
+};
+console.log(laptop.brand); // Outputs: Windows
+laptop.upgrade(); // Outputs: UPGRADED😤!!!
+console.log(laptop.brand); // Outputs: 'Macbook Pro 2021'
+
+const desktop = {
+    brand: 'Windows',
+
+    downgrade: () => {
+        this.brand = 'iMac';
+        console.log('Downgraded😓...');
+    }
+};
+console.log(desktop.brand); // Outputs: Windows
+desktop.downgrade(); // Outputs: Downgraded😓...
+console.log(desktop.brand); // Outputs: Windows
+
+// Outputs: 'iMac', which is now a property on the global window object, NOT on the desktop object.
+console.log(this.brand);
+```
 
 <br>
 <br>
