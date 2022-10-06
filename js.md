@@ -535,6 +535,56 @@ So whenever you think you're **copying** an object, you're really just <mark>cre
 <br>
 <br>
 
+## **Copying an object**
+
+As mentioned above, simply creating a new object and assigning it the value of another object, will note **copy** that object, instead it will create 2 variables that point to the same object in memory. Here's how you can create a real copy of an object.
+
+<br>
+<br>
+
+#### **Using `Object.assign`**
+
+The `Object.assign` function merges 2 objects and then returns a new one. So if we merge an empty object with the desired object, this will create an entirely new object.
+
+```js
+const charizard = {
+    height: '1.7m',
+    type: 'fire'
+};
+
+const ditto = Object.assign({}, charizard);
+ditto.type = 'normal';
+console.log(charizard.type); // Outputs "fire"
+console.log(ditto.type); // Outputs "normal"
+```
+
+But this only creates a **_shallow_** copy, meaning if that object had another object nested inside, it would only copy the top level object, meaning the nested object would be lost.
+
+```js
+const charizard = {
+    height: '1.7m',
+    type: 'fire',
+
+    // This example works because Arrays are a special type of object.
+    moves: ['flamethrower', 'fly', 'fire spin']
+};
+
+const ditto = Object.assign({}, charizard);
+ditto.moves.push('transform');
+
+// Outputs: ['flamethrower', 'fly', 'fire spin', 'transform']
+console.log(charizard.moves);
+// Outputs: ['flamethrower', 'fly', 'fire spin', 'transform']
+console.log(ditto.moves);
+```
+
+As you can see above, Charizard was indeed copied, but the moves array(_object_) inside was not copied, it still points to the same object in memory. So although Ditto and Charizard are unique, their **moves** are the same. This is what we mean by a _shallow_ copy.
+
+Creating a **_deep_** copy is actually more complex and usually requires the use of a 3rd party library.
+
+<br>
+<br>
+
 ## **Fundamentals**
 
 <br>
