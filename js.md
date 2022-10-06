@@ -68,7 +68,7 @@ If you use `typeof NaN` the console outputs 'Number', so "_Not a number_" is tec
 
 <br>
 
-`const` is a modern(ES6) way to declare a variable with a block scope and no hoisting. You cannot reassign a `const` variable but you can update it if it's an array or an object for example. A `const` variable cannot be empty, it needs to be initialized with a value. Always decalre variables with `const` unless you know the variable will change, this can reduce the risk of potential bugs.
+`const` is a modern(ES6) way to declare a variable with a block scope and no hoisting. You cannot reassign a `const` variable but you can update it if it's an array or an object for example _([read more](#reference-types))_. A `const` variable cannot be empty, it needs to be initialized with a value. Always decalre variables with `const` unless you know the variable will change, this can reduce the risk of potential bugs.
 
 <br>
 
@@ -179,14 +179,16 @@ what happens under the hood... this section will be 100% theory lessons on how J
 <br>
 <br>
 
-## JavaScript engine
+<h2 id="js-engine">JavaScript engine</h2>
+
+<br>
 
 A JavaScript engine is what allows JS code to run in or outside of the browser. Every browser has their own JS engine, but the most popular is the V8 engine used in Chrome and Node.js.
 
 <br>
 <br>
 
-#### **`Compilation VS Interpretation`**
+**`Compilation VS Interpretation`**
 
 Computers only understand 0s and 1s, what we write is "human" code that must then be translated for the cpu to understand. This can be done with either `compilation` or `interpretation`.
 
@@ -356,7 +358,7 @@ All scopes can access variables of their parent scope as well. If you have a var
 <br>
 <br>
 
-#### `Global scope`
+`Global scope`
 
 Variables declared in the global scope are accessible from anywhere in the file.
 
@@ -368,7 +370,7 @@ console.log(name); // Outputs: 'Denzel'
 
 <br>
 
-#### `Function scope`
+`Function scope`
 
 Variables declared in a function scope(also called local scope) are only available in that function. In `strict mode`, functions are also block scoped.
 
@@ -384,7 +386,7 @@ console.log(dog.speak); // ReferenceError
 
 <br>
 
-#### `Block scope(ES6)`
+`Block scope(ES6)`
 
 Variables declared in a block scope are only available in that block. That is, code between curly braces, but only variables declared with `let` or `const`. If you use `var` to declare your variable, that variable will be accessible outside of the block. So we say `let` and `const` are `block scoped` while `var` is `function scoped`
 
@@ -463,6 +465,76 @@ denzel.nameLogger();
 <br>
 <br>
 
+## **Primitive vs Reference types**
+
+Everything in JS is either a [primitive data type](#primitive-types) or an object. When talking about memory, we refer to primitives as `primitive types` and objects as `reference types`. This is because they're stored differently in memory in the [JavaScript engine](#js-engine). <mark>Primitive types are store in the call stack and reference types are stored in the memory heap.</mark>
+
+<br>
+
+**Primitive types**
+
+When you declare a variable, it seems as if the variable name is tied to the value, but that's not entirely true.
+
+```js
+// Name is the identifier and 'Denzel' is the value.
+const name = 'Denzel';
+```
+
+Instead, the identifier points to an address and that address is what stores the value. So if we save a variable called age with a value of **30**, that variable points to the address **0001** for example, and **0001** holds the value of **30**.
+
+<br>
+
+If we declare a new variable and assign it the value of the first variable, then <mark>they're both pointing to the same address in memory</mark>, but if we change our initial variable then a new address must be created.
+
+```js
+let age = 30; // memory address 0001
+const oldAge = age; // memory address 0001
+age = 31; // memory address 0002
+```
+
+Both variables are pointing to the address **0001** which holds the value **30**, but when our first variable **age** gets a new value, it needs to get a new address. Instead of changing the value of address **0001**(_which would reassign **all identifiers** values as well_) it instead creates a new address with a new value.
+
+![How primitive types are stored in memory](img/js/memory-primitive.png)
+
+<br>
+<br>
+
+<span id="reference-types">**Reference types**</span>
+
+Reference types are similar but have a few key differences. If we create an object called **me**, the identifier is **me**, the address could be **0003** in this example, but the value in the **call stack** will actually be another address in memory, and that value will point to an address in the **memory heap** which holds the value of the **me** object; that's why we say they're _reference types_.
+
+```js
+const me = {
+    name: 'Denzel',
+    age: 26
+};
+```
+
+So now if we create a new object called **friend** and assign it the value of the **me** object, then both will be pointing to the same address in the call stack memory, which points to the address in the memory heap, which of course holds the object. So what happens when we update a property on the **friend** object?
+
+```js
+const me = {
+    name: 'Denzel',
+    age: 26
+};
+
+const friend = me;
+friend.age = 27; // Updates both objects
+```
+
+As far as the **call stack** is concerned, nothing really changed, they both point to the same address which points to the same value. In the memory heap, the address still does not change, only the value does.
+
+![Reference type stored in the memory heap](img/js/primitive_vs_reference.png)
+
+<br>
+
+This is why we can _update_ the object even though it was defined with `const`. The address never changes, only the value. However, the same would not be true for primitive values, which is why we can't reassign them if they're declared with `const`.
+
+So whenever you think you're **copying** an object, you're really just <mark>creating a new variable that points to the **same** value in memory.</mark>
+
+<br>
+<br>
+
 ## **Fundamentals**
 
 <br>
@@ -474,9 +546,11 @@ denzel.nameLogger();
 <br>
 <br>
 
-#### **`Values & Variables`**
+**<span id="primitive-types">`Values & Variables`</span>**
 
 In JavaScript, every value is either an object or a primitive value. A value is only primitive if it's not an object.
+
+<br>
 
 There are 7 types of primitive data in JavaScript:
 
@@ -966,7 +1040,7 @@ An alternative would be to create a variable called `self` or `that`(_name doesn
 
 Loops are useful when you want to iterate or '_loop_' over data a certain number of times.
 
-#### **`For loop`**
+**`For loop`**
 
 The `for` loop will keep running while the condition is true. If the code block is only 1 line, you can omit the curly braces.
 
