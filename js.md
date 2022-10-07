@@ -649,7 +649,7 @@ let goodLunch = paperBag; // sandwhich
 
 <br>
 
-With destructuring we no longer need to create a temporary variable.
+With destructuring we no longer need to create a temporary variable. This is a great trick to easily swap values.
 
 ```js
 let goodLunch = 'pizza';
@@ -658,6 +658,17 @@ let badLunch = 'sandwhich';
 [goodLunch, badLunch] = [badLunch, goodLunch];
 console.log(goodLunch); // Outputs sandwhich
 console.log(badLunch); // Outputs pizza
+```
+
+<br>
+
+Destructuring arrays that are nested in arrays is the same process, you just have to destructure the inner array as well.
+
+```js
+const friends = ['bob', 'henry', ['carla', 'sam']];
+const [bob, , [carla, sam]] = friends; // Skips henry and destrucures carla and sam
+
+console.log(bob, carla, sam); // Outsputs 'bob' 'carla' and 'sam'
 ```
 
 <br>
