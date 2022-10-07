@@ -585,6 +585,83 @@ Creating a **_deep_** copy is actually more complex and usually requires the use
 <br>
 <br>
 
+## **Destructuring**
+
+Destructuring is a JavaScript(ES6) expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.
+
+<br>
+
+Old way:
+
+```js
+const flavours = ['strawberry', 'banana', 'blueberry'];
+const strawberry = flavours[0];
+const banana = flavours[1];
+const blueberry = flavours[2];
+```
+
+With destructuring
+
+```js
+const flavours = ['strawberry', 'banana', 'blueberry'];
+const [strawberry, banana, blueberry] = flavours;
+```
+
+<br>
+
+Similarly, if you want to grab only specific elements in an Array, you can just skip the ones you don't want by leaving a blank space.
+
+```js
+const testResults = {
+    math: 'B',
+    science: 'A',
+    english: 'A',
+    history: 'C',
+    subjects: ['math', 'science', 'english', 'history']
+};
+
+// We skip the first element here and don't include the last one.
+const [, award1, award2] = testResults.subjects;
+// Outputs 'science' then 'English'
+console.log(award1, award2);
+
+// We skip english and science here.
+const [math, , , history] = testResults.subjects;
+// Outputs 'math' and 'history'
+console.log(math, history);
+```
+
+<br>
+<br>
+
+**Swapping values with destructuring**
+
+Without destructuring, if you wanted 2 variables to trade values, you would need to create a temporary variable.
+
+```js
+let goodLunch = 'pizza';
+let badLunch = 'sandwhich';
+let paperBag = badLunch; // Temporary variable
+
+let badLunch = goodLunch; // pizza
+let goodLunch = paperBag; // sandwhich
+```
+
+<br>
+
+With destructuring we no longer need to create a temporary variable.
+
+```js
+let goodLunch = 'pizza';
+let badLunch = 'sandwhich';
+
+[goodLunch, badLunch] = [badLunch, goodLunch];
+console.log(goodLunch); // Outputs sandwhich
+console.log(badLunch); // Outputs pizza
+```
+
+<br>
+<br>
 ## **Fundamentals**
 
 <br>
