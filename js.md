@@ -634,7 +634,7 @@ console.log(math, history);
 <br>
 <br>
 
-**Swapping values with destructuring**
+**Swapping values with Destructuring**
 
 Without destructuring, if you wanted 2 variables to trade values, you would need to create a temporary variable.
 
@@ -661,8 +661,11 @@ console.log(badLunch); // Outputs pizza
 ```
 
 <br>
+<br>
 
-Destructuring arrays that are nested in arrays is the same process, you just have to destructure the inner array as well.
+**Destructuring nested Arrays**
+
+Destructuring arrays that are nested in arrays is the same process, you just have to destructure the inner array as well. So yes, destructuring inside of destructuring.
 
 ```js
 const friends = ['bob', 'henry', ['carla', 'sam']];
@@ -673,6 +676,95 @@ console.log(bob, carla, sam); // Outsputs 'bob' 'carla' and 'sam'
 
 <br>
 <br>
+
+**Destructuring Objects**
+
+To destructure with objects, we no longer use the **square brackets**, instead we use the **curly braces**. And since objects don't have any order, we don't need to skip over elements, instead what's important is making sure we use the **property names** when destructuring.
+
+If we want to create unique variable names, then you must write the property name with a colon, and then the desired variable name.
+
+```js
+const hospital = {
+    name: 'General hospital',
+    staff: ['doctors', 'nurses', 'clerical'],
+    hours: {
+        mon: '24hrs',
+        tue: '24hrs',
+        wed: '24hrs',
+        thu: '24hrs',
+        fri: '24hrs',
+        sat: '24hrs',
+        sun: '24hrs'
+    }
+};
+
+// changing hours to availability
+const { name, hours: availability, staff } = hospital;
+console.log(name, availability, staff);
+
+/*
+"General hospital"
+{
+  fri: "24hrs",
+  mon: "24hrs",
+  sat: "24hrs",
+  sun: "24hrs",
+  thu: "24hrs",
+  tue: "24hrs",
+  wed: "24hrs"
+}
+["doctors", "nurses", "clerical"]
+*/
+```
+
+<br>
+
+You can also provide default values in case the object doesn't have the property you're trying to access.
+
+```js
+const hospital = {
+    staff: ['doctors', 'nurses', 'clerical'],
+    hours: {
+        mon: '24hrs',
+        tue: '24hrs',
+        wed: '24hrs',
+        thu: '24hrs',
+        fri: '24hrs',
+        sat: '24hrs',
+        sun: '24hrs'
+    }
+};
+
+const {
+    // name does not exist so the default value will be used.
+    name = 'Unknown hospital',
+
+    // we create a variable called availability which holds the value of the hours property, and if there were no hours property, it would have a default value of the object {everyday: '24hrs'}
+    hours: availability = { everyday: '24hrs' },
+
+    // We grab the staff property as usual, no changes.
+    staff
+} = hospital;
+console.log(name, availability, staff);
+
+/*
+"Unknown hospital"
+{
+  fri: "24hrs",
+  mon: "24hrs",
+  sat: "24hrs",
+  sun: "24hrs",
+  thu: "24hrs",
+  tue: "24hrs",
+  wed: "24hrs"
+}
+["doctors", "nurses", "clerical"]
+*/
+```
+
+<br>
+<br>
+
 ## **Fundamentals**
 
 <br>
