@@ -34,56 +34,22 @@ The material I've found is a mixture of:
 
 ---
 
-## **Notes to be sorted later**
-
-Comment out code with `//` for a single line comment, or a multi-line code with `/**/`, like `CSS`
-
-<br>
-<br>
-
-Use `typeof` to deterine a data type's value.
-
-<br>
-<br>
-
-Creating an undefined variable:
-
-```js
-let variableName;
-```
-
-<br>
-<br>
-
-If you `typeof null` the console will tell you it's an `object`, but this is a bug in JavaScript that's not corrected for legacy reasons.
-
-If you use `typeof NaN` the console outputs 'Number', so "_Not a number_" is technically a number.
-
-<br>
-<br>
-
-**`var` vs `const` vs `let`**
-
-`var` is the old way of declaring variables and it has a function scope. Variables declared with var in the global scope will add properties to the window(_global_) object as well, in general we should never use var anymore because it could lead to accidents. Var is als hoisted but if you call it before it's declared the value will be `undefined`.
+## **Quick tips**
 
 <br>
 
-`const` is a modern(ES6) way to declare a variable with a block scope and no hoisting. You cannot reassign a `const` variable but you can update it if it's an array or an object for example _([read more](#reference-types))_. A `const` variable cannot be empty, it needs to be initialized with a value. Always decalre variables with `const` unless you know the variable will change, this can reduce the risk of potential bugs.
+-Comment out code with `//` for a single line comment, or a multi-line code with `/**/`.
 
-<br>
-
-`let` is a modern(ES6) way to declare a variable with a block scope. `let` creates a variable that **can** be reassigned and is not hoisted. Only use `let` if you plan on reassigning your variable, otherwise use `const`.
-
-<br>
-
-Extra: You could also technically write `phoneType = 'iPhone'` without the use of a `keyword` such as `let` or `const` and it would seem like it still worked, but this would create a property on the `global object` and not a variable in your local scope.
+-Use `typeof` to deterine a data type's value.
 
 <br>
 <br>
 
 ## **Dom Manipulation**
 
-**How to select a class and ID**
+<br>
+
+Selecting a class or ID.
 
 ```js
 document.querySelector('.className'); // Only matches first occurence, not all elements with the class.
@@ -93,26 +59,27 @@ document.querySelectorAll('.className'); // Matches all occurences.
 document.querySelector('#IDName');
 ```
 
-**How to listen for events and add event handlers, starting with clicks.**
+<br>
+
+Listening for events and adding event handlers
 
 ```js
-// Syntax: document.querySelector('.className').addEventListener('which event to listen to', function (event object) {});
+// Syntax: document.querySelector('.className').addEventListener('event', function (event object) {});
 
-// A use case example, the event argument is useless here though.
+// The event argument is useless here though.
 document.querySelector('.modal').addEventListener('click', function (event) {
     openModal();
 });
 
 // So we could refactor it like this:
 
-document.querySelector('.modal').addEventListener('click', openModal); // A use case example, the 'openModal' is a pointer at a function that would open the modal window.
+// The 'openModal' is a pointer at a function that would open the modal window.
+document.querySelector('.modal').addEventListener('click', openModal);
 ```
 
 <br>
 
-**But what about keystrokes?**
-
-You can listen for the `keypress`, `keydown` or `keyup` event, which are all similar with small changes. One notable difference is that they `keyup` event will only occur **after** you release the key, the other 2 will occur immediately when you press the key, and will continue to trigger as you hold down on the key.
+You can listen for keystrokes with the `keypress`, `keydown` or `keyup` event, which are all similar with small changes. One notable difference is that they `keyup` event will only occur **after** you release the key, the other 2 will occur immediately when you press the key, and will continue to trigger as you hold down on the key.
 
 ```js
 document
@@ -130,10 +97,17 @@ Here's a bigger and more complete example of opening and closing a modal window 
 ```js
 'use strict'; // Enable strict mode, this is recommended to avoid silent errors.
 
-const modal = document.querySelector('.modal'); // modal window that will appear and disappear on click.
-const overlay = document.querySelector('.overlay'); // Makes the rest of the screen darker to focus on the modal(pop-up) window.
-const btnOpenModal = document.querySelectorAll('.open-modal'); // Buttons that will open the modal when clicked.
-const btnCloseModal = document.querySelector('.close-modal'); // Button that will close the modal when clicked.
+// modal window that will appear and disappear on click.
+const modal = document.querySelector('.modal');
+
+// Makes the rest of the screen darker to focus on the modal(pop-up) window.
+const overlay = document.querySelector('.overlay');
+
+// Buttons that will open the modal when clicked.
+const btnOpenModal = document.querySelectorAll('.open-modal');
+
+// Button that will close the modal when clicked.
+const btnCloseModal = document.querySelector('.close-modal');
 
 // Function to close the modal window
 const closeModal = () => {
@@ -172,377 +146,16 @@ document.addEventListener('keyup', event => {
 <br>
 <br>
 
-## **Theory, understanding JS**
-
-what happens under the hood... this section will be 100% theory lessons on how JavaScript works.
-
-<br>
-<br>
-
-<h2 id="js-engine">JavaScript engine</h2>
-
-<br>
-
-A JavaScript engine is what allows JS code to run in or outside of the browser. Every browser has their own JS engine, but the most popular is the V8 engine used in Chrome and Node.js.
-
-<br>
-<br>
-
-**`Compilation VS Interpretation`**
-
-Computers only understand 0s and 1s, what we write is "human" code that must then be translated for the cpu to understand. This can be done with either `compilation` or `interpretation`.
-
-<br>
-<br>
-
-**Compilation:**
-
-he entire code is converted into machinde code and written to a binary file that a computer can understand and execute. But technically, you can compile that code and execute it at a later date, that's where `interpretation` differs.
-
-<br>
-<br>
-
-**Interpretation:**
-
-There's an interpreter that runs through the source code and executes it line by line. It still gets converted to machine code, but it only happens right before it's executed and not earlier.
-
-<br>
-
-JavaScript used to be an interpreted language, but the problem is that interpreted languages are much slower than compiled languages. With modern JS, low performance is no longer acceptable, so it uses a mix of compilation and interpretation.
-
-<br>
-<br>
-
-**Just-in-time(JIT) compilation:**
-
-The entire code is convereted into machine code and then executed right away, as opposed to line by line or compiling all the code in a binary file and executing it later. This is a mixture of interpretation and compilation, but there's no portable binary file to execute later.
-
-<br>
-<br>
-
-**Back to the JavaScript engine**
-
-So how does the JS engine read our code? There are a few steps the engine takes to translate and read/execute our code.
-
-<br>
-
-1. Parsing
-2. Compilation
-3. Execution
-4. Optimization
-
-<br>
-<br>
-
-**Parsing**
-
-Reads the code and translates it into the `Abstract Syntax Tree(AST)` data structure. Splits up each line of code into pieces and saving them in tree in a structured way. This also checks for error. This has nothing to do with the `DOM` tree, It's simply a representation of the code we write, inside of the engine.
-
-Eample: ![image of AST syntax](img/js/jit-and-ast.png)
-
-<br>
-<br>
-
-**Compilation**
-
-Takes the generated `AST` and compiles it into machine code(011101010011), then executes that code immediately because of `JIT compilation`.
-
-<br>
-<br>
-
-**Execution**
-
-Runs the code in the `call stack` immiediately after compilation.
-
-<br>
-<br>
-
-**Optimization**
-
-Modern JS engines will execute a _first draft_ version of your code which isn't really optimized. But then, behind the scenes it's optimizing your code and then swapping the executed code with the optimized verstion of that code. It can do this a few times without ever interrupting your executed code.
-
-This allows the code to load faster and run smoothly afterwards, and it happens in a completely separate place than the main thread in the call stack executing our code.
-
-<br>
-<br>
-
-## **JS Runtime in the browser**
-
-A runtime is like a box that contains all the JS related stuff we need. At the heart of a runtime is a JS engine, but there's more than just that.
-
-<br>
-
-1. `JS engine`
-2. `Web APIs`
-3. `Callback Queue`
-4. `Event loop`
-
-<br>
-<br>
-
-**JS engine**
-
-the Js engine consists of several parts, but it can be simplified to 2 core functions: the `memory heap` and the `call stack`. The memory heap stores our data(variables, objects, etc) and the call stack determines which code should be run in what order.
-
-<br>
-
-**The Execution Context**
-
-Before talking about the execution context, we need to understand what `top-level` code is. Top-level code is code that's **outside** of any function. Top-level code will be executed before any code **inside** of functions.
-
-<br>
-
-So why is that important? Well, JavaScript code **always** runs inside an execution context, an execution context is like a box or a room which holds a piece of code and the necessary information to execute it, such as arguments or local variables passed in a function. No matter how large your file, there's only ever 1 **global** execution context which executes your top-level code.
-
-<br>
-
-> "Imagine you order a pizza... Usually that pizza comes in a box, and it might also come with some other stuff like cuttlery or a receipt... So in this analogy, the pizza is the JS code to be executed and the box is the execution context for our pizza..."
->
-> -Jonas Schmedtmann
-
-<br>
-
-Each execution context has a variable environment(holds let, const and var declarations, functions and an arguments object), a scope chain and a `this` keyword. There is an exception however, arrow functions don't have the `this` keyword nor an `arguments object`.
-<mark>Finish this...</mark>
-
-<br>
-<br>
-
-**The Call Stack**
-
-Once the code is compiled, top-level code will start executing. First a `global execution context` will be created to run all the top-level code, which is code outside of any functions. After that, for every function call, a new execution context will be created containing all the necessary info to execute that function. The same goes for methods(functions attached to objects).
-
-<br>
-
-Now when all of the code has been executed, the engine will wait for callback functions such as a `click` event. This is possible thanks to the event loop which will provide these callback functions.
-
-<mark>Finish this...</mark>
-![Example of how the call stack works](img/js/call_stack.png)
-
-<br>
-
-**Web APIs**
-
-<mark>Finish this...</mark>
-
-<br>
-
-**Callback Queue**
-
-<mark>Finish this...</mark>
-
-<br>
-
-**Event Loop**
-
-The event loop takes callback functions from the callback queue and puts them in the call stack so they can be executed.
-<mark>Finish this...</mark>
-
-<br>
-
-**JS Runtime in Node.js**
-
-The runtime in Node is similar to the browser runtime but since it's not in the browser it does not have web API, since those are provided by the browser. Instead, there are C++ bindings and a thread pool.
-
-<br>
-<br>
-
-## **Scopes**
-
-Scopes determine where variables can be accessed from depending on where they were declared, and in JavaScript we use `lexical scoping`. That means the scope is determined by where you place functions and code blocks. In JavaScript we have the `global`, `function` and `block` scope.
-
-<br>
-
-All scopes can access variables of their parent scope as well. If you have a variable declared with a global scope, then a function(_`A`_), then another function inside that function(_`B`_), that last nested function(_`B`_) will still have access to variables in the global scope **through** its parent function(_`A`_). This is what we call the `scope-chain`.
-
-<br>
-<br>
-
-`Global scope`
-
-Variables declared in the global scope are accessible from anywhere in the file.
-
-```js
-const name = 'Denzel';
-
-console.log(name); // Outputs: 'Denzel'
-```
-
-<br>
-
-`Function scope`
-
-Variables declared in a function scope(also called local scope) are only available in that function. In `strict mode`, functions are also block scoped.
-
-```js
-const dogSpeak = () => {
-    const dog = {
-        speak: 'bark'
-    };
-};
-
-console.log(dog.speak); // ReferenceError
-```
-
-<br>
-
-`Block scope(ES6)`
-
-Variables declared in a block scope are only available in that block. That is, code between curly braces, but only variables declared with `let` or `const`. If you use `var` to declare your variable, that variable will be accessible outside of the block. So we say `let` and `const` are `block scoped` while `var` is `function scoped`
-
-```js
-if (10 - 5 > 10) {
-    const calculator = 'broken';
-    var protractor = true;
-}
-
-console.log(calculator); // ReferenceError
-console.log(protractor); // Outputs: true
-```
-
-![Summary on scoping rules](img/js/scoping.png)
-
-<br>
-<br>
-
-## **Hoisting and TDZ**
-
-Hoisting makes certain variables and functions available to use before they are declared, as long as they're in the same scope. The temporal dead zone (`TDZ`) is the space between the start of a scope and the beginning of the variable declaration where a variable **cannot** be accessed, because it was not declared yet. So if a variable is hoisted, it does not have a `TDZ`, since it's available even in the "_temporal dead zone_".
-
-<br>
-
-![Slide of Hoisting in JS](img/js/hoisting.png)
-![Slide of TDZ in JS](img/js/tdz.png)
-
-So but function **declarations** and variables defined with `var` are hoisted, but function **expressions**, arrow functions and variables defined with `const` or `let` are not. If you attempt to use a variable defined with `var` before it's defined though, it's value will be `undefined`. If you try to use a function declaration before it's defined, it will still work.
-
-<br>
-
-That being said, it's best to avoid writing code like that. Avoid `var` at all costs and use `const` always unless the variable will change, in which case use `let`. No matter how you define a function, do it before you call it for cleaner code, and declare your variables at the top of their scope.
-
-<br>
-<br>
-
-## **The `this` keyword**
-
-![Slide for JavaScript 'this' keyword](img/js/the_this_keyword.png)
-
-<br>
-
-Here are some examples:
-
-```js
-'use strict';
-
-// Declared in the global scope, points at the "window" object.
-console.log(this);
-
-const nameLogger = function (name) {
-    console.log(name);
-    console.log(this);
-};
-// Undefined, it has a "this" keyword, but nothing to point to.
-nameLogger('Denzel');
-
-const nameLoggerArrow = name => {
-    console.log(name);
-    console.log(this);
-};
-// Arrow functions don't get "this" keyword, so it uses its parent scope "this" keyword, resulting in the "window" object.
-nameLoggerArrow('Denzel');
-
-const denzel = {
-    fName: 'Denzel',
-    lName: 'Braithwaite',
-    nameLogger: function () {
-        console.log(this.fName + ' ' + this.lName);
-    }
-};
-// Points to the object in which it was called, its "owner".
-denzel.nameLogger();
-```
-
-<br>
-<br>
-
-## **Primitive vs Reference types**
-
-Everything in JS is either a [primitive data type](#primitive-types) or an object. When talking about memory, we refer to primitives as `primitive types` and objects as `reference types`. This is because they're stored differently in memory in the [JavaScript engine](#js-engine). <mark>Primitive types are store in the call stack and reference types are stored in the memory heap.</mark>
-
-<br>
-
-**Primitive types**
-
-When you declare a variable, it seems as if the variable name is tied to the value, but that's not entirely true.
-
-```js
-// Name is the identifier and 'Denzel' is the value.
-const name = 'Denzel';
-```
-
-Instead, the identifier points to an address and that address is what stores the value. So if we save a variable called age with a value of **30**, that variable points to the address **0001** for example, and **0001** holds the value of **30**.
-
-<br>
-
-If we declare a new variable and assign it the value of the first variable, then <mark>they're both pointing to the same address in memory</mark>, but if we change our initial variable then a new address must be created.
-
-```js
-let age = 30; // memory address 0001
-const oldAge = age; // memory address 0001
-age = 31; // memory address 0002
-```
-
-Both variables are pointing to the address **0001** which holds the value **30**, but when our first variable **age** gets a new value, it needs to get a new address. Instead of changing the value of address **0001**(_which would reassign **all identifiers** values as well_) it instead creates a new address with a new value.
-
-![How primitive types are stored in memory](img/js/memory-primitive.png)
-
-<br>
-<br>
-
-<span id="reference-types">**Reference types**</span>
-
-Reference types are similar but have a few key differences. If we create an object called **me**, the identifier is **me**, the address could be **0003** in this example, but the value in the **call stack** will actually be another address in memory, and that value will point to an address in the **memory heap** which holds the value of the **me** object; that's why we say they're _reference types_.
-
-```js
-const me = {
-    name: 'Denzel',
-    age: 26
-};
-```
-
-So now if we create a new object called **friend** and assign it the value of the **me** object, then both will be pointing to the same address in the call stack memory, which points to the address in the memory heap, which of course holds the object. So what happens when we update a property on the **friend** object?
-
-```js
-const me = {
-    name: 'Denzel',
-    age: 26
-};
-
-const friend = me;
-friend.age = 27; // Updates both objects
-```
-
-As far as the **call stack** is concerned, nothing really changed, they both point to the same address which points to the same value. In the memory heap, the address still does not change, only the value does.
-
-![Reference type stored in the memory heap](img/js/primitive_vs_reference.png)
-
-<br>
-
-This is why we can _update_ the object even though it was defined with `const`. The address never changes, only the value. However, the same would not be true for primitive values, which is why we can't reassign them if they're declared with `const`.
-
-So whenever you think you're **copying** an object, you're really just <mark>creating a new variable that points to the **same** value in memory.</mark>
-
-<br>
-<br>
-
 ## **Copying an object**
 
-As mentioned above, simply creating a new object and assigning it the value of another object, will note **copy** that object, instead it will create 2 variables that point to the same object in memory. Here's how you can create a real copy of an object.
+Simply creating a new object and assigning it the value of another object, will not **copy** that object, instead it will create 2 variables that <mark>point to the same object</mark> in memory. Here's how you can create a real copy of an object using `Object.assign`.
 
 <br>
 <br>
 
-#### **Using `Object.assign`**
+### **Using Object.assign**
+
+<br>
 
 The `Object.assign` function merges 2 objects and then returns a new one. So if we merge an empty object with the desired object, this will create an entirely new object.
 
@@ -557,6 +170,9 @@ ditto.type = 'normal';
 console.log(charizard.type); // Outputs "fire"
 console.log(ditto.type); // Outputs "normal"
 ```
+
+<br>
+<br>
 
 But this only creates a **_shallow_** copy, meaning if that object had another object nested inside, it would only copy the top level object, meaning the nested object would be lost.
 
@@ -578,9 +194,10 @@ console.log(charizard.moves);
 console.log(ditto.moves);
 ```
 
-As you can see above, Charizard was indeed copied, but the moves array(_object_) inside was not copied, it still points to the same object in memory. So although Ditto and Charizard are unique, their **moves** are the same. This is what we mean by a _shallow_ copy.
+<br>
+<br>
 
-Creating a **_deep_** copy is actually more complex and usually requires the use of a 3rd party library.
+As you can see above, Charizard was indeed copied, but the moves array(_object_) inside was not copied, it still points to the same object in memory. So although Ditto and Charizard are unique, their **moves** are the same. This is what we mean by a _shallow_ copy. Creating a **_deep_** copy is actually more complex and usually requires the use of a 3rd party library.
 
 <br>
 <br>
@@ -591,7 +208,7 @@ Destructuring is a JavaScript(ES6) expression that makes it possible to unpack v
 
 <br>
 
-Old way:
+Old way
 
 ```js
 const flavours = ['strawberry', 'banana', 'blueberry'];
@@ -599,6 +216,8 @@ const strawberry = flavours[0];
 const banana = flavours[1];
 const blueberry = flavours[2];
 ```
+
+<br>
 
 With destructuring
 
@@ -634,7 +253,7 @@ console.log(math, history);
 <br>
 <br>
 
-**Swapping values with Destructuring**
+### **Swapping values with Destructuring**
 
 Without destructuring, if you wanted 2 variables to trade values, you would need to create a temporary variable.
 
@@ -663,7 +282,7 @@ console.log(badLunch); // Outputs pizza
 <br>
 <br>
 
-**Destructuring nested Arrays**
+### **Destructuring nested Arrays**
 
 Destructuring arrays that are nested in arrays is the same process, you just have to destructure the inner array as well. So yes, destructuring inside of destructuring.
 
@@ -677,9 +296,11 @@ console.log(bob, carla, sam); // Outsputs 'bob' 'carla' and 'sam'
 <br>
 <br>
 
-**Destructuring Objects**
+### **Destructuring Objects**
 
 To destructure with objects, we no longer use the **square brackets**, instead we use the **curly braces**. And since objects don't have any order, we don't need to skip over elements, instead what's important is making sure we use the **property names** when destructuring.
+
+<br>
 
 If we want to create unique variable names, then you must write the property name with a colon, and then the desired variable name.
 
@@ -765,6 +386,382 @@ console.log(name, availability, staff);
 <br>
 <br>
 
+## **Understanding JS** _(theory)_
+
+This section will hold notes on how JavaScript actually functions _under the hood_. There will be code examples and pictures to explain the concepts, but these aren't tips or syntax guides for writing code, this is to better understand the code we write and execute daily.
+
+<br>
+<br>
+
+### **The JavaScript Engine**
+
+A JavaScript engine is what allows JS code to run in or outside of the browser. Every browser has their own JS engine, but the most popular is the V8 engine used in Chrome and Node.js.
+
+<br>
+<br>
+
+### **Compilation VS Interpretation**
+
+Computers only understand 0s and 1s, what we write is "human" code that must then be translated for the cpu to understand. This can be done with either `compilation` or `interpretation`.
+
+<br>
+<br>
+
+### **Compilation**
+
+The entire code is converted into machinde code and written to a binary file that a computer can understand and execute. But technically, you can compile that code and execute it at a later date, that's where `interpretation` differs.
+
+<br>
+<br>
+
+### **Interpretation**
+
+There's an interpreter that runs through the source code and executes it line by line. It still gets converted to machine code, but it only happens right before it's executed and not earlier. JavaScript used to be an interpreted language, but the problem is that interpreted languages are much slower than compiled languages. With modern JS, low performance is no longer acceptable, so it uses a mix of compilation and interpretation.
+
+<br>
+<br>
+
+### **Just-in-time** _(JIT)_ **compilation**
+
+The entire code is convereted into machine code and then executed right away, as opposed to line by line or compiling all the code in a binary file and executing it later. This is a mixture of interpretation and compilation, but there's no portable binary file to execute later.
+
+<br>
+<br>
+
+### **JavaScript engine** _(cont.)_
+
+So how does the JS engine read our code? There are a few steps the engine takes to translate and read/execute our code.
+
+1. Parsing
+2. Compilation
+3. Execution
+4. Optimization
+
+<br>
+<br>
+
+### **Parsing**
+
+First it reads the code and translates _(or **parses**)_ it into the `Abstract Syntax Tree`_`(AST)`_ data structure. This splits up each line of code into pieces and saves them in a structured tree, but it has nothing to do with the `DOM` tree, it's simply a representation of the code we write inside inside of the engine. It also checks for errors during the process.
+
+<br>
+
+![image of AST syntax](img/js/jit-and-ast.png)
+
+<br>
+
+### **Compilation**
+
+During compilation the engine compiles the generated `AST` code into machine code(_011101010011_), then executes that code immediately because of [JIT compilation](#just-in-time-jit-compilation).
+
+<br>
+<br>
+
+### **Execution**
+
+Execution is when the code is finally run(_or **executed**_) in the `call stack` immediately after compilation.
+
+<br>
+<br>
+
+### **Optimization**
+
+Modern JS engines will execute a _first draft_ version of your code which isn't really optimized. But behind the scenes, it's optimizing your code and then swapping the executed code with the optimized version of that code. It can do this a few times without ever interrupting your executed code. This allows the code to load faster and run smoothly afterwards, and it happens in a completely separate place than the main thread in the call stack executing our code.
+
+<br>
+<br>
+
+## **JS Runtime in the browser**
+
+A runtime is like a box that contains all the JS related stuff we need. At the heart of a runtime is a JS engine, but there's more than just that.
+
+<br>
+
+1. `JS engine`
+2. `Web APIs`
+3. `Callback Queue`
+4. `Event loop`
+
+<br>
+<br>
+
+### **JS engine**
+
+the Js engine consists of several parts, but it can be simplified to 2 core functions: the `memory heap` and the `call stack`. The memory heap stores our data(variables, objects, etc) and the call stack determines the order in which code should be executed.
+
+<br>
+<br>
+
+### **The Execution Context**
+
+Before talking about the execution context, we need to understand what `top-level` code is. Top-level code is code that's **outside** of any function. Top-level code will be executed before any code **inside** of functions.
+
+<br>
+
+JavaScript code **always** runs inside an execution context. An execution context is like a box or a room which holds a piece of code and the necessary information to execute it, such as arguments or local variables passed in a function. But no matter how large your file, there's only ever 1 **global** execution context which executes your top-level code.
+
+<br>
+
+> "Imagine you order a pizza... Usually that pizza comes in a box, and it might also come with some other stuff like cuttlery or a receipt... So in this analogy, the pizza is the JS code to be executed and the box is the execution context for our pizza..."
+>
+> -Jonas Schmedtmann
+
+<br>
+
+Each execution context has a variable environment (_which holds [const, let and var](#const-vs-let-vs-var) declarations, [functions](#functions) and an arguments object_), a [scope chain](#scopes) and a [this keyword](#the-this-keyword). There is an exception however, [arrow functions](#arrow-function-and-this) don't have the `this` keyword nor an `arguments object`.
+
+<br>
+<br>
+
+### **The Call Stack**
+
+Once the code is compiled, top-level code will start executing. First a `global execution context` will be created to run all the top-level code, which is code outside of any functions. After that, for every function call, a new execution context will be created containing all the necessary info to execute that function. The same goes for [methods](#adding-a-function-to-an-object)(_functions attached to objects_).
+
+<br>
+
+When all of the code has been executed, the engine will wait for callback functions such as a `click` event. This is possible thanks to the event loop which will provide these callback functions.
+
+<mark>Finish this...</mark>
+![Example of how the call stack works](img/js/call_stack.png)
+
+<br>
+<br>
+
+**Web APIs**
+
+<mark>Finish this...</mark>
+
+<br>
+<br>
+
+**Callback Queue**
+
+<mark>Finish this...</mark>
+
+<br>
+<br>
+
+**Event Loop**
+
+The event loop takes callback functions from the callback queue and puts them in the call stack so they can be executed.
+<mark>Finish this...</mark>
+
+<br>
+<br>
+
+**JS Runtime in Node.js**
+
+The runtime in Node is similar to the browser runtime but since it's not in the browser it does not have web API, since those are provided by the browser. Instead, there are C++ bindings and a thread pool.
+
+<br>
+<br>
+
+## **Scopes**
+
+Scopes determine where variables can be accessed from, depending on where they were declared. In JavaScript we use `lexical scoping`. That means the scope is determined by where you place functions and code blocks. In JavaScript we have the `global`, `function` and `block` scope.
+
+<br>
+
+All scopes can access variables of their parent scope. If you have a variable declared with a global scope, then a function(_`A`_), then another function inside that function(_`B`_), that last nested function(_`B`_) will still have access to variables in the global scope **through** its parent function(_`A`_). This is what we call the `scope-chain`.
+
+<br>
+<br>
+
+`Global scope`
+
+Variables declared in the global scope are accessible from anywhere in the file.
+
+```js
+const name = 'Denzel';
+
+console.log(name); // Outputs: 'Denzel'
+```
+
+<br>
+<br>
+
+`Function scope`
+
+Variables declared in a function scope(also called local scope) are only available in that function. In `strict mode`, functions are also block scoped.
+
+```js
+const dogSpeak = () => {
+    const dog = {
+        speak: 'bark'
+    };
+};
+
+console.log(dog.speak); // ReferenceError
+```
+
+<br>
+<br>
+
+`Block scope(ES6)`
+
+Variables declared in a block scope are only available in that block. That is, code between curly braces, but only variables declared with `let` or `const`. If you use `var` to declare your variable, that variable will be accessible outside of the block. So we say `let` and `const` are `block scoped` while `var` is `function scoped`
+
+<br>
+
+```js
+if (10 - 5 > 10) {
+    const calculator = 'broken';
+    var protractor = true;
+}
+
+console.log(calculator); // ReferenceError
+console.log(protractor); // Outputs: true
+```
+
+<br>
+
+![Summary on scoping rules](img/js/scoping.png)
+
+<br>
+<br>
+
+## **Hoisting and TDZ**
+
+Hoisting makes certain variables and functions available to use before they are declared, as long as they're in the same scope. The temporal dead zone (`TDZ`) is the space between the start of a scope and the beginning of the variable declaration where a variable **cannot** be accessed, because it was not declared yet. So if a variable is hoisted, it does not have a `TDZ`, since it's available even in the "_temporal dead zone_".
+
+<br>
+
+![Slide of Hoisting in JS](img/js/hoisting.png)
+
+<br>
+
+![Slide of TDZ in JS](img/js/tdz.png)
+
+So function **declarations** and variables defined with `var` are hoisted, but function **expressions**, arrow functions and variables defined with `const` or `let` are not. If you attempt to use a variable defined with `var` before it's defined though, it's value will be `undefined`. If you try to use a function declaration before it's defined, it will still work.
+
+<br>
+
+That being said, it's best to avoid writing code like that. Avoid `var` at all costs and use `const` always unless the variable will change, in which case use `let`. No matter how you define a function, do it before you call it for cleaner code, and declare your variables at the top of their scope.
+
+<br>
+<br>
+
+## **The `this` keyword**
+
+![Slide for JavaScript 'this' keyword](img/js/the_this_keyword.png)
+
+<br>
+
+Here are some examples:
+
+```js
+'use strict';
+
+// Declared in the global scope, points at the "window" object.
+console.log(this);
+
+const nameLogger = function (name) {
+    console.log(name);
+    console.log(this);
+};
+// Undefined, it has a "this" keyword, but nothing to point to.
+nameLogger('Denzel');
+
+const nameLoggerArrow = name => {
+    console.log(name);
+    console.log(this);
+};
+// Arrow functions don't get "this" keyword, so it uses its parent scope "this" keyword, resulting in the "window" object.
+nameLoggerArrow('Denzel');
+
+const denzel = {
+    fName: 'Denzel',
+    lName: 'Braithwaite',
+    nameLogger: function () {
+        console.log(this.fName + ' ' + this.lName);
+    }
+};
+// Points to the object in which it was called, its "owner".
+denzel.nameLogger();
+```
+
+<br>
+<br>
+
+## **Primitive vs Reference types**
+
+Everything in JS is either a [primitive data type](#values--variables) or an object. When talking about memory, we refer to primitives as `primitive types` and objects as `reference types`. This is because they're stored differently in memory in the [JavaScript engine](#the-javascript-engine).
+
+<mark>Primitive types are stored in the call stack and reference types are stored in the memory heap.</mark>
+
+<br>
+<br>
+
+### **Primitive types**
+
+<br>
+
+When you declare a variable, it seems as if the variable name is tied to the value, but that's not entirely true. Instead, the identifier points to an address and that address is what stores the value. So if we save a variable called age with a value of **30**, that variable points to the address **0001** for example, and **0001** holds the value of **30**.
+
+```js
+// Name is the identifier and 'Denzel' is the value.
+const name = 'Denzel';
+```
+
+<br>
+
+If we declare a new variable and assign it the value of the first variable, then they're both pointing to the **same address in memory**, but if we change our initial variable then a new address must be created.
+
+```js
+let age = 30; // memory address 0001
+const oldAge = age; // memory address 0001
+age = 31; // memory address 0002
+```
+
+<br>
+
+Both variables are pointing to the address **0001** which holds the value **30**, but when our first variable **age** gets a new value, it needs to get a new address. Instead of changing the value of address **0001**(_which would reassign **all identifiers** values as well_) it instead creates a new address with a new value.
+
+![How primitive types are stored in memory](img/js/memory-primitive.png)
+
+<br>
+<br>
+
+### **Reference types**
+
+<br>
+
+Reference types are similar but have a few key differences. If we create an object called **me**, the identifier is **me**, the address could be **0003** in this example, but the value in the **call stack** will actually be another address in memory, and that value will point to an address in the **memory heap** which holds the value of the **me** object; that's why we say they're _reference types_.
+
+```js
+const me = {
+    name: 'Denzel',
+    age: 26
+};
+```
+
+<br>
+
+So now if we create a new object called **friend** and assign it the value of the **me** object, then both will be pointing to the same address in the call stack memory, which points to the address in the memory heap, which of course holds the object. So what happens when we update a property on the **friend** object?
+
+```js
+const me = {
+    name: 'Denzel',
+    age: 26
+};
+
+const friend = me;
+friend.age = 27; // Updates both objects
+```
+
+<br>
+
+As far as the **call stack** is concerned, nothing really changed, they both point to the same address which points to the same value. In the memory heap, the address still does not change, only the value does.
+
+![Reference type stored in the memory heap](img/js/primitive_vs_reference.png)
+
+<br>
+
+This is why we can _update_ the object even though it was defined with `const`. The address never changes, only the value. However, the same would not be true for primitive values, which is why we can't reassign them if they're declared with `const`. So whenever you think you're **copying** an object, you're really just creating a new variable that **points to the same value** in memory.
+
+<br>
+<br>
+
 ## **Fundamentals**
 
 <br>
@@ -776,7 +773,7 @@ console.log(name, availability, staff);
 <br>
 <br>
 
-**<span id="primitive-types">`Values & Variables`</span>**
+### **Values & Variables**
 
 In JavaScript, every value is either an object or a primitive value. A value is only primitive if it's not an object.
 
@@ -805,6 +802,25 @@ There are a few ways to link a...<mark>**finish this**</mark>
 ```js
 <script src="script.js"></script>
 ```
+
+<br>
+<br>
+
+### **`const` vs `let` vs `var`**
+
+`const` is a modern(ES6) way to declare a variable with a block scope and no hoisting. You cannot reassign a `const` variable but you can update it if it's an array or an object for example _([read more](#reference-types))_. A `const` variable cannot be empty, it needs to be initialized with a value. Always decalre variables with `const` unless you know the variable will change, this can reduce the risk of potential bugs.
+
+<br>
+
+`let` is a modern(ES6) way to declare a variable with a block scope. `let` creates a variable that **can** be reassigned and is not hoisted. Only use `let` if you plan on reassigning your variable, otherwise use `const`.
+
+<br>
+
+`var` is the old way of declaring variables and it has a function scope. Variables declared with var in the global scope will add properties to the window(_global_) object as well, in general we should never use var anymore because it could lead to accidents. Var is als hoisted but if you call it before it's declared the value will be `undefined`.
+
+<br>
+
+Extra: You could also technically write `phoneType = 'iPhone'` without the use of a `keyword` such as `let` or `const` and it would seem like it still worked, but this would create a property on the `global object` and not a variable in your local scope.
 
 <br>
 <br>
@@ -1022,7 +1038,7 @@ Strict mode will also forbid the use of certain variable names if those names ar
 <br>
 <br>
 
-**Functions**
+### **Functions**
 
 Leave notes on all ways to create a function, how to call a function, what higher functions are, the return keyword, etc.
 
@@ -1170,7 +1186,7 @@ burger['onions'] = false;
 <br>
 <br>
 
-**Adding a function to an object**
+### **Adding a function to an object**
 
 Any function that is attached to an object is called a `method`. You can create an object method by add a function expression as a value for an object's property. This works since a property expects a value, and an expression produces a value.
 
@@ -1198,7 +1214,7 @@ computer.addHardware(); // Adds ram property with a value of '16GB ram'.
 console.log(computer.ram); // Outputs the ram property.
 ```
 
-But you should never use an arrow function to create a method, that's because arrow functions don't have the `this` keyword, and will instead point to the parent. It's better to just use a function expression.
+But you should never use an <span id="arrow-function-and-this">arrow function</span> to create a method, that's because arrow functions don't have the `this` keyword, and will instead point to the parent. It's better to just use a function expression.
 
 ```js
 const laptop = {
@@ -1437,6 +1453,12 @@ Outputs:
 
 <br>
 <br>
+
+## **Fun facts**
+
+If you `typeof null` the console will tell you it's an `object`, but this is a bug in JavaScript that's not corrected for legacy reasons.
+
+If you use `typeof NaN` the console outputs 'Number', so "_Not a number_" is technically a number.
 
 ---
 
