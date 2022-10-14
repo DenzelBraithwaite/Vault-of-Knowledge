@@ -416,6 +416,33 @@ console.log(a, b) //Outputs 10, 20
 <br>
 <br>
 
+### Destructuring nested objects
+
+```js
+const house = {
+    windows: 4,
+    door: 1,
+    satellite: false,
+    rooms: {
+        bathrooms: 1,
+        bedrooms: 2,
+        kitchen: 1,
+        basement: 'In construction'
+    },
+    floors: 1
+};
+
+// fetching the value for house.rooms.kitchen and naming it 'chefRoom'
+const {
+    rooms: { basement: manCave }
+} = house;
+
+console.log(manCave); // Outputs 'In construction'
+```
+
+<br>
+<br>
+
 ## **Understanding JS** _(theory)_
 
 This section will hold notes on how JavaScript actually functions _under the hood_. There will be code examples and pictures to explain the concepts, but these aren't tips or syntax guides for writing code, this is to better understand the code we write and execute daily.
