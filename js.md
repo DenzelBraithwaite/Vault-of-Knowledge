@@ -268,7 +268,7 @@ let goodLunch = paperBag; // sandwhich
 
 <br>
 
-With destructuring we no longer need to create a temporary variable. This is a great trick to easily swap values.
+With destructuring we no longer need to create a temporary variable. This is a great trick to easily swap values. But keep in mind when [destructuring objects](#destructuring-objects), we need to wrap the expression in parentheses.
 
 ```js
 let goodLunch = 'pizza';
@@ -381,6 +381,36 @@ console.log(name, availability, staff);
 }
 ["doctors", "nurses", "clerical"]
 */
+```
+
+<br>
+<br>
+
+### **Updating Values with Object Desctructuring**
+
+Updating multiple values at once with object destructuring is possible and similar to array destructuring, the only difference is that if a line begins with curly braces, JavaScript expects a code block. So we need to wrap the expression in parentheses.
+
+```js
+let a = 0;
+let b = 1;
+
+const object = {
+    a: 10,
+    b: 20,
+    c: 30
+};
+
+// This won't work since a and b are already defined.
+let {a, b} = object
+
+// This won't work because JS expects a code block.
+// Uncaught SyntaxError: Unexpected token '='
+{a, b} = object
+
+// Valid syntax
+({a, b} = object)
+
+console.log(a, b) //Outputs 10, 20
 ```
 
 <br>
