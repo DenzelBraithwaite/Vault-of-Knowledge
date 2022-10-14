@@ -42,6 +42,8 @@ The material I've found is a mixture of:
 
 -Use `typeof` to deterine a data type's value.
 
+-Iterables are arrays, strings, maps, sets but **not** objects.
+
 <br>
 <br>
 
@@ -445,6 +447,8 @@ console.log(manCave); // Outputs 'In construction'
 
 ## **The Spread Operator**
 
+<br>
+
 The spread operator (`...`) is denoted by using 3 dots. It takes all values out of an array and **_spreads_** the individual values out where desired.
 
 ```js
@@ -456,6 +460,7 @@ const withSpread = [1, 2, 3, ...array];
 console.log(oldWay, withSpread);
 ```
 
+<br>
 <br>
 
 This also works with nested arrays.
@@ -473,7 +478,49 @@ const lifeSavers = [...hospital.doctors, 'Dr. Octopus'];
 console.log(lifeSavers);
 ```
 
+<br>
+<br>
+
 You might be thinking that the `spread` operator is similar to `destructuring`, since both help us get elements out of arrays. The difference is, the `spread` operator takes **all** elements out of an array, and it does not create new variables. Also, we can only use it in places where we would write values seperated by a comma.
+
+<br>
+
+So we can only use the `spread` operator when building an array or passing values into a function.
+
+```js
+const string = 'ABC123';
+const usingSpread = [...string];
+
+// Array, outputs ['A', 'B', 'C', '1', '2', '3', ]
+console.log(usingSpread);
+
+// Function, outputs 'A' 'B' 'C' '1' '2' '3'
+console.log(...string);
+```
+
+### **Using the Spread Operator with Objects(ES2018)**
+
+```js
+const supper = {
+    main: 'pasta',
+    side: 'salad',
+    appetizer: ['bread', 'butter'],
+    drink: 'wine',
+    getBill: function () {
+        console.log('Cheque please!');
+    }
+};
+
+supper.getBill();
+
+const sameAsShesHaving = {
+    ...supper,
+    drink: 'water'
+};
+
+console.log(sameAsShesHaving.drink);
+console.log(supper.drink);
+```
 
 <br>
 <br>
