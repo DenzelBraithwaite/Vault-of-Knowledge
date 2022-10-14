@@ -443,6 +443,41 @@ console.log(manCave); // Outputs 'In construction'
 <br>
 <br>
 
+## **The Spread Operator**
+
+The spread operator (`...`) is denoted by using 3 dots. It takes all values out of an array and **_spreads_** the individual values out where desired.
+
+```js
+const array = [4, 5, 6];
+const oldWay = [1, 2, 3, array[0], array[1], array[2]];
+const withSpread = [1, 2, 3, ...array];
+
+// Both output [1, 2, 3, 4, 5, 6]
+console.log(oldWay, withSpread);
+```
+
+<br>
+
+This also works with nested arrays.
+
+```js
+const hospital = {
+    patients: 286,
+    doctors: ['Dr. House', 'Dr. Apt.', 'Dr. Seuss', 'Dr. Pepper'],
+    ambulances: 4
+};
+
+const lifeSavers = [...hospital.doctors, 'Dr. Octopus'];
+
+// Outputs ['Dr. House', 'Dr. Apt.', 'Dr. Seuss', 'Dr. Pepper', 'Dr. Octopus']
+console.log(lifeSavers);
+```
+
+You might be thinking that the `spread` operator is similar to `destructuring`, since both help us get elements out of arrays. The difference is, the `spread` operator takes **all** elements out of an array, and it does not create new variables. Also, we can only use it in places where we would write values seperated by a comma.
+
+<br>
+<br>
+
 ## **Understanding JS** _(theory)_
 
 This section will hold notes on how JavaScript actually functions _under the hood_. There will be code examples and pictures to explain the concepts, but these aren't tips or syntax guides for writing code, this is to better understand the code we write and execute daily.
