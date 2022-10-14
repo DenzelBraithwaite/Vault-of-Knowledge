@@ -485,7 +485,7 @@ You might be thinking that the `spread` operator is similar to `destructuring`, 
 
 <br>
 
-So we can only use the `spread` operator when building an array or passing values into a function.
+So we can only use the `spread` operator when building an array or when passing multiple values into a function.
 
 ```js
 const string = 'ABC123';
@@ -497,6 +497,9 @@ console.log(usingSpread);
 // Function, outputs 'A' 'B' 'C' '1' '2' '3'
 console.log(...string);
 ```
+
+<br>
+<br>
 
 ### **Using the Spread Operator with Objects(ES2018)**
 
@@ -524,6 +527,10 @@ console.log(supper.drink);
 
 <br>
 <br>
+
+## **The Rest Pattern**
+
+The rest pattern has the same syntax as the `spread` operator (`...`) but it does the opposite of what the spread operator does.
 
 ## **Understanding JS** _(theory)_
 
