@@ -530,7 +530,41 @@ console.log(supper.drink);
 
 ## **The Rest Pattern**
 
-The rest pattern has the same syntax as the `spread` operator (`...`) but it does the opposite of what the spread operator does.
+The rest pattern has the same syntax as the `spread` operator (`...`) but it does the opposite of what the spread operator does. The rest pattern will take the remaining elements and put them in an array, as opposed to taking elements out of an array.
+
+<br>
+
+```js
+const [a, b, ...restOfArray] = [1, 2, 3, 4, 5];
+
+/*
+a = 1
+b = 2
+restOfArray = [3, 4, 5]
+*/
+```
+
+<br>
+<br>
+
+### **Rest parameters**
+
+You can also use the rest pattern in a function's parameters. This will allow the user to use as many arguments as desired when calling the function.
+
+<br>
+
+```js
+const repeatAfterMe = function (...strings) {
+    console.log(...strings);
+};
+const test = [3, true, { test: 'test' }]; // Random array
+
+// Outputs all arguments to the console.
+repeatAfterMe('test', 'test2', test, 5);
+```
+
+<br>
+<br>
 
 ## **Understanding JS** _(theory)_
 
@@ -1010,7 +1044,7 @@ if ('18' === 18) Console.log('Looks the same!');
 <br>
 <br>
 
-**The `&&(and), ||(or)` and `!`**
+## **The `&&(and), ||(or)` and `!`**
 
 ```js
 const hasVision = true;
@@ -1029,6 +1063,39 @@ console.log(hasVision || hasLegs);
 console.log(hasVision && hasHearing && !hasLegs);
 // Outputs: true
 ```
+
+<br>
+<br>
+
+### **Short Circuit Evaluation**
+
+Short circuiting is the use of logical operators in a different way than simply returning true or false. Short circuiting can technically return any value, and this is how it works.
+
+It will look at the first `operand`(_value on the side of the operator_) and if it's `true`, it will skip the rest and simply return that value.
+
+```js
+// Outputs 5, doesn't execute the rest
+console.log(5 || 'the meaning of life' || false);
+```
+
+<br>
+
+This is useful for writing less code when you want to check if a value exists. For instance, if this data exists, use it. If this data does not exist, do something else.
+
+```js
+let secretData = '1337TEEL';
+
+// Outputs '1337TEEL'
+console.log(secretData || 'You do not have access.');
+
+secretData = '';
+
+// Outputs 'You do not have access.'
+console.log(secretData || 'You do not have access.');
+```
+
+<br>
+<br>
 
 **String concatenation** <mark>**finish this**</mark>
 
