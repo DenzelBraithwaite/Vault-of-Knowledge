@@ -1071,11 +1071,14 @@ console.log(hasVision && hasHearing && !hasLegs);
 
 Short circuiting is the use of logical operators in a different way than simply returning true or false. Short circuiting can technically return any value, and this is how it works.
 
-It will look at the first `operand`(_value on the side of the operator_) and if it's `true`, it will skip the rest and simply return that value.
+It will look at the first `operand`(_value on the side of the operator_) and if it's `true`, it will skip the rest and simply return that value. But if both(_or all_) values are `false`, it will simply return the last `operand`.
 
 ```js
 // Outputs 5, doesn't execute the rest
 console.log(5 || 'the meaning of life' || false);
+
+// Outputs 'the meaning of spice', doesn't execute the rest
+console.log(0 || 'the meaning of spice' || false);
 ```
 
 <br>
@@ -1092,6 +1095,20 @@ secretData = '';
 
 // Outputs 'You do not have access.'
 console.log(secretData || 'You do not have access.');
+```
+
+<br>
+
+It's also useful for assigning values condtionally. It can sometimes be a better approach than using a ternary operator to assign a value.
+
+```js
+const tip = 4;
+
+// Using ternary operator
+const bonus = tip ? tip : 0; // bonus = 4
+
+// Using short circuit evaluation
+bonus = tip || 0; // bonus = 4
 ```
 
 <br>
