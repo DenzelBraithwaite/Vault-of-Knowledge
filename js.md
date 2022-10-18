@@ -1005,7 +1005,7 @@ Extra: You could also technically write `phoneType = 'iPhone'` without the use o
 <br>
 <br>
 
-**operators**
+## **operators**
 
 Arithmetic operators: `+ - * / **` also `+= -+ *= /= **= ++ --` and `> < >= <= ===`
 
@@ -1039,7 +1039,7 @@ if ('18' === 18) Console.log('Looks the same!');
 
 <br>
 
-[JS operator precedence, scroll down and reference table](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
+[JS operator precedence reference table](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#table)
 
 <br>
 <br>
@@ -1114,7 +1114,43 @@ bonus = tip || 0; // bonus = 4
 <br>
 <br>
 
-### **Short Circuit Evaluation with `&&`**
+### **The nullish coalescine operator `??`**
+
+Added in **ES2020**, the weirdly named `nullish coalescine` operator is almost identical to using the logical **OR**(`||`) operator for short circuiting. The main difference is that the `??` will treat `0` and empty strings(`' '`) as **truthy** values. It will only treat **_NULLish_** values as `false`.
+
+<br>
+
+```js
+let dailyTips;
+
+// dailyTips will equal 5
+dailyTips = 0 || 5;
+dailyTips = null || 5;
+dailyTips = undefined || 5;
+
+// dailyTips will equal 0
+dailyTips = 0 ?? 5;
+
+// dailyTips will equal 5
+dailyTips = null ?? 5;
+dailyTips = undefined ?? 5;
+```
+
+<br>
+<br>
+
+However it should be noted that it works a little different in terms of precedence. Here's a quote from **MDN Docs**:
+
+<br>
+
+> The operands of nullish coalescing ?? (precedence 3) cannot be a logical OR || (precedence 3) or logical AND && (precedence 4). That means you have to write `(a ?? b) || c` or `a ?? (b || c)`, instead of `a ?? b || c`.
+>
+> [Read more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#table)
+
+<br>
+<br>
+
+### **Short Circuiting with `&&`**
 
 Short circuiting with `&&` works the exact opposite way short circuiting with `||` works. The logic is the same, but instead it will begin to _short circuit_ at the first negative value, instead of the first. If all values are **truthy** then it will return the last `operand`.
 
@@ -1155,7 +1191,7 @@ hungry && orderPoutine();
 <br>
 <br>
 
-### **Short Circuit Evaluation with `||` and `&&`**
+### **Short Circuiting with `||` and `&&`**
 
 Although unlikely, there's aways a chance that one day you'll want to try using both the `||` and `&&` operators in one evaluation. When this is the case, if a value is between two different operators, the operator will evaluate the `operand` on the **left**.
 
