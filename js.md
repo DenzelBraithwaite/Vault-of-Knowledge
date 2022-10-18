@@ -1114,14 +1114,65 @@ bonus = tip || 0; // bonus = 4
 <br>
 <br>
 
-**String concatenation** <mark>**finish this**</mark>
+### **Short Circuit Evaluation with `&&`**
+
+Short circuiting with `&&` works the exact opposite way short circuiting with `||` works. The logic is the same, but instead it will begin to _short circuit_ at the first negative value, instead of the first. If all values are **truthy** then it will return the last `operand`.
+
+<br>
+
+```js
+// Outputs 'this' since it's the only truthy value.
+console.log(0 || '' || 'this');
+
+// Outputs 0 since it's the last truthy value.
+console.log('' || '' || 0);
+
+// Outputs true since it's the last value.
+console.log(7 && 'ye' && true);
+
+// Outputs false since it's the first falsy value
+console.log(7 && false && 0);
+```
+
+<br>
+<br>
+
+### **Short Circuit Evaluation with `||` and `&&`**
+
+Although unlikely, there's aways a chance that one day you'll want to try using both the `||` and `&&` operators in one evaluation. When this is the case, if a value is between two different operators, the operator will evaluate the `operand` on the **left**.
+
+<br>
+
+```js
+// The parentheses were added by my VS Code Prettier extension.
+// Outputs false
+console.log('' || (true && 1 && 0) || (false && 4));
+```
+
+-   In the example above we start with a **falsy** empty string `' '` which is on the left side of the `||` operator, so it does not get executed.
+
+-   Next we have **true** on the left side of the `&&`, so it does not get executed.
+
+-   Then we have a **truthy** `1` on the left side of the `&&`, so it does not get executed.
+
+-   Next up we have a **falsy** `0` on the left side of the `||`, so it does not get executed.
+
+-   Next we have `false` on the left side of the `&&` operator, **this will get executed.**
+
+-   Lastly, we have a 4, but this will not execute due to [_short circuiting_](#short-circuit-evaluation)
+
+<br>
+<br>
+
+## **String concatenation** <mark>**finish this**</mark>
 
 ```js
 const num = 5;
 console.log('Hey ' + "I'm" + num + ' years old.');
 ```
 
-**String template literals** <mark>**finish this**</mark>
+## **String template literals** <mark>**finish this**</mark>
+
 Use template literals to create multi-line strings. Template literals expect `expressions` not `statements`.
 
 ```js
