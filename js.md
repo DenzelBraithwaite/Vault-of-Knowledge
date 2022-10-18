@@ -1135,6 +1135,24 @@ console.log(7 && false && 0);
 ```
 
 <br>
+
+This can also be a very useful replacement for writing small `if` statements. Say you only want to exececute a command based on a condition, you could write something like this.
+
+```js
+let hungry = true;
+function orderPoutine() {
+    console.log('Your order is on the way!!');
+    hungry = false;
+}
+
+// With if statement
+if (hungry) orderPoutine();
+
+// with short circuiting
+hungry && orderPoutine();
+```
+
+<br>
 <br>
 
 ### **Short Circuit Evaluation with `||` and `&&`**
