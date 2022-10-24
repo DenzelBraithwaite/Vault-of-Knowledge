@@ -1621,7 +1621,7 @@ An alternative would be to create a variable called `self` or `that`(_name doesn
 
 Loops are useful when you want to iterate or '_loop_' over data a certain number of times.
 
-**`For loop`**
+### **`for` Loop**
 
 The `for` loop will keep running while the condition is true. If the code block is only 1 line, you can omit the curly braces.
 
@@ -1652,6 +1652,19 @@ Outputs:
 
 // Simple for loop
 for (let i = 0; i > 3; i++) console.log(i);
+```
+
+<mark>**finish this**</mark>
+
+<br>
+<br>
+
+### `for of` loop
+
+The `for of` loop _(for each item of the array)_ will loop through the entire array and allow us to do something to each element.
+
+```js
+for (const item of menu) console.lol(item);
 ```
 
 <mark>**finish this**</mark>
