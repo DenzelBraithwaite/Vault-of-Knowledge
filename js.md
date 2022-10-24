@@ -1661,10 +1661,28 @@ for (let i = 0; i > 3; i++) console.log(i);
 
 ### `for of` loop
 
-The `for of` loop _(for each item of the array)_ will loop through the entire array and allow us to do something to each element.
+The `for of` loop _(for each item of the array)_ will loop through the entire array and allow us to do something to each element. Just like the `for` loop, you can use **keywords** like `continue` and `break`.
 
 ```js
-for (const item of menu) console.lol(item);
+const menu = ['milk', 'cheese', 'eggs', 'bread'];
+for (const item of menu) console.log(item);
+```
+
+<br>
+
+To get the index of each array, you need to use the `.entries()` method.
+
+```js
+const menu = ['milk', 'cheese', 'eggs', 'bread'];
+for (const item of menu.entries()) console.log(item);
+
+/*
+Outputs:
+[0, "milk"]
+[1, "cheese"]
+[2, "eggs"]
+[3, "bread"]
+*/
 ```
 
 <mark>**finish this**</mark>
