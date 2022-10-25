@@ -1693,6 +1693,20 @@ An alternative would be to create a variable called `self` or `that`(_name doesn
 <br>
 <br>
 
+## **Sets**
+
+<mark>Finish this...</mark>
+
+<br>
+<br>
+
+## **Maps**
+
+<mark>Finish this...</mark>
+
+<br>
+<br>
+
 ## **Loops**
 
 Loops are useful when you want to iterate or '_loop_' over data a certain number of times.
