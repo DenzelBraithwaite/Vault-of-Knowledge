@@ -1820,7 +1820,7 @@ for (const value of Object.values(languageTypes.computer)) {
 
 ### **Looping over an entire object**
 
-To loop over an entire object, not **just** the properties or the values, you can use the `Object.entries()` method.
+To loop over an entire object, not **just** the properties or the values, you can use the `Object.entries()` method. When looping over **arrays**, we use a similar syntax `arrayName.entries()`, but we don't use the keyword `Object` and pass the object in as an argument.
 
 ```js
 
