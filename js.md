@@ -1218,6 +1218,13 @@ console.log('' || (true && 1 && 0) || (false && 4));
 <br>
 <br>
 
+## **Optional Chaining(`?.`)**
+
+<mark>**finish this**</mark>
+
+<br>
+<br>
+
 ## **String concatenation** <mark>**finish this**</mark>
 
 ```js
@@ -1538,6 +1545,11 @@ const computer = {
     addHardware: function () {
         this.ram = '16GB ram';
         return;
+    },
+    // ES6+ can you this syntax instead for convenience
+    addHardwareES6() {
+        this.ram = '16GB ram';
+        return;
     }
 };
 
@@ -1685,7 +1697,72 @@ Outputs:
 */
 ```
 
+<br>
+<br>
+
+### **Looping over object keys(_properties_)**
+
+To loop over object keys, you can use the `Object.keys()` method.
+
+```js
+const languageTypes = {
+    computer: ['JavaScript', 'Ruby', 'Python', 'PHP'],
+    human: {
+        french: ['France', 'Quebec', 'Africa'],
+        english: ['America', 'England', 'Australia']
+    },
+    animal: ['Dog', 'Cat', 'Bird']
+};
+
+for (const type of Object.keys(languageTypes)) {
+    console.log(type);
+}
+```
+
+<br>
+
 <mark>**finish this**</mark>
+
+<br>
+<br>
+
+### **Looping over object values**
+
+To loop over object values, you can use the `Object.values()` method.
+
+```js
+const languageTypes = {
+    computer: ['JavaScript', 'Ruby', 'Python', 'PHP'],
+    human: {
+        french: ['France', 'Quebec', 'Africa'],
+        english: ['America', 'England', 'Australia']
+    },
+    animal: ['Dog', 'Cat', 'Bird']
+};
+
+// Outputs all property values for the object.
+for (const value of Object.values(languageTypes)) {
+    console.log(value);
+}
+
+// Outputs all values for the object property.
+for (const value of Object.values(languageTypes.computer)) {
+    console.log(value);
+}
+```
+
+<br>
+<br>
+
+### **Looping over an entire object**
+
+To loop over an entire object, not **just** the properties or the values, you can use the `Object.entries()` method.
+
+```js
+
+```
+
+<mark>Finish this...</mark>
 
 <br>
 <br>
