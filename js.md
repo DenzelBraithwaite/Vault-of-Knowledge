@@ -747,7 +747,7 @@ All scopes can access variables of their parent scope. If you have a variable de
 <br>
 <br>
 
-`Global scope`
+### **Global scope**
 
 Variables declared in the global scope are accessible from anywhere in the file.
 
@@ -760,7 +760,7 @@ console.log(name); // Outputs: 'Denzel'
 <br>
 <br>
 
-`Function scope`
+### **Function scope**
 
 Variables declared in a function scope(also called local scope) are only available in that function. In `strict mode`, functions are also block scoped.
 
@@ -777,7 +777,7 @@ console.log(dog.speak); // ReferenceError
 <br>
 <br>
 
-`Block scope(ES6)`
+### **Block scope(ES6)**
 
 Variables declared in a block scope are only available in that block. That is, code between curly braces, but only variables declared with `let` or `const`. If you use `var` to declare your variable, that variable will be accessible outside of the block. So we say `let` and `const` are `block scoped` while `var` is `function scoped`
 
@@ -1007,44 +1007,108 @@ Extra: You could also technically write `phoneType = 'iPhone'` without the use o
 
 ## **operators**
 
-Arithmetic operators: `+ - * / **` also `+= -+ *= /= **= ++ --` and `> < >= <= ===`
-
-`+`
-
-`-`
-
-`*`
-
-`/`
-
-`**`
-
-`---`
-
-<br>
-
-`==` and `!=` vs `===` and `!==`
-
-`==` is the loose loose operator, `===` is the strict equality operator. `==` does type coercion, so it should be avoided. `===` does not perform type coercion so it's less liekly to introduce a bug.
-
-```js
-if ('18' == 18) Console.log('Looks the same!');
-// This will be treated as 'true'
-
-if ('18' === 18) Console.log('Looks the same!');
-// This will be treated as 'false'
-```
-
-`!=` and `!==` are the **opposite** of the equality operator, these are `different` operators. In plain English, it means "is not equal to" as opposed to "Is equal to"
-
-<br>
+There are many operators in the JavaScript language so it can be confusing to understand their purpose and when to use which. All operators fall into an operator category, which helps us understand where and when to use them.
 
 [JS operator precedence reference table](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#table)
 
 <br>
+
+**Types of operators**
+
+-   Assignment Operators.
+-   Arithmetic Operators.
+-   Comparison Operators.
+-   Logical Operators.
+-   Bitwise Operators.
+-   String Operators.
+-   Other Operators.
+
 <br>
 
-## **The `&&(and), ||(or)` and `!`**
+### **Assignment operators**
+
+-   `=`
+
+-   `+=`
+
+-   `-=`
+
+-   `*=`
+
+-   `/=`
+
+-   `%=`
+
+-   `**=`
+
+<mark>finish this...</mark>
+
+<br>
+<br>
+
+### **Arithmetic operators**
+
+-   `+`
+
+-   `++`
+
+-   `-`
+
+-   `--`
+
+-   `*`
+
+-   `**`
+
+-   `/`
+
+-   `%`
+
+<mark>finish this...</mark>
+
+<br>
+<br>
+
+### **Comparison Operators**
+
+A comparison operator is something that compares 2 values(_called `operands`_) and determines if they are equal to each other or not. This is extremely common when determining if something is greater than, less than or equal to a value.
+
+<br>
+
+-   `==` is the _loose_ equality operator, it should be avoided since it's isn't as reliable as the _strict_ equality operator.
+
+```js
+console.log('1' == 1); // Outputs true.
+```
+
+-   `===` is the _strict_ equality operator, it compares 2 expressions and returns true if they're the same.
+
+```js
+console.log('1' === 1); // Outputs false, also checks type.
+```
+
+-   `!=` **loosely** checks if 2 values are **not** equal to eachother, but this should be avoided and the _strict_ operator should be used instead.
+
+-   `!==` **strictly** checks if 2 values are **not** equal to eachother, also verifying they are the same **type**.
+-   `>=` returns true if the left **operand** is greater than or equal to the right operand.
+-   `<=` returns true if the left **operand** is less than or equal to the right operand.
+-   `>` returns true if the left **operand** is greater than the right operand.
+-   `<` returns true if the left **operand** is less than the right operand.
+
+<br>
+<br>
+
+### **Logical Operators**
+
+A logical operator is a symbol or word used to connect two or more expressions. If we wanted to perform an action, but **only** if certain conditions were true or false, logical operators make our lives much easier. The **AND** operator is represented by 2 ampersands `&&`, the **OR** operator uses 2 pipes `||` and the **bang** operator uses an exclamation point `!`.
+
+<br>
+
+-   `&&` compares 2 expressions, if both are `truthy`, it will return `true`, otherwise it returns `false`.
+-   `||` compares 2 expressions, if at least 1 is `truthy`, it will return `true`, otherwise it returns `false`.
+-   `!` Reverses a boolean value, something `truthy` will become `falsy` and vice versa.
+
+<br>
 
 ```js
 const hasVision = true;
@@ -1067,7 +1131,7 @@ console.log(hasVision && hasHearing && !hasLegs);
 <br>
 <br>
 
-### **Short Circuit Evaluation**
+## **Short Circuit Evaluation**
 
 Short circuiting is the use of logical operators in a different way than simply returning true or false. Short circuiting can technically return any value, and this is how it works.
 
