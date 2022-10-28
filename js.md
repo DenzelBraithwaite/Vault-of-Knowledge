@@ -1713,7 +1713,7 @@ const showSet = new Set([
 console.log(...showSet);
 ```
 
-The `set` above has **6** items, but its `size`(_not length with sets_) property is only **5**, since **1** is a duplicate. You could also pass a **string**(_also an iterable_) or an **object**, but with sets it's important to remember that the order doesn't matter, unlike **arrays**.
+The `set` above has **6** items, but its `size`(_not length with sets_) property is only **5**, since **1** is a duplicate. You could also pass a **string**(_also an iterable_) but not an **object**(_not iterable_). With sets it's important to remember that the order doesn't matter, unlike **arrays**.
 
 <br>
 
@@ -1756,12 +1756,75 @@ console.log(tvShows);
 console.log(tvShowSet);
 ```
 
-<mark>Finish this...</mark>
-
 <br>
 <br>
 
 ## **Maps**
+
+In JavaScript, a map is a data structure that's used to map values to keys, creating key-value pairs. The big difference between objects and maps is that map keys can be any type. In objects, the keys are always strings, but with maps the keys could be anything, even another map.
+
+<br>
+
+```js
+// Syntax to create an empty map using a constructor
+const mapExample = new Map();
+
+// Adding a key-value pair to the map using the set method.
+mapExample.set('I am the Key', 'I am the value');
+mapExample.set(1337, 'LEET');
+
+// Chaining the set method to add multiple entries at once.
+mapExample
+    .set('first chain', ['first', 'chain'])
+    .set('second', 2)
+    .set('Hello', 'World')
+    .set(true, 'false');
+
+console.log(mapExample);
+/* Outputs
+{
+    "I am the Key" => "I am the value",
+    1337 => "LEET",
+    "first chain" => ["first", "chain"],
+    "second" => 2,
+    "Hello" => "World",
+    true => "false"
+}
+*/
+```
+
+<br>
+
+If you want to read data from a map, you can do so using the `.get()` method, passing in the **key** name as an argument.
+
+```js
+const employees = new Map();
+employees.set(154854868, 'Denzel Washington');
+
+// Outputs 'Denzel Washington'
+console.log(employees.get(154854868));
+```
+
+<br>
+
+Just like sets have similar methods to arrays, maps also have similar methods to sets. For example, you can use the `.has()` method to check if a value exists within the map.
+
+```js
+const kfcMenu = new Map();
+kfcMenu.set(1, 'fried chicken').set(2, 'fries');
+
+// Outputs false since kfcMenu doesn't contain a 'drinks' key.
+console.log(kfcMenu.has('drinks'));
+
+// Deleting '2 => 'fries' pair using the key name.
+kfcMenu.delete(2);
+
+// Checking size(length) property, outputs 1 since fries were deleted.
+console.log(kfcMenu.size);
+
+// Clearing the entire map
+kfcMenu.clear();
+```
 
 <mark>Finish this...</mark>
 
