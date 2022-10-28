@@ -1695,6 +1695,67 @@ An alternative would be to create a variable called `self` or `that`(_name doesn
 
 ## **Sets**
 
+A set is a colleciton of unique values, so it can never have any duplicates. You create one by typing `new Set` and then passing in an iterable as an argument. Sets do not replace arrays, use sets when you want to work with unique values, but otherwise use arrays.
+
+<br>
+
+```js
+const showSet = new Set([
+    'Family Guy',
+    'The Simpsons',
+    'King of the Hill',
+    'South Park',
+    'American Dad',
+    'Family Guy'
+]);
+
+// Outputs unique values, Family Guy will only print once.
+console.log(...showSet);
+```
+
+The `set` above has **6** items, but its `size`(_not length with sets_) property is only **5**, since **1** is a duplicate. You could also pass a **string**(_also an iterable_) or an **object**, but with sets it's important to remember that the order doesn't matter, unlike **arrays**.
+
+<br>
+
+Similar to the `.includes?()` method for arrays, sets have the `.has()` method to check if a value exists within the set, along with a few other similar methods. But there is no way to retrieve data from a set, unlike arrays that have indexes.
+
+```js
+const showSet = new Set(['Family Guy', 'The Simpsons', 'Family Guy']);
+
+// Outputs false since the value doesn't exist within the set.
+console.log(showSet.has('Futurama'));
+
+// Adds Futurama to the set twice
+showSet.add('Futurama');
+showSet.add('Futurama');
+
+// Outputs unique values only, Futurama is only added once.
+console.log(showSet);
+
+// Deletes an item in the set.
+showSet.delete('Futurama');
+
+// Deletes the entire set
+showSet.clear();
+
+// Looping works as normal since it's an iterable
+for (const show of showSet) console.log(show);
+```
+
+<br>
+
+Converting an array to a set and a set to an array can be achieved very easily, since both are iterables, both can use the **spread(_..._)** operator.
+
+```js
+let tvShows = ['Breaking Bad', 'Lost', 'Manifest', 'Lost'];
+const tvShowSet = new Set(tvShows);
+tvShows = [...tvShowSet];
+
+// Both output 'Breaking Bad', 'Lost', 'Manifest' as a set / array.
+console.log(tvShows);
+console.log(tvShowSet);
+```
+
 <mark>Finish this...</mark>
 
 <br>
