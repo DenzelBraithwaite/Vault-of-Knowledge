@@ -1865,6 +1865,13 @@ for (const [key, value] of mapIteration) {
 <br>
 <br>
 
+## Arrays vs Sets and Objects vs Maps
+
+![differences between JavaScript dataStructures](img/js/arrays_sets_objects_maps.png)
+
+<br>
+<br>
+
 ## **Loops**
 
 Loops are useful when you want to iterate or '_loop_' over data a certain number of times.
