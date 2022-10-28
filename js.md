@@ -1791,6 +1791,14 @@ console.log(mapExample);
     true => "false"
 }
 */
+
+// Adding items to the map without using the set() method
+const mapExample2 = new Map([
+    // Every array is a new key-value pair
+    ['I am the key', 'I am the value'],
+    ['Key2', 'value2'],
+    [131, true]
+]);
 ```
 
 <br>
@@ -1830,6 +1838,27 @@ kfcMenu.clear();
 <br>
 
 ### **Iterating over Maps**
+
+```js
+const mapIteration = new Map([
+    [1, 'a'],
+    [2, 'b'],
+    [3, 'c']
+]);
+
+// Using destructuring to loop over map keys and values
+for (const [key, value] of mapIteration) {
+    if (typeof (key === 'number')) {
+        console.log(`The answer for ${key} is ${value}`);
+    }
+}
+
+/* Outputs:
+"The answer for 1 is a"
+"The answer for 2 is b"
+"The answer for 3 is c"
+*/
+```
 
 <mark>finish this...</mark>
 
