@@ -1826,7 +1826,12 @@ console.log(kfcMenu.size);
 kfcMenu.clear();
 ```
 
-<mark>Finish this...</mark>
+<br>
+<br>
+
+### **Iterating over Maps**
+
+<mark>finish this...</mark>
 
 <br>
 <br>
