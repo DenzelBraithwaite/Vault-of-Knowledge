@@ -1289,14 +1289,50 @@ console.log('' || (true && 1 && 0) || (false && 4));
 <br>
 <br>
 
-## **String concatenation** <mark>**finish this**</mark>
+## **Working with Strings**
+
+Common operations we perform on strings<mark>finish this...</mark>
 
 ```js
+const myString = '1A2BA';
+const myLongerString = 'Ready player 1';
+
+// Accessing an element in the string.
+console.log(myString[0]); // Outputs '1'.
+console.log('B2A1'[0]); // Outputs 'B'.
+
+// Accessing properties
+console.log(myString.length); // Outputs 5.
+console.log('B2A1'.length); // Outputs 4.
+
+// Finding the index of a character
+console.log(myString.indexOf('A')); // Outputs 1, the first occurence.
+console.log(myString.lastIndexOf('A')); // Outputs 4, the last occurence.
+console.log(myString.indexOf('A2B')); // Outputs 1, beginning of first occurence.
+
+// Extracting part of a string, starting at index 6 index.
+console.log(myLongerString.slice(6)); // Outputs 'player 1'.
+
+// Extracting part of a string, starting at index 6, ending but NOT including index 12.
+console.log(myLongerString.slice(6, 12)); // Outputs 'player'.
+
+// Slicing with negative arguments, starting from the end.
+console.log(myLongerString.slice(-1)); // Outputs '1', the last character.
+```
+
+<br>
+
+### **Concatenation**
+
+```js
+// Concatenation
 const num = 5;
 console.log('Hey ' + "I'm" + num + ' years old.');
 ```
 
-## **String template literals** <mark>**finish this**</mark>
+<br>
+
+### **Template literals**
 
 Use template literals to create multi-line strings. Template literals expect `expressions` not `statements`.
 
@@ -1304,7 +1340,8 @@ Use template literals to create multi-line strings. Template literals expect `ex
 const num = 5;
 console.log(`Hey I'm ${num} years old.`);
 
-console.log(`${let num = 5}`) // Don't use a statement, this will raise an error.
+// Don't use a statement, this will raise an error.
+console.log(`${let num = 5}`)
 ```
 
 <br>
