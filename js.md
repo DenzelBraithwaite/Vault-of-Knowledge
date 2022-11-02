@@ -1351,27 +1351,50 @@ console.log(myString.slice(6, -2)); // Outputs 'player'.
 **Changing Strings to lower or upper case, no argument needed.**
 
 ```js
-const myString = 'Ready player 1';
+let myString = 'Ready player 1';
 
-console.log(myString.toLowerCase()); // Outputs 'READY PLAYER 1'
-console.log(myString.toUpperCase()); // Outputs 'ready player 1'
+console.log(myString.toUpperCase()); // Outputs 'READY PLAYER 1'
+console.log(myString.toLowerCase()); // Outputs 'ready player 1'
+
+// Capitalize a word
+myString = myString[0].toUpperCase() + myString.slice(1).toLowerCase();
 ```
 
 <br>
 
-### **Concatenation**
+**Removing trailing white spaces**
+
+To remove trailing whitespaces from a string, you can use the `trim()` method. This removes spaces from the beginning and end of a string. Since **ES2019** you can also use `trimStart()` and `trimEnd()` to remove space from either just the start or the end of the string.
 
 ```js
-// Concatenation
+let myString = '         My cat sat on my spacebar             ';
+myString = myString.trim();
+console.log(myString); // Outputs 'My cat sat on my spacebar'
+
+myString = '         My cat sat on my spacebar             ';
+myString = myString.trimStart();
+console.log(myString); // Outputs 'My cat sat on my spacebar             '
+
+myString = '         My cat sat on my spacebar             ';
+myString = myString.trimEnd();
+console.log(myString); // Outputs '         My cat sat on my spacebar'
+```
+
+<br>
+
+**Concatenation**
+
+```js
 const num = 5;
+
 console.log('Hey ' + "I'm" + num + ' years old.');
 ```
 
 <br>
 
-### **Template literals**
+**Template literals**
 
-Use template literals to create multi-line strings. Template literals expect `expressions` not `statements`.
+Use template literals to create multi-line strings. Template literals expect **expressions** not **statements**.
 
 ```js
 const num = 5;
