@@ -1382,6 +1382,35 @@ console.log(myString); // Outputs '         My cat sat on my spacebar'
 
 <br>
 
+**Replacing a part of a String**
+
+You can replace a part of a String using the `replace()` method. The first argument is what you'd like to replace, the second is what you will be replacing it with. This will return a string and you're free to chain it with multiple `replace()` methods. Remember, it will replace the first occurence and it's case sensitive.
+
+```js
+const myString = 'Just stop. drop and roll.';
+let myNewString = myString.replace('.', ',');
+console.log(myNewString); // Outputs 'Just stop, drop and roll.'
+
+myNewString = myNewString.replace('Just', "Don't").replace('roll.', 'dance!');
+console.log(myNewString); // Outputs 'Don't stop, drop and dance!'
+
+const myNewerString = 'This, this, this and that';
+console.log(myNewerString.replaceAll('this', 'that')); // Outputs 'This, that, that and that'
+
+// Before replaceAll() was available, you'd use a regex.
+console.log(myNewerString.replace(/this/g, 'that')); // Outputs 'This, that, that and that'
+```
+
+<br>
+
+**Checking if part of a string exists**
+
+You can check if a string contains a certain character by using methods such as `includes()`, `startsWith()` or `endsWith()`. This will return a **boolean** value depending if it exists or not.
+
+```js
+
+```
+
 **Concatenation**
 
 ```js
