@@ -1291,33 +1291,70 @@ console.log('' || (true && 1 && 0) || (false && 4));
 
 ## **Working with Strings**
 
-Common operations we perform on strings<mark>finish this...</mark>
+There are many methods we can use to work with strings, the reason why this is possible is because JavaScript works behind the scenes to turn your string into a string object with the same content, and the methods are actually called on **that** object, this concept is called **boxing**. Here are some common operations we perform on strings.
+
+<br>
+
+**Accessing an element in a string.**
 
 ```js
 const myString = '1A2BA';
-const myLongerString = 'Ready player 1';
 
-// Accessing an element in the string.
 console.log(myString[0]); // Outputs '1'.
 console.log('B2A1'[0]); // Outputs 'B'.
+```
 
-// Accessing properties
+<br>
+
+**Accessing String properties**
+
+```js
+const myString = '1A2BA';
+
 console.log(myString.length); // Outputs 5.
 console.log('B2A1'.length); // Outputs 4.
+```
 
-// Finding the index of a character
+<br>
+
+**Finding the index of a character**
+
+```js
+const myString = '1A2BA';
+
 console.log(myString.indexOf('A')); // Outputs 1, the first occurence.
 console.log(myString.lastIndexOf('A')); // Outputs 4, the last occurence.
 console.log(myString.indexOf('A2B')); // Outputs 1, beginning of first occurence.
+```
 
-// Extracting part of a string, starting at index 6 index.
-console.log(myLongerString.slice(6)); // Outputs 'player 1'.
+<br>
 
-// Extracting part of a string, starting at index 6, ending but NOT including index 12.
-console.log(myLongerString.slice(6, 12)); // Outputs 'player'.
+**Extracting parts of a String**
 
-// Slicing with negative arguments, starting from the end.
-console.log(myLongerString.slice(-1)); // Outputs '1', the last character.
+You can extract parts of a string using the `slice()` method. You must provide an index as an argument. If you provide 1 index, it will slice from that character (_inclusive_) until the end of the string. If you provide 2 arguments, it will slice from the first index to the second index, but the second index is **_exclusive_**. Meaning it starts at the first argument but **does not** include the last argument.
+
+You can also provide negative values, in which case the index will begin counting from the end, where **-1** is the last character, as opposed to the first character which starts at 0, since strings are **zero indexed**.
+
+<br>
+
+```js
+const myString = 'Ready player 1';
+
+console.log(myString.slice(6)); // Outputs 'player 1'.
+console.log(myString.slice(6, 12)); // Outputs 'player'.
+console.log(myString.slice(-8)); // Outputs 'player 1'.
+console.log(myString.slice(6, -2)); // Outputs 'player'.
+```
+
+<br>
+
+**Changing Strings to lower or upper case, no argument needed.**
+
+```js
+const myString = 'Ready player 1';
+
+console.log(myString.toLowerCase()); // Outputs 'READY PLAYER 1'
+console.log(myString.toUpperCase()); // Outputs 'ready player 1'
 ```
 
 <br>
