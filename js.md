@@ -1405,11 +1405,18 @@ console.log(myNewerString.replace(/this/g, 'that')); // Outputs 'This, that, tha
 
 **Checking if part of a string exists**
 
-You can check if a string contains a certain character by using methods such as `includes()`, `startsWith()` or `endsWith()`. This will return a **boolean** value depending if it exists or not.
+You can check if a string contains a certain character by using methods such as `includes()`, `startsWith()` or `endsWith()`. This will return a **boolean** value depending if it exists or not. Although these methods are case sensitive, neither of these methods perform [type coercion](#type-conversion-vs-coercion), so `3` is equal to `'3'` in this case.
 
 ```js
+const videoGame = 'Super Mario Bros 3';
 
+console.log(videoGame.includes(3)); // Outputs true
+console.log(videoGame.startsWith('super')); // Outputs false
+console.log(videoGame.endsWith('3')); // Outputs true
 ```
+
+<br>
+<br>
 
 **Concatenation**
 
@@ -1472,7 +1479,7 @@ numOfBeers <= 3 ? console.log('Drive home safely') : console.log('Take a cab');
 <br>
 <br>
 
-`Type conversion vs coercion`
+## Type conversion vs coercion
 
 Conversion is when you explicitly want to convert one data type to another. Like changing a string to a number.
 
@@ -1482,7 +1489,9 @@ console.log(typeof Number(year));
 // Outputs
 ```
 
-Coercion is when JavaScript implicitly converts a data type for you, such as concatenating strings and numbers turns numbers into a string.
+<br>
+
+**Coercion** is when JavaScript implicitly converts a data type for you, such as concatenating strings and numbers turns numbers into a string.
 
 ```js
 console.log(`This is a random number ${5}5`);
@@ -1535,7 +1544,7 @@ switch (food) {
 <br>
 <br>
 
-**`Expression` vs `Statements`**
+**Expression vs Statements**
 
 An expression is a piece of code that produces a value.
 
