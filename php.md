@@ -42,6 +42,15 @@ This section is a quick reference point for certain ...
 
 ---
 
+## **Fundamentals**
+
+Fundamentals of php...<mark>Continue...</mark>
+
+<br>
+<br>
+
+---
+
 ## **Resources**
 
 <br>
