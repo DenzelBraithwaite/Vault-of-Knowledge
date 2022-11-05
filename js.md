@@ -1416,6 +1416,39 @@ console.log(videoGame.endsWith('3')); // Outputs true
 ```
 
 <br>
+
+**Splitting a string**
+
+We can split a string using `split()`. The argument we pass is the delimiter, meaning it determines where the string will split. If the string has spaces, we can split by spaces, if it has underscores, we could split by underscores. The `split()` method returns a new array and does not modify the original. There's an optional 2nd argument that determines how many times the string should be split.
+
+```js
+const cheatCode = 'Now I got 99 lives!';
+const splitCode = cheatCode.split(' '); // Splits for every space
+console.log(splitCode); // Outputs ["Now", "I", "got", "99", "lives!"]
+
+const [firstName, lastName] = 'Denzel Braithwaite'.split(' ');
+console.log(firstName); // Outputs 'Denzel'
+console.log(lastName); // Outputs 'Braithwaite'
+```
+
+<br>
+<br>
+
+**Joining an array**
+
+The `join()` method is kind of like the opposite of the `split()` method. It will **join** all elements in an array together, separated by the argument you provide. It will return a new string.
+
+```js
+const cheatCode = ['Now', 'I', 'got', '99', 'lives!'];
+const joinCode = cheatCode.join(' '); // Converts the array into a string, separated by spaces.
+console.log(joinCode); // Outputs 'Now I got 99 lives!'
+
+const secret = 'Invisible';
+const secretIdentity = ['The', secret, 'Man'].join(' ');
+console.log(secretIdentity); // Outputs 'The Invisible man'
+```
+
+<br>
 <br>
 
 **Concatenation**
