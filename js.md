@@ -1295,7 +1295,7 @@ There are many methods we can use to work with strings, the reason why this is p
 
 <br>
 
-**Accessing an element in a string.**
+### **Accessing an element in a string.**
 
 ```js
 const myString = '1A2BA';
@@ -1305,8 +1305,9 @@ console.log('B2A1'[0]); // Outputs 'B'.
 ```
 
 <br>
+<br>
 
-**Accessing String properties**
+### **Accessing String properties**
 
 ```js
 const myString = '1A2BA';
@@ -1316,8 +1317,9 @@ console.log('B2A1'.length); // Outputs 4.
 ```
 
 <br>
+<br>
 
-**Finding the index of a character**
+### **Finding the index of a character**
 
 ```js
 const myString = '1A2BA';
@@ -1328,13 +1330,15 @@ console.log(myString.indexOf('A2B')); // Outputs 1, beginning of first occurence
 ```
 
 <br>
+<br>
 
-**Extracting parts of a String**
+### **Extracting parts of a String**
 
 You can extract parts of a string using the `slice()` method. You must provide an index as an argument. If you provide 1 index, it will slice from that character (_inclusive_) until the end of the string. If you provide 2 arguments, it will slice from the first index to the second index, but the second index is **_exclusive_**. Meaning it starts at the first argument but **does not** include the last argument.
 
 You can also provide negative values, in which case the index will begin counting from the end, where **-1** is the last character, as opposed to the first character which starts at 0, since strings are **zero indexed**.
 
+<br>
 <br>
 
 ```js
@@ -1347,8 +1351,9 @@ console.log(myString.slice(6, -2)); // Outputs 'player'.
 ```
 
 <br>
+<br>
 
-**Changing Strings to lower or upper case, no argument needed.**
+### **Changing Strings to lower or upper case, no argument needed.**
 
 ```js
 let myString = 'Ready player 1';
@@ -1361,8 +1366,9 @@ myString = myString[0].toUpperCase() + myString.slice(1).toLowerCase();
 ```
 
 <br>
+<br>
 
-**Removing trailing white spaces**
+### **Removing trailing white spaces**
 
 To remove trailing whitespaces from a string, you can use the `trim()` method. This removes spaces from the beginning and end of a string. Since **ES2019** you can also use `trimStart()` and `trimEnd()` to remove space from either just the start or the end of the string.
 
@@ -1381,8 +1387,30 @@ console.log(myString); // Outputs '         My cat sat on my spacebar'
 ```
 
 <br>
+<br>
 
-**Replacing a part of a String**
+### **Adding Padding to Strings**
+
+If you want a string to be a certain length, you can add **padding** to it with the `padStart()` and `padEnd()` methods. They will allow you to add characters to the start or end of a string, based on the arguments you provide.
+
+```js
+console.log('It goes on '.padEnd(20, 'and on ')); // Outputs "It goes on and on an"
+
+const creditCard = 1122334455667788;
+
+const maskCreditCard = function (number) {
+    const numString = String(number); // Converts to string
+    const visible = numString.slice(-4); // Grab last 4 chars
+    return visible.padStart(numString.length, '#');
+};
+
+console.log(maskCreditCard(creditCard)); // Outputs '############7788'
+```
+
+<br>
+<br>
+
+### **Replacing a part of a String**
 
 You can replace a part of a String using the `replace()` method. The first argument is what you'd like to replace, the second is what you will be replacing it with. This will return a string and you're free to chain it with multiple `replace()` methods. Remember, it will replace the first occurence and it's case sensitive.
 
@@ -1402,8 +1430,9 @@ console.log(myNewerString.replace(/this/g, 'that')); // Outputs 'This, that, tha
 ```
 
 <br>
+<br>
 
-**Checking if part of a string exists**
+### **Checking if part of a string exists**
 
 You can check if a string contains a certain character by using methods such as `includes()`, `startsWith()` or `endsWith()`. This will return a **boolean** value depending if it exists or not. Although these methods are case sensitive, neither of these methods perform [type coercion](#type-conversion-vs-coercion), so `3` is equal to `'3'` in this case.
 
@@ -1416,8 +1445,9 @@ console.log(videoGame.endsWith('3')); // Outputs true
 ```
 
 <br>
+<br>
 
-**Splitting a string**
+### **Splitting a string**
 
 We can split a string using `split()`. The argument we pass is the delimiter, meaning it determines where the string will split. If the string has spaces, we can split by spaces, if it has underscores, we could split by underscores. The `split()` method returns a new array and does not modify the original. There's an optional 2nd argument that determines how many times the string should be split.
 
@@ -1434,7 +1464,7 @@ console.log(lastName); // Outputs 'Braithwaite'
 <br>
 <br>
 
-**Joining an array**
+### **Joining an array**
 
 The `join()` method is kind of like the opposite of the `split()` method. It will **join** all elements in an array together, separated by the argument you provide. It will return a new string.
 
@@ -1451,7 +1481,7 @@ console.log(secretIdentity); // Outputs 'The Invisible man'
 <br>
 <br>
 
-**Concatenation**
+### **Concatenation**
 
 ```js
 const num = 5;
@@ -1461,7 +1491,7 @@ console.log('Hey ' + "I'm" + num + ' years old.');
 
 <br>
 
-**Template literals**
+### **Template literals**
 
 Use template literals to create multi-line strings. Template literals expect **expressions** not **statements**.
 
@@ -1476,7 +1506,7 @@ console.log(`${let num = 5}`)
 <br>
 <br>
 
-**Conditionals**
+## **Conditionals**
 
 if statements:
 
