@@ -1391,7 +1391,7 @@ console.log(myString); // Outputs '         My cat sat on my spacebar'
 
 ### **Adding Padding to Strings**
 
-If you want a string to be a certain length, you can add **padding** to it with the `padStart()` and `padEnd()` methods. They will allow you to add characters to the start or end of a string, based on the arguments you provide.
+If you want a string to be a certain length, you can add **padding** to it with the `padStart()` and `padEnd()` methods. They will allow you to add characters to the start or end of a string, based on the arguments you provide. The first argument is what length you want the final string to be, the 2nd argument is what character(s) will injected. If you omit the 2nd argument, it will simply pad the string with spaces.
 
 ```js
 console.log('It goes on '.padEnd(20, 'and on ')); // Outputs "It goes on and on an"
