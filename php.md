@@ -44,7 +44,38 @@ This section is a quick reference point for certain ...
 
 ## **Fundamentals**
 
-Fundamentals of php...<mark>Continue...</mark>
+White space does not matter in php.
+
+<br>
+
+### **Starting a PHP file**
+
+```php
+<?php
+echo "Hello Planet";
+?>
+
+/* These are also acceptable, but less reliable.
+<? ?>
+<?= ?>
+<% %>
+*/
+```
+
+<mark>finish this...</mark>
+
+<br>
+<br>
+
+### **Embedding PHP in HTML**
+
+```php
+$title = "Hello World of PHP";
+
+<h1><?php echo $title; ?></h1>
+```
+
+<mark>finish this...</mark>
 
 <br>
 <br>
