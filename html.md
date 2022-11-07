@@ -693,6 +693,10 @@ Emmet uses syntax similar to CSS selectors for describing elements’ positions 
 
 Emmet doesn’t have a predefined set of available tag names, you can write any word and transform it into a tag: div → `<div></div>`, foo → `<foo></foo>` and so on.
 
+![Emmet cheat sheet](img/html/emmet_cheat-sheet.png)
+
+[Full Emmet cheat sheet](https://docs.emmet.io/cheat-sheet/)
+
 <br>
 <br>
 
