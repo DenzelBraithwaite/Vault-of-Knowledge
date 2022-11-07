@@ -1,4 +1,4 @@
-# **CSS**
+# **PHP**
 
 > _"Quote"_
 >
@@ -21,7 +21,7 @@ This guide is for php.
 
 The material I've found is a mixture of:
 
--   Udemy - PHP course [Check it out]()
+-   Udemy - PHP course [Check it out](https://www.udemy.com/course/php-for-complete-beginners-includes-msql-object-oriented/)
 
 -   MDN docs
 
@@ -80,6 +80,49 @@ $title = "Hello World of PHP";
 <br>
 <br>
 
+### **Working with Variables**
+
+Variables are for storing data. In PHP, we declare a variable by prepending the variable name with a dollar sign, e.g. `$variableName`. The convention is to use **lowerCamelCase**, but there are many different ways to declare a variable; however, you can't start a variable name with a number and you should avoid putting dashes in the name so it doesn't get mistaken for subtraction. Variables are also case-sensitive.
+
+```php
+$string = "I am a variable"; // String
+$number = 1234567890; // Number / Integer
+$alsoNumber = 3.141592654; // Floating point number
+
+
+```
+
+<mark>finish this...</mark>
+
+<br>
+<br>
+
+### **Working with Strings**
+
+<br>
+
+#### **Concatenation**
+
+You can concatenate data with the **dot**`.` operator.
+
+```php
+$name = "Kaz";
+$age = 26;
+
+// Outputs Kaz is 26
+echo $name . " is " . $age
+```
+
+<br>
+<br>
+
+### **Working with Numbers** <mark>Finish this...</mark>
+
+Numbers...
+
+<br>
+<br>
+
 ---
 
 ## **Resources**
@@ -87,7 +130,7 @@ $title = "Hello World of PHP";
 <br>
 <br>
 
-#### **`Documentation`**
+#### **`Documentation`** <mark>finish this...</mark>
 
 For a more complete guide with more examples, visit:
 
