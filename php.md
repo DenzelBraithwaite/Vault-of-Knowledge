@@ -35,7 +35,8 @@ The material I've found is a mixture of:
 
 ## **Quick tips & tricks**
 
-This section is a quick reference point for certain ...
+-   Make sure php code is between `<?php ?>` tags.
+-   Semicolons(`;`) are very important in php
 
 <br>
 <br>
@@ -176,6 +177,34 @@ If you have big arrays and don't care about the order, but need to access data w
 
 $array = ['nickname' => 'Kaz', 'age' => 26];
 echo $array['nickname'];
+
+?>
+```
+
+<br>
+<br>
+
+### **Conditionals**
+
+Conditional statements determine what code will be run based on a condition. A common example of this is the `if` statement, whilch will only execute code if the code evaluates to `true`.
+
+<br>
+
+#### **If statement**
+
+```php
+<?php
+
+if (5 > 4){
+    // This code will run since the condition is true
+    echo "5 is greater than 4";
+} elseif (4 < 5){
+    // This is true but ignored since a condition was already met.
+    echo "4 is less than 5";
+} else {
+    // This will only run of no conditions are true
+    echo "Numbers confuse me";
+};
 
 ?>
 ```
