@@ -70,9 +70,13 @@ echo "Hello Planet";
 ### **Embedding PHP in HTML**
 
 ```php
+<?php
+
 $title = "Hello World of PHP";
 
 <h1><?php echo $title; ?></h1>
+
+?>
 ```
 
 <mark>finish this...</mark>
@@ -85,11 +89,13 @@ $title = "Hello World of PHP";
 Variables are for storing data. In PHP, we declare a variable by prepending the variable name with a dollar sign, e.g. `$variableName`. The convention is to use **lowerCamelCase**, but there are many different ways to declare a variable; however, you can't start a variable name with a number and you should avoid putting dashes in the name so it doesn't get mistaken for subtraction. Variables are also case-sensitive.
 
 ```php
+<?php
+
 $string = "I am a variable"; // String
 $number = 1234567890; // Number / Integer
 $alsoNumber = 3.141592654; // Floating point number
 
-
+?>
 ```
 
 <mark>finish this...</mark>
@@ -106,11 +112,15 @@ $alsoNumber = 3.141592654; // Floating point number
 You can concatenate data with the **dot**`.` operator.
 
 ```php
+<?php
+
 $name = "Kaz";
 $age = 26;
 
 // Outputs Kaz is 26
 echo $name . " is " . $age
+
+?>
 ```
 
 <br>
@@ -118,7 +128,57 @@ echo $name . " is " . $age
 
 ### **Working with Numbers** <mark>Finish this...</mark>
 
-Numbers...
+Numbers...Add notes on math, same basic arithmetic operations (+, -, \*, /)
+
+```php
+<?php
+
+echo 56 + 45; // 101
+echo "<br>"; // Line breaks, otherwise results appear on same line
+echo 56 - 45; // 11
+echo "<br>";
+echo 56 * 45; // 2520
+echo "<br>";
+echo 56 / 45; 1.244444444
+echo "<br>";
+echo 45 + 34 * 45 /421 - 45; 3.6342042755344
+echo "<br>";
+
+$number1 = 12;
+$number2 = 24;
+echo $number1 * $number2;
+
+?>
+```
+
+<br>
+<br>
+
+### **Arrays** <mark>Finish this...</mark>
+
+Arrays are for storing different types of data in one variable. To access the data you need to use the element's array index.
+
+```php
+<?php
+
+$olderArray = array(1, '2', '<h1>3</h1>');
+$moreCommonArray = [1, '2', '<h1>3</h1>'];
+
+echo $moreCommonArray[0];
+
+?>
+```
+
+If you have big arrays and don't care about the order, but need to access data without remembering the element's index, you can use **associative arrays**. Then your data will have key-value pairs, where the index is replaced with a key.
+
+```php
+<?php
+
+$array = ['nickname' => 'Kaz', 'age' => 26];
+echo $array['nickname'];
+
+?>
+```
 
 <br>
 <br>
