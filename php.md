@@ -212,6 +212,89 @@ if (5 > 4){
 <br>
 <br>
 
+### **Switch Statements**
+
+Switch statements are similar to if statements but depending on the situation, it might make more sense to use a switch statement instead of **multiple** if statements, for readability. They're especially useful when you want to test <mark>1 statement on multiple values.</mark>
+
+When writing a switch statement, it's important to remember to use the `break` keyword after each condition, otherwise if it matches a condition, it will execute <mark>every line of code below it, within the switch statement.</mark>
+
+```php
+<?php
+
+$meaningOfLife = 42;
+
+switch ($meaningOfLife){
+    case 34:
+        // This will not execute because 34 != 42
+        echo "The meaning of life is 34? Is that right?";
+        break;
+    case 42:
+        // This will execute since 42 == 42
+        echo "The meaning of life, the universe and everything.";
+        break;
+    case 69:
+        // This will not execute because 69 != 42
+        echo "The meaning of life is certainly not 69...";
+        break;
+};
+
+?>
+```
+
+<br>
+<br>
+
+### **Comparison and Logical Operators**
+
+Comparison and logical operators are very useful when using conditional statements.
+
+<br>
+
+#### **Comparison Operators**
+
+```php
+<?php
+/*
+== is equal to
+=== is identical to
+!= is not equal to
+*/
+?>
+```
+
+<br>
+<br>
+
+#### **Logical Operators**
+
+```php
+<?php
+/*
+&& and
+|| or
+*/
+?>
+```
+
+<br>
+<br>
+
+### **While Loop**
+
+Loops allow us to repeat code until a certain condition is met.
+
+```php
+<?php
+
+while () {
+
+}
+
+?>
+```
+
+<br>
+<br>
 ---
 
 ## **Resources**
