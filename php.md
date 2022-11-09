@@ -195,10 +195,10 @@ Conditional statements determine what code will be run based on a condition. A c
 ```php
 <?php
 
-if (5 > 4){
+if (5 > 4) {
     // This code will run since the condition is true
     echo "5 is greater than 4";
-} elseif (4 < 5){
+} elseif (4 < 5) {
     // This is true but ignored since a condition was already met.
     echo "4 is less than 5";
 } else {
@@ -223,7 +223,7 @@ When writing a switch statement, it's important to remember to use the `break` k
 
 $meaningOfLife = 42;
 
-switch ($meaningOfLife){
+switch ($meaningOfLife) {
     case 34:
         // This will not execute because 34 != 42
         echo "The meaning of life is 34? Is that right?";
@@ -287,6 +287,8 @@ Loops allow us to repeat code until a certain condition is met.
 
 #### **While Loop**
 
+The while loop will continue while a certain condition is true. To avoid infinite loops, typically you'd create a **counter** variable and increment it for each loop. What's important is that your condition will eventually become false.
+
 ```php
 <?php
 $lemonade = 5;
@@ -304,6 +306,48 @@ Give me some lemonade for 7 cents please.
 Give me some lemonade for 8 cents please.
 Give me some lemonade for 9 cents please.
 Give me some lemonade for 10 cents please.
+*/
+
+?>
+```
+
+<br>
+<br>
+
+#### **For Loop**
+
+`while` loops and `for` loops essentially do the same thing, but difference lies in the arguments passed. In a `while` loop you're checking for a condition, but in a for loop you must provide 3 important things.
+
+1. A counter variable
+2. A condition for that counter
+3. How much to increment or decrement the counter
+
+So `for` loops are useful when you know how many times you'd like to iterate(loop).
+
+```php
+<?php
+
+// I counted down here as an example, but I could've incremented.
+echo "Count down commencing...<br>";
+for ($counter = 10; $counter >= 0; $counter--) {
+    echo "{$counter}<br>";
+};
+echo "! This message will now self-destruct !";
+
+/* Outputs:
+Count down commencing...
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+! This message will now self-destruct !
 */
 
 ?>
