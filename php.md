@@ -279,16 +279,32 @@ Comparison and logical operators are very useful when using conditional statemen
 <br>
 <br>
 
-### **While Loop**
+### **Loops**
 
 Loops allow us to repeat code until a certain condition is met.
 
+<br>
+
+#### **While Loop**
+
 ```php
 <?php
+$lemonade = 5;
+while ($lemonade <= 10) {
+    echo "Give me some lemonade for {$lemonade} cents please.<br>";
+    // $lemonade = $lemonade + 1;
+    // $lemonade += 1;
+    $lemonade ++;
+};
 
-while () {
-
-}
+/* Outputs:
+Give me some lemonade for 5 cents please.
+Give me some lemonade for 6 cents please.
+Give me some lemonade for 7 cents please.
+Give me some lemonade for 8 cents please.
+Give me some lemonade for 9 cents please.
+Give me some lemonade for 10 cents please.
+*/
 
 ?>
 ```
