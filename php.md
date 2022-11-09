@@ -104,6 +104,33 @@ $alsoNumber = 3.141592654; // Floating point number
 <br>
 <br>
 
+#### **Constants**
+
+Constants are variables who's value never changes. Constants do not begin with a `$` sign like regular variables, and it's recommended to name a constant with uppercase letters. You can create a constant using the `define()` function, which takes 2-3 arguments.
+
+<br>
+
+1. **identifier:** set the name of your variable.
+2. **value:** set the value of your variable.
+3. **case-insensitive:** Determines if the name is case-insensitive, default is **false** **\***(_Optional_)**\***.
+
+<br>
+
+```php
+<?php
+
+// define("BIRTH_DATE", 1996, false);
+define("BIRTH_DATE", 1996);
+echo BIRTH_DATE; // Outputs 1996
+
+?>
+```
+
+<mark>finish this...</mark>
+
+<br>
+<br>
+
 ### **Working with Strings**
 
 <br>
@@ -162,8 +189,8 @@ Arrays are for storing different types of data in one variable. To access the da
 ```php
 <?php
 
-$olderArray = array(1, '2', '<h1>3</h1>');
-$moreCommonArray = [1, '2', '<h1>3</h1>'];
+$olderArray = array(1, "2", "<h1>3</h1>");
+$moreCommonArray = [1, "2", "<h1>3</h1>"];
 
 echo $moreCommonArray[0];
 
@@ -175,8 +202,8 @@ If you have big arrays and don't care about the order, but need to access data w
 ```php
 <?php
 
-$array = ['nickname' => 'Kaz', 'age' => 26];
-echo $array['nickname'];
+$array = ["nickname" => "Kaz", "age" => 26];
+echo $array["nickname"];
 
 ?>
 ```
@@ -363,11 +390,11 @@ The `foreach` loop only works with arrays. It goes through the entire array and 
 ```php
 <?php
 
-$animeList = ['Death Note', 'One Piece', 'Naruto', 'Cowboy Bebop'];
+$animeList = ["Death Note", "One Piece", "Naruto", "Cowboy Bebop"];
 
 foreach ($animeList as $anime) {
     echo $anime . "<br>";
-}
+};
 /* Outputs:
 Death Note
 One Piece
