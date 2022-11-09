@@ -355,6 +355,31 @@ Count down commencing...
 
 <br>
 <br>
+
+#### **Foreach Loop**
+
+The `foreach` loop only works with arrays. It goes through the entire array and stops without us having to specify a condition for the loop to end.
+
+```php
+<?php
+
+$animeList = ['Death Note', 'One Piece', 'Naruto', 'Cowboy Bebop'];
+
+foreach ($animeList as $anime) {
+    echo $anime . "<br>";
+}
+/* Outputs:
+Death Note
+One Piece
+Naruto
+Cowboy Bebop
+*/
+
+?>
+```
+
+<br>
+<br>
 ---
 
 ## **Resources**
