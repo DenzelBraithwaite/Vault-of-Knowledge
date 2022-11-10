@@ -407,6 +407,35 @@ Cowboy Bebop
 
 <br>
 <br>
+
+### Functions
+
+Functions are a great way to reuse parts of your code instead of having to retype it over and over again. We create a function that has one job, and then we **_call_** that function whenever we need it. Functions may have parameters and may return a value, but these aren't necessary.
+
+```php
+<?php
+
+// Let's say it takes 4 apples to make one drink.
+function appleJuicer($amount) {
+    echo "Thanks for the {$amount} apples<br>";
+    $glasses = $amount / 4;
+    if ($glasses < 1) {
+        echo "This isn't enough to make a full glass of juice...<br>";
+    } else {
+        echo "With this I can make " . ceil($glasses) . " glasses of juice!<br>";
+    };
+};
+
+appleJuicer(1); // This isn't enough to make a full glass of juice...
+appleJuicer(4); // With this I can make 1 glasses of juice!
+appleJuicer(8); // With this I can make 2 glasses of juice!
+
+?>
+```
+
+<br>
+<br>
+
 ---
 
 ## **Resources**
