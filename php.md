@@ -126,6 +126,20 @@ echo BIRTH_DATE; // Outputs 1996
 ?>
 ```
 
+<br>
+
+As of PHP 5.6, it's now possible to use the `const` keyword to define constants, and instead of it only being able to hold **scalar** data (_booleam, integer, floar and string_), it's now possible to create a constant array.
+
+```php
+<?php
+
+// const COUNT_DRACULA = array(1, 2, 3, 'ah', 'ah', 'ah');
+const COUNT_DRACULA = [1, 2, 3, 'ah', 'aahh', 'aaahhh'];
+echo COUNT_DRACULA[3]; // Outputs 'ah'
+
+?>
+```
+
 <mark>finish this...</mark>
 
 <br>
@@ -468,6 +482,8 @@ echo $secretIdentity; // Outputs "Clark Kent"
 
 ?>
 ```
+
+Had we not used the `global` keyword, it would've created a new local scoped variable within the function. Then it would've never updated the global variable, so it would've echoed `"Superman"` twice.
 
 <br>
 <br>
