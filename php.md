@@ -448,6 +448,30 @@ echo $numberSquared; // Outputs 16
 <br>
 <br>
 
+### **Scope**
+
+The scope determines where variables can be accessed from. There's global and local scope. In PHP, something declared in the global scope, cannot be accessed within a local scope unless we use the `global` keyword. A variable inside of the local scope can only be accessed from within its scope.
+
+```php
+<?php
+
+$secretIdentity = "Superman";
+
+function unmask () {
+    global $secretIdentity; // Allows the variable to be accessed within the local scope
+    $secretIdentity = "Clark Kent";
+};
+
+echo $secretIdentity . "<br>"; // Outputs "Superman"
+unmask();
+echo $secretIdentity; // Outputs "Clark Kent"
+
+?>
+```
+
+<br>
+<br>
+
 ---
 
 ## **Resources**
