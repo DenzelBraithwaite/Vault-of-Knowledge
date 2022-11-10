@@ -430,6 +430,18 @@ appleJuicer(1); // This isn't enough to make a full glass of juice...
 appleJuicer(4); // With this I can make 1 glasses of juice!
 appleJuicer(8); // With this I can make 2 glasses of juice!
 
+
+// Example of a function that returns a value
+function square($number) {
+    return $number * $number;
+}
+
+$numberSquared = square(2);
+echo $numberSquared; // Outputs 4
+
+$numberSquared = square(4);
+echo $numberSquared; // Outputs 16
+
 ?>
 ```
 
