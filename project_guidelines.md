@@ -30,7 +30,7 @@ If you're starting a new project, remember to check this list off first before p
 
 #### **`Review design guide`**
 
-Before starting a project, review the '`css.md`' design section to start with a good focus and approach.
+Before starting a project, quickly review the [website personalities](css.md#design) section of the css guide to start with a good focus and approach.
 
 <br>
 <br>
