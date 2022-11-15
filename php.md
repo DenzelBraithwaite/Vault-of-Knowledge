@@ -128,7 +128,7 @@ echo BIRTH_DATE; // Outputs 1996
 
 <br>
 
-As of PHP 5.6, it's now possible to use the `const` keyword to define constants, and instead of it only being able to hold **scalar** data (_booleam, integer, floar and string_), it's now possible to create a constant array.
+As of PHP 5.3, it's now possible to use the `const` keyword to define constants, and instead of it only being able to hold **scalar** data (_booleam, integer, floar and string_), as of PHP 5.6 it's now possible to create a constant array.
 
 ```php
 <?php
