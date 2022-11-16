@@ -754,6 +754,8 @@ Setting an element's parent container to `flex` is an easy way to horizontally a
 }
 ```
 
+[More on Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+
 <br>
 <br>
 
