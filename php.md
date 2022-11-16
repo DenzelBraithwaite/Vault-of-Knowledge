@@ -227,7 +227,7 @@ echo $array["nickname"];
 
 ### **Conditionals**
 
-Conditional statements determine what code will be run based on a condition. A common example of this is the `if` statement, whilch will only execute code if the code evaluates to `true`.
+Conditional statements determine what code will be run based on a condition. A common example of this is the `if` statement, which will only execute code if the code evaluates to `true`.
 
 <br>
 
