@@ -152,6 +152,8 @@ Now that the essential starting points are out of the way, here are the things t
 
 -   When you use `display: flex` make sure to `align-items` as well
 
+-   Set **very** visible background colors while designing, such as <mark style="background-color: red">red</mark>, <mark style="background-color: purple">purple</mark> and <mark style="background-color: blue">blue</mark>. This will help you see elements that would otherwise be invisible on the webpage. Avoid light shades of orange and green since those represent margin and padding respectively.
+
 <br>
 <br>
 
