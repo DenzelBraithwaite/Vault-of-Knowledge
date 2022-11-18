@@ -39,14 +39,30 @@ A void element is an element in HTML that cannot have any child nodes. Void elem
 <img src="source/example.png" />
 ```
 
-<br>
-
 HTML doesn't actually require a slash either to close the tag, even pre HTML 5. So this syntax is cleaner.
 
 ```html
 <img src="source/example.png" />
 <!-- No slash-->
 ```
+
+<br>
+
+Here are some examples of void elements:
+
+-   \<area>
+
+-   \<base>
+-   \<br>
+-   \<col>
+-   \<hr>
+-   \<img>
+-   \<input>
+-   \<link>
+-   \<meta>
+-   \<param>
+-   \<source>
+-   \<track>
 
 <br>
 <br>
