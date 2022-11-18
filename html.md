@@ -31,6 +31,26 @@ Instead of leaving an element empty, you can leave a space in there. But a bette
 <br>
 <br>
 
+#### **Void elements**
+
+A void element is an element in HTML that cannot have any child nodes. Void elements only have a start tag, no end tags. We refer to this as a **self-closing tag**.
+
+```html
+<img src="source/example.png" />
+```
+
+<br>
+
+HTML doesn't actually require a slash either to close the tag, even pre HTML 5. So this syntax is cleaner.
+
+```html
+<img src="source/example.png" />
+<!-- No slash-->
+```
+
+<br>
+<br>
+
 #### **Creating a card**
 
 When creating a card, it's very common to use a `<figure>` tag to wrap the contents. Also acceptable could be an `<article>` tag.
