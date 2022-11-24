@@ -129,6 +129,20 @@ Firstly, have `margin-left: auto; margin-right: auto;` on your container and se
 <br>
 <br>
 
+#### **Center text**
+
+Quickly center text vertically by setting the `line-height` property, which also sets the height as the name suggests. Center text horizonatally using the `text-align: center` declaration.
+
+```css
+.text {
+    line-height: 40px; /* Vertical align */
+    text-align: center; /* Horizontal align */
+}
+```
+
+<br>
+<br>
+
 #### **`Styling a hovered child element`**
 
 I ran into a problem where I used an `SVG` chevron icon inside of a `<button>` but wanted to style the **entire** button when hovered. But since these are technically 2 separate elements, I needed to hover directly over the `SVG` in order for the hover effect to take effect, as opposed to immediately after hovering over the overall `<button>` area itself.
