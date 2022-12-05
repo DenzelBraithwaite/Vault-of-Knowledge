@@ -226,6 +226,17 @@ background-size: cover; /* This will resize the image to "cover" the element */
 <br>
 <br>
 
+#### **Overflow-x and y behaviour**
+
+You can experience _weird_ behaviour if you combine `overflow-x` and `overflow-y` with one of the 2 properties having a value of `visible`.
+
+<br>
+
+> _"The computed values of ‘overflow-x’ and ‘overflow-y’ are the same as their specified values, except that some combinations with ‘visible’ are not possible: if one is specified as ‘visible’ and the other is ‘scroll’ or ‘auto’, then ‘visible’ is set to ‘auto’. The computed value of ‘overflow’ is equal to the computed value of ‘overflow-x’ if ‘overflow-y’ is the same; otherwise it is the pair of computed values of ‘overflow-x’ and ‘overflow-y’."_
+
+<br>
+<br>
+
 ---
 
 ## **Reminders**
