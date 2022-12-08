@@ -237,6 +237,19 @@ You can experience _weird_ behaviour if you combine `overflow-x` and `overflow-y
 <br>
 <br>
 
+#### **Fix overlapping text**
+
+Sometimes you might notice your text overlapping, to fix this, try changing the `white-space` property to either `nowrap` or `noraml`.
+
+```css
+.div {
+    white-space: nowrap;
+}
+```
+
+<br>
+<br>
+
 ---
 
 ## **Reminders**
