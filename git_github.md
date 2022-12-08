@@ -32,6 +32,14 @@ $ git commit -c ORIG_HEAD                      # (4)
 
 <br>
 
+#### **How to delete remote branch from terminal**
+
+You can delete a branch on your remote repo but sometimes it will remain in your terminal as a remote branch. To fix this, simply remove the remote branch with the `r` option.
+
+```
+git branch -d -r origin/repo-name
+```
+
 [Read more](https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git)
 
 <br>
