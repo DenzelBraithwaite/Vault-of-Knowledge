@@ -45,7 +45,7 @@ The material I've found is a mixture of:
 
 ## **Fundamentals**
 
-White space does not matter in php.
+White space does not matter in php. To write PHP code, you must enter it between an open and closing tag. There are a few formats that are accepted, but the most reliable is `<?php CODE_HERE; ?>`. Other opening and closing tag formats are not 100% guaranteed to work since the server would have to be configured to accept those formats, but `<?php?>` is understood and rendered on any server expecting php.
 
 <br>
 
