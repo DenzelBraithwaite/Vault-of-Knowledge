@@ -591,7 +591,7 @@ In the `form-name-here.php` file:
 
 ### **Extracting Data From a Form**
 
-In almost all cases, when a user fills out the form and presses submit, you want to retrieve that data.
+In almost all cases, when a user fills out the form and presses submit, you want to retrieve that data and store it in a database.
 
 ```html
 <html>
@@ -623,6 +623,41 @@ In the `form.php` file:
             echo "Your super secret password is " . $password;
         }
     ?>
+```
+
+<br>
+<br>
+
+### **Validating Form Values**
+
+Often we'll want to perform client side validation to avoid submitted invalid data to our database, which can cause bugs. A simple way of doing this is making sure certain form fields give feedback if invalid info is entered, for instance if the password complexity is too low and the password needs to be longer.
+
+```php
+
+    <?php
+        // If the username is too short, a message will appear above the form in this case.
+        if (isset($_POST['submit'])) {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+
+            if (strlen($username) < 3) {
+                echo "Sorry, your username needs to be longer than 3    characters.";
+            }
+        }
+    ?>
+```
+
+```html
+<!-- You can use the current file name to post to the same page. -->
+<form action="this_file.php" method="POST">
+    <label for="username">Username</label>
+    <input name="username" type="text" placeholder="Ex: Kaz123" />
+    <br />
+    <label for="password">Password</label>
+    <input name="password" type="password" />
+    <br />
+    <button name="submit" type="submit">Submit</button>
+</form>
 ```
 
 <br>
