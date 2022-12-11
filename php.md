@@ -37,6 +37,7 @@ The material I've found is a mixture of:
 
 -   Make sure php code is between `<?php ?>` tags.
 -   Semicolons(`;`) are very important in php
+-   `echo()` and `print` are almost identical, but echo has no return value and print has a return value of 1. echo can take multiple arguments but print can take only 1.ƒarray
 
 <br>
 <br>
@@ -468,7 +469,7 @@ echo $numberSquared; // Outputs 16
 
 #### **Math**
 
-math functions
+Some examples of built-in math functions.
 
 ```php
 echo pow(2, 10); // 2 to the power of 10 = 1024
@@ -484,19 +485,28 @@ echo round(99.4); // 99.4 rounded = 99
 
 #### **String**
 
-String functions
+Some examples of built-in String functions.
 
 ```php
-
+echo strlen("This calculates a string's lenth"); // strlen = String length
+echo strtoupper("This return's a string uppercased."); // strtoupper = String to upper
+ec
 ```
 
 <br>
 
 #### **Array**
 
-Array functions
+Some examples of built-in Array functions. The `print_r` is a great way to print an array with it's indexes or keys(if it's an associative array).
 
 ```php
+$array = [1, 2, 3, 6, 5, 4, 7, 10, 8, 9];
+
+print_r($array); // Outputs: Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 6 [4] => 5 [5] => 4 [6] => 7 ...)
+echo max($array); // 10
+echo min($array); // 1
+echo sort($array); // Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 4 [4] => 5 [5] => 6 [6] => 7 ...)
+in_array(6, $array) // returns true(1) or false(nothing)
 
 ```
 
