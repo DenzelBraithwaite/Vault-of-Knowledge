@@ -422,7 +422,7 @@ Cowboy Bebop
 <br>
 <br>
 
-### Functions
+### **Functions**
 
 Functions are a great way to reuse parts of your code instead of having to retype it over and over again. We create a function that has one job, and then we **_call_** that function whenever we need it. Functions may have parameters and may return a value, but these aren't necessary.
 
@@ -458,6 +458,49 @@ echo $numberSquared; // Outputs 16
 
 ?>
 ```
+
+<br>
+<br>
+
+### **Built-in Functions**
+
+<br>
+
+#### **Math**
+
+math functions
+
+```php
+echo pow(2, 10); // 2 to the power of 10 = 1024
+echo rand(1, 100); // random number between 1-100
+echo sqrt(100); // Square root of 100 = 10
+echo floor(99.5); // 99.5 rounded down = 99
+echo ceil(99.5); // 99.5 rounded up = 100
+echo round(99.5); // 99.5 rounded = 100
+echo round(99.4); // 99.4 rounded = 99
+```
+
+<br>
+
+#### **String**
+
+String functions
+
+```php
+
+```
+
+<br>
+
+#### **Array**
+
+Array functions
+
+```php
+
+```
+
+<br>
 
 <br>
 <br>
