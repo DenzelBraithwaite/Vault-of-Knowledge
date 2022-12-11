@@ -541,6 +541,93 @@ Had we not used the `global` keyword, it would've created a new local scoped var
 <br>
 <br>
 
+## **Forms**
+
+Forms are a crucial aspect of web development.
+
+<br>
+
+### **Checking for Form Submission**
+
+Sometimes we want to verify if the form was submitted, before trying to retrieve information from it. The first file code snippet is the form HTML code, the other is the file where the form is posting to.
+
+```html
+<html>
+    <body>
+        <!-- form-name-here.php has to be a valid file path -->
+        <form action="form-name-here.php" method="POST">
+            <label for="first-name">First Name:</label>
+            <input name="first-name" type="text" placeholder="Ex: John" />
+            <br />
+            <label for="last-name">Last Name:</label>
+            <input name="last-name" type="text" placeholder="Ex: Smith" />
+            <br />
+            <label for="password">Password:</label>
+            <input name="password" type="password" />
+            <br />
+            <button name="submit" type="submit">Submit</button>
+        </form>
+    </body>
+</html>
+```
+
+<br>
+
+In the `form-name-here.php` file:
+
+```php
+    <?php
+    // isset() is a function to see if the $_POST variable is available.
+    // This checks if the submit value is present.
+    if (isset($_POST['submit'])) {
+        echo "Success";
+    }
+
+    ?>
+```
+
+<br>
+<br>
+
+### **Extracting Data From a Form**
+
+In almost all cases, when a user fills out the form and presses submit, you want to retrieve that data.
+
+```html
+<html>
+    <body>
+        <form action="form.php" method="POST">
+            <label for="username">Username</label>
+            <input name="username" type="text" placeholder="Ex: Kaz123" />
+            <br />
+            <label for="password">Password</label>
+            <input name="password" type="password" />
+            <br />
+            <button name="submit" type="submit">Submit</button>
+        </form>
+    </body>
+</html>
+```
+
+<br>
+
+In the `form.php` file:
+
+```php
+    <?php
+        if (isset($_POST['submit'])); {
+
+            $username = $_POST['username']; // Value is what username you entered in the form
+            $password = $_POST['password']; // Value is what password you entered in form
+            echo "Your username is: " . $username . "<br>";
+            echo "Your super secret password is " . $password;
+        }
+    ?>
+```
+
+<br>
+<br>
+
 ---
 
 ## **Resources**
