@@ -663,6 +663,17 @@ Often we'll want to perform client side validation to avoid submitted invalid da
 <br>
 <br>
 
+## **Databases**
+
+Databases are crucial for persisting(_saving_) information. There are many different databases but they usually share one thing in common, `SQL`. SQL deserves a guide of it's own, so I'm building one [here](sql.md), but for a more complete guide you can look on [sqltutorial.org](https://www.sqltutorial.org/).
+
+**SQL** Stands for structured query language, which is a way of asking questions to a database to retrieve specific information using a special _query_ syntax. One of the best(_free_) database options we have when working with php is **phpMyAdmin**.
+
+![Image of phpMyAdmin](img/php/phpMyAdmin.png)
+
+<br>
+<br>
+
 ---
 
 ## **Resources**
