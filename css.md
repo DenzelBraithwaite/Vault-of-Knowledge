@@ -23,6 +23,8 @@ The material I've found is a mixture of:
 
 -   Udemy - HTML/CSS course [Check it out](https://www.udemy.com/course/design-and-develop-a-killer-website-with-html5-and-css3/)
 
+-
+
 -   MDN docs
 
 -   Stackoverflow
@@ -61,6 +63,7 @@ Spacing scale example:
 <br>
 
 ![font size guide](img/css/font_size_guide.png)
+_Image from Jonas Schmedtmann's responsive course slides_
 
 <br>
 <br>
@@ -267,6 +270,7 @@ Use a contrast checker _(coolors has a good free one)_ to make sure that text on
 <br>
 
 ![Example of contrast ratio](img/css/design/contrast_checker.png)
+_Image from Coolors.co contrast checker_
 
 <br>
 <br>
@@ -633,6 +637,7 @@ There is also of course the `min-width` property, which by no means should be av
 
 <br>
 
+_I'm unable to find the original source of these photos, but I did not create this. There are many CSS cheat sheets available for free online._
 ![Screenshot of CSS cheatsheet](img/css/css_guide1.png)
 ![Screenshot of CSS cheatsheet](img/css/css_guide2.png)
 ![Screenshot of CSS cheatsheet](img/css/css_guide3.png)
@@ -679,6 +684,7 @@ Web <mark>designers</mark> conceptualize the idea and look of a website, creatin
 
 ### **Personalities**
 
+_Images below from Jonas Schmedtmann's responsive course slides_
 ![website personalities guide](img/css/design/website_personalities.png)
 
 ![website personalities serious / elegant](img/css/design/serious_elegant.png)
@@ -802,6 +808,7 @@ Setting an element's parent container to `flex` is an easy way to horizontally a
 There's a neat trick that's often used to center elements using `absolute` positioning and the `translate` property.
 
 ![Centering with absolute positioning diagram](img/css/design/absolute_centering.png)
+_Image from Jonas Schmedtmann's responsive course slides_
 
 <br>
 <br>
@@ -901,6 +908,7 @@ Adds vertical shadow with thick blur and low opacity, creating an overall subtle
 ![Examples of when to use button shadows](img/css/design/hover_shadows.png)
 
 ![Examples of how to create shadow glows](img/css/design/glow_shadows.png)
+_All images above from Jonas Schmedtmann's responsive course slides_
 
 <br>
 <br>

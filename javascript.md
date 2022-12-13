@@ -627,6 +627,7 @@ First it reads the code and translates _(or **parses**)_ it into the `Abstract S
 <br>
 
 ![image of AST syntax](img/js/jit-and-ast.png)
+_Image from Jonas Schmedtmann's JavaScript course slides_
 
 <br>
 
@@ -703,6 +704,7 @@ When all of the code has been executed, the engine will wait for callback functi
 
 <mark>Finish this...</mark>
 ![Example of how the call stack works](img/js/call_stack.png)
+_Image from Jonas Schmedtmann's JavaScript course slides_
 
 <br>
 <br>
@@ -796,6 +798,7 @@ console.log(protractor); // Outputs: true
 <br>
 
 ![Summary on scoping rules](img/js/scoping.png)
+_Image from Jonas Schmedtmann's JavaScript course slides_
 
 <br>
 <br>
@@ -811,6 +814,9 @@ Hoisting makes certain variables and functions available to use before they are 
 <br>
 
 ![Slide of TDZ in JS](img/js/tdz.png)
+_Images from Jonas Schmedtmann's JavaScript course slides_
+
+<br>
 
 So function **declarations** and variables defined with `var` are hoisted, but function **expressions**, arrow functions and variables defined with `const` or `let` are not. If you attempt to use a variable defined with `var` before it's defined though, it's value will be `undefined`. If you try to use a function declaration before it's defined, it will still work.
 
@@ -824,6 +830,7 @@ That being said, it's best to avoid writing code like that. Avoid `var` at all c
 ## **The `this` keyword**
 
 ![Slide for JavaScript 'this' keyword](img/js/the_this_keyword.png)
+_Image from Jonas Schmedtmann's JavaScript course slides_
 
 <br>
 
@@ -898,6 +905,7 @@ age = 31; // memory address 0002
 Both variables are pointing to the address **0001** which holds the value **30**, but when our first variable **age** gets a new value, it needs to get a new address. Instead of changing the value of address **0001**(_which would reassign **all identifiers** values as well_) it instead creates a new address with a new value.
 
 ![How primitive types are stored in memory](img/js/memory-primitive.png)
+_Image from Jonas Schmedtmann's JavaScript course slides_
 
 <br>
 <br>
@@ -934,6 +942,7 @@ friend.age = 27; // Updates both objects
 As far as the **call stack** is concerned, nothing really changed, they both point to the same address which points to the same value. In the memory heap, the address still does not change, only the value does.
 
 ![Reference type stored in the memory heap](img/js/primitive_vs_reference.png)
+_Image from Jonas Schmedtmann's JavaScript course slides_
 
 <br>
 
@@ -2066,6 +2075,7 @@ for (const [key, value] of mapIteration) {
 ## Arrays vs Sets and Objects vs Maps
 
 ![differences between JavaScript dataStructures](img/js/arrays_sets_objects_maps.png)
+_Image from Jonas Schmedtmann's JavaScript course slides_
 
 <br>
 <br>
