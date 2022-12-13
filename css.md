@@ -23,8 +23,6 @@ The material I've found is a mixture of:
 
 -   Udemy - HTML/CSS course [Check it out](https://www.udemy.com/course/design-and-develop-a-killer-website-with-html5-and-css3/)
 
--
-
 -   MDN docs
 
 -   Stackoverflow
