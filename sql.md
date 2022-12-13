@@ -15,6 +15,8 @@ Databases are for storing information, but in almost all cases we need to manipu
 
 The material I've found is a mixture of:
 
+-   [sqltutorial.org](https://www.sqltutorial.org/)
+
 -   Le Wagon(Kitt) Study Docs
 
 -   Stackoverflow
@@ -29,13 +31,8 @@ The material I've found is a mixture of:
 
 ## **Quick tips & tricks**
 
--   **C** Use `CREATE` to create in a database.
-
--   **R** Use `SELECT` to read from a database.
-
--   **U**
-
--   **D**
+-   To quickly view an entire table, use the `SELECT * FROM "TABLE_NAME"`
+-   ...
 
 <br>
 <br>
@@ -44,7 +41,10 @@ The material I've found is a mixture of:
 
 ## **Fundamentals**
 
-This section will hold the core fundamentals of the SQL syntax and the most commonly used queries.
+SQL is a declarative language that was designed with non-technical people in mind. A declarative language syntax focuses on specifying the result of what you want as opposed to an imperative language which focuses on giving the computer an explicit sequence of commands to perform. It reads like a natural language ex: `SELECT first_name FROM employees` and always begins with a verb that describes the action, such as `UPDATE` or `DELETE`.
+
+![Example of SQL terminology and syntax](img/sql/syntax.png)
+_Image from sqltutorial.org_
 
 <br>
 
