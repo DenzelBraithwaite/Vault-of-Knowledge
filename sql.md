@@ -152,6 +152,37 @@ FROM
 <br>
 <br>
 
+### **LIMIT Clause**
+
+Sometimes you only want to select a specific amount of columns, in which case you can use the `LIMIT` clause as well as the `OFFSET` clause to determine where to start counting and how many rows to show. `LIMIT` can be used alone but `OFFSET` can only be used with `LIMIT`.
+
+```sql
+SELECT
+    min_salary,
+    max_salary
+FROM
+    jobs
+WHERE
+    min_salary >= 5000
+AND
+	max_salary <= 15000
+ORDER BY
+	max_salary DESC
+LIMIT
+    5
+OFFSET -- I'm not sure why OFFSET isn't being color coded here.
+	3;
+```
+
+<br>
+
+Since the offset is **3**, the query will skip the first **3** results it would've returned and instead return the next **5** (since the limit is **5**) rows. You can also use the shorthand expression `LIMIT 3, 5` to set the `OFFSET` to **3** and the `LIMIT` to **5**.
+
+![example of sql limit and offset shorthand expression](img/sql/limit_offset_shorthand.png)
+
+<br>
+<br>
+
 ---
 
 ## **Fundamentals**
