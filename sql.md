@@ -104,7 +104,7 @@ FROM
 
 ### **ORDER BY clause**
 
-`ORDER BY` is an optional clause of the `SELECT` statement. It allows you to sort the data returned by the `SELECT` clause in ascending or descending order.
+`ORDER BY` is an optional clause of the `SELECT` statement. It allows you to sort the data returned by the `SELECT` clause in ascending or descending order. It's also possible to order by date.
 
 ```sql
 SELECT
@@ -131,6 +131,22 @@ FROM
 	employees
 ORDER BY
 	last_name DESC; -- sorts in descending order instead (Z-A).
+```
+
+<br>
+<br>
+
+### **DISTINCT Operator**
+
+You can use the `DISTINCT` operator with the `SELECT` clause to filter out any duplicate data. This does not affect the acctual database data. If you selet more than one column, it will use that combination of selected columns when filtering out duplicate data.
+
+```sql
+SELECT DISTINCT
+    -- If multiple people have the same job and salary, only 1 will be selected.
+    job_id,
+    salary,
+FROM
+    employees;
 ```
 
 <br>
