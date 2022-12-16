@@ -180,6 +180,8 @@ Since the offset is **3**, the query will skip the first **3** results it would'
 
 ![example of sql limit and offset shorthand expression](img/sql/limit_offset_shorthand.png)
 
+`LIMIT` is widely supported by many database systems, however, it's not in SQL standard, so it's technically not 100% supported. For an alternative and more reliable option, use `FETCH`. You can read more on fetch [here](https://www.sqltutorial.org/sql-fetch/).
+
 <br>
 <br>
 
