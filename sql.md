@@ -236,14 +236,15 @@ Logical operators allows you to test a condition and will return **true**, **fal
 Returns true if both expressions are true.
 
 ```sql
-
+-- Returns all columns in the restaurants table where the price is less than 5 and the calories are under 1000.
+SELECT * FROM restaurants WHERE price >= 5 AND calories <= 1000;
 ```
 
 <br>
 
 #### **OR**
 
-Returns true if either expression is true.
+Returns true if at least 1 expression is true.
 
 ```sql
 
@@ -267,10 +268,19 @@ Returns true if either expression is true.
 
 #### **BETWEEN**
 
-Returns true if both expressions evaluate to true.
+Returns true if the searched values are within a set of values. You must also provide the minimum and maximum value to search **between**.
 
 ```sql
+-- Example 1
+SELECT
+    employee_id, first_name, last_name
+FROM
+    employees
+WHERE
+    hire_date BETWEEN '2019/12/01' AND '2022/12/01';
 
+-- Example 2
+SELECT first_name FROM employees WHERE salary BETWEEN 1000 AND 10000;
 ```
 
 <br>
@@ -318,7 +328,7 @@ Returns true if both expressions evaluate to true.
 
 ## **Subqueries**
 
-A subquery is a query nested inside another query.
+A subquery is a query nested inside another query.git
 
 ```sql
 
