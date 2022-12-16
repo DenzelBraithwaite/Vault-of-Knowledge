@@ -247,7 +247,8 @@ SELECT * FROM restaurants WHERE price >= 5 AND calories <= 1000;
 Returns true if at least 1 expression is true.
 
 ```sql
-
+-- Returns all columns in the restaurants table where the price is less than 5 or the calories are under 1000.
+SELECT * FROM restaurants WHERE price >= 5 OR calories <= 1000;
 ```
 
 <br>
