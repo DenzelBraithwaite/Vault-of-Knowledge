@@ -179,8 +179,43 @@ OFFSET -- I'm not sure why OFFSET isn't being color coded here.
 Since the offset is **3**, the query will skip the first **3** results it would've returned and instead return the next **5** (since the limit is **5**) rows. You can also use the shorthand expression `LIMIT 3, 5` to set the `OFFSET` to **3** and the `LIMIT` to **5**.
 
 ![example of sql limit and offset shorthand expression](img/sql/limit_offset_shorthand.png)
+_Image taken from sqltutorial.org_
+
+<br>
 
 `LIMIT` is widely supported by many database systems, however, it's not in SQL standard, so it's technically not 100% supported. For an alternative and more reliable option, use `FETCH`. You can read more on fetch [here](https://www.sqltutorial.org/sql-fetch/).
+
+<br>
+<br>
+
+### **WHERE Clause**
+
+The `WHERE` clause let's you set a condition for the data you want returned. For instance, what if you only wanted data **where** the salary is above a certain amount, or employees **where** their last name starts with a '**B**'. You can achieve this result by using comparison operators in your query.
+
+<br>
+
+**\*Comparison Operators\***
+![Table of sql comparison operators](img/sql/comparison_operators.png)
+_Image taken from sqltutorial.org_
+
+<br>
+
+```sql
+SELECT
+    employee_id,
+    first_name,
+    last_name,
+    salary
+FROM
+    employees
+WHERE
+    salary <= 20000
+AND
+    -- LIKE is covered later in the guide
+    last_name LIKE 'B%';
+```
+
+In the query above, we search in the **employees** table for employees who's salary is **less than or equal to** $20,000 **and** who's last name begins with the letter **B**. From those results we want to display 4 columns: **employee_id**, **first_name**, **last_name** and **salary**. It would also be possible to compare 2 columns against eachother, ex: `WHERE salary > min_salary`.
 
 <br>
 <br>
@@ -288,7 +323,7 @@ For a more complete guide with more examples, visit:
 
 <br>
 
-[website]()
+[sqltutorial.org](https://www.sqltutorial.org/)
 
 <br>
 <br>
