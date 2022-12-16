@@ -192,9 +192,12 @@ _Image taken from sqltutorial.org_
 
 The `WHERE` clause let's you set a condition for the data you want returned. For instance, what if you only wanted data **where** the salary is above a certain amount, or employees **where** their last name starts with a '**B**'. You can achieve this result by using comparison operators in your query.
 
+`*` _Note that it's impossible to test if something is `= NULL` since the expression will always return false. Instead use `IS NULL` not `= NULL`._
+
 <br>
 
-**\*Comparison Operators\***
+#### **Comparison Operators**
+
 ![Table of sql comparison operators](img/sql/comparison_operators.png)
 _Image taken from sqltutorial.org_
 
@@ -216,6 +219,110 @@ AND
 ```
 
 In the query above, we search in the **employees** table for employees who's salary is **less than or equal to** $20,000 **and** who's last name begins with the letter **B**. From those results we want to display 4 columns: **employee_id**, **first_name**, **last_name** and **salary**. It would also be possible to compare 2 columns against eachother, ex: `WHERE salary > min_salary`.
+
+<br>
+<br>
+
+### **Logical Operators**
+
+Logical operators allows you to test a condition and will return **true**, **false** or **unkown** like comparison operators.
+
+![SQL logical operators](img/sql/logical_operators.png)
+
+<br>
+
+#### **AND**
+
+Returns true if both expressions are true.
+
+```sql
+
+```
+
+<br>
+
+#### **OR**
+
+Returns true if either expression is true.
+
+```sql
+
+```
+
+<br>
+
+#### **ALL, ANY and SOME**
+
+-   **ALL** - Compares a value to all values in another value set. It must be preceded by a [comparison operator](#comparison-operators) and followed by a [subquery](#subqueries).
+
+-   **ANY** - Returns true if any one of the comparisons is true.
+
+-   **SOME** - Returns true if some of the expressions are true.
+
+```sql
+
+```
+
+<br>
+
+#### **BETWEEN**
+
+Returns true if both expressions evaluate to true.
+
+```sql
+
+```
+
+<br>
+
+#### **EXISTS**
+
+Returns true if both expressions evaluate to true.
+
+```sql
+
+```
+
+<br>
+
+#### **IN**
+
+Returns true if both expressions evaluate to true.
+
+```sql
+
+```
+
+<br>
+
+#### **LIKE**
+
+Returns true if both expressions evaluate to true.
+
+```sql
+
+```
+
+<br>
+
+#### **NOT**
+
+Returns true if both expressions evaluate to true.
+
+```sql
+
+```
+
+<br>
+<br>
+
+## **Subqueries**
+
+A subquery is a query nested inside another query.
+
+```sql
+
+```
 
 <br>
 <br>
