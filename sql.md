@@ -230,6 +230,7 @@ Logical operators allows you to test a condition and will return **true**, **fal
 ![SQL logical operators](img/sql/logical_operators.png)
 
 <br>
+<br>
 
 #### **AND**
 
@@ -240,6 +241,7 @@ Returns true if both expressions are true.
 SELECT * FROM restaurants WHERE price >= 5 AND calories <= 1000;
 ```
 
+<br>
 <br>
 
 #### **OR**
@@ -252,14 +254,19 @@ SELECT * FROM restaurants WHERE price >= 5 OR calories <= 1000;
 ```
 
 <br>
+<br>
+
+\* _**Note:** the queries below use [subqueries](#subqueries)_ \*
 
 #### **ALL, ANY and SOME**
 
--   **ALL** - Compares a value to all values in another value set. It must be preceded by a [comparison operator](#comparison-operators) and followed by a [subquery](#subqueries).
+-   **ALL** - Compares a value to all values in another value set. It must be preceded by a [comparison operator](#comparison-operators) and followed by a subquery.
 
 -   **ANY** - Returns true if any one of the comparisons is true.
 
 -   **SOME** - Returns true if some of the expressions are true.
+
+-   **Exists** - Returns true if a subquery contains one or more rows.
 
 <br>
 
@@ -280,8 +287,14 @@ WHERE
             department_id = 8
     )
 ORDER BY salary DESC;
+
+-- Usually you wouldn't type these queries on one line, for readability.
+SELECT first_name FROM employees WHERE EXISTS(
+    SELECT salary FROM job_salaries WHERE salary >= 10000
+);
 ```
 
+<br>
 <br>
 
 #### **BETWEEN**
@@ -302,43 +315,51 @@ SELECT first_name FROM employees WHERE salary BETWEEN 1000 AND 10000;
 ```
 
 <br>
-
-#### **EXISTS**
-
-Returns true if both expressions evaluate to true.
-
-```sql
-
-```
-
 <br>
 
 #### **IN**
 
-Returns true if both expressions evaluate to true.
+Returns true if the compared value matches one or more in the list.
 
 ```sql
-
+SELECT * FROM countries WHERE country_name IN ('Canada', 'USA', 'Brazil');
 ```
 
+<br>
 <br>
 
 #### **LIKE**
 
-Returns true if both expressions evaluate to true.
+SQLtutorial.org describes `LIKE` as follows:
+
+> "_The LIKE operator compares a value to similar values using a **wildcard** operator. SQL provides two wildcards used in conjunction with the `LIKE` operator._
+>
+> 1. The percent sign (`%`) represents zero, one, or multiple characters.
+> 2. The underscore sign ( `_`) represents a single character."
 
 ```sql
+-- Returns countries who START with 'CA'. Ex: Canada
+SELECT * FROM countries WHERE country_name LIKE 'CA%';
 
+-- Returns countries who END with 'CA'. Ex: America
+SELECT * FROM countries WHERE country_name LIKE '%CA';
+
+-- Returns countries who contain 'CA'. Ex: America, Zambia
+SELECT * FROM countries WHERE country_name LIKE '%AM%';
+
+-- Returns the country name if it contains AM(any single letter here)R in the name. EX: America
+SELECT country_name from countries WHERE country_name LIKE '%AM_R%';
 ```
 
 <br>
 
 #### **NOT**
 
-Returns true if both expressions evaluate to true.
+Reverses the result of a Boolean operator.
 
 ```sql
-
+-- This retrieves movie titles that are NOT Titanic.
+SELECT title FROM movies WHERE NOT title = 'Titanic';
 ```
 
 <br>
