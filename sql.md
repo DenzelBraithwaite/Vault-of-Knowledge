@@ -261,8 +261,25 @@ SELECT * FROM restaurants WHERE price >= 5 OR calories <= 1000;
 
 -   **SOME** - Returns true if some of the expressions are true.
 
-```sql
+<br>
 
+_This example comes from sqltutorial.org_
+
+```sql
+SELECT
+    first_name, last_name, salary
+FROM
+    employees
+WHERE
+    salary >= ALL ( -- ALL, ANY and SOME have the same syntax
+        SELECT
+            salary
+        FROM
+            employees
+        WHERE
+            department_id = 8
+    )
+ORDER BY salary DESC;
 ```
 
 <br>
