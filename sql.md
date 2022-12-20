@@ -376,6 +376,10 @@ A subquery is a query nested inside another query.git
 <br>
 <br>
 
+### **Joining Tables**
+
+Often,
+
 ---
 
 ## **Fundamentals**
@@ -461,6 +465,98 @@ Identifiers refer to specific objects in the database such as tables and columns
 ```sql
 SELECT first_name -- SELECT is the keyword, first_name is the identifier (column)
 FROM users; -- FROM is the keyword, users is the identifier (table)
+```
+
+<br>
+<br>
+
+### **Aliases**
+
+Aliases let you rename tables and columns temporarily to make your queries shorter and more understandable. If the alias contains spaces, you will need to wrap it in quotes.
+
+<br>
+<br>
+
+#### **Assigning an alias to a column**
+
+<br>
+
+```sql
+SELECT
+-- Using the AS keyword
+    department_id AS dept,
+    region_id AS region
+FROM
+    departments;
+
+-- Without the AS keyword
+SELECT department_id dept FROM departments;
+
+-- Without the AS keyword and with a space
+SELECT department_id 'dep id' FROM departments;
+
+-- Returns modified data and assigns the temporary column an alias.
+SELECT age + 1 AS new_age FROM users;
+```
+
+<br>
+<br>
+
+Take a look at this great example of common mistakes when assigning column aliases. This is taken directly from [sqltutorial.org](https://www.sqltutorial.org/)
+
+![common SQL alias mistake](img/sql/alias_mistake.png)
+
+<br>
+<br>
+
+#### **Assigning an alias to a table**
+
+<br>
+
+Assigning an alias to a table has a similar syntax.
+
+```sql
+SELECT table_name AS alias_name ...
+```
+
+<br>
+
+But you can also use a fully qualified name when querying a table which includes both the table and column name.
+
+```sql
+-- Syntax: SELECT table_name.column_name FROM table_name
+SELECT games.title FROM games ...
+```
+
+<br>
+
+This may seem pointless since you still have to specify the `FROM` clause with the table name, but this can be very useful when working with [joined tables](#joining-tables). It's also a good way to save keystrokes and improve readability.
+
+<br>
+
+_Here's an edited code snippet taken from stackexchange.com. View the [full article here](https://dba.stackexchange.com/questions/5989/is-table-aliasing-a-bad-practice)_
+
+```sql
+FROM
+            billing.financial_transactions  ft_cdi   -- alias required here
+INNER JOIN
+            billing.cash_application_links  cal
+        ON  ft_cdi.key_num = cal.applied_ft_key_num
+INNER JOIN
+            billing.financial_transactions  ft_pmt   -- alias required here
+        ON  cal.owner_key_num = ft_pmt.key_num
+LEFT OUTER JOIN
+            billing.invoice_lines           invl
+        ON  ft_cdi.key_num = invl.invoice_key_num
+INNER JOIN
+            billing.billers                 bil
+        ON  ft_cdi.biller_account_key_num = bil.biller_account_key_num
+INNER JOIN
+            billing.formal_entities         fe
+        ON  bil.frml_key_num = fe.key_num
+WHERE
+    ft_cdi.transaction_type <> 'Payment'   -- alias tells me this table is not for payments
+AND ft_pmt.transaction_type =  'Payment';  -- alias tells me this table is for payments
 ```
 
 <br>
