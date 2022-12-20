@@ -378,7 +378,7 @@ A subquery is a query nested inside another query.git
 
 ### **Joining Tables**
 
-Often,
+Often, you'll need to query data from multiple tables, the only way to accomplish this is to join those tables together.
 
 ---
 
