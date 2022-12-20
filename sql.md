@@ -452,13 +452,17 @@ FROM users; -- FROM is the keyword, users is the identifier (table)
 <br>
 <br>
 
-#### **`Documentation`** <mark>finish this...</mark>
+### **Documentation**
 
-For a more complete guide with more examples, visit:
+-   For a more complete guide with more examples, visit [sqltutorial.org](<[sqltutorial.org](https://www.sqltutorial.org/)>)
+
+-   If you want to test certain queries or view syntax examples, check out [w3schools](https://www.w3schools.com/sql/).
 
 <br>
 
-[sqltutorial.org](https://www.sqltutorial.org/)
+### **Syntax Validator**
+
+-   Use the [EverSQL validator](https://www.eversql.com/sql-syntax-check-validator/) to check your query syntax.
 
 <br>
 <br>
