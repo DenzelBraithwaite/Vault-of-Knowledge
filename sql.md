@@ -420,22 +420,27 @@ When we want to join tables together, there's a few different kinds of **joins**
 
 <br>
 
--   INNER JOIN - combines two tables based on a **shared key**.
--   LEFT JOIN - returns all rows from the first table and only the rows in the second table that match(_opposite of right_).
--   RIGHT JOIN - returns all rows from the second table and only the rows in the first table that match(_opposite of left_).
--   FULL OUTER JOIN - returns all rows from both tables, as long as there is at least one match between them(_combination of left and right_).
+-   **INNER JOIN** - combines two tables based on a **shared key**.
+-   **LEFT JOIN** - returns all rows from the first table and only the rows in the second table that match(_opposite of right_).
+-   **RIGHT JOIN** - returns all rows from the second table and only the rows in the first table that match(_opposite of left_).
+-   **FULL OUTER JOIN** - returns all rows from both tables, as long as there is at least one match between them(_combination of left and right_).
 -   etc
 
 For more information on LEFT, RIGHT and FULL OUTER JOINs, I'd suggest you visit either [sqltutorial.org](https://www.sqltutorial.org/) or [coursera.org](https://www.coursera.org/articles/sql-join-types).
 
 <br>
+<br>
 
 #### **INNER JOINs**
 
-An `INNER JOIN` joins 2 or more tables together by using `foreign keys`.
+An `INNER JOIN` joins 2 or more tables together by using `foreign keys`. Consider the following **one-to-many** relationship where elves make many christmas presents but a present can only be made by one elf. In this case, the elf is the parent and the present is the child.
+
+![elf and presents database table](img/sql/elves_presents.png)
 
 ```sql
-
+SELECT
+    magical_name,
+    presents.continue....
 ```
 
 <br>
