@@ -23,6 +23,8 @@ The material I've found is a mixture of:
 
 -   [W3schools](https://www.w3schools.com/sql/exercise.asp)(They have some great exercises)
 
+-   [Oracle](https://www.oracle.com/ca-en/database/)
+
 -   Other various websites
 
 ---
@@ -376,9 +378,68 @@ A subquery is a query nested inside another query.git
 <br>
 <br>
 
-### **Joining Tables**
+### **Joining Tables**(_theory_)
 
-Often, you'll need to query data from multiple tables, the only way to accomplish this is to join those tables together.
+Often, you'll need to query data from multiple tables, the only way to accomplish this is to **join those tables** together. In a relational database, we store information in tables, and when some of those tables share information, we can join them together. There's a few ways to do this, but in this section we'll assume we're performing an **`INNER JOIN`**.
+
+<br>
+<br>
+
+Imagine you have movie rental shop (_because those existed_), and you have a database that keeps track of all of the customers and movies. In one table you can have the customer information(_customer ID number, name, address, etc_) and in the other, all the info about movies.
+
+![sql database table](img/sql/customers_movies.png)
+
+In this example, the customer can rent many movies and a movie can be rented by many people(_but not at the same time of course_). We call this a **many-to-many** relationship.
+
+<br>
+<br>
+
+When we have many-to-many relationships, we usually create an additional table that has the purpose of <mark>linking those 2 tables together</mark>. For instance, this new table would be the '**rentals**' table, which keeps track of each movie id rented and the customer id that rented it. So how do we connect these tables together?
+
+<br>
+
+We do so with **foreign keys**. All tables have an auto-incrementing ID column, and we can tell the database that the `customer_id` column in the customers table is the same as the `customer_id` column in the rentals table. So what's the point of this? Well many-to-many relationships can be difficult to work with, <mark>what we want is a **one-to-many** or **many-to-one** relationship.</mark>
+
+![sql database joined tables](img/sql/joined_tables.png)
+
+<br>
+<br>
+
+In a **one-to-many** or **many-to-one** relationship, the golden rule is it's always the <mark>**child's responsibility to carry the foreign key of the parent.**</mark> Imagine someone eating a hamburger, the hamburger can only be eaten by one person, but that person has probably eaten over 100 hamburgers in their life. It wouldn't make sense to have the **_parent_** remember all the food(**_child_**) when the food only has to remember the one person who ate it.
+
+![database hamburger example](img/sql/hamburger.png)
+
+But if it was a **many-to-many** relationship, both tables would have to reference each-other and keep track of every relationship. That's why it's simple to have a **one-to-many** relationship and have the child carry the parent's foreign key, then join those tables if we ever need the extra data from the child's table.
+
+<br>
+<br>
+
+### **Joining Tables**(_practical_)
+
+When we want to join tables together, there's a few different kinds of **joins** we can do.
+
+<br>
+
+-   INNER JOIN - combines two tables based on a **shared key**.
+-   LEFT JOIN - returns all rows from the first table and only the rows in the second table that match(_opposite of right_).
+-   RIGHT JOIN - returns all rows from the second table and only the rows in the first table that match(_opposite of left_).
+-   FULL OUTER JOIN - returns all rows from both tables, as long as there is at least one match between them(_combination of left and right_).
+-   etc
+
+For more information on LEFT, RIGHT and FULL OUTER JOINs, I'd suggest you visit either [sqltutorial.org](https://www.sqltutorial.org/) or [coursera.org](https://www.coursera.org/articles/sql-join-types).
+
+<br>
+
+#### **INNER JOINs**
+
+An `INNER JOIN` joins 2 or more tables together by using `foreign keys`.
+
+```sql
+
+```
+
+<br>
+<br>
 
 ---
 
@@ -574,6 +635,10 @@ AND ft_pmt.transaction_type =  'Payment';  -- alias tells me this table is for p
 -   For a more complete guide with more examples, visit [sqltutorial.org](<[sqltutorial.org](https://www.sqltutorial.org/)>)
 
 -   If you want to test certain queries or view syntax examples, check out [w3schools](https://www.w3schools.com/sql/).
+
+-   For info on relational databases, check out [oracle](https://www.oracle.com/ca-en/database/)
+
+-   FOr info on SQL joins, check out [coursera.org](https://www.coursera.org/articles/sql-join-types)
 
 <br>
 
