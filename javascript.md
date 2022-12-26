@@ -1513,6 +1513,12 @@ console.log(`${let num = 5}`)
 ```
 
 <br>
+
+_Some good to know methods._
+![Javascript string methods](img/js/js_string_methods.jpeg)
+_Original source unknown, was reposted on LinkedIn_
+
+<br>
 <br>
 
 ## **Conditionals**
@@ -1728,7 +1734,11 @@ teaMenu.includes('green'); // outputs true since the item exists in the array
 teaMenu.length; // This is actually a property and not a method, it will return the length
 ```
 
-<mark>**finish this**</mark>
+<br>
+
+_Some good to know methods._
+![Javascript array methods](img/js/js_array_methods.jpeg)
+_Original source unknown, was reposted on LinkedIn_
 
 <br>
 <br>
