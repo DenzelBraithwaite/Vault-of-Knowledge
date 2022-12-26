@@ -439,8 +439,19 @@ An `INNER JOIN` joins 2 or more tables together by using `foreign keys`. Conside
 
 ```sql
 SELECT
-    magical_name,
-    presents.continue....
+  elves.magical_name,
+  toy_type
+FROM
+  presents
+  INNER JOIN elves ON elves.elf_id = presents.elf_id
+
+-- Using aliases, same query
+SELECT
+  e.magical_name,
+  toy_type
+FROM
+  presents p
+  INNER JOIN elves e ON e.elf_id = p.elf_id
 ```
 
 <br>
