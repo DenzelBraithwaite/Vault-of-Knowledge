@@ -9,7 +9,9 @@
 
 ## Overview
 
-Databases are for storing information, but in almost all cases we need to manipulate that data. We call these **CRUD** operations. The goal is to **create**, **read**, **update** and **delete** data. This guide will serve as a reminder for common SQL queries, as well as a knowledge base for SQL fundamentals.
+Databases are for storing information, but in almost all cases we need to manipulate that data. We call these **CRUD** operations. The goal is to **create**, **read**, **update** and **delete** data. This guide will serve as a reminder for common SQL queries, as well as a knowledge base for SQL fundamentals. For many(_but not all_) examples in this guide, we'll use a sample database from [sqltutorial.org](https://www.sqltutorial.org/).
+
+![sample database](img/sql/sample_db.png)
 
 <br>
 
@@ -150,6 +152,44 @@ SELECT DISTINCT
 FROM
     employees;
 ```
+
+<br>
+<br>
+
+### **Group BY clause**
+
+`GROUP BY` is an optional clause of the `SELECT` statement. It's usually used with [aggregate functions](#aggregate-functions)(_such as `min` and `sum`_) which is covered further below. Without an affregate function, `GROUP BY` behaves just like `DISTINCT`. The goal is to group similar data together and remove duplicate info. For instance, you have a company and you want to know the minimum salary your employees are making by department. You don't need the name of every single employee who's making that minimum salary, you just want to know what that number is.
+
+<br>
+
+In this example, you'd like to find the **minimum** salary per department, that's all. But if the db(_database_) table only has a `salary` column, you'll need to use the `MIN()` [aggregate function](#aggregate-functions), which finds the minimum amount in the specified column. But a `departments` table wouldn't include the salary info of every employee (_think of one-to-many relationships, every employee belongs to a dept. but a dept. has many employees_), so you'll need to join the `departments` table on the `employees` table.
+
+<br>
+
+_Snippet from sample db_
+
+![tables from db sample](img/sql/small_db_sample.png)
+
+```sql
+SELECT
+  d.department_name,
+  MIN(salary) AS min_salary -- AS keyword optional, added for clarity
+FROM
+  employees e
+INNER JOIN
+  -- also valid: departments d ON e.department_id = d.department_id
+  departments d ON d.department_id = e.department_id
+GROUP BY
+  department_name;
+```
+
+<br>
+
+**Results:**
+
+![online sql db tool with sample query](img/sql/online_sql_tool_example.png)
+
+_This example was inspired by a **slightly** more complicated example found here on [sqltutorial.org](https://www.sqltutorial.org/sql-group-by/#:~:text=SQL%20GROUP%20BY%20with%20MIN%2C%20MAX%2C%20and%20AVG%20example) and was created using the [online sql db tool](https://www.sqltutorial.org/seeit/)_
 
 <br>
 <br>
@@ -452,6 +492,28 @@ SELECT
 FROM
   presents p
   INNER JOIN elves e ON e.elf_id = p.elf_id
+```
+
+<br>
+<br>
+
+### **Subqueries**
+
+finish me...
+
+```sql
+
+```
+
+<br>
+<br>
+
+### **Aggregate Functions**
+
+finish me...
+
+```sql
+
 ```
 
 <br>
