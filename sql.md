@@ -9,7 +9,7 @@
 
 ## Overview
 
-Databases are for storing information, but in almost all cases we need to manipulate that data. We call these **CRUD** operations. The goal is to **create**, **read**, **update** and **delete** data. This guide will serve as a reminder for common SQL queries, as well as a knowledge base for SQL fundamentals. For many(_but not all_) examples in this guide, we'll use a sample database from [sqltutorial.org](https://www.sqltutorial.org/).
+Databases are for storing information, but in almost all cases we need to manipulate that data. We call these **CRUD** operations. The goal is to **create**, **read**, **update** and **delete** data. This guide will serve as a reminder for common SQL queries, as well as a knowledge base for SQL fundamentals. For many (_but not all_) examples in this guide, we'll use a sample database from [sqltutorial.org](https://www.sqltutorial.org/).
 
 ![sample database](img/sql/sample_db.png)
 
@@ -19,11 +19,11 @@ The material I've found is a mixture of:
 
 -   [sqltutorial.org](https://www.sqltutorial.org/)
 
--   Le Wagon(Kitt) Study Docs
+-   Le Wagon (_Kitt_) Study Docs
 
 -   Stackoverflow
 
--   [W3schools](https://www.w3schools.com/sql/exercise.asp)(They have some great exercises)
+-   [W3schools](https://www.w3schools.com/sql/exercise.asp) (_They have some great exercises_)
 
 -   [Oracle](https://www.oracle.com/ca-en/database/)
 
@@ -158,11 +158,11 @@ FROM
 
 ### **Group BY clause**
 
-`GROUP BY` is an optional clause of the `SELECT` statement. It's usually used with [aggregate functions](#aggregate-functions)(_such as `min` and `sum`_) which is covered further below. Without an affregate function, `GROUP BY` behaves just like `DISTINCT`. The goal is to group similar data together and remove duplicate info. For instance, you have a company and you want to know the minimum salary your employees are making by department. You don't need the name of every single employee who's making that minimum salary, you just want to know what that number is.
+`GROUP BY` is an optional clause of the `SELECT` statement. It's usually used with [aggregate functions](#aggregate-functions) (_such as `min` and `sum`_) which is covered further below. Without an affregate function, `GROUP BY` behaves just like `DISTINCT`. The goal is to group similar data together and remove duplicate info. For instance, you have a company and you want to know the minimum salary your employees are making by department. You don't need the name of every single employee who's making that minimum salary, you just want to know what that number is.
 
 <br>
 
-In this example, you'd like to find the **minimum** salary per department, that's all. But if the db(_database_) table only has a `salary` column, you'll need to use the `MIN()` [aggregate function](#aggregate-functions), which finds the minimum amount in the specified column. But a `departments` table wouldn't include the salary info of every employee (_think of one-to-many relationships, every employee belongs to a dept. but a dept. has many employees_), so you'll need to join the `departments` table on the `employees` table.
+In this example, you'd like to find the **minimum** salary per department, that's all. But if the db (_database_) table only has a `salary` column, you'll need to use the `MIN()` [aggregate function](#aggregate-functions), which finds the minimum amount in the specified column. But a `departments` table wouldn't include the salary info of every employee (_think of one-to-many relationships, every employee belongs to a dept. but a dept. has many employees_), so you'll need to join the `departments` table on the `employees` table.
 
 <br>
 
@@ -407,17 +407,6 @@ SELECT title FROM movies WHERE NOT title = 'Titanic';
 <br>
 <br>
 
-## **Subqueries**
-
-A subquery is a query nested inside another query.git
-
-```sql
-
-```
-
-<br>
-<br>
-
 ### **Joining Tables**(_theory_)
 
 Often, you'll need to query data from multiple tables, the only way to accomplish this is to **join those tables** together. In a relational database, we store information in tables, and when some of those tables share information, we can join them together. There's a few ways to do this, but in this section we'll assume we're performing an **`INNER JOIN`**.
@@ -425,7 +414,7 @@ Often, you'll need to query data from multiple tables, the only way to accomplis
 <br>
 <br>
 
-Imagine you have movie rental shop (_because those existed_), and you have a database that keeps track of all of the customers and movies. In one table you can have the customer information(_customer ID number, name, address, etc_) and in the other, all the info about movies.
+Imagine you have movie rental shop (_because those existed_), and you have a database that keeps track of all of the customers and movies. In one table you can have the customer information (_customer ID number, name, address, etc_) and in the other, all the info about movies.
 
 ![sql database table](img/sql/customers_movies.png)
 
@@ -499,11 +488,37 @@ FROM
 
 ### **Subqueries**
 
-finish me...
+A subquery is a query nested inside another query, such as a SELECT statement. Subqueries are always written between parentheses and generally run first since that info is needed in the main sql query (_read more about [order of operations below](#order-of-operations)_).
+
+<br>
+
+Consider the code snippet below, both queries are the same but they're just written a bit differently (_matter of preference_) for readability.
 
 ```sql
+-- Version 1
+SELECT first_name, last_name
+FROM employees
+WHERE department_id IN (
+  SELECT department_id
+  FROM departments
+  WHERE location_id = 1700
+);
 
+-- Version 2
+SELECT
+  first_name, last_name
+FROM
+  employees
+WHERE
+  department_id IN (SELECT
+    department_id
+  FROM
+    departments
+  WHERE
+    location_id = 1700);
 ```
+
+To read more about subqueries and get a better idea of when and how they're used, visit the subquery section of sqltutorial.org [here](https://www.sqltutorial.org/sql-subquery/).
 
 <br>
 <br>
@@ -701,6 +716,36 @@ AND ft_pmt.transaction_type =  'Payment';  -- alias tells me this table is for p
 <br>
 <br>
 
+### **Order of operations**
+
+In any programming language, it's crucial to understand the order of operations (_which line of code will be executed first_) to avoid running into confusing errors. Take the following code snippet for example.
+
+<br>
+
+```sql
+SELECT
+  first_name,
+  last_name,
+  age
+FROM
+  students
+WHERE
+  age < 18
+ORDER BY
+  last_name, first_name;
+```
+
+In the example above, we first write `SELECT` and then later tell it `FROM` where, but the database can't select a column if it doesn't know which table it's in. So it will actually evaluate the `FROM` clause first, then when it has the table it will look at the `SELECT` to get the column. Finally it will take that column and evaluate the `WHERE` clause to filter out unwanted results. Lastly, it will order it alphabetically (`ASC` by default) by last name, and then by first name.
+
+<br>
+
+Here's another great example from [sqltutorial.org](https://www.sqltutorial.org/sql-alias/) in the *SQL Alias* section. It shows a common mistake when assigning a table column an alias.
+
+![sqltutorial common column alias mistake screenshot](img/sql/sql_order_of_operations.png)
+
+<br>
+<br>
+
 ---
 
 ## **Resources**
@@ -710,7 +755,7 @@ AND ft_pmt.transaction_type =  'Payment';  -- alias tells me this table is for p
 
 ### **Documentation**
 
--   For a more complete guide with more examples, visit [sqltutorial.org](<[sqltutorial.org](https://www.sqltutorial.org/)>)
+-   For a more complete guide with more examples, visit [sqltutorial.org](https://www.sqltutorial.org/)
 
 -   If you want to test certain queries or view syntax examples, check out [w3schools](https://www.w3schools.com/sql/).
 
