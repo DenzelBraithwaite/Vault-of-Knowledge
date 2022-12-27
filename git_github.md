@@ -1,22 +1,49 @@
-# Git + GitHub
+# **Git & GitHub**
 
-_Fundamentals of Git CLI commands and useful info for GitHub and repos_
+> _"It is easy to shoot your foot off with git, but also easy to revert to a previous foot and merge it with your current leg."
+>
+> —Jack William Bell"_
 
-## Common commands
+<br>
+<br>
+
+## Overview
+
+In this guide we'll review some of the most common and need-to-know git commands that are used in real life everyday projects. Commands such as `pull`, `push` and `status` should be second nature to any developer. I'll also include some quick tips and tricks and some more solid fundamentals below with links to read more.
 
 <br>
 
-**bold**
+The material I've found is a mixture of:
 
-![Picture here](img/code_sample.png)
+-   [git-scm.com](https://git-scm.com/doc)
+
+-   [Github Git Guide](https://github.com/git-guides)
+
+-   Stackoverflow
+
+- Other various websites
 
 ---
 
-## **Resources**
+<br>
+
+## **Quick tips & tricks**
+
+-   When working in a team, use `git status` before starting to work for the day. This will avoid the chance of conflicts.
+-   ...
+
+<br>
+<br>
+
+---
+
+## **Common Commands**
 
 <br>
 
-How to undo the last commit ?
+### **Undoing the last commit**
+
+It will definitely happen where you want to undo the last commit and start fresh, in that case the `git reset` is what you'll need, but you'll also have to pay attention to the options you pass afterwards.
 
 ```sh
 $ git commit -m "Something terribly misguided" # (0: Your Accident)
@@ -42,6 +69,61 @@ git branch -d -r origin/repo-name
 
 [Read more](https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git)
 
+<br>
+<br>
+
+### **Rename a Remote Repo URL**
+
+When you decide to change the name of your repo, there's actually a few places you'll need to make the change for it to fully reflect the new name everywhere. That being said, if you simply go to Github and rename a repo like that, that's perfectly fine. No code will break, but it will not update locally so you'll have to do those changes in your terminal (or perhaps the Github GUI app but I'm not too familiar with that).
+
+<br>
+
+Imagine you have a repo called `personal_profile`, but after a few weeks of working on it, you realize you should've called it `portfolio` instead. To make the change you have to check a few places.
+
+<br>
+
+1. Github (or whatever remote repo you use, such as [bitbucket](https://bitbucket.org/)).
+2. Your local repo/folder.
+3. Your remote repo url name.
+
+
+#### **Renaming GitHub Repo**
+
+Renaming a repo on Github is pretty straight forward. You simply navigate to the desired repo and click settings. **Make sure you're logged in or you won't see the settings button**, then you can rename it under the `General` tab.
+
+<br>
+<br>
+
+#### **Renaming local Repo/Folder**
+
+Another simply procedure, just navigate to the folder and rename it. It's as simple as that, you can do so in the CLI or GUI, it doesn't have any affect really but for consistency it's a good idea.
+
+<br>
+<br>
+
+#### **Changing the remote repo url name**
+
+When you want to check your remote repo, you use the `remote -v` command. But even after changing the local and remote repo name, the **remote repo url** will still not update(but will still work fine). To rename it, look at the code snippet below.
+
+```bsh
+
+// Check remote repo url
+git remote -v
+// Syntax: origin  git@github.com:USERNAME-HERE/REPO-NAME-HERE.git (fetch/fetch)
+origin  git@github.com:DenzelBraithwaite/personal_profile.git (fetch)
+origin  git@github.com:DenzelBraithwaite/personal_profile.git (push)
+
+// Update url
+// Syntax: git remote set-url origin git@github.com:USERNAME-HERE/NEW-REPO-NAME-HERE.git
+git remote set-url origin git@github.com:DenzelBraithwaite/portfolio.git
+
+// Verify if the change was made
+git remote -v
+origin  git@github.com:DenzelBraithwaite/portfolio.git (fetch)
+origin  git@github.com:DenzelBraithwaite/portfolio.git (push)
+```
+
+<br>
 <br>
 
 **also**
