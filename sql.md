@@ -888,7 +888,7 @@ VALUES
   ('rook', 5, 'black');
 ```
 
-For each column you add in the `INSERT INTO` statement, you must add a value in the `VALUE` statement. Therefore if there are 5 columns, you must specify 5 values. The new data must of course comply with **existing restraints**.
+For each column you add in the `INSERT INTO` statement, you must add a value in the `VALUE` statement. Therefore if there are 5 columns, you must specify 5 values. The new data must of course comply with **existing restraints**.a
 
 <br>
 
@@ -902,6 +902,17 @@ FROM
 	table2
 WHERE
 	condition;
+```
+
+<br>
+<br>
+
+### **Updating Data(_rows_)**
+
+The `UPDATE` statement...
+
+```sql
+
 ```
 
 <br>
