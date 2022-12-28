@@ -29,8 +29,14 @@ The material I've found is a mixture of:
 
 ## **Quick tips & tricks**
 
--   When working in a team, use `git status` before starting to work for the day. This will avoid the chance of conflicts.
--   ...
+- When working in a team, use `git status` before starting to work for the day. This will avoid the chance of conflicts.
+- Copy and past the following code into your terminal for a more readable git log.
+```
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+```
+![pretty git log](img/pretty_git_log.png)
+
+- etc...
 
 <br>
 <br>
@@ -130,4 +136,8 @@ origin  git@github.com:DenzelBraithwaite/portfolio.git (push)
 
 <br>
 
-[20 Common Git commands](https://dzone.com/articles/top-20-git-commands-with-examples)
+- [20 Common Git commands](https://dzone.com/articles/top-20-git-commands-with-examples)
+
+- Learn how to style your `git log` [here](https://coderwall.com/p/euwpig/a-better-git-log).
+
+-
