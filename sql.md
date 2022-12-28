@@ -802,13 +802,38 @@ The `ALTER TABLE` statement allows you to add new columns, modify column attribu
 
 ```sql
 ALTER TABLE soldiers
--- Then use a clause such as ADD, MODIFY or DROP
-ADD birth_year DATE [AFTER soldier _id];
+-- Then use a clause such as ADD, MODIFY or DROP.
+ADD date_of_birth DATE [AFTER soldier _id];
 ```
 
 <br>
 
-Now let's change the type of `birth_year` from `DATE` to `YEAR`.
+Now let's change `date_of_birth` to `birth_year` and the type to `year`. Then finally, we'll drop the new column all together. Remember, when modifying columns it's entirely possible to lose data if you aren't careful. For instance, if you change a column from `INT` to `VARCHAR` **after** data is already in the table, that can cause errors during conversion.
+
+```sql
+-- Renaming column.
+ALTER TABLE soldiers
+RENAME COLUMN date_of_birth TO birth_year;
+
+-- Making birth year mandatory
+ALTER TABLE soldiers
+MODIFY birth_year YEAR NOT NULL;
+
+-- Deleting the column and all of its data.
+ALTER TABLE soldiers
+DROP COLUMN birth_year;
+```
+
+<br>
+<br>
+
+### **Dropping a Table**
+
+The
+
+```sql
+
+```
 
 <br>
 <br>
