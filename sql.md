@@ -791,6 +791,30 @@ CREATE TABLE soldiers(
 
 ### **Constraints**
 
+Constraints are **rules** that your table or column data has to abide by to be considered valid. This avoids having bad data in a database that can't be used; for instance, imagine if someone's first and last name could be `NULL` (_non-existent_). What would be the point of retrieving their data if we don't even know who they are? There are a few constraints out there but I'll only cover `UNIQUE` and `NOT NULL` here.
+
+<br>
+
+#### **UNIQUE**
+
+unique blah blah
+
+<br>
+
+#### **NOT NULL**
+
+unique blah blah
+
+
+<br>
+<br>
+
+**List of commonly used constraints**
+
+![sql common contraints](img/sql/constraints.png)
+
+_Screenshot from [mygreatlearning.com](https://www.mygreatlearning.com/blog/sql-constraints/#what)_
+
 <br>
 <br>
 
