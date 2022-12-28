@@ -829,10 +829,20 @@ DROP COLUMN birth_year;
 
 ### **Dropping a Table**
 
-The
+To delete a table and all of its data from the database, we use the `DROP TABLE` statement. Best practice is to use that with the `IF EXISTS` clause to avoid raising errors. If the table exists, it will be deleted; otherwise, nothing will happen. The `IF EXISTS` clause is support by MySQL, PostgreSQL, and SQL Server 2016+.
+
+
+<br>
+
+![sql drop table syntax](img/sql/drop_table.png)
+
+_Image taken [here](https://www.sqltutorial.org/sql-drop-table/) from sqltutorial.org_
+
+
+<br>
 
 ```sql
-
+DROP TABLE [IF EXISTS] soldiers;
 ```
 
 <br>
