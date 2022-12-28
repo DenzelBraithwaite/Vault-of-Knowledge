@@ -746,6 +746,13 @@ Here's another great example from [sqltutorial.org](https://www.sqltutorial.org/
 <br>
 <br>
 
+### **Data Types**
+
+There are many data types in SQL, including `VARCHAR`, `INT` and `TEXT`. It's important to have the correct data type for your columns to insure you don't inject invalid data into your db. For a more complete list of all data types, visit this chart on [w3schools.com](https://www.w3schools.com/sql/sql_datatypes.asp).
+
+<br>
+<br>
+
 ### **Primary Keys**
 
 All tables **should** have **only one** primary key. A primary key is a column of unique data that helps identify each row of a table, meaning it can't be a duplicate and it cant be `NULL` (_or non-existent_) either. Very commonly, tables will have an `ID` column which auto-increments making it a perfect primary key since the values are always unique.
@@ -785,6 +792,23 @@ CREATE TABLE soldiers(
   age INT
 );
 ```
+
+<br>
+<br>
+
+### **Altering a Table**
+
+The `ALTER TABLE` statement allows you to add new columns, modify column attributes (_such as constraints_) and remove columns. By default, if you add a column it will appear as the last column of the table. You can specify where it's inserted by using the `AFTER` clause.
+
+```sql
+ALTER TABLE soldiers
+-- Then use a clause such as ADD, MODIFY or DROP
+ADD birth_year DATE [AFTER soldier _id];
+```
+
+<br>
+
+Now let's change the type of `birth_year` from `DATE` to `YEAR`.
 
 <br>
 <br>
