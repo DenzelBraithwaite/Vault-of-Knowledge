@@ -17,17 +17,19 @@ Databases are for storing information, but in almost all cases we need to manipu
 
 The material I've found is a mixture of:
 
--   [sqltutorial.org](https://www.sqltutorial.org/)
+- [sqltutorial.org](https://www.sqltutorial.org/)
 
--   Le Wagon (_Kitt_) Study Docs
+- Le Wagon (_Kitt_) Study Docs
 
--   Stackoverflow
+- Stackoverflow
 
--   [W3schools](https://www.w3schools.com/sql/exercise.asp) (_They have some great exercises_)
+- [W3schools](https://www.w3schools.com/sql/exercise.asp) (_They have some great exercises_)
 
--   [Oracle](https://www.oracle.com/ca-en/database/)
+- [Oracle](https://www.oracle.com/ca-en/database/)
 
--   Other various websites
+- Youtube videos
+
+- Other various websites
 
 ---
 
@@ -35,8 +37,8 @@ The material I've found is a mixture of:
 
 ## **Quick tips & tricks**
 
--   To quickly view an entire table, use the `SELECT * FROM "TABLE_NAME"`
--   ...
+- To quickly view an entire table, use the `SELECT * FROM "TABLE_NAME"`
+- ...
 
 <br>
 <br>
@@ -848,22 +850,51 @@ DROP TABLE [IF EXISTS] soldiers;
 <br>
 <br>
 
+### **Inserting data into a Table**
+
+..wadwa
+
+```sql
+
+```
+
+<br>
+<br>
+
 ### **Constraints**
 
 Constraints are **rules** that your table or column data has to abide by to be considered valid. This avoids having bad data in a database that can't be used; for instance, imagine if someone's first and last name could be `NULL` (_non-existent_). What would be the point of retrieving their data if we don't even know who they are? There are a few constraints out there but I'll only cover `UNIQUE` and `NOT NULL` here.
 
 <br>
 
-#### **UNIQUE**
+##### **UNIQUE**
 
-unique blah blah
+The `UNIQUE` constraint ensures that no duplicate data can be entered. It's okay if 2 people have the same name, but they should never have the same employee ID or email (_otherwise how would we identify or differentiate them_). We don't need to specify the `UNIQUE` constraint for `PRIMARY KEYS` though since they're unique by default and often auto-incrementing.
 
 <br>
 
-#### **NOT NULL**
+![primary key vs unique constraint](img/sql/praimary_vs_unique.png)
 
-unique blah blah
+Screenshot taken [here](https://www.sqltutorial.org/sql-unique-constraint/) from sqltutorial.org.
 
+<br>
+
+```sql
+email_address VARCHAR(60) UNIQUE
+```
+
+<br>
+<br>
+
+##### **NOT NULL**
+
+The `NOT NULL` constraint makes it so a column's data **MUST** exist and cannot be left blank (_or NULL_) to be considered valid. `NOT NULL` is the equivalent of `CHECK` which ensures the data be present as well.
+
+```sql
+-- Syntax
+column_name data_type NOT NULL
+CHECK (column_name IS NOT NULL)
+```
 
 <br>
 <br>
@@ -899,6 +930,13 @@ _Screenshot from [mygreatlearning.com](https://www.mygreatlearning.com/blog/sql-
 ### **Syntax Validator**
 
 -   Use the [EverSQL validator](https://www.eversql.com/sql-syntax-check-validator/) to check your query syntax.
+
+<br>
+<br>
+
+### **Videos**
+
+- Great SQL and SQL server tutorial on Youtube by Kevin Stratvert [here](https://www.youtube.com/watch?v=h0nxCDiD-zg).
 
 <br>
 <br>
