@@ -755,7 +755,7 @@ All tables **should** have **only one** primary key. A primary key is a column o
 
 ### **Foreign Keys**
 
-A foreign key is a reference to another table's primary key. Foreign keys are used when we want to [join tables](#joining-tablestheory) together. For instance in a one-to-many relationship, the child will carry the foreign key of the parent table.
+A foreign key is a reference to another table's primary key. Foreign keys are used when we want to [join tables](#joining-tablestheory) together. For instance in a one-to-many relationship, the child will carry the foreign key of the parent table. By default, an auto-incrementing column will begin at 1.
 
 <br>
 
@@ -768,18 +768,28 @@ In the example above, each elf can make **many** presents, but a present can onl
 
 ### **Creating a Table**
 
-The minimum rewuirements for creating a table is a name and 1 column. There can be no duplicate tables in the database. When you create a column, you have to specify its name and its type, but you can also specify default values and column constraints (_such as a length limit_). Every table **should** absolutely have a [`PRIMARY KEY`](#primary-keys) and although it's **very** common that we use the `ID` column as a primary key, it's not necessary. A primary key **needs** to be unique.
+The minimum requirements for creating a table is a **table name and 1 named column**. There can be no duplicate tables in the database or it will raise an error. When you create a column, you have to specify its **name** and its **type**, but you can also **optionally** specify **default values** and column [**constraints**](#constraints) (_such as a length limit_). Every table **should** absolutely have a [**`PRIMARY KEY`**](#primary-keys) and although it's **very** common that we use the `ID` column as a primary key, it's not necessary.
 
 ```sql
+-- Syntax
 CREATE TABLE table_name_here(
-  --
-  column_name_here data_type_here,
+  -- If no default value for an auto-incrementing column is specified, it will start at 1.
+  primary_key_column data_type_here default value column_constraints,
+  column_name_here data_type_here
 );
 
 CREATE TABLE soldiers(
-
-)
+  soldier_id INT AUTO_INCREMENT PRIMARY KEY,
+  first_name VARCHAR(25) NOT NULL,
+  last_name VARCHAR(30) NOT NULL,
+  age INT
+);
 ```
+
+<br>
+<br>
+
+### **Constraints**
 
 <br>
 <br>
