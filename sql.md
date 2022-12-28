@@ -527,7 +527,7 @@ To read more about subqueries and get a better idea of when and how they're used
 
 ### **Aggregate Functions**
 
-finish me...
+finish me...sum avg min/max
 
 ```sql
 
@@ -859,19 +859,49 @@ DROP TABLE [IF EXISTS] soldiers;
 
 ### **Inserting data into a Table**
 
-The `INSERT INTO` statement lets you insert rows into a table. It's also possible to copy rows from one table and insert it into another. To clarify, we will be injecting **rows** (also known as records) which hold data, not **columns** which affect the database
+The `INSERT INTO` statement lets you insert rows into a table. It's also possible to copy rows from one table and insert it into another. To clarify, we will be injecting **rows** (also known as records) which hold data, not **columns**, which affect the database [schema](#schema).
 
 ```sql
+-- Syntax
 INSERT INTO table_name(
   column1,
   column2,
-  column3,
+  column3
 )
 VALUES (
   value_for_column1,
   value_for_column2,
-  value_for_column3,
+  value_for_column3
+);
+
+-- Example
+INSERT INTO chess_pieces(
+  -- In this example the primary key auto-increments so no need to decalre its value.
+  piece_type,
+  point_value,
+  color
 )
+-- Inserting multiple entries
+VALUES
+  ('queen', 9, 'white'),
+  ('king', NULL, 'white'),
+  ('rook', 5, 'black');
+```
+
+For each column you add in the `INSERT INTO` statement, you must add a value in the `VALUE` statement. Therefore if there are 5 columns, you must specify 5 values. The new data must of course comply with **existing restraints**.
+
+<br>
+
+You can copy rows from anoter table using the `FROM` and `WHERE` clause.
+
+```sql
+INSERT INTO table1(column_name)
+SELECT
+	column_name,
+FROM
+	table2
+WHERE
+	condition;
 ```
 
 <br>
