@@ -746,6 +746,31 @@ Here's another great example from [sqltutorial.org](https://www.sqltutorial.org/
 <br>
 <br>
 
+### **Primary Keys**
+
+All tables **should** have **only one** primary key. A primary key is a column of unique data that helps identify each row of a table, meaning it can't be a duplicate and it cant be `NULL` (_or non-existent_) either. Very commonly, tables will have an `ID` column which auto-increments making it a perfect primary key since the values are always unique.
+
+<br>
+<br>
+
+### **Creating a Table**
+
+The minimum rewuirements for creating a table is a name and 1 column. There can be no duplicate tables in the database. When you create a column, you have to specify its name and its type, but you can also specify default values and column constraints (_such as a length limit_). Every table **should** absolutely have a [`PRIMARY KEY`](#primary-keys) and although it's **very** common that we use the `ID` column as a primary key, it's not necessary. A primary key **needs** to be unique.
+
+```sql
+CREATE TABLE table_name_here(
+  --
+  column_name_here data_type_here,
+);
+
+CREATE TABLE soldiers(
+
+)
+```
+
+<br>
+<br>
+
 ---
 
 ## **Resources**
