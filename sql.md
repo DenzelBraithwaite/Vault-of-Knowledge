@@ -427,7 +427,7 @@ When we have many-to-many relationships, we usually create an additional table t
 
 <br>
 
-We do so with **foreign keys**. All tables have an auto-incrementing ID column, and we can tell the database that the `customer_id` column in the customers table is the same as the `customer_id` column in the rentals table. So what's the point of this? Well many-to-many relationships can be difficult to work with, <mark>what we want is a **one-to-many** or **many-to-one** relationship.</mark>
+We do so with [**foreign keys**](#foreign-keys). All tables have an auto-incrementing ID column, and we can tell the database that the `customer_id` column in the customers table is the same as the `customer_id` column in the rentals table. So what's the point of this? Well many-to-many relationships can be difficult to work with, <mark>what we want is a **one-to-many** or **many-to-one** relationship.</mark>
 
 ![sql database joined tables](img/sql/joined_tables.png)
 
@@ -749,6 +749,19 @@ Here's another great example from [sqltutorial.org](https://www.sqltutorial.org/
 ### **Primary Keys**
 
 All tables **should** have **only one** primary key. A primary key is a column of unique data that helps identify each row of a table, meaning it can't be a duplicate and it cant be `NULL` (_or non-existent_) either. Very commonly, tables will have an `ID` column which auto-increments making it a perfect primary key since the values are always unique.
+
+<br>
+<br>
+
+### **Foreign Keys**
+
+A foreign key is a reference to another table's primary key. Foreign keys are used when we want to [join tables](#joining-tablestheory) together. For instance in a one-to-many relationship, the child will carry the foreign key of the parent table.
+
+<br>
+
+![elves and presents table](img/sql/elves_presents.png)
+
+In the example above, each elf can make **many** presents, but a present can only be made by **one** elf, so it's the elf's (_child_) responsibility to carry the foreign key of the parent. In this case that's the `elf_id`. Notice how that's the same as the `elf_id` primary key in the elves tables.
 
 <br>
 <br>
