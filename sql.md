@@ -550,6 +550,13 @@ _Image from sqltutorial.org_
 <br>
 <br>
 
+### **Schema**
+
+Before diving in, one term that you should be familiar with is **schema**. The schema represents the layout of your database, meaning all of the tables and their columns. But the schema **does not** have anything to do with the user data in the table. For example, if we have a `users` table that holds information such as `user_id`, `username`, `email` and `password`, this is considered to be the schema, but the actual users themselves (_id=1, username='battle_bunny', etc_) is not included in the schema. Therefore, if we drop all the data from a table, the schema is not affected, but if we delete a table then the schema **and** the data is deleted.
+
+<br>
+<br>
+
 ### **Comments**
 
 Comments, just like in any programming language, is code that is ignored by the computer. In SQL, you can create a comment by using 2 dashes(or hyphens) `--` which tells the database to ignore this. Comments are very useful for documentation.
@@ -852,10 +859,19 @@ DROP TABLE [IF EXISTS] soldiers;
 
 ### **Inserting data into a Table**
 
-..wadwa
+The `INSERT INTO` statement lets you insert rows into a table. It's also possible to copy rows from one table and insert it into another. To clarify, we will be injecting **rows** (also known as records) which hold data, not **columns** which affect the database
 
 ```sql
-
+INSERT INTO table_name(
+  column1,
+  column2,
+  column3,
+)
+VALUES (
+  value_for_column1,
+  value_for_column2,
+  value_for_column3,
+)
 ```
 
 <br>
