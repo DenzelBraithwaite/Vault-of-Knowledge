@@ -197,7 +197,7 @@ echo $number1 * $number2;
 <br>
 <br>
 
-### **Arrays** <mark>Finish this...</mark>
+### **Arrays**
 
 Arrays are for storing different types of data in one variable. To access the data you need to use the element's array index.
 
@@ -212,7 +212,12 @@ echo $moreCommonArray[0];
 ?>
 ```
 
-If you have big arrays and don't care about the order, but need to access data without remembering the element's index, you can use **associative arrays**. Then your data will have key-value pairs, where the index is replaced with a key.
+<br>
+<br>
+
+#### **Associative Arrays**
+
+If you have big arrays and don't care about the order, but need to access data without remembering the element's index, you can use **associative arrays**. Associative arrays keep your data in **key-value** pairs, where the index is replaced with a key. This is the same concept as JavaScript Objects, Ruby hashes and Python dictionnaries.
 
 ```php
 <?php
@@ -543,7 +548,7 @@ Had we not used the `global` keyword, it would've created a new local scoped var
 
 ## **Forms**
 
-Forms are a crucial aspect of web development.
+Forms are a crucial aspect of web development. They allow you to gather user data and analyze it for later use. In PHP we have the super **super global variable** `$_POST`. The superglobal `$_POST` is an [associative array](#associative-arrays) of variables containing data sent via an HTTP POST request. Using this variable, you can access data sent to your PHP script from a HTML form. You can also send form data via JavaScript.
 
 <br>
 
