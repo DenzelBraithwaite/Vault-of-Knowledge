@@ -100,7 +100,12 @@ $alsoNumber = 3.141592654; // Floating point number
 ?>
 ```
 
-<mark>finish this...</mark>
+<br>
+<br>
+
+#### **Superglobals**
+
+Superglobal is a term used to describe a **super global variable**, which is a variable in PHP that is predefined and always accessible, <mark>**regardless of the scope**</mark>. For instance, we use the `$_POST` superglobal when we want to acess data sent via the **POST** method (_such as forms_).
 
 <br>
 <br>
@@ -217,7 +222,7 @@ echo $moreCommonArray[0];
 
 #### **Associative Arrays**
 
-If you have big arrays and don't care about the order, but need to access data without remembering the element's index, you can use **associative arrays**. Associative arrays keep your data in **key-value** pairs, where the index is replaced with a key. This is the same concept as JavaScript Objects, Ruby hashes and Python dictionnaries.
+If you have big arrays and don't care about the order, but need to access data without remembering the element's index, you can use **associative arrays**. Associative arrays keep your data in **key-value** pairs, where the index is replaced with a key. This is the same concept as JavaScript **objects**, Ruby **hashes** and Python **dictionnaries**.
 
 ```php
 <?php
@@ -548,7 +553,7 @@ Had we not used the `global` keyword, it would've created a new local scoped var
 
 ## **Forms**
 
-Forms are a crucial aspect of web development. They allow you to gather user data and analyze it for later use. In PHP we have the super **super global variable** `$_POST`. The superglobal `$_POST` is an [associative array](#associative-arrays) of variables containing data sent via an HTTP POST request. Using this variable, you can access data sent to your PHP script from a HTML form. You can also send form data via JavaScript.
+Forms are a crucial aspect of web development. They allow you to gather user data and analyze it for later use. In PHP, we have the [super global variable](#superglobals) `$_POST`. The **superglobal** `$_POST` is an [associative array](#associative-arrays) of variables containing data sent via an HTTP POST request, such as data from an HTML form.
 
 <br>
 
@@ -582,8 +587,8 @@ In the `form-name-here.php` file:
 
 ```php
     <?php
-    // isset() is a function to see if the $_POST variable is available.
-    // This checks if the submit value is present.
+    // isset() is a function to see if a variable is 'set', meaning declared and not NULL
+    // We're using it here to see if any form data has been submitted.
     if (isset($_POST['submit'])) {
         echo "Success";
     }
@@ -596,7 +601,7 @@ In the `form-name-here.php` file:
 
 ### **Extracting Data From a Form**
 
-In almost all cases, when a user fills out the form and presses submit, you want to retrieve that data and store it in a database.
+In almost all cases, when a user fills out the form and presses submit, you want to retrieve that data and store it in a database. In PHP, we use the `$_POST` **superglobal** to retrieve that data and an **[RDBMS]()** (_such as sql server_) to store and fetch the data.
 
 ```html
 <html>
@@ -670,11 +675,13 @@ Often we'll want to perform client side validation to avoid submitted invalid da
 
 ## **Databases**
 
-Databases are crucial for persisting(_saving_) information. There are many different databases but they usually share one thing in common, `SQL`. SQL deserves a guide of it's own, so I'm building one [here](sql.md), but for a more complete guide you can look on [sqltutorial.org](https://www.sqltutorial.org/).
+Databases are crucial for persisting(_saving_) information. There are many different databases available, but for this guide we will be focusing on **RDBMS** databases, which stands for **Relational DataBase Management Systems**. An RDBMS is software that allows you to manipulate data from your database. It uses tables with fields (_columns_) and records (_rows_) to store data. To retrieve and alter that data, we use a database querying language called **SQL**. But sql is quite a big topic of its own, so I'd suggest you read my **[sql guide](sql.md/#overview)** to learn more on that.
 
-**SQL** Stands for structured query language, which is a way of asking questions to a database to retrieve specific information using a special _query_ syntax. One of the best(_free_) database options we have when working with php is **phpMyAdmin**.
+**SQL** is used to **query** a database and retrieve data. One of the best(_free_) database options we have when working with php is **phpMyAdmin**.
 
 ![Image of phpMyAdmin](img/php/phpMyAdmin.png)
+
+_You can download and read more about it [here](https://www.phpmyadmin.net/downloads/)_
 
 <br>
 <br>
