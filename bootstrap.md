@@ -1,17 +1,74 @@
-# Bootstrap
+# **Bootstrap**
 
-_Fundamentals and common classes - Bootstrap (V5)_
+> _"Quote here..."_
+>
+> -Unknown
 
-## Common classes
+<br>
+<br>
+
+## Overview
+
+Brief description of Bootstrap here...
 
 <br>
 
-**bold**
+The material I've found is a mixture of:
 
-![Picture here](img/code_sample.png)
+-   finish this...
+
+-
+
+-   Other various websites
+
+---
+
+<br>
+
+## **Quick tips & tricks**
+
+-   finish this...
+
+- ...
+
+<br>
+<br>
+
+---
+
+## **Fundamentals**
+
+This section will hold the core fundamentals of ...
+
+<br>
+
+#### **Section**
+
+finish me...
+
+```
+
+```
+
+<br>
+<br>
 
 ---
 
 ## **Resources**
 
 <br>
+<br>
+
+#### **`Documentation`** <mark>finish this...</mark>
+
+For a more complete guide with more examples, visit:
+
+<br>
+
+[website]()
+
+<br>
+<br>
+
+---
