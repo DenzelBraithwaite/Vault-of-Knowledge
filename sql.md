@@ -9,7 +9,7 @@
 
 ## Overview
 
-Databases are for storing information, but in almost all cases we need to manipulate that data. We call these **CRUD** operations. The goal is to **create**, **read**, **update** and **delete** data. This guide will serve as a reminder for common SQL queries, as well as a knowledge base for SQL fundamentals. For many (_but not all_) examples in this guide, we'll use a sample database from [sqltutorial.org](https://www.sqltutorial.org/).
+Databases are for storing information, but in almost all cases we need to manipulate that data. We call these **CRUD** operations. The goal is to **create**, **read**, **update** and **delete** data. This guide will serve as a reminder for common SQL queries, as well as a knowledge base for SQL fundamentals. For many (_but not all_) examples in this guide, we'll use a sample database from [sqltutorial.org](https://www.sqltutorial.org/). This is a good cheat sheet or **reference point** for someone with basic sql knowledge but this guide shouldn't be used to **learn** the language and all of its intricacies.
 
 ![sample database](img/sql/sample_db.png)
 
@@ -70,6 +70,17 @@ FROM
 ```
 
 In the real world however, it's very rare that we want to query entire tables, usually we only want specific data.
+
+<br>
+
+It's also very common to want to count the amount of rows instead of reading the actual data. This can easily be done by adding the `COUNT()` [aggregate function](#aggregate-functions). The query below will select and count all rows in the table and return the number of rows found.
+
+```sql
+SELECT
+  COUNT(*)
+FROM
+  table_name;
+```
 
 <br>
 <br>
@@ -924,6 +935,20 @@ WHERE
 ```
 
 Above, we continued from our previous example where we created a **`chess_pieces`** table and added the king piece worth `NULL` points. It's new value will be 0 now. Had we not provided a `WHERE` clause, all pieces would now have a 0 point value.
+
+<br>
+<br>
+
+### **Deleting Data(_rows_)**
+
+The `DELETE` statement allows you to remove existing table rows based on a condition, if no condition is provided then all of the table data (**not the table itself**) will be deleted.
+
+```sql
+DELETE FROM
+  chess_pieces -- table name
+WHERE
+  color = 'white'; -- condition
+```
 
 <br>
 <br>
