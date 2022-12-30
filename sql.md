@@ -909,11 +909,21 @@ WHERE
 
 ### **Updating Data(_rows_)**
 
-The `UPDATE` statement...
+The `UPDATE` statement allows you to modify existing table rows. To do so, you use the `SET` clause and pick which row(**s**) should be affected. You can also add optional conditions with the `WHERE` clause.
+
+<br>
 
 ```sql
-
+UPDATE
+  chess_pieces
+SET
+  -- COLUMN_name = new_VALUE,
+  point_value = 0
+WHERE
+  piece_type = 'king'; -- Changes King's value to 0 from NULL
 ```
+
+Above, we continued from our previous example where we created a **`chess_pieces`** table and added the king piece worth `NULL` points. It's new value will be 0 now. Had we not provided a `WHERE` clause, all pieces would now have a 0 point value.
 
 <br>
 <br>
