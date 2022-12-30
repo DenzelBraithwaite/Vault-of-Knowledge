@@ -40,7 +40,14 @@ The material I've found is a mixture of:
 ## **Quick tips & tricks**
 
 - To quickly view an entire table, use the `SELECT * FROM "TABLE_NAME"`
-- ...
+- Software such as **[SQL Server](https://www.microsoft.com/en-ca/sql-server/sql-server-downloads)** will often have a **Query Designer**. Query designers allow you to create custom queries by simply clicking through a visual interface.
+
+![Query Designer screenshot](img/sql/query_designer.png)
+
+_Screenshot of SQL Server taken from Kevin Stratvert's SQL beginner tutorial Youtube video._
+
+- You'll often hear the terms **field** (_column_) and **record** (_row_), they refer to tables.
+- tip here...
 
 <br>
 <br>
@@ -69,6 +76,9 @@ SELECT
     column_name3,
 FROM
     table_name;
+
+-- Selecting top 5 results
+SELECT TOP(5) FROM table_name;
 ```
 
 In the real world however, it's very rare that we want to query entire tables, usually we only want specific data.
@@ -487,16 +497,18 @@ SELECT
   toy_type
 FROM
   presents
-  INNER JOIN elves ON elves.elf_id = presents.elf_id
+  INNER JOIN elves ON elves.elf_id = presents.elf_id;
 
--- Using aliases, same query
+-- Using aliases and JOIN instead of INNER JOIN
 SELECT
   e.magical_name,
   toy_type
 FROM
   presents p
-  INNER JOIN elves e ON e.elf_id = p.elf_id
+  INNER JOIN elves e ON e.elf_id = p.elf_id;
 ```
+
+You might've noticed above in the 2nd query we used `JOIN` instead of `INNER JOIN`. Although there are many types of **JOIN**s, if you simply type `JOIN`, it defaults to `INNER JOIN` since it's the most common **JOIN** used.
 
 <br>
 <br>
@@ -781,25 +793,26 @@ _Here's an edited code snippet taken from stackexchange.com. View the [full arti
 
 ```sql
 FROM
-            billing.financial_transactions  ft_cdi   -- alias required here
+  billing.financial_transactions  ft_cdi   -- alias required here
 INNER JOIN
-            billing.cash_application_links  cal
-        ON  ft_cdi.key_num = cal.applied_ft_key_num
+  billing.cash_application_links  cal
+ON  ft_cdi.key_num = cal.applied_ft_key_num
 INNER JOIN
-            billing.financial_transactions  ft_pmt   -- alias required here
-        ON  cal.owner_key_num = ft_pmt.key_num
+  billing.financial_transactions  ft_pmt   -- alias required here
+ON  cal.owner_key_num = ft_pmt.key_num
 LEFT OUTER JOIN
-            billing.invoice_lines           invl
-        ON  ft_cdi.key_num = invl.invoice_key_num
+  billing.invoice_lines           invl
+ON  ft_cdi.key_num = invl.invoice_key_num
 INNER JOIN
-            billing.billers                 bil
-        ON  ft_cdi.biller_account_key_num = bil.biller_account_key_num
+  billing.billers                 bil
+ON  ft_cdi.biller_account_key_num = bil.biller_account_key_num
 INNER JOIN
-            billing.formal_entities         fe
-        ON  bil.frml_key_num = fe.key_num
+  billing.formal_entities         fe
+ON  bil.frml_key_num = fe.key_num
 WHERE
-    ft_cdi.transaction_type <> 'Payment'   -- alias tells me this table is not for payments
-AND ft_pmt.transaction_type =  'Payment';  -- alias tells me this table is for payments
+  ft_cdi.transaction_type <> 'Payment'   -- alias tells me this table is not for payments
+AND
+  ft_pmt.transaction_type =  'Payment';  -- alias tells me this table is for payments
 ```
 
 <br>
