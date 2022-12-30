@@ -597,11 +597,21 @@ In the above query, had we only written the [subquery](#subqueries) we would've 
 
 #### **SUM/AVG**
 
+The `SUM` and `AVG` functions are for **numeric** data only. They're used to find the sum or average value in a set of values. Just like [`COUNT()`](#count), by default they use the `ALL` option instead of `DISTINCT`, but you can use `DISTINCT` if you don't want any duplicate values. You can also use the `ROUND` function to round your results.
+
 ```sql
+-- Using SUM to calculate the cash in your hopefully not empty wallets.
+SELECT
+  SUM(cash)
+FROM
+  wallets;
 
+
+SELECT
+  ROUND(AVG(points), 2) -- Rounding to 2 decimal places
+FROM
+  highschores;
 ```
-
-<br>
 
 <br>
 <br>
