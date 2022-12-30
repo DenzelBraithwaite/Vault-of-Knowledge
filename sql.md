@@ -29,6 +29,8 @@ The material I've found is a mixture of:
 
 - Youtube videos
 
+- Microsoft
+
 - Other various websites
 
 ---
@@ -73,7 +75,7 @@ In the real world however, it's very rare that we want to query entire tables, u
 
 <br>
 
-It's also very common to want to count the amount of rows instead of reading the actual data. This can easily be done by adding the `COUNT()` [aggregate function](#aggregate-functions). The query below will select and count all rows in the table and return the number of rows found.
+It's also very common to want to count the amount of rows instead of reading the actual data. This can easily be done by adding the `COUNT()` [aggregate function](#aggregate-functions). The query below will select and count all rows in the table and return the number of rows found, even rows with `NULL` data are counted.
 
 ```sql
 SELECT
@@ -538,11 +540,68 @@ To read more about subqueries and get a better idea of when and how they're used
 
 ### **Aggregate Functions**
 
-finish me...sum avg min/max
+When we use the term **aggregate functions**, we're referring to functions such as `COUNT`, `MIN`, `AVG`, `MAX`, `SUM`, etc. The goal is to gather data, perform a calculation on that data, and then return a single value.
+
+> An aggregate function performs a calculation on a set of values, and returns a single value. Except for COUNT(*), aggregate functions ignore null values. Aggregate functions are often used with the GROUP BY clause of the SELECT statement.
+>
+> \- _Microsoft article, 12 contributors_
+
+<br>
+
+#### **Count**
+
+`COUNT()` returns the **number of rows returns by a query**. When we use the `COUNT(*)` function, it returns the number of rows in a table, including duplicate rows and rows that contain `NULL` values. By default, the `COUNT()` function uses the `ALL` operator during its query (_includes duplicates_), but you can use the `DISTINCT` operator instead to return only **unique** values.
+
+```sql
+-- COUNT( [ALL | DISTINCT] )
+SELECT
+  COUNT(*)
+FROM
+  employees
+WHERE
+  last_name = 'smith';
+```
+
+<br>
+
+#### **MIN/MAX**
+
+`MIN` and `MAX` are used to find the minimum and maximum value in a set of values. By default, they ignore `NULL` values so the `DISTINCT` option is not available, unlike with `SUM`, `COUNT` and `AVG`.
+
+```sql
+-- Finding your youngest or oldest friend
+SELECT
+  first_name,
+  last_name,
+  age
+FROM
+  friends
+WHERE
+  age = (
+    SELECT
+      MAX(age) -- or MIN(age)
+    FROM
+      friends
+  );
+
+-- Only returns age number
+SELECT
+  MAX(age)
+FROM
+  friends;
+```
+
+In the above query, had we only written the [subquery](#subqueries) we would've only retrieved the **age** of the youngest or oldest friend but no other information about them, that's why we grabbed the first and last name along with their age and then put the [aggregate function](#aggregate-functions) in a subquery.
+
+<br>
+
+#### **SUM/AVG**
 
 ```sql
 
 ```
+
+<br>
 
 <br>
 <br>
@@ -1015,7 +1074,9 @@ _Screenshot from [mygreatlearning.com](https://www.mygreatlearning.com/blog/sql-
 
 -   For info on relational databases, check out [oracle](https://www.oracle.com/ca-en/database/)
 
--   FOr info on SQL joins, check out [coursera.org](https://www.coursera.org/articles/sql-join-types)
+-   For info on SQL joins, check out [coursera.org](https://www.coursera.org/articles/sql-join-types)
+
+- More documentation from Microsoft [here](https://learn.microsoft.com/en-us/sql/sql-server/educational-sql-resources?view=sql-server-ver16).
 
 <br>
 
