@@ -675,7 +675,7 @@ Often we'll want to perform client side validation to avoid submitted invalid da
 
 ## **Databases**
 
-Databases are crucial for persisting(_saving_) information. There are many different databases available, but for this guide we will be focusing on **RDBMS** databases, which stands for **Relational DataBase Management Systems**. An RDBMS is software that allows you to manipulate data from your database. It uses tables with fields (_columns_) and records (_rows_) to store data. To retrieve and alter that data, we use a database querying language called **SQL**. But sql is quite a big topic of its own, so I'd suggest you read my **[sql guide](sql.md/#overview)** to learn more on that.
+Databases are crucial for persisting(_saving_) information. There are many different databases available, but for this guide we will be focusing on **RDBMS** databases, which stands for **Relational DataBase Management Systems**. An RDBMS is software that allows you to manipulate data from your database. It uses tables with fields (_columns_) and records (_rows_) to store data. To retrieve and alter that data, we use a database querying language called **SQL**. But sql is quite a big topic of its own, so I'd suggest you read my **[sql guide](sql.md#overview)** to learn more on that.
 
 **SQL** is used to **query** a database and retrieve data. One of the best(_free_) database options we have when working with php is **phpMyAdmin**.
 
@@ -699,7 +699,7 @@ For a more complete guide with more examples, visit:
 
 <br>
 
-[website]()
+[website goes here, currently void](#)
 
 <br>
 <br>
