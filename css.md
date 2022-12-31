@@ -42,7 +42,7 @@ This section is a quick reference point for certain CSS guidelines that I'll nee
 <br>
 <br>
 
-#### **`Spacing system` _(px)_**
+#### **Spacing system _(px)_**
 
 Using a spacing system is highly recommended, it helps limit your options and prevents you from wasting time, although you can cheat and break your rule occasionally.
 
@@ -54,7 +54,7 @@ Spacing scale example:
 <br>
 <br>
 
-#### **`Font size system` _(px)_**
+#### **Font size system _(px)_**
 
 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
 
@@ -66,7 +66,7 @@ _Image from Jonas Schmedtmann's responsive course slides_
 <br>
 <br>
 
-#### **`Naming conventions`**
+#### **Naming conventions**
 
 In every decent code editor, if you use `-` to separate combined-class-name you can easily highlight a desired portion by double-clicking it like: `col-`<mark style="background-color: #ced4da">md</mark>`-3`, and replace it (or even document globally) to `col-sm-3`. On the other hand, if you use underscore `_` like `class_name_here`, if you double-click it you'll end up highlighting the whole class-name like: <mark style="background-color: #ced4da">class_name_here</mark>. Such will force you to manually drag-select the desired portion instead.
 
@@ -86,7 +86,7 @@ read more about those conventions [here :)](https://stackoverflow.com/questions/
 <br>
 <br>
 
-#### **`Breakpoints`**
+#### **Breakpoints**
 
 Breakpoints are the building blocks of responsive design. Use them to control when your layout can be adapted at a particular viewport or device size. <mark>Use media queries to architect your CSS by breakpoint.</mark> Media queries are a feature of CSS that allow you to conditionally apply styles based on a set of browser and operating system parameters.
 
@@ -144,7 +144,7 @@ Quickly center text vertically by setting the `line-height` property, which also
 <br>
 <br>
 
-#### **`Styling a hovered child element`**
+#### **Styling a hovered child element**
 
 I ran into a problem where I used an `SVG` chevron icon inside of a `<button>` but wanted to style the **entire** button when hovered. But since these are technically 2 separate elements, I needed to hover directly over the `SVG` in order for the hover effect to take effect, as opposed to immediately after hovering over the overall `<button>` area itself.
 
@@ -213,7 +213,7 @@ Instead of trying to target just the `btn-icon`, I needed to target the `btn-ico
 <br>
 <br>
 
-#### **`Hero Banner fix cropped image`**
+#### **Hero Banner fix cropped image**
 
 If your goal is to create a large hero banner with a background image that covers the entire viewport, you may run into a problem where the background is cropped. Luckily, there's a very easy fix for this.
 
@@ -363,7 +363,7 @@ Now some components can be separated and viewed as smaller components that make 
 <br>
 <br>
 
-#### **`Avatar`**
+#### **Avatar**
 
 Creating an avatar _(or a small circle which usually holds a user's profile image)_ is very simple, you just need to follow 2 crucial rules. To create a perfect circle, you need a perfect square with a `border-radius` of 50%.
 
@@ -385,7 +385,7 @@ Creating an avatar _(or a small circle which usually holds a user's profile imag
 <br>
 <br>
 
-#### **`Button`**
+#### **Button**
 
 Buttons are a very common component on just about any webpage or form. Button design varies, but it usually consists of styling an `anchor<a>` with some `padding`, occasionally a `border` and often some `border-radius`.
 
@@ -408,7 +408,7 @@ If you want perfectly rounded sides for your button, an easy trick is to give th
 <br>
 <br>
 
-#### **`Container`**
+#### **Container**
 
 Containers are _invisible_ components used for **containing** content within a certain area of the page. A common way of creating one is to create a `div` and assign it some type of `.container` class. Then you usually center it and give it a `width` and `max-width`.
 
@@ -427,42 +427,42 @@ Containers are _invisible_ components used for **containing** content within a c
 <br>
 <br>
 
-#### **`Pagination`**
+#### **Pagination**
 
 ...<mark>**finish this**</mark>
 
 <br>
 <br>
 
-#### **`Gallery`**
+#### **Gallery**
 
 ...<mark>**finish this**</mark>
 
 <br>
 <br>
 
-#### **`Feature box`**
+#### **Feature box**
 
 ...<mark>**finish this**</mark>
 
 <br>
 <br>
 
-#### **`Accordion`**
+#### **Accordion**
 
 ...<mark>**finish this**</mark>
 
 <br>
 <br>
 
-#### **`Carousel`**
+#### **Carousel**
 
 ...<mark>**finish this**</mark>
 
 <br>
 <br>
 
-#### **`Forms`**
+#### **Forms**
 
 ...<mark>**finish this**</mark>
 
@@ -473,25 +473,25 @@ Containers are _invisible_ components used for **containing** content within a c
 
 <br>
 
-#### **`Navigation`**
+#### **Navigation**
 
 ...<mark>**finish this**</mark>
 
 <br>
 
-#### **`Hero section`**
+#### **Hero section**
 
 ...<mark>**finish this**</mark>
 
 <br>
 
-#### **`Footer`**
+#### **Footer**
 
 ...<mark>**finish this**</mark>
 
 <br>
 
-#### **`Feature row`**
+#### **Feature row**
 
 ...<mark>**finish this**</mark>
 
@@ -519,7 +519,7 @@ As a general rule, use `px` when you want the size to be fixed and use `rem` or 
 <br>
 <br>
 
-#### **`Font size`**
+#### **Font size**
 
 When using `em` for font size, the unit is based off of the parent's font size. Using `rem` for font size, the unit is based off of the `:root` or the `<html>`'s font size (default of 16px).
 
@@ -546,7 +546,7 @@ When using `em` for font size, the unit is based off of the parent's font size. 
 <br>
 <br>
 
-#### **`Other properties`**
+#### **Other properties**
 
 However, when working with other CSS properties, such as `padding` or `margin`, measuring with `em` is based off of the targetted element's font-size. `rem` will still work the same though.
 
@@ -592,7 +592,7 @@ One of the benefits of setting measurements based on `em` and `rem` is when you 
 <br>
 <br>
 
-#### **`When to use which?`**
+#### **When to use which?**
 
 We say that `ems` are **_compounding_** or **_cascading_** because they 'stack' with every 'layer', making it difficult to keep track of in many situations. As a general rule, use `rem` for font size and `em` for things like padding. This is a safe and more predictable approach if you're uncertain. `em` will be adaptive with your font size, `rem` will be more of a fixed size based off of your root font size.
 
@@ -754,7 +754,7 @@ There are a few quick tricks to centering elements on a page, here's a few of th
 
 <br>
 
-#### **`Centering container`**
+#### **Centering container**
 
 Quickly center a _container_ by defining its width and setting its horizontal margin to auto.
 
@@ -768,7 +768,7 @@ Quickly center a _container_ by defining its width and setting its horizontal ma
 <br>
 <br>
 
-#### **`Image centering`**
+#### **Image centering**
 
 To center an image, repeat the same process as centering a container, but set it's `display` value to `block`.
 
@@ -784,7 +784,7 @@ img {
 <br>
 <br>
 
-#### **`Centering with Flexbox`**
+#### **Centering with Flexbox**
 
 Setting an element's parent container to `flex` is an easy way to horizontally and vertically align it. This can even be useful to center one element or multiple. This works because it treats the text aws a flex item.
 
@@ -801,7 +801,7 @@ Setting an element's parent container to `flex` is an easy way to horizontally a
 <br>
 <br>
 
-#### **`Centering with absolute positioning`**
+#### **Centering with absolute positioning**
 
 There's a neat trick that's often used to center elements using `absolute` positioning and the `translate` property.
 
@@ -811,7 +811,7 @@ _Image from Jonas Schmedtmann's responsive course slides_
 <br>
 <br>
 
-#### **`Space-between trick`**
+#### **Space-between trick**
 
 Usually, if I wanted to achieve a deisn like this:
 
@@ -851,7 +851,7 @@ If the element is square, to make it round we give it a border-radius of 50%. To
 
 <br>
 
-#### **`Text shadows`**
+#### **Text shadows**
 
 Adding shadow to text is often used to increase readability. For instance, if the text sits on top of a photo, it could be hard to read, but text shadow will increase the contrast, allowing it stand out more.
 
@@ -859,7 +859,7 @@ The properties for `text-shadow` are the same as `box-shadow` but without the op
 
 <br>
 
-#### **`Box shadows`**
+#### **Box shadows**
 
 When using a box shadow, you normally want to give it a black color with a lot of opacity, usually `0.1` or lower.
 
@@ -911,6 +911,25 @@ _All images above from Jonas Schmedtmann's responsive course slides_
 <br>
 <br>
 
+#### **Drop Shadows**
+
+It's happened to me a few times where I want to put a `box-shadow` on a cropped image, but the shadow appears around a bigger space than the image occupies. An easy fix for this situation is to use the filter property with the `drop-shaow()` value, which accepts similar arguments to drop-shadow.
+
+```css
+img {
+    object-fit: contain;
+    height: 45%;
+    width: 55%;
+
+    /* drop-shadow(offset-x offset-y blur-radius color) */
+    filter: drop-shadow(4px 4px 20px blue); /* Shadow will be around ACTUAL image size */
+    box-shadow: 4px 4px 20px 0 blue; /* Shadow appears around ORIGINAL dimensions */
+}
+```
+
+<br>
+<br>
+
 ### **Border-radius**
 
 Using a border-radius is a nice way to add to the overall website personality, and blend components together more seamlessly. It's often used with `buttons` and `photos`.
@@ -949,25 +968,25 @@ One of the key initial concepts in CSS is selectors and how they work. From ther
 
 <br>
 
-#### **`ID selector`**
+#### **ID selector**
 
 ID selectors are the most powerful type of selector in terms of CSS specificity. Meaning that they beat out other types of selectors and the styles defined within win. That sounds good, but that’s typically considered bad, because it’s nice to have lower-specificity selectors that are easier to override when needed.
 
 <br>
 
-#### **`Class selector`**
+#### **Class selector**
 
 Class selectors are your friend. They are probably the most useful and versatile selectors out there. In part because they are well supported in all browsers. In part because you can add multiple classes (just separated by a space) on HTML elements. In part because there are JavaScript things you can do specifically for manipulating classes.
 
 <br>
 
-#### **`Tag selector`**
+#### **Tag selector**
 
 <mark>Tag selectors are at their most useful when changing properties that are unique to that HTML element.</mark> Like setting the list-style on a \<ul> or tab-size on a \<pre>. Also in reset stylesheets where you are specifically trying to unset styles that browsers apply to certain elements. Don’t rely on them too much though. It’s typically more useful to have a class define styling that you can use on any HTML element.
 
 <br>
 
-#### **`Attribute selector`**
+#### **Attribute selector**
 
 You might argue that attribute selectors are even more useful than classes because they have the same specificity value, but can be any attribute not just class, plus they can have a value you can select by. Hardly an issue anymore, but attribute selectors aren’t supported in IE 6.
 
@@ -997,7 +1016,7 @@ You might argue that attribute selectors are even more useful than classes becau
 
 <br>
 
-#### **`Positional selectors`**
+#### **Positional selectors**
 
 There are several different positional selectors beyond :nth-child. Using simple expressions (like 3n = “every third”) you can select elements based on their position in the HTML. You can play with that idea here or check out some useful recipes.
 
@@ -1021,7 +1040,7 @@ Example:
 
 <br>
 
-#### **`Other pseudo selectors`**
+#### **Other pseudo selectors**
 
 :empty is one of many pseudo selectors, which you can recognize by the colon (:) in them. They typically represent something that you couldn’t know by just the element and attributes alone.
 
@@ -1050,7 +1069,7 @@ Note that these are slightly different than pseudo elements, which you can recog
 
 <br>
 
-#### **`Combinator selectors`**
+#### **Combinator selectors**
 
 Combinator selectors are used to select child elements, as well as siblings, and have been around for quite a while now.
 
@@ -1141,7 +1160,7 @@ The New York row is selected because it immediately follows the first row, and t
 
 <br>
 
-#### **`Structural selectors`**
+#### **Structural selectors**
 
 Structural selectors are very powerful and match elements based on their position in the DOM. They give you the flexibility to match elements purely with CSS that would otherwise require JavaScript to do the same thing.
 
@@ -1200,7 +1219,7 @@ The next set of selectors are specialized structural selectors as they match spe
 <br>
 <br>
 
-#### **`Content selectors`**
+#### **Content selectors**
 
 Content selectors belong to a specialized set of selectors for matching content. The ones available for us to use right away are:
 
@@ -1236,7 +1255,7 @@ Scalable Vector Graphic _(SVG)_ is a unique type of image format. Unlike other v
 
 <br>
 
-#### **`Painting`**
+#### **Painting**
 
 Basic coloring can be done by setting two attributes on the node: fill and stroke. <mark>Using fill sets the color inside the object and stroke sets the color of the line drawn around the object.</mark> You can use the same css color naming schemes that you use in HTML, whether that's color names (that is <span style="color: red;">red</span>), rgb values (that is <span style="color: red;">rgb(255,0,0)</span>), hex values, rgba values, etc.
 
@@ -1322,7 +1341,7 @@ Finally, we have the codes that are used in a separate style sheet that is exter
 <br>
 <br>
 
-#### **`Documentation`**
+#### **Documentation**
 
 For a more complete guide with more examples, visit:
 
@@ -1341,7 +1360,7 @@ Or
 <br>
 <br>
 
-#### **`Tools`**
+#### **Tools**
 
 -   Color palettes &rarr; [Open Color](https://yeun.github.io/open-color/)
 
@@ -1358,7 +1377,7 @@ Or
 <br>
 <br>
 
-#### **`Inspiration`**
+#### **Inspiration**
 
 -   [Land-book](https://land-book.com/)
 
