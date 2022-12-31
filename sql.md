@@ -919,7 +919,7 @@ RENAME COLUMN date_of_birth TO birth_year;
 
 -- Making birth year mandatory
 ALTER TABLE soldiers
-MODIFY birth_year YEAR NOT NULL;
+MODIFY birth_year YEAR NOT NULL; -- Sql ServerMS uses ALTER COLUMN
 
 -- Deleting the column and all of its data.
 ALTER TABLE soldiers
