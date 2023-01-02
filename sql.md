@@ -1082,6 +1082,22 @@ _Screenshot from [mygreatlearning.com](https://www.mygreatlearning.com/blog/sql-
 <br>
 <br>
 
+### **Adding Foreign Key**
+
+When you want to enforce a relationship between 2 tables, you create a `FOREIGN KEY`. A  foreign key is a column that references a `PRIMARY KEY` on another table. For example, if we have a heroes table and in that table we have the `class_id` column, that references the **classes** table **primary key**. The rows or **records** in table will hold information on each class, so when we look at a hero's class ID, we can make the connection to the classes table and retrieve data on that class.
+
+```sql
+CREATE TABLE heroes(
+hero_id INT AUTO_INCREMENT PRIMARY KEY, -- sql server uses IDENTITY(1,1)
+name VARCHAR(24) NOT NULL,
+class_id INT NOT NULL,
+FOREIGN KEY (class_id) REFERENCES classes (class_id)
+);
+```
+
+<br>
+<br>
+
 ---
 
 ## **Resources**
