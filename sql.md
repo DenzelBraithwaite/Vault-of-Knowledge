@@ -630,6 +630,46 @@ FROM
 
 ---
 
+## **SQL Server**
+
+Although most sql language syntax is the same, different databases and applications will use different syntax to optimize their features. For instance, **MySQL** uses `AUTO_INCREMENT` but **SQLSRV** uses `IDENTITY(1,1)` to creat an auto-incrementing field (_column_). This section of the guide will focus on SQL Server Management Studio (_SSMS_), the visual / graphic interface that allows us to manipulate **SQLSRV** (_Short for SQL server_) or **MSSQL** (_Microsoft SQL_). We will focus on connecting a **PHP** project using **XAMPP** to an **SQLSRV** server.
+
+**Some sqlsrv functions to organize later**
+
+```sql
+sqlsrv_begin_transaction	-- Begins a transaction.
+sqlsrv_cancel	-- Cancels a statement; discards any pending results for the statement.
+sqlsrv_client_info	-- Provides information about the client.
+sqlsrv_close	-- Closes a connection. Frees all resources associated with the connection.
+sqlsrv_commit	-- Commits a transaction.
+sqlsrv_configure	-- Changes error handling and logging configurations.
+sqlsrv_connect	-- Creates and opens a connection.
+sqlsrv_errors	-- Returns error and/or warning information about the last operation.
+sqlsrv_execute	-- Executes a prepared statement.
+sqlsrv_fetch	-- Makes the next row of data available for reading.
+sqlsrv_fetch_array	-- Retrieves the next row of data as a numerically indexed array, an associative array, or both.
+sqlsrv_fetch_object	-- Retrieves the next row of data as an object.
+sqlsrv_field_metadata	-- Returns field metadata.
+sqlsrv_free_stmt	-- Closes a statement. Frees all resources associated with the statement.
+sqlsrv_get_config	-- Returns the value of the specified configuration setting.
+sqlsrv_get_field	-- Retrieves a field in the current row by index. The PHP return type can be specified.
+sqlsrv_has_rows	-- Detects if a result set has one or more rows.
+sqlsrv_next_result	-- Makes the next result available for processing.
+sqlsrv_num_rows	-- Reports the number of rows in a result set.
+sqlsrv_num_fields	-- Retrieves the number of fields in an active result set.
+sqlsrv_prepare	-- Prepares a Transact-SQL query without executing it. Implicitly binds parameters.
+sqlsrv_query	-- Prepares and executes a Transact-SQL query.
+sqlsrv_rollback	-- Rolls back a transaction.
+sqlsrv_rows_affected	-- Returns the number of modified rows.
+sqlsrv_send_stream_data	-- Sends up to eight kilobytes (8 KB) of data to the server with each call to the function.
+sqlsrv_server_info	-- Provides information about the server.
+```
+
+_Source: [Microsoft's learning platform](https://learn.microsoft.com/en-us/sql/connect/php/sqlsrv-driver-api-reference?view=sql-server-ver15)_
+
+<br>
+<br>
+
 ## **Fundamentals**
 
 SQL is a declarative language that was designed with non-technical people in mind. A declarative language syntax focuses on specifying the result of what you want as opposed to an imperative language which focuses on giving the computer an explicit sequence of commands to perform. It reads like a natural language ex: `SELECT first_name FROM employees` and always begins with a verb that describes the action, such as `UPDATE` or `DELETE`.
