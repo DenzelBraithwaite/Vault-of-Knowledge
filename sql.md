@@ -632,7 +632,9 @@ FROM
 
 ## **SQL Server**
 
-Although most sql language syntax is the same, different databases and applications will use different syntax to optimize their features. For instance, **MySQL** uses `AUTO_INCREMENT` but **SQLSRV** uses `IDENTITY(1,1)` to creat an auto-incrementing field (_column_). This section of the guide will focus on SQL Server Management Studio (_SSMS_), the visual / graphic interface that allows us to manipulate **SQLSRV** (_Short for SQL server_) or **MSSQL** (_Microsoft SQL_). We will focus on connecting a **PHP** project using **XAMPP** to an **SQLSRV** server.
+Although most sql language syntax is the same, different databases and applications will use different syntax to optimize their features. For instance, **MySQL** uses `AUTO_INCREMENT` but Microsoft's **SQL Server** (_SQLSRV_) uses `IDENTITY(1,1)` to create an auto-incrementing field (_column_). The sql language Microsoft server uses is called **Transact-SQL** (_T-SQL_). This section of the guide will focus on SQL Server Management Studio (_SSMS_), the visual / graphic interface that allows us to manipulate **SQLSRV** or **MSSQL** (_Microsoft SQL Server_). We will focus on connecting a **PHP** project using **XAMPP** to an **SQLSRV** server.
+
+<br>
 
 **Some sqlsrv functions to organize later**
 
