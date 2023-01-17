@@ -26,6 +26,7 @@ The material I've found is a mixture of:
 ---
 
 <br>
+<br>
 
 ## **Quick tips & tricks**
 
@@ -46,6 +47,7 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 ## **Common Commands**
 
 <br>
+<br>
 
 ### **Undoing the last commit**
 
@@ -63,6 +65,14 @@ $ git commit -c ORIG_HEAD                      # (4)
 
 > `git reset --soft`, will keep your files, and stage all changes back automatically. `git reset --hard`, will completely destroy any changes and remove them from the local directory. <mark>Only use this if you know what you're doing.</mark>
 
+<br>
+<br>
+
+#### **Cancel a Git Merge**
+
+To stop a merge in Git, use the `git merge --abort` command. This will reset your repository to the state it was in before you started the merge. You can also use the `git reset --merge` command which does the same thing, but it also resets any changes made **during** the merge. The commands cannot be undone, so exercise caution.
+
+<br>
 <br>
 
 #### **How to delete remote branch from terminal**
