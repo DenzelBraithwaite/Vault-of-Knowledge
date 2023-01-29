@@ -1,8 +1,8 @@
 # **Git & GitHub**
 
-> _"It is easy to shoot your foot off with git, but also easy to revert to a previous foot and merge it with your current leg."
+> \_"It is easy to shoot your foot off with git, but also easy to revert to a previous foot and merge it with your current leg."
 >
-> —Jack William Bell"_
+> —Jack William Bell"\_
 
 <br>
 <br>
@@ -21,7 +21,7 @@ The material I've found is a mixture of:
 
 -   Stackoverflow
 
-- Other various websites
+-   Other various websites
 
 ---
 
@@ -30,14 +30,16 @@ The material I've found is a mixture of:
 
 ## **Quick tips & tricks**
 
-- When working in a team, use `git status` before starting to work for the day. This will avoid the chance of conflicts.
-- Copy and past the following code into your terminal for a more readable git log.
+-   When working in a team, use `git status` before starting to work for the day. This will avoid the chance of conflicts.
+-   Copy and past the following code into your terminal for a more readable git log.
+
 ```
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 ```
+
 ![pretty git log](img/pretty_git_log.png)
 
-- etc...
+-   Delete remote repo in local cli: `git push origin --delete <branch-name>`
 
 <br>
 <br>
@@ -102,7 +104,6 @@ Imagine you have a repo called `personal_profile`, but after a few weeks of work
 2. Your local repo/folder.
 3. Your remote repo url name.
 
-
 #### **Renaming GitHub Repo**
 
 Renaming a repo on Github is pretty straight forward. You simply navigate to the desired repo and click settings. **Make sure you're logged in or you won't see the settings button**, then you can rename it under the `General` tab.
@@ -146,8 +147,8 @@ origin  git@github.com:DenzelBraithwaite/portfolio.git (push)
 
 <br>
 
-- [20 Common Git commands](https://dzone.com/articles/top-20-git-commands-with-examples)
+-   [20 Common Git commands](https://dzone.com/articles/top-20-git-commands-with-examples)
 
-- Learn how to style your `git log` [here](https://coderwall.com/p/euwpig/a-better-git-log).
+-   Learn how to style your `git log` [here](https://coderwall.com/p/euwpig/a-better-git-log).
 
 -
