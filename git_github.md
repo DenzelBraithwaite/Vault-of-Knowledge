@@ -39,7 +39,11 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 
 ![pretty git log](img/pretty_git_log.png)
 
--   Delete remote repo in local cli: `git push origin --delete <branch-name>`
+-   Delete remote(_GitHub_) repo in local cli: `git push <remote> --delete <branch-name>` or `-d`.
+
+-   Change local branch name: `git branch -m <new-branch-name>`
+
+- Check remote branches: `git branch -a`
 
 <br>
 <br>
