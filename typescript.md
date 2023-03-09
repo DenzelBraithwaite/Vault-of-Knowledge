@@ -37,7 +37,7 @@ The material I've found is a mixture of:
 
 - Quickly test out TypeScript in an [online playground](https://www.typescriptlang.org/play).
 
-- 
+- In your terminal (with Node.js and TypeScript installed) type `tsc <file_name>` to compile to `JS`.
 
 <br>
 <br>
@@ -50,12 +50,29 @@ This section will hold the core fundamentals of ...
 
 <br>
 
-#### **Section**
+#### **Type Annotation**
 
-finish me...
+In TypeScript, you should avoid implicit type coercion, meaning when you declare a variable as a specific type (_eg: string or number_), it should remain that type. If you try to change a `string` to a `number`, it will raise an error. It will still compile to JavaScript if you want though, but your editor will complain. It's also worth noting that **type** should be written in lowercase, such as `string`.
 
+```ts
+let jsExample1 = 'Hello World!';
+let tsExample1: string = 'test'; // Annotating the variable type as string.
+
+jsExample1 = 100; // JavaScript has no problem with this.
+tsExample1 = 100; // TypeScript will raise an error
 ```
 
+![TypeScript raising an error in VS Code](./img/ts/typeError.png)
+
+<br>
+
+```ts
+let tsExample2: number = 5; // Annotating the variable type as number.
+tsExample2 = '100'; // Raises an error, converting number to string.
+
+let tsExample3: boolean = true;
+tsExample3 = false; // No issues here
+tsExample3 = 'true'; // Raises an error, converting boolean to string.
 ```
 
 <br>
