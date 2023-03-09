@@ -9,7 +9,7 @@
 
 ## Overview
 
-This guide is **massive** and constantly growing. There are several main focuses here.
+This guide is **massive** and will continue to grow slowly, indefinitely. There are several main focuses here.
 
 1. A _knowledge base_ of all selectors with a brief description
 
