@@ -15,9 +15,7 @@ Brief description of guide
 
 The material I've found is a mixture of:
 
--   finish this...
-
--
+- 
 
 -   Other various websites
 
@@ -27,9 +25,9 @@ The material I've found is a mixture of:
 
 ## **Quick tips & tricks**
 
--   finish this...
+- 
 
--
+- 
 
 <br>
 <br>
@@ -53,14 +51,37 @@ finish me...
 <br>
 <br>
 
+#### **Section**
+
+finish me...
+
+```
+
+```
+
+<br>
+<br>
+
+#### **Section**
+
+finish me...
+
+```
+
+```
+
+<br>
+<br>
+
 ---
+
 
 ## **Resources**
 
 <br>
 <br>
 
-#### **`Documentation`** <mark>finish this...</mark>
+#### **Documentation**
 
 For a more complete guide with more examples, visit:
 
