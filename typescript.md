@@ -52,7 +52,9 @@ This section will hold the core fundamentals of ...
 
 #### **Type Annotation**
 
-In TypeScript, you should avoid implicit type coercion, meaning when you declare a variable as a specific type (_eg: string or number_), it should remain that type. If you try to change a `string` to a `number`, it will raise an error. It will still compile to JavaScript if you want though, but your editor will complain. It's also worth noting that **type** should be written in lowercase, such as `string`.
+In TypeScript, you should avoid implicit type coercion, meaning when you declare a variable as a specific type (_eg: string or number_), it should remain that type. If you try to change a `string` to a `number`, it will raise an error. It will **not** prevent the code from running, as long as it's valid **JavaScript**. But will give you a warning in your editor and during compilation in your terminal. It's also worth noting that the **type** should be written in lowercase, such as `string`.
+
+<br>
 
 ```ts
 let jsExample1 = 'Hello World!';
@@ -74,6 +76,22 @@ let tsExample3: boolean = true;
 tsExample3 = false; // No issues here
 tsExample3 = 'true'; // Raises an error, converting boolean to string.
 ```
+
+<br>
+<br>
+
+#### **Type Inference**
+
+TypeScript is pretty smart, so you won't always have to explicitly declare your data type. Meaning it's not always necessary to use `let <variableName>: <type> = <value>`. Instead, you could simply declare the variable the same way you would in regular JavaScript syntax, and TypeScript will use **type inference** to determine what the correct type is.
+
+<br>
+
+```ts
+let num = 5;
+num = '100'; // Raises an error, converting number to string.
+```
+
+![TypeScript raising an error in VS Code](./img/ts/typeError2.png)
 
 <br>
 <br>
