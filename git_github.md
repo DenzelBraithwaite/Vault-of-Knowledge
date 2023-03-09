@@ -51,6 +51,8 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 
 - If the remote branch is deleted but showing in terminal, prune them: `git remote prune <remote>`
 
+- Set upstream: `git branch --set-upstream-to=<remote>/<branch>`
+
 <br>
 <br>
 
