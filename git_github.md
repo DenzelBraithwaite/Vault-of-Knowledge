@@ -30,6 +30,10 @@ The material I've found is a mixture of:
 
 ## **Quick tips & tricks**
 
+##### _P.S. the vast majority of the time, `<remote>` is **`origin`** for **GitHub**_
+
+<br>
+
 -   When working in a team, use `git status` before starting to work for the day. This will avoid the chance of conflicts.
 -   Copy and past the following code into your terminal for a more readable git log.
 
@@ -44,6 +48,8 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 -   Change local branch name: `git branch -m <new-branch-name>`
 
 - Check remote branches: `git branch -a`
+
+- If the remote branch is deleted but showing in terminal, prune them: `git remote prune <remote>`
 
 <br>
 <br>
