@@ -77,6 +77,8 @@ tsExample3 = false; // No issues here
 tsExample3 = 'true'; // Raises an error, converting boolean to string.
 ```
 
+_**\*** TypeScript will also raise an error if you attempt to use a method on the wrong type; E.g. `5.toUpperCase()` **\***_
+
 <br>
 <br>
 
@@ -92,6 +94,20 @@ num = '100'; // Raises an error, converting number to string.
 ```
 
 ![TypeScript raising an error in VS Code](./img/ts/typeError2.png)
+
+<br>
+<br>
+
+#### **The Any Type**
+
+The `any` type turns off type checking for that variable, which is basically like going back to JavaScript. It also won't raise errors if you attempt to use a method on the wrong type. For instance, a **string** method on an **array** or a **number**. For the most part, this should be avoided.
+
+<br>
+
+```ts
+let variable: any = 'The answer to life, the universe and everything.'
+variable = 42 // No problem with this
+```
 
 <br>
 <br>
