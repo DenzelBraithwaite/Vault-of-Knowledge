@@ -1,25 +1,33 @@
 # **Typescript**
 
-> _"Typescript quote here..."_
+> _"TypeScript is a typed superset of JavaScript that compiles to plain JavaScript."_
 >
-> -Unknown
+> -TypeScript Documentation
+
+> _"TypeScript is like adding training wheels to your JavaScript programming."_
+>
+> -John Papa
 
 <br>
 <br>
 
-## Overview
+## **Overview**
 
-Brief description of this guide...
+This guide is created as a reference point for TypeScript syntax, tips and best practices.
 
 <br>
 
 The material I've found is a mixture of:
 
--   finish this...
+- Udemy, [TypeScript course](https://www.udemy.com/course/learn-typescript/) by Colt Steele
 
--
+- You.com [youchat](https://you.com/search?q=who+are+you&tbm=youchat&cfr=chat), an A.I. that helps you research the web.
 
--   Other various websites
+- StackOverflow
+
+- YouTube
+
+- Other various websites...
 
 ---
 
@@ -27,9 +35,9 @@ The material I've found is a mixture of:
 
 ## **Quick tips & tricks**
 
--   finish this...
+- Quickly test out TypeScript in an [online playground](https://www.typescriptlang.org/play).
 
--
+- 
 
 <br>
 <br>
@@ -60,13 +68,20 @@ finish me...
 <br>
 <br>
 
-#### **`Documentation`** <mark>finish this...</mark>
+#### **Tools**
+
+- [TypeScript Playground](https://www.typescriptlang.org/play), for quickly testing and practicing TypeScript (_also has examples_).
+
+<br>
+<br>
+
+#### **Documentation**
 
 For a more complete guide with more examples, visit:
 
 <br>
 
-[website]()
+- [Typescriptlang.org](https://www.typescriptlang.org/docs/) - Official TypeScript documentation.
 
 <br>
 <br>
