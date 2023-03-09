@@ -107,6 +107,9 @@ The `any` type turns off type checking for that variable, which is basically lik
 ```ts
 let variable: any = 'The answer to life, the universe and everything.'
 variable = 42 // No problem with this
+
+let otherVariable; // This also isn't great, it implicitly becomes 'any' type.
+let otherVariable: string; // Still undefined, but annotates what type it will be later.
 ```
 
 <br>
