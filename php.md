@@ -29,6 +29,8 @@ The material I've found is a mixture of:
 
 -   You.com [chatbot](https://you.com/search?q=who+are+you&tbm=youchat&cfr=chat).
 
+-   Youtube videos, such as **Travery Media**'s [PHP crash course](https://youtu.be/BUCiSSyIGGU)
+
 -   Other various websites
 
 ---
@@ -771,6 +773,38 @@ Often we'll want to perform client side validation to avoid submitted invalid da
     <button name="submit" type="submit">Submit</button>
 </form>
 ```
+
+<br>
+<br>
+
+## **OOP & Classes**
+
+From PHP5 onwards, you can write **object oriented programming**(_OOP_) in PHP.
+
+<mark>Notes to be added:</mark>
+- public - can be access from anywhere.
+- private - can only be accessed from inside the class.
+- protected - can only be accessed from inside the class and by inheriting classes.
+
+_\* Thise\*_
+```php
+<?php
+
+class User {
+    public $name;
+    public $email;
+    public $password;
+}
+
+// Instantiate a User object
+$user1 = new User();
+$user1->name = 'Kaz';
+var_dump($user11); // Finish output ...
+
+// Incomplete...
+```
+
+<mark>Section will be updated soon...</mark>
 
 <br>
 <br>
