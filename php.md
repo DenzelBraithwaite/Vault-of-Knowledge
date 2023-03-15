@@ -575,6 +575,64 @@ Had we not used the `global` keyword, it would've created a new local scoped var
 <br>
 <br>
 
+## **Working with JSON**
+
+When working with API's, you'll often need to convert data to and from the **JSON** format.
+
+<br>
+
+Example of converting **to** JSON
+```php
+<?php
+$friends = [
+    [
+    'first_name' => 'Mikey',
+    'last_name' => 'Robbinson',
+    ],
+    [
+    'first_name' => 'Susan',
+    'last_name' => 'Froth',
+    ]
+];
+
+var_dump(json_encode($friends));
+
+// Outputs:
+// string(91) "[{"first_name":"Mikey","last_name":"Robbinson"},{"first_name":"Susan","last_name":"Froth"}]"
+```
+
+<br>
+
+Example of converting **from** JSON
+```php
+<?php
+$friends = '[{"first_name":"Mikey","last_name":"Robbinson"},{"first_name":"Susan","last_name":"Froth"}]';
+
+var_dump(json_decode($friends));
+
+/* Outputs:
+array(2) {
+  [0]=>
+  object(stdClass)#1 (2) {
+    ["first_name"]=>
+    string(5) "Mikey"
+    ["last_name"]=>
+    string(9) "Robbinson"
+  }
+  [1]=>
+  object(stdClass)#2 (2) {
+    ["first_name"]=>
+    string(5) "Susan"
+    ["last_name"]=>
+    string(5) "Froth"
+  }
+}
+*/
+```
+
+<br>
+<br>
+
 ## **Forms**
 
 Forms are a crucial aspect of web development. They allow you to gather user data and analyze it for later use. In PHP, we have the [super global variable](#superglobals) `$_POST`. The **superglobal** `$_POST` is an [associative array](#associative-arrays) of variables containing data sent via an HTTP POST request, such as data from an HTML form.
