@@ -303,6 +303,8 @@ var_dump($awake); // bool(false)
 
 The reason we use `var_dump` and not echo, is because false boolean values don't output anything. If it's `true`, it outputs a **1**. If it's false, then you'll need to use `var_dump` to see it's false.
 
+<mark>Will add notes on the **nullish coalescing operator**</mark>
+
 <br>
 <br>
 
