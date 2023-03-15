@@ -35,9 +35,15 @@ The material I've found is a mixture of:
 
 ## **Quick tips & tricks**
 
--   Make sure php code is between `<?php ?>` tags.
--   Semicolons(`;`) are very important in php
--   `echo()` and `print` are almost identical, but echo has no return value and print has a return value of 1. echo can take multiple arguments but print can take only 1.ƒarray
+-   Make sure php code is between `<?php ?>` tags. If the entire file is **php**, you can omit the closing tag.
+
+-   Semicolons(`;`) are very important in php, don't forget them.
+-   `echo()` and `print` are almost identical, but echo has no return value and print has a return value of 1. echo can take multiple arguments but print can take only 1.
+- Useful output constructs for debugging include:
+    1. `echo`(_outputs strings, numbers, html, etc_)
+    2. `print_r()`(_output single values or arrays_)
+    3. `var_dump()`(_returns info such as data type and length_)
+- more coming... 
 
 <br>
 <br>
@@ -57,7 +63,7 @@ White space does not matter in php. To write PHP code, you must enter it between
 echo "Hello Planet";
 ?>
 
-/* These are also acceptable, but less reliable.
+/* These are also acceptable, but less reliable. Depends on server configuration.
 <? ?>
 <?= ?>
 <% %>
@@ -76,6 +82,7 @@ echo "Hello Planet";
 
 $title = "Hello World of PHP";
 
+// don't need the semicolon if it's followed by a closing php tag, but it's a good habit.
 <h1><?php echo $title; ?></h1>
 
 ?>
@@ -155,9 +162,9 @@ echo COUNT_DRACULA[3]; // Outputs 'ah'
 
 <br>
 
-#### **Concatenation**
+#### **Concatenation & Interpolation**
 
-You can concatenate data with the **dot**`.` operator.
+You can concatenate data with the **dot**`.` operator. In other languages, you use the `+` operator, but that doesn't have the same effect in php. For instance, the strings `'5' + '5'` is `10`, but in **JavaScript** it would be `55`.
 
 ```php
 <?php
@@ -165,8 +172,25 @@ You can concatenate data with the **dot**`.` operator.
 $name = "Kaz";
 $age = 26;
 
-// Outputs Kaz is 26
-echo $name . " is " . $age
+
+echo $name . " is " . $age; // Outputs Kaz is 26
+echo 5 + 5; // Outputs 10
+echo '5' + '5'; // Outputs 10
+
+?>
+```
+
+<br>
+
+You can interpolate data with double quotes and curly braces(_optional_).
+
+```php
+<?php
+
+$name = "Kaz";
+$age = 26;
+
+echo "$name is {$age}"; // Outputs Kaz is 26
 
 ?>
 ```
@@ -507,7 +531,7 @@ ec
 
 #### **Array**
 
-Some examples of built-in Array functions. The `print_r` is a great way to print an array with it's indexes or keys(if it's an associative array).
+Some examples of built-in Array functions. The `print_r` is a great way to print an array(_or single value_) with it's indexes or keys(_if it's an associative array_).
 
 ```php
 $array = [1, 2, 3, 6, 5, 4, 7, 10, 8, 9];
