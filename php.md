@@ -27,6 +27,8 @@ The material I've found is a mixture of:
 
 -   Stackoverflow
 
+-   You.com [chatbot](https://you.com/search?q=who+are+you&tbm=youchat&cfr=chat).
+
 -   Other various websites
 
 ---
@@ -284,6 +286,22 @@ if (5 > 4) {
 
 ?>
 ```
+
+<br>
+
+#### **If ternary statement**
+
+You can also use ternary expressions if the condition statement fits in one line.
+
+```php
+<?php
+$tired = true;
+
+$awake = $tired ? false : true; // If tired, $awake is true, else $awake is false.
+var_dump($awake); // bool(false)
+```
+
+The reason we use `var_dump` and not echo, is because false boolean values don't output anything. If it's `true`, it outputs a **1**. If it's false, then you'll need to use `var_dump` to see it's false.
 
 <br>
 <br>
@@ -775,13 +793,17 @@ _You can download and read more about it [here](https://www.phpmyadmin.net/downl
 <br>
 <br>
 
-#### **`Documentation`** <mark>finish this...</mark>
+#### **Tools**
+
+- PHP playground - [onlinephp.io](https://onlinephp.io/)
+
+#### **Documentation**
 
 For a more complete guide with more examples, visit:
 
 <br>
 
-[website goes here, currently void](#)
+- Official php docs - [php.net](https://www.php.net/docs.php)
 
 <br>
 <br>
