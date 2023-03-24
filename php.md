@@ -145,7 +145,7 @@ echo BIRTH_DATE; // Outputs 1996
 
 <br>
 
-As of PHP 5.3, it's now possible to use the `const` keyword to define constants, and instead of it only being able to hold **scalar** data (_booleam, integer, floar and string_), as of PHP 5.6 it's now possible to create a constant array.
+As of **PHP 5.3**, it's now possible to use the `const` keyword to define constants, and instead of it only being able to hold **scalar** data (_booleam, integer, floar and string_), as of **PHP 5.6** it's now possible to create a constant array.
 
 ```php
 <?php
@@ -779,32 +779,162 @@ Often we'll want to perform client side validation to avoid submitted invalid da
 
 ## **OOP & Classes**
 
-From PHP5 onwards, you can write **object oriented programming**(_OOP_) in PHP.
+<mark>This section is being actively worked on still, as is the whole document but this part is very incomplete.</mark>
 
-<mark>Notes to be added:</mark>
-- public - can be access from anywhere.
-- private - can only be accessed from inside the class.
-- protected - can only be accessed from inside the class and by inheriting classes.
+<br>
 
-_\* Thise\*_
+From PHP5 onwards, you can write **object oriented programming**(_OOP_) in PHP. Classes are like blueprints, they allow you to define the parameters for an object, then you can create as many instances of that class. I will rewreite this and clarify it properly in the future.
+
+<br>
+
+**A few quick things to note before reading the code snippet below:**
+1. There's a screenshot of the output of the code below the code snippet.
+2. `$this` refers to the instance of the object when used. It points at itself.
+3. This code snippet is long and includes class inheritance, consider copying it and playing with it for practice.
+
+<br>
+
+_The code snippet below was taken from Brad Traversy's [php-crash repo](https://github.com/bradtraversy/php-crash) and changed. He had a great example of what a class is and what class inheritance is. I did the same concept but with animals._
+
 ```php
 <?php
+class Animal {
+    // There are 3 Access Modifiers in PHP: public, private and protected.
+    // public - can be accessed from anywhere
+    // private - can only be accessed from inside the class
+    // protected - can only be accessed from inside the class and by inheriting classes
 
-class User {
-    public $name;
-    public $email;
-    public $password;
+    // Properties: Variables that belong to a class.
+    public $age = 0;
+    private $alive = true; // Cannot be directly accessed outside of the class, but accessible through methods.
+
+    // The Constructor: Called whenever a new instance of the class is created.
+    // It's parameters determine what properties can be set when creating a new instance of the class.
+    // When you create a new instance, you can pass in arguments(thanks to the constructor) which will become properties.
+    public function __construct($name, $gender, $species, $fur = true) {
+        // Here, we grab the arguments provided and set them as the value for the correlated properties.
+        $this->name = $name;
+        $this->gender = $gender;
+        $this->species = $species;
+        $this->fur = $fur; // We've provided a default value of true in case no argument for fur is passed.
+    }
+
+    // Methods: Functions that belong to a class.
+    function shave() {
+        if ($this->fur) {
+            echo "fur shaved";
+        } else {
+            echo "No fur to shave!";
+        }
+    }
+
+    // This method is the only way the animal can "die" since the alive property is private.
+    // Otherwise, you could do $animalClassInstance->alive = false;
+    function died() {
+        $this->alive = false;
+    }
+
+    // Conditionally returns a message based on if the animal is alive.
+    function isAlive() {
+        echo "<br>";
+        if($this->alive) {
+            echo 'alive!';
+        } else {
+            echo 'dead...';
+        }
+    }
+
+    // Destructor: Called when an object is destroyed or at the end of the script.
+    // It's good for cleanup, ex: closing the connection to a database.
+    function __destruct() {
+        echo "<br>";
+        echo "KABOOM"; // But maybe do something more important here...
+    }
 }
 
-// Instantiate a User object
-$user1 = new User();
-$user1->name = 'Kaz';
-var_dump($user11); // Finish output ...
+// Instantiate a new animal;
+$animal = new Animal('Pancake', 'female', 'cat', true);
 
-// Incomplete...
+// Access class instance properties
+echo $animal->name . "<br>"; // Outputs "Pancake"
+echo $animal->species . "<br>"; // Outputs "cat"
+
+// Add a value to a property
+$animal->age = 1;
+$animal->fur = false;
+echo $animal->fur; // false doesn't return anything, so we'll use the shave method for some output!
+
+// Using methods
+$animal->shave(); // Outputs "No fur to shave!"
+$animal->died(); // Changes alive property to false
+$animal->isAlive(); // Outputs "dead..."
+
+// For better readability, just adding some spaces.
+echo "<br>";
+echo "<br>";
+echo strtoupper("Rat class below");
+echo "<br>";
+echo "<br>";
+
+
+/* ----------- Inheritence ---------- */
+// Inheritence is the ability to create a new class from an existing class.
+
+class Rat extends Animal {
+    private $realName = "Master Splinter";
+    public $alive;
+
+    public function __construct($name, $gender, $breed, $fur = true, $species = 'rat') {
+    parent::__construct($name, $gender, $species, $fur); // Copies from parent
+    $this->breed = $breed; // Property doesn't exist in parent class, so we assign parameters to properties manually.
+    }
+
+    // Method only available to the Rat class, not the animal class
+    function squeak() {
+        echo "SQUEAK!";
+    }
+
+    // Redefine the parent class method to change the output.
+    function isAlive() {
+        echo "<br>";
+        if($this->alive) {
+            echo "Well it's breathing... so it aint dead!";
+        } else {
+            echo "I'm sorry, there's no heartbeat...";
+        }
+    }
+}
+
+// Instantiate instances of the Rat class, notice how the species defaults to rat.
+$rat1 = new Rat('Chester', 'male', 'berkshire');
+$rat2 = new Rat('Goliath', 'male', 'dumbo', false);
+
+// Accessing the Rat instances' species property
+echo $rat1->species . "<br>";
+
+// Calling the Rat class only squeak method
+$rat1->squeak();
+echo "<br>";
+
+// Calling a parent class methods works the same way
+$rat2->shave();
+$rat2->died();
+
+// Using a redefined method that was originally defined by the parent class
+$rat2->isAlive();
+
+// Accessing the "alive" property that's private in the parent class but public here.
+$rat2->alive = true; // We bring it back to life here!
+$rat2->isAlive();
 ```
 
-<mark>Section will be updated soon...</mark>
+![output from code snippet above](./img/php/class_examples.png)
+
+_Screenshot of output for code snippet above_
+
+<br>
+
+Notice in the screenshot above how the destructor method runs even for the child class. Both the parent and child class instances run their destructor methods at the end. Since the parent class is needed for the child, it isn't destructed until it's no longer needed.
 
 <br>
 <br>
