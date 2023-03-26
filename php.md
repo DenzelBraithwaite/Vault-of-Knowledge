@@ -934,7 +934,7 @@ _Screenshot of output for code snippet above_
 
 <br>
 
-Notice in the screenshot above how the destructor method runs even for the child class. Both the parent and child class instances run their destructor methods at the end. Since the parent class is needed for the child, it isn't destructed until it's no longer needed.
+Notice in the screenshot above how the destructor method runs even for the child class. Both the parent and child class instances run their destructor methods at the end.
 
 <br>
 <br>
