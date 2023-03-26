@@ -230,6 +230,59 @@ echo $number1 * $number2;
 <br>
 <br>
 
+#### **Useful String Methods**
+
+Here are some useful and good to know string methods.
+
+```php
+<?php
+$firstName = 'Nanette';
+$lastName = 'Manoir';
+$fullName = 'nanette manoir';
+
+// Get string length
+strlen($firstName);
+
+// Find the position of the first occurence of a substring in a string
+strpos($firstName, 'ne'); // 2
+
+// Find the position of the last occurence of a substring in a string
+strrpos($firstName, 't'); // 5
+
+// Reverse a string
+strrev($firstName);
+
+// Convert to uppercase
+strtoupper($lastName);
+
+// Convert to lowercase
+strtolower($lastName);
+
+// Capitalize each word, does not lower case other letters
+ucwords($fullName);
+
+// Replace part of a string
+$fullName = str_replace('nanette manoir', 'angela anaconda', $fullName);
+
+// Return portion of a string (substring)
+$firstName = substr($fullName, 0, 6); // from 0 to 6, inclusive
+$lastName = substr($fullName, 6); // everything after 6, excluding 6
+
+// Starts with? Returns Boolean value
+str_starts_with($fullName, 'a');
+
+// Ends with? Returns Boolean value
+str_ends_with($fullName, 'a');
+
+// Prevents html injections
+htmlspecialchars('<script>some string here</script>');
+```
+
+_This example was copied and slightly modified from traversy media's [3 hour php crash course](https://youtu.be/BUCiSSyIGGU)_
+
+<br>
+<br>
+
 ### **Arrays**
 
 Arrays are for storing different types of data in one variable. To access the data you need to use the element's array index.
@@ -1019,6 +1072,36 @@ _Screenshot of output for code snippet above_
 <br>
 
 Notice in the screenshot above how the destructor method runs even for the child class. Both the parent and child class instances run their destructor methods at the end.
+
+<br>
+<br>
+
+## **Cookies**
+
+Cookies are for storing insensitive data in the client browser, it helps identify returning users. You can determine what data gets saved in these cookies and then user them again in the future.
+
+```php
+// Set cookies, providing the key, the value and the duration before the cookie expires
+setcookie('firstName', 'Lee', time() + 86400); // time() is current timestamp, plus 86 400 secs(one day)
+setcookie('lastName', 'Keebum', time() + 86400 * 30); // One day times 30(month)
+
+// Accessing cookie, not necessary to use isset()
+if(isset($_COOKIES['firstName'])) {
+    echo $_COOKIES['firstName']; // Do something
+}
+
+// Clearing/unsetting the cookie. Clears it, sets it and then expires
+setcookie('firstName', '', time() - 86400);
+```
+
+<br>
+
+_You can find the cookies in your browser if you inspected and head to the Application tab_
+![Chrome browser local host cookies](./img/php/cookies.png)
+
+<br>
+
+Notice above that only the `lastName` cookie shows up, this is because we clear the `firstName` cookie at the end of our script. If we were to comment that line out, then both cookies would appear. But without explicitly **unsetting** the cookie, the cookie will remain in the browser, <mark>even if you comment the line out that sets the cookie in the first place.</mark>
 
 <br>
 <br>
