@@ -264,6 +264,75 @@ echo $array["nickname"];
 <br>
 <br>
 
+#### **Usefule Array methods**
+
+Here are some useful array methods that are good to know.
+
+```php
+<?php
+$classes = ['warrior', 'mage', 'archer', 'priest'];
+
+// Get length of array.
+count($classes);
+sizeof($classes);
+
+// Search array (returns Boolean)
+in_array('mage', $classes);
+
+// Add to end of array
+$classes[] = 'necromancer';
+array_push($classes, 'berserk');
+
+// Add to beginning of array
+array_unshift($classes, 'assassin');
+
+// Remove from end of array
+array_pop($classes);
+
+// Remove from beginning of an array
+array_shift($classes);
+
+// split array into chunks of 2(depending on argument)
+$chunkedClasses = array_chunk($classes, 2);
+
+
+
+// New arrays for new method examples
+$heroes = ['Hawkgirl', 'Black Canary'];
+$superHeroes = ['Superman', 'Batman'];
+$weaknesses = ['kryptonite', 'trauma', 'temper', 'sore throat'];
+
+// Merges arrays together into one bigger array.
+$justiceLeague = array_merge($heroes, $superHeroes);
+$justiceLeague = [...$superHeroes, ...$heroes];
+
+// Combines arrays into one associative array, with the first array as keys and the 2nd as values
+$heroWeaknesses = array_combine($justiceLeague, $weaknesses);
+
+// Get array keys
+$keys = array_keys($heroWeaknesses);
+
+// Get array values
+$values = array_values($heroWeaknesses);
+
+// Get an array of numbers by range, including start and end agument.
+$numbers = range(5, 20);
+
+// Mapping to a new array. Do something to each item then put it in the new array.
+$newNumbers = array_map(fn($num) => $num * 2, $numbers);
+
+// Mapping to a new array but filtering as well.
+$filteredNumbers = array_filter($numbers, function($number) {
+    return $number >= 10;
+});
+
+// Reducing an array (reducing to one value, so summing the values into one)
+$sum = array_reduce($numbers, fn($accumulator, $currentValue) => $accumulator + $currentValue);
+```
+
+<br>
+<br>
+
 ### **Conditionals**
 
 Conditional statements determine what code will be run based on a condition. A common example of this is the `if` statement, which will only execute code if the code evaluates to `true`.
