@@ -1106,6 +1106,25 @@ Notice above that only the `lastName` cookie shows up, this is because we clear 
 <br>
 <br>
 
+## **Sessions**
+
+Sessions are a way to store information as variables to be used across multiple pages. Unlike cookies, sessions are stored **on the server**, making it more secure. You could also use cookies across multiple pages as well if you wanted.
+
+<mark>To be continued...</mark>
+
+```php
+session_start();
+
+if(isset($_SESSION['username'])) {
+    echo "<h1>Welcome {$_SESSION['username']}</h1>";
+} else {
+    echo "<h1>Welcome guest23121</h1>";
+};
+```
+
+<br>
+<br>
+
 ## **Databases**
 
 Databases are crucial for persisting(_saving_) information. There are many different databases available, but for this guide we will be focusing on **RDBMS** databases, which stands for **Relational DataBase Management Systems**. An RDBMS is software that allows you to manipulate data from your database. It uses tables with fields (_columns_) and records (_rows_) to store data. To retrieve and alter that data, we use a database querying language called **SQL**. But sql is quite a big topic of its own, so I'd suggest you read my **[sql guide](sql.md#overview)** to learn more on that.
