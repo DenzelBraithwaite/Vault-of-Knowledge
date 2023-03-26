@@ -513,8 +513,23 @@ echo $numberSquared; // Outputs 4
 $numberSquared = square(4);
 echo $numberSquared; // Outputs 16
 
+// Example of a variable function (anonymous function stored in variable) with arrow function syntax
+$ageMachine = fn($age) => $age + 1;
+
+// If the function doesn't fit on one line, then you must use curly braces and the return keyword
+$ageMachine2 = fn($age) => {
+    return $age + 1;
+}
+
+// Same as the above arrow functions
+function $ageMachine3($age) {
+    return $age + 1;
+}
+$
 ?>
 ```
+
+_Notice how you can omit the return keyword in an arrow function if it fits on one line!_
 
 <br>
 <br>
