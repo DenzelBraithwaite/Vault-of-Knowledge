@@ -89,6 +89,18 @@ To stop a merge in Git, use the `git merge --abort` command. This will reset you
 <br>
 <br>
 
+#### **Revert to a previous state**
+
+Here's a scenario I've run into a few times, you create a feature branch and then accidentally pull that feature branch into one of your main/dev/production branches by mistakes, merging everything. In this instance, you can revert to a specific version of your project, undoing that accidental merge.
+
+1. First navigate to the branch you want to undo the merge.
+2. Use `git reflog` to get a list of all the recent changes to the repo.
+3. Each commit has a hash(commit ID), take note of the one you'd like to return to.
+4. Use `git reset --hard <HASH_HERE>` to reset the branch to the state before the merge.
+
+<br>
+<br>
+
 #### **How to delete remote branch from terminal**
 
 You can delete a branch on your remote repo but sometimes it will remain in your terminal as a remote branch. To fix this, simply remove the remote branch with the `r` option.
