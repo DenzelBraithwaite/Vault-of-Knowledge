@@ -77,11 +77,11 @@ SELECT
 FROM
     table_name;
 
--- Selecting top 5 results
-SELECT TOP(5) FROM table_name;
+-- Selecting top 5 results, taking all columns
+SELECT TOP(5) * FROM table_name;
 ```
 
-In the real world however, it's very rare that we want to query entire tables, usually we only want specific data.
+In the real world however, it's very rare that we want to query entire tables, usually we only want specific data. It's common to create **views** so we can query from a limited amount of tables and fields(_columns_).
 
 <br>
 
