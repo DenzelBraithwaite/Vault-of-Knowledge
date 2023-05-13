@@ -183,7 +183,7 @@ FROM
 
 ### **Group BY clause**
 
-`GROUP BY` is an optional clause of the `SELECT` statement. It's usually used with [aggregate functions](#aggregate-functions) (_such as `min` and `sum`_) which is covered further below. Without an affregate function, `GROUP BY` behaves just like `DISTINCT`. The goal is to group similar data together and remove duplicate info. For instance, you have a company and you want to know the minimum salary your employees are making by department. You don't need the name of every single employee who's making that minimum salary, you just want to know what that number is.
+`GROUP BY` is an optional clause of the `SELECT` statement. It's usually used with [aggregate functions](#aggregate-functions) (_such as `min` and `sum`_) which is covered further below. Without an aggregate function, `GROUP BY` behaves just like `DISTINCT`. The goal is to group similar data together and remove duplicate info. For instance, you have a company and you want to know the minimum salary your employees are making by department. You don't need the name of every single employee who's making that minimum salary, you just want to know what that number is.
 
 <br>
 
@@ -238,7 +238,7 @@ ORDER BY
 LIMIT
     5
 OFFSET -- I'm not sure why OFFSET isn't being color coded here.
-	3;
+	  3;
 ```
 
 <br>
