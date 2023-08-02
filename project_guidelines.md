@@ -67,7 +67,6 @@ Consider adding the following styles to create a `reset` stylesheet.
 ```css
 * {
     box-sizing: border-box;
-    color: ; /* Some sort of dark grey, not black*/
 }
 
 html,
@@ -118,7 +117,8 @@ video {
 }
 
 body {
-    line-height: 1;
+    line-height: 1.5;
+    color: #242424; /* Some sort of dark grey, not black*/
 }
 
 ol,
