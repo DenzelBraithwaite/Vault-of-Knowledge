@@ -121,6 +121,11 @@ body {
     color: #242424; /* Some sort of dark grey, not black*/
 }
 
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
 ol,
 ul {
     list-style: none;
