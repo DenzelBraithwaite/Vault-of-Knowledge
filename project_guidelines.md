@@ -129,6 +129,13 @@ ul {
 table {
     border-collapse: collapse;
 }
+
+color-scheme: light; // Indicates that the content is optimized for the "light" color scheme
+font-synthesis: none; // Controls how font weights are synthesized when the specified font family lacks the requested font weight
+text-rendering: optimizeLegibility; // Instructs the browser to use additional rendering techniques that improve the sharpness and clarity of text.
+-webkit-font-smoothing: antialiased; // For WebKit-based browsers (Safari, Chrome on macOS), controls font smoothing and antialiasing. "antialiased" improves font rendering by smoothing the jagged edges of characters.
+-moz-osx-font-smoothing: grayscale; // For Mozilla Firefox on macOS, affects font smoothing and antialiasing. Grayscale antialiasing effect to improve font rendering.
+-webkit-text-size-adjust: 100%;
 ```
 
 However, using the `*` selector to reset styles such as padding and margin is considered a bad practice, since it can lead to unexpected behaviour.
