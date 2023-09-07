@@ -1142,9 +1142,9 @@ FOREIGN KEY (class_id) REFERENCES classes (class_id)
 
 ## **Optimization and Efficiency**
 
-When your database grows to be quite large, with thousands or hundreds of thousands of entries, querying the db can become very slow and the more tables or views you are fetching data from, the more you will experience a significant decrease in performance. Most tables are created using a **primary key** and often that primary key is an auto-incrementing ID field. In sql servers such as MS sql srv(_Microsoft's_), they will automatically treat that primary key as a **clustered index**(_more on that below_) to improve the speed of which the db can query table rows. There are 2 main types of indexes a table could have, **clustered and non clustered**.
+When your database grows to be quite large with thousands or hundreds of thousands of entries, querying the db can become very slow, and the more tables or views you are fetching data from, the more you will experience a decrease in performance. Most tables are created using a **primary key** and often that primary key is an auto-incrementing ID field. In sql servers such as MS sql srv(_Microsoft's sql server_), they will automatically treat the primary key as a **clustered index**(_more on that below_) to improve the speed of which the db can query table rows.
 
-SQL databases have something called the **"query execution plan"** or query plan which essentially allows it to always select the most efficient path to retrieve data. Think of a GPS when you're driving, you can see multiple routes and select the fastest one.
+There are 2 main types of indexes a table could have, **clustered and non clustered**. SQL databases also have something called the **"query execution plan"** or query plan which essentially allows it to always select the most efficient path to retrieve data. Think of a GPS when you're driving, you can see multiple routes and select the fastest one.
 
 <br>
 
@@ -1161,7 +1161,7 @@ When you create a clustered index, you select one or more fields/columns and use
 
 So if you have a db with many entries and you are often fetching data from the db such as **first_name** or **last_name** of a client, you could use those columns as a clustered index for your table. What this does is essentially organizes your table by (_in this case_) first_name and last_name (_the order of which you define the index matters, it will first search by either first or last name, and then if 2 people have the same last name, it will sort by first name._) so that whenever a query is made containing one of these 2 columns, it can search much quicker **and** stop searching after it finds the result. It knows there are no more entries that will match since it's indexed and it knows if it's scanned all of the 'B' names, there's no need to look at every other letter if the name we want begins with a B!
 
-Since a clustered index effectively changes the order of the table, it's possible to have a groupd clutered index, but it's impossible to have **multiple clustered indexes*. Because you would need another table sorted in a different way!
+Since a clustered index effectively changes the order of the table, it's possible to have a grouped clutered index, but it's impossible to have **multiple clustered indexes**. Because you would need another table sorted in a different way!
 
 <br>
 <br>
