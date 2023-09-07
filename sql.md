@@ -1140,6 +1140,39 @@ FOREIGN KEY (class_id) REFERENCES classes (class_id)
 <br>
 <br>
 
+## **Optimization and Efficiency**
+
+When your database grows to be quite large, with thousands or hundreds of thousands of entries, querying the db can become very slow and the more tables or views you are fetching data from, the more you will experience a significant decrease in performance. Most tables are created using a **primary key** and often that primary key is an auto-incrementing ID field. In sql servers such as MS sql srv(_Microsoft's_), they will automatically treat that primary key as a **clustered index**(_more on that below_) to improve the speed of which the db can query table rows. There are 2 main types of indexes a table could have, **clustered and non clustered**.
+
+SQL databases have something called the **"query execution plan"** or query plan which essentially allows it to always select the most efficient path to retrieve data. Think of a GPS when you're driving, you can see multiple routes and select the fastest one.
+
+<br>
+
+### Heap
+
+A table with no indexes at all, the db engine has no idea where to look for data, so it will **scan** the entire table row by row. Even when it finds a match, it will continue to scan the entire table because it isn't sure if there are other matches. This is the most inefficient option but not a huge deal in smaller databases.
+
+<br>
+<br>
+
+### Clustered
+
+When you create a clustered index, you select one or more fields/columns and use that as the **index** for the table. It's exactly like a book's page of contents, the first few or last pages of the book will show you where to find the pages you are looking for in the book. Without this, it would be like a **heap** and you would quite literally, have to read every page to find what you're looking for.
+
+So if you have a db with many entries and you are often fetching data from the db such as **first_name** or **last_name** of a client, you could use those columns as a clustered index for your table. What this does is essentially organizes your table by (_in this case_) first_name and last_name (_the order of which you define the index matters, it will first search by either first or last name, and then if 2 people have the same last name, it will sort by first name._) so that whenever a query is made containing one of these 2 columns, it can search much quicker **and** stop searching after it finds the result. It knows there are no more entries that will match since it's indexed and it knows if it's scanned all of the 'B' names, there's no need to look at every other letter if the name we want begins with a B!
+
+Since a clustered index effectively changes the order of the table, it's possible to have a groupd clutered index, but it's impossible to have **multiple clustered indexes*. Because you would need another table sorted in a different way!
+
+<br>
+<br>
+
+### Non-clustered
+
+As opposed to the limit of 1 clustered index by table, you can create multiple non-clustered indexes for your table. Instead of reorganizing your original table, it instead creates another (_usually smaller_) table in memory where the db will look first. This is useful when you query certain fields more than others and want a **smaller** table for your db to look up. Keep in mind, this might help the DB find data faster, but it will still go back to the original table to fetch the data after it's found the correct record/row. So this is one extra little step as opposed to just fetching it from the db directly, so there's always a balance you must find to not overdo it with indexes as it could negatively affect your database.
+
+<br>
+<br>
+
 ---
 
 ## **Resources**
