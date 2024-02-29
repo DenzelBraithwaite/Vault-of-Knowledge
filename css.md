@@ -86,50 +86,6 @@ read more about those conventions [here :)](https://stackoverflow.com/questions/
 <br>
 <br>
 
-#### **Breakpoints**
-
-Breakpoints are the building blocks of responsive design. Use them to control when your layout can be adapted at a particular viewport or device size. <mark>Use media queries to architect your CSS by breakpoint.</mark> Media queries are a feature of CSS that allow you to conditionally apply styles based on a set of browser and operating system parameters.
-
-<br>
-
-Media query example:
-
-```css
-@media (max-width: 1100px) {
-    selector {
-        /* Declaration */
-    }
-}
-```
-
-Remember to always write `media queries` at the <mark>**bottom** of your stylesheet.</mark> Otherwise certain rules might get overwritten.
-
-<br>
-<br>
-
-Firstly, have `margin-left: auto; margin-right: auto;` on your container and set a max-width.
-
-<br>
-
-<p class="breakpoints"> Then follow these general guidelines:</p>
-
-<mark>Might Change this soon</mark>
-
--   `mobile:` 0 - 600px (Most common view at 375px so maybe have your max-width at 360pxish for a bit of margin)
-
--   `mobile-landscape:` 600px - 700px (Most people just keep the same styles as mobile here
-
--   `tablet:` 700px - 1200px (Most common tablets view at 768px & 800px, container max-width should be slightly below 700px)
-
--   `laptop:` 1200px and more (Most common devices view at 1280px, 1366px, 1440px & 1920px) but its nice to have a container max-width at 1100px-ish to have a cleaner design
-
-<br>
-
-> When to use which: `min-width` or `max-width`. If you are designing your website for smaller devices first then set your default CSS breakpoints with `min-width` and adjust for larger devices accordingly. Meanwhile, if you are designing for larger devices first then use `max-width` and then tune for smaller devices accordingly
-
-<br>
-<br>
-
 #### **Center text**
 
 Quickly center text vertically by setting the `line-height` property, which also sets the height as the name suggests. Center text horizonatally using the `text-align: center` declaration.
@@ -247,6 +203,68 @@ Sometimes you might notice your text overlapping, to fix this, try changing the 
     white-space: nowrap;
 }
 ```
+
+<br>
+<br>
+
+### **Media Queries**
+
+Media queries are a great way to conditionally apply styles based on the device's preferences. This relates to screen size, device type, theme preference(_dark/light_), etc.
+
+#### **Breaking Points**
+
+Breakpoints are the building blocks of responsive design. Use them to control when your layout can be adapted at a particular viewport or device size. <mark>Use media queries to architect your CSS by breakpoint.</mark> Media queries are a feature of CSS that allow you to conditionally apply styles based on a set of browser and operating system parameters.
+
+<br>
+
+Media query example:
+
+```css
+@media (max-width: 1100px) {
+    selector {
+        /* Declaration */
+    }
+}
+```
+
+Remember to always write `media queries` at the <mark>**bottom** of your stylesheet.</mark> Otherwise certain rules might get overwritten.
+
+#### **Light/Dark Theme**
+
+Most devices nowadays offer the choice between light and dark theme. Light theme is a light/white background with dark/black text and dark theme is the opposite with light text and a dark background. To accomodate this, you can use a media query.
+
+```css
+@media (preferse-color-scheme: dark) {
+    /* Dark theme styles */
+}
+
+@media (preferse-color-scheme: light) {
+    /* Light theme styles */
+}
+```
+
+<br>
+<br>
+
+Firstly, have `margin-left: auto; margin-right: auto;` on your container and set a max-width.
+
+<br>
+
+<p class="breakpoints"> Then follow these general guidelines:</p>
+
+<mark>Might Change this in the future</mark>
+
+-   `mobile:` 0 - 600px (Most common view at 375px so maybe have your max-width at 360pxish for a bit of margin)
+
+-   `mobile-landscape:` 600px - 700px (Most people just keep the same styles as mobile here)
+
+-   `tablet:` 700px - 1200px (Most common tablets view at 768px & 800px, container max-width should be slightly below 700px)
+
+-   `laptop:` 1200px and more (Most common devices view at 1280px, 1366px, 1440px & 1920px) but its nice to have a container max-width at 1100px-ish to have a cleaner design
+
+<br>
+
+> When to use which: `min-width` or `max-width`. If you are designing your website for smaller devices first then set your default CSS breakpoints with `min-width` and adjust for larger devices accordingly. Meanwhile, if you are designing for larger devices first then use `max-width` and then tune for smaller devices accordingly
 
 <br>
 <br>
