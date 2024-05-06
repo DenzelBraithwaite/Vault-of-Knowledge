@@ -15,7 +15,7 @@ This study guide will hold a list of commonly use tags, along with best practice
 
 ## **Quick notes**
 
-This section is a quick reference point for certain HTML guidelines that I'll need to review often, such as which semantic tags to use where, and other best practices to keep in mind.
+This section is a quick reference point for certain HTML guidelines that I'll need to review often, such as which semantic tags to use where, and other best practices to keep in mind. I'll also include a section for accessibility since this ties into many parts of html in the form of properties, e.g. `aria-required="true"`. These don't usually change your app but can assist screen readers and improve SEO.
 
 <br>
 <br>
@@ -736,7 +736,7 @@ Emmet doesn’t have a predefined set of available tag names, you can write any 
 <br>
 <br>
 
-## Nesting operators
+### Nesting operators
 
 Nesting operators are used to position abbreviation elements inside generated tree: whether it should be placed inside or near the context element.
 
@@ -1154,6 +1154,142 @@ Like this:
 <mark>But it won’t work, because space is a stop symbol where Emmet stops abbreviation parsing.</mark> Many users mistakenly think that each abbreviation should be written in a new line, but they are **wrong**; you can type and expand abbreviation anywhere in the text:
 
 [More complete guide here](https://docs.emmet.io/abbreviations/syntax/)
+
+<br>
+<br>
+
+## **ARIA - Accessibility**
+
+> Accessible Rich Internet Applications ( ARIA ) is a set of roles and attributes that define ways to make web content and web applications (especially those developed with JavaScript) more accessible to people with disabilities.
+_[MDN (Mozilla Developer Network)](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)_
+
+ARIA (_Accessible Rich Internet Applications_) is an important part of modern web development and ensures that people with certain disabilities can still access your site. Depending on the type of website you are building, this could be one of your main priorities. For instance, if you have a commerce site, the more people who can access it, the better. But if you have a specific app for a person who doesn't care about accessibility, then you might focus on neat features instead. Although always optional, it's a good habit to include ARIA markup in your html to help AT (_assistive technologies_).
+
+<br>
+
+#### **Role Property**
+
+The role property tells assistive technologies what that element's purpose is. Although there is no official  HTML5 specification that standardizes a list of valid role values, it's best practice to use the commonly used words since those have a higher chance of being interpreted correctly. Giving a role property a custom value like "button-for-last-about-me" might not be the best choice. It's also important not to confuse role with the `id=""` property, although they can be named similarly at times.
+
+**List of commonly used role values**
+
+- **alert:** Used for important, usually time-sensitive, information.
+
+- **alertdialog:** Used for modal alert dialogs that interrupt a user’s workflow to communicate an important message and require a response.
+- **application:** Indicates that an element and all of its children should be treated similar to a desktop application.
+- **article:** Indicates a section of a page that could easily stand on its own on a page, in a document, or on a website.
+- **banner:** Defines a global site header, which usually includes a logo, company name, search feature, and possibly the global navigation or a slogan.
+- **button:** Used for clickable elements that trigger a response when activated by the user.
+- **cell:** Denotes the element’s contents as data in a table cell.
+- **checkbox:** Used for checkable interactive controls.
+- **columnheader:** Identifies an element as being a cell in a row that contains header information for a column.
+- **combobox:** Identifies an element as an input that controls another element, such as a listbox or grid, that can dynamically pop up to help the user set the value of that input.
+- **complementary:** Represents a supporting section of the document, designed to be complementary to the main content at a similar level in the DOM hierarchy[^search_web(query=“HTML role complementary”)].
+- **contentinfo:** Represents a large perceivable region that contains information about the parent document[^search_web(query=“HTML role contentinfo”)].
+- **definition:** Indicates the term being defined within a definition list[^search_web(query=“HTML role definition”)].
+- **dialog:** Represents a dialog or other interactive application window[^search_web(query=“HTML role dialog”)].
+- **directory:** Represents a list of references to members of a group, such as a static table of contents[^search_web(query=“HTML role directory”)].
+- **document:** Represents a standalone document that is embedded in a parent document[^search_web(query=“HTML role document”)].
+- **feed:** Represents a scrollable list of articles where scrolling may cause articles to be added to or removed from either end of the list[^search_web(query=“HTML role feed”)].
+- **figure:** Represents a unit of content, optionally with a caption, that is self-contained, that is typically referenced as a single unit from the main flow of the document[^search_web(query=“HTML role figure”)].
+- **form:** Represents a section of a page that consists of a form, including form controls and labels[^search_web(query=“HTML role form”)].
+- **grid:** Represents a control that presents a collection of hierarchical or tabular data across two dimensions[^search_web(query=“HTML role grid”)].
+- **gridcell:** Represents a cell in a grid or treegrid[^search_web(query=“HTML role gridcell”)].
+- **group:** Represents a set of user interface objects which are not intended to be included in a page summary or table of contents by assistive technologies[^search_web(query=“HTML role group”)].
+- **heading:** Represents a heading for a section of the page[^search_web(query=“HTML role heading”)].
+- **img:** Represents a container for a collection of elements that form an image[^search_web(query=“HTML role img”)].
+- **link:** Represents an interactive reference to a resource[^search_web(query=“HTML role link”)].
+- **list:** Represents a list of items[^search_web(query=“HTML role list”)].
+- **listbox:** Represents a widget that allows the user to select one or more items from a list of choices[^search_web(query=“HTML role listbox”)].
+- **listitem:** Represents a single item in a list or directory[^search_web(query=“HTML role listitem”)].
+- **log:** Represents a type of live region where new information is added in meaningful order and old information may disappear[^search_web(query=“HTML role log”)].
+- **main:** Represents the main content of a document[^search_web(query=“HTML role main”)].
+- **marquee:** Represents a section of a page where the content is displayed in a manner that is similar to a mechanical billboard[^search_web(query=“HTML role marquee”)].
+- **math:** Represents a block of mathematical content[^search_web(query=“HTML role math”)].
+- **menu:** Represents a type of widget that offers a list of choices to the user[^search_web(query=“HTML role menu”)].
+- **menubar:** Represents a presentation of menu that usually remains visible and is usually presented horizontally[^search_web(query=“HTML role menubar”)].
+- **menuitem:** Represents an option in a set of choices contained by a menu or menubar[^search_web(query=“HTML role menuitem”)].
+- **menuitemcheckbox:** Represents a checkable menuitem within a menu[^search_web(query=“HTML role menuitemcheckbox”)].
+- **menuitemradio:** Represents a checkable menuitem in a group of menuitemradio roles, only one of which can be checked at a time[^search_web(query=“HTML role menuitemradio”)].
+- **navigation:** Represents a section of a page that contains navigation links[^search_web(query=“HTML role navigation”)].
+- **none:** Represents an element that is not visible, perceivable, or interactive to any user[^search_web(query=“HTML role none”)].
+- **note:** Represents a section of a page that consists of a note that is separate from the main content[^search_web(query=“HTML role note”)].
+- **option:** Represents an option in a listbox[^search_web(query=“HTML role option”)].
+- **presentation:** An element is used to change the look of its parent or other elements without changing their meaning or functionality[^search_web(query=“HTML role presentation”)].
+- **progressbar:** Represents a range of user input or application progress[^search_web(query=“HTML role progressbar”)].
+- **radio:** Represents a checkable input in a group, where only one in the group can be checked[^search_web(query=“HTML role radio”)].
+- **radiogroup:** Represents a group of radio buttons[^search_web(query=“HTML role radiogroup”)].
+- **region:** Represents a large perceivable section of a web page or document[^search_web(query=“HTML role region”)].
+- **row:** Represents a row of cells in a grid[^search_web(query=“HTML role row”)].
+- **rowgroup:** Represents a group of one or more rows in a grid[^search_web(query=“HTML role rowgroup”)].
+- **rowheader:** Identifies an element as a cell in a row that contains header information for that row[^search_web(query=“HTML role rowheader”)].
+- **scrollbar:** Represents a scrollbar[^search_web(query=“HTML role scrollbar”)].
+- **search:** Represents a landmark region that contains a collection of items and objects that, as a whole, combine to create a search facility[^search_web(query=“HTML role search”)].
+- **searchbox:** Represents a text input that a user can enter search queries into[^search_web(query=“HTML role searchbox”)].
+- **separator:** Represents a line or bar that separates and distinguishes sections of content or groups of menuitems[^search_web(query=“HTML role separator”)].
+- **slider:** Represents an input that allows the user to select a value within a given range[^search_web(query=“HTML role slider”)].
+- **spinbutton:** Represents an input that allows the user to choose a value from within a given range[^search_web(query=“HTML role spinbutton”)].
+- **status:** Represents a container whose content is advisory information for the user that is not important enough to justify an alert[^search_web(query=“HTML role status”)].
+- **switch:** Represents a checkbox that can be turned on and off[^search_web(query=“HTML role switch”)].
+- **tab:** Represents a header for a tabpanel[^search_web(query=“HTML role tab”)].
+- **table:** Represents tabular data[^search_web(query=“HTML role table”)].
+- **tablist:** Represents a list of tabs, which are references to tabpanels[^search_web(query=“HTML role tablist”)].
+- **tabpanel:** Represents a container for the resources associated with a tab[^search_web(query=“HTML role tabpanel”)].
+- **term:** Represents a term or phrase with a corresponding definition[^search_web(query=“HTML role term”)].
+- **textbox:** Represents a text input that allows free-form text as its value[^search_web(query=“HTML role textbox”)].
+- **timer:** Represents a numeric counter that indicates an amount of elapsed time from a start point, or the time remaining until an end point[^search_web(query=“HTML role timer”)].
+- **toolbar:** Represents a collection of commonly used function represented in compact visual form[^search_web(query=“HTML role toolbar”)].
+- **tooltip:** Represents a popup that displays a description for an element when it receives keyboard focus or the mouse hovers over it[^search_web(query=“HTML role tooltip”)].
+- **tree:** Represents a tree structure that contains items that may be expanded and collapsed[^search_web(query=“HTML role tree”)].
+- **treegrid:** Represents a grid that contains cells that may expand to reveal additional rows[^search_web(query=“HTML role treegrid”)].
+- **treeitem:** Represents an option item of a tree. This is an element within a tree that may be expanded or collapsed if it contains a sub-level group of treeitem elements[^search_web(query=“HTML role treeitem”)].
+
+<br>
+
+Sometimes when specifying a role, you will also need to provide additional properties. For instance consider a `<div>`, div's have no semantic meaning and by default are non-interactive and not focusable, meaning users relying on a keyboard can't tab to them and assistive technologies might not be able to select them either. So if we give a `<div>` a `role="menu"`, that implies that the user can select things from that menu, but that won't be possible even if the AT(_assitive technologies_) know it's a menu. In cases like these you will need to provide additional info such as the `tabindex=""` property.
+
+<br>
+<br>
+
+#### **Tabindex**
+
+The tabindex attribute is used to make an element focusable and to control the position of the element in the navigation order. When you include `tabindex="0"` on an element with `role="menu"`, you’re making that element focusable and placing it in the natural tab order of the content. This allows keyboard users to tab to the menu and interact with it.
+
+A tabindex with a negative value, specifically -1, means that the element is focusable, but it’s not reachable via sequential keyboard navigation. It’s only focusable programmatically (_i.e., through JavaScript_) or by clicking on it with the mouse. This is often used to take elements out of the natural tab order, but still allow them to receive focus. For example, you might do this for a modal dialog box that should receive focus when it’s visible, but not be in the tab order when it’s hidden.
+
+```js
+  <div role="menu" tabindex="-1">
+    <div role="menuitem">Menu Item 1</div>
+    <div role="menuitem">Menu Item 2</div>
+  </div>
+```
+
+<br>
+<br>
+
+### **Accessible Forms**
+
+Forms have semantic syntax specific to forms, elements such as `<label>` and properties such as `aria-required=""` are some examples.
+
+<br>
+
+#### **Aria-label & aria-required**
+
+Imagine you have a searchbar with a placeholder, like a Google search. There's no label for that input, so people using screen readers might not be able to understand what that searchbar does. In this case you can use the `aria-label` property.
+
+```html
+    <!-- Not explicit, can't be interpreted by screen readers -->
+    ❌<input placeholder="Type to search" />
+
+    <!-- Explicit, can be interpreted by screen readers -->
+    ✅<input placeholder="Type to search" aria-label="Type to search" />
+
+    <!-- Explicit, can be interpreted by screen readers -->
+    <label for="first-name">Please enter your first name. <span class="color-red">*</span></label>
+    <input id="first-name" name="first-name" placeholder="first-name" required aria-required="true">
+```
+
+Above we used the `aria-required` property, this is the same as making an input **required** so the user cannot leave it blank. You should always use `required` in conjunction with `aria-required`. Remember that the 2 are not interchangeable, simply used together for a similar purpose.
 
 <br>
 <br>
