@@ -167,7 +167,7 @@ origin  git@github.com:DenzelBraithwaite/portfolio.git (push)
 <br>
 <br>
 
-**also**
+## **Also check these links out**
 
 <br>
 
