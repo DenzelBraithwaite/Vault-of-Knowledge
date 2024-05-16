@@ -1,8 +1,8 @@
 # **Git & GitHub**
 
-> \_"It is easy to shoot your foot off with git, but also easy to revert to a previous foot and merge it with your current leg."
+> "_It is easy to shoot your foot off with git, but also easy to revert to a previous foot and merge it with your current leg._"
 >
-> —Jack William Bell"\_
+> _—Jack William Bell_
 
 <br>
 <br>
