@@ -1,7 +1,5 @@
 # **Svelte**
 
-<p style='color: #FFFFAC'>To be added: expressions, props, events, conditionals, loops, binding, etc...</p>
-
 > _"Svelte makes it easy to create fast, reactive web apps without having to think about complex abstractions."_
 >
 > \- _Rich Harris_
@@ -18,6 +16,8 @@
 ## Overview
 
 **Svelte** _(slender, elegant)_ is a compiler _(not a framework)_ to create and ship highly optimized code quickly. I use this paired with **Vite** _(French for 'fast', used to host and refresh the local page)_ to rapidly create, test and deploy web apps. Since the documentation for Svelte is pretty good, this _guide_ will be more of a cheat sheet than anything. It will hold reminders and common syntax that will be useful for daily operations. This will serve as a reference point for all things Svelte. I won't be using **SvelteKit** for the foreseeable future, so I'll only be covering core Svelte Syntax.
+
+_These notes are based on Svelte 3 and have not been updated for over a year. Svelte 4 introduces some changes but most are not breaking changes. Svelte 5 introduces runes and other breaking changes. Remember to follow the official docs and read up on Svelte 5 here [Svelte 5 preview](https://svelte-5-preview.vercel.app/docs/introduction)_
 
 <br>
 
