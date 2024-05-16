@@ -1253,9 +1253,9 @@ Sometimes when specifying a role, you will also need to provide additional prope
 
 #### **Tabindex**
 
-The tabindex attribute is used to make an element focusable and to control the position of the element in the navigation order. When you include `tabindex="0"` on an element with `role="menu"`, you’re making that element focusable and placing it in the natural tab order of the content. This allows keyboard users to tab to the menu and interact with it.
+The tabindex attribute is used to make an element focusable and to control the position of the element in the navigation order. When you include `tabindex="0"` on an element with `role="menu"`, you’re making that element focusable and placing it in the natural tab order of the content. This allows keyboard users to tab to the menu and interact with it. You should only use a tab index of 0, and then order your html elements in the desired tab order, as opposed to ordering them by the tab index property.
 
-A tabindex with a negative value, specifically -1, means that the element is focusable, but it’s not reachable via sequential keyboard navigation. It’s only focusable programmatically (_i.e., through JavaScript_) or by clicking on it with the mouse. This is often used to take elements out of the natural tab order, but still allow them to receive focus. For example, you might do this for a modal dialog box that should receive focus when it’s visible, but not be in the tab order when it’s hidden.
+A tabindex with a negative value(_-1 common but all negative values treated the same_), means that the element is focusable, but it’s not reachable via sequential keyboard navigation. It’s only focusable programmatically (_i.e. through JavaScript with the .focus() method_) or by clicking on it with the mouse. This is often used to take elements out of the natural tab order, but still allow them to receive focus. For example, you might do this for a modal dialog box that should receive focus when it’s visible, but not be in the tab order when it’s hidden.
 
 ```js
   <div role="menu" tabindex="-1">
