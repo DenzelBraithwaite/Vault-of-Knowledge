@@ -15,7 +15,7 @@
 
 ## Overview
 
-**Svelte** _(slender, elegant)_ is a compiler _(not a framework)_ to create and ship highly optimized code quickly. I use this paired with **Vite** _(French for 'fast', used to host and refresh the local page)_ to rapidly create, test and deploy web apps. Since the documentation for Svelte is pretty good, this _guide_ will be more of a cheat sheet than anything. It will hold reminders and common syntax that will be useful for daily operations. This will serve as a reference point for all things Svelte. I won't be using **SvelteKit** for the foreseeable future, so I'll only be covering core Svelte Syntax.
+**Svelte** _(slender, elegant)_ is a compiler _(not a framework but referred to as a web framework more than a js framework, with a focus on enhancing html)_ to create and ship highly optimized code quickly. I use this paired with **Vite** _(French for 'fast', used to host and refresh the local page)_ to rapidly create, test and deploy web apps. Since the documentation for Svelte is pretty good, this _guide_ will be more of a cheat sheet than anything. It will hold reminders and common syntax that will be useful for daily operations. This will serve as a reference point for all things Svelte. I won't be using **SvelteKit** for the foreseeable future, so I'll only be covering core Svelte Syntax.
 
 _These notes are based on Svelte 3 and have not been updated for over a year. Svelte 4 introduces some changes but most are not breaking changes. Svelte 5 introduces runes and other breaking changes. Remember to follow the official docs and read up on Svelte 5 here [Svelte 5 preview](https://svelte-5-preview.vercel.app/docs/introduction)_
 
@@ -30,6 +30,8 @@ The material I've found is a mixture of:
 - The [You.com youchat](https://you.com/search?q=who+are+you&tbm=youchat&cfr=chat) bot _(A.I)_, it's not always accurate but a **huge** help during researching.
 
 - Real-World Svelte Book by Tan Li Hau
+
+- frontendmasters.com blog post: [Introducing svelte 5](https://frontendmasters.com/blog/introducing-svelte-5/#:~:text=Not%20only%20are%20there%20more,look%20for%20your%20next%20project.)
 
 - Other various websites (Stack Overflow, Discord channels, etc)...
 
@@ -72,7 +74,7 @@ Svelte files have **javascript** _(`<script>`)_, **css** _(`<style>`)_ and **htm
 <br>
 <br>
 
-#### **Tags**
+### **Tags**
 
 Regular html tags are the same, like `<div>`, written in lowercase. A capitalised tag such as `<Button>`, indicates a component.
 
@@ -90,7 +92,7 @@ Regular html tags are the same, like `<div>`, written in lowercase. A capitalise
 <br>
 <br>
 
-#### **Styling**
+### **Styling**
 
 Svelte offers a few different ways to add styling to your components. Each have their use case and can be beneficial in the right scenario.
 
@@ -144,7 +146,7 @@ Svelte offers a few different ways to add styling to your components. Each have 
 
 <br>
 
-#### **The `global()` pseudo-selector**
+### **The `global()` pseudo-selector**
 
 It's possible to make any style a global style by using the `global()` pseudo-selector. For styles defined within `<style>` tags, they will no longer be locally scoped.
 
@@ -160,7 +162,7 @@ It's possible to make any style a global style by using the `global()` pseudo-se
 
 <br>
 
-#### **Using custom properties**
+### **Using custom properties**
 
 You can also use custom properties to style your components. This is especially useful when you have one style that's applied across several files, such as the font size or color. When you return in the future and wish to make a change, you will need to locate every part of your code that uses that style, then update it. A better approach is to use a custom property, then you only need to change the value of that property and every file using it will be updated.
 
@@ -196,7 +198,7 @@ Svelte also allows you to set the styles of a component from outside of the comp
 <br>
 <br>
 
-#### **Lifecycles**
+### **Lifecycles**
 
 All svelte components(_files_) go through 4 stages: initialization, mounting, updating and destroying. Svelte does not allow lifecycle functions to be called outside of the component initialization phase (_e.g. don't use `onMount()` inside of a callback function that triggers after the DOM is loaded and the user is interacting with an element_).
 
@@ -208,7 +210,7 @@ All svelte components(_files_) go through 4 stages: initialization, mounting, up
 
 - **Destroying:** When a component is removed from the DOM, it is "destroyed". So if there is a modal that is only visible after the user clicks something, then the user closes the modal, it enters the **destroying** lifecycle. Svelte offers the `onDestroy()` hook for this stage, which allows you to run code immediately before the element is destroyed (_cleanup_).
 
-```JavaScript (svelte)
+```svelte
 <script>
   import { onMount, beforeUpdate, afterUpdate, onDestroy } from 'svelte';
 
@@ -223,59 +225,42 @@ All svelte components(_files_) go through 4 stages: initialization, mounting, up
 <br>
 <br>
 
-#### **Section**
+## **Svelte 4 & 5**
+_This section was last updated Aug 2024, the rest of the guide was created for Svelte 3 and is outdated._
 
-finish me...
-
-```
-
-```
+Below I'm going to cover the **highlights** of svelte 5. I will leave an example of the old syntax and new syntax. I will briefly touch on Svelte 4 but for the most part, Svelte 3 and 4 are the same (syntax), svelte 5 includes new syntax and Svelte 6-7 will likely begin to make some pre svelte 5 syntax obsolete.
 
 <br>
-<br>
 
-#### **Section**
+### **Svelte 4**
+Svelte 4 adopts modern tooling and drops support for some legacy versions of various technologies. The main changes that svelte 4 offers are performance related. The package size is reduced significantly resulting in faster `npm install`s, the JS output has also been reduced and transitions are now `|local` by default as opposed to `|global`. Here's a quote from the [svelte.dev](https://svelte.dev/blog/svelte-4) website.
 
-finish me...
+> _"Svelte 4 is mainly a maintenance release, bumping minimum version requirements and tightening up the design in specific areas. It sets the stage for the next generation of Svelte to be released as Svelte 5 - we think you’ll love it."_
 
-```
-
-```
+It's recommended to those on Svelte 3 to upgrade to Svelte 4 using Svelte's migration script `npx svelte-migrate@latest svelte-4` found here [Svelte 4 migration guide](https://svelte.dev/docs/v4-migration-guide). The script will update the required dependencies (_such as Typescript and Vite_) and even handle the transition scope (local|global) for you. It will remove `|local` since it's redundant and will insert `global` to avoid converting all transition to `local` if you choose to do so during the migration script. Most apps and libraries that are compatible with Svelte 3 should be ocmpatible with Svelte 4.
 
 <br>
-<br>
 
-#### **Section**
-
-finish me...
-
-```
-
-```
+### **Svelte 5**
+Svelte 5 addresses issues with earlier versions of svelte's reactivity system (_Stores and reactive variables were different reactivity systems_). It handles state in a new way, introduces signals, runes and makes some syntax deprecated. It also changes props, effects and custom events. It is a rewrite of the Svelte compiler and runtime and boasts more reliable reactivity. Although they're introducing features such as `runes(_signals_)` to replace `reactive statements` and `snippets` to replace `slots`, they are not removing the older features just yet. Meaning, slots are still valid but they are marked as deprecated and will likely be removed in Svelte 6-7. The choice to not make them immediately obsolete was to ensure a fluid migration from 4 to 5.
 
 <br>
-<br>
 
-#### **Section**
+### **Runes**
+In web development, **signals** are one of the key primitives of reactive programming. By definition, they are generated **notifications** that are sent to a process when an event occurs. This means when a change happens, a signal is sent to notify other parts of the application of this change so they can update accordingly.
 
-finish me...
 
-```
+### **State**
 
-```
 
-<br>
-<br>
+### **Props**
 
-#### **Section**
 
-finish me...
+### **Effects**
 
-```
+### **Snippets**
 
-```
 
-<br>
 <br>
 
 ---

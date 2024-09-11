@@ -29,6 +29,8 @@ The material I've found is a mixture of:
 
 -   Kevin Powell's [21 day responsive challenge](https://www.kevinpowell.co/courses/)
 
+- [SASS Breaking Changes](https://sass-lang.com/documentation/breaking-changes/mixed-decls/)(_2024_)
+
 -   Other various websites
 
 ---
@@ -1348,6 +1350,57 @@ These are the tags that are used in the head section of your HTML document. Thes
 Finally, we have the codes that are used in a separate style sheet that is externally saved and attached to your website.
 
 <br>
+<br>
+
+---
+
+## **SCSS**
+CSS is changing how it handles declarations mixed with nested rules, therefore SASS is also updating how it manages nested declarations. Below are snippets from an [article on sass/css decleration changes](https://sass-lang.com/documentation/breaking-changes/mixed-decls/) which shows how declarations will be handled in the near future as well as how you can opt into this behaviour early.
+
+**How it used to work(_SCSS_):**
+Notice below how SASS would "hoist" your nested CSS declerations to the top of the ruleset even if it was declared at the bottom. This could affect the appearance of your app, therefore in the future it will now create accurate CSS with better reflects your styles.
+
+```scss
+.example {
+  color: red;
+
+  a {
+    font-weight: bold;
+  }
+
+  font-weight: normal;
+}
+```
+
+**Historical transformation into CSS:**
+```scss
+.example {
+  color: red;
+  font-weight: normal;
+}
+
+.example a {
+  font-weight: bold;
+}
+```
+
+<br>
+
+**New transformation into CSS:**
+```scss
+.example {
+  color: red;
+}
+
+.example a {
+  font-weight: bold;
+}
+
+// Notice the duplicate, but it will apply AFTER the rules in the first .example ruleset.
+.example {
+  font-weight: normal;
+}
+```
 
 <br>
 <br>

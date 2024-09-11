@@ -1179,7 +1179,7 @@ The role property tells assistive technologies what that element's purpose is. A
 - **application:** Indicates that an element and all of its children should be treated similar to a desktop application.
 - **article:** Indicates a section of a page that could easily stand on its own on a page, in a document, or on a website.
 - **banner:** Defines a global site header, which usually includes a logo, company name, search feature, and possibly the global navigation or a slogan.
-- **button:** Used for clickable elements that trigger a response when activated by the user.
+- **button:** Used for clickable elements that trigger a response when activated by the user(_useful for clickable icons/svg_).
 - **cell:** Denotes the element’s contents as data in a table cell.
 - **checkbox:** Used for checkable interactive controls.
 - **columnheader:** Identifies an element as being a cell in a row that contains header information for a column.
@@ -1193,6 +1193,7 @@ The role property tells assistive technologies what that element's purpose is. A
 - **feed:** Represents a scrollable list of articles where scrolling may cause articles to be added to or removed from either end of the list[^search_web(query=“HTML role feed”)].
 - **figure:** Represents a unit of content, optionally with a caption, that is self-contained, that is typically referenced as a single unit from the main flow of the document[^search_web(query=“HTML role figure”)].
 - **form:** Represents a section of a page that consists of a form, including form controls and labels[^search_web(query=“HTML role form”)].
+- **granular** Represents a high amount of customization (e.g. being able to change a lot of the default behaviour).
 - **grid:** Represents a control that presents a collection of hierarchical or tabular data across two dimensions[^search_web(query=“HTML role grid”)].
 - **gridcell:** Represents a cell in a grid or treegrid[^search_web(query=“HTML role gridcell”)].
 - **group:** Represents a set of user interface objects which are not intended to be included in a page summary or table of contents by assistive technologies[^search_web(query=“HTML role group”)].
