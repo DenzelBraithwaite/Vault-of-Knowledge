@@ -189,6 +189,7 @@ The material I've found is a mixture of:
 - **Cookies**
 - **WebRTC (Web Real-Time Communication)**
 - **WebSockets**
+- **Dirty Bit**
 
 Source: Conversation with Copilot, 8/8/2024
 (1) Web Development Glossary: 75 Essential Terms | Clutch.co. https://clutch.co/resources/web-development-glossary-75-essential-terms.

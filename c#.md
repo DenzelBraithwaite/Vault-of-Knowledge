@@ -19,11 +19,62 @@ This guide is focused on all notes related to **C#** and **.net**. Whenever rele
 
 ## **Fundamentals**
 
+C# is the primary language of the .NET platform, a free, open-source, cross-platform development environment used to build applications for devices ranging from IoT to cloud services. It is a general-purpose, object-oriented language influenced by C, C++, and Java, designed for developer productivity and high performance while supporting functional techniques and low-level efficiency without unsafe code. With millions of users and strong ecosystem support across all .NET workloads, C# powers most of the .NET runtime and libraries, making it familiar, versatile, and widely adopted for modern app development.
+
+<br>
+<br>
+
+### Strings
+...
+
+<br>
+
+#### String Literal
+...
+
+<br>
+
+#### Concatenation
+...
+
+<br>
+
+#### Interpolation
+...
+
+<br>
+
+#### Verbatim Syntax and MultiLine Strings
+...
+
+<br>
+
+
+### Numbers
+...
+
+<br>
+
+#### Int
+...
+
+<br>
+
+#### Long
+...
+
+<br>
+
+#### Other Number Types
+...
+
+<br>
+
+#### Math
 ...
 
 <br>
 <br>
-
 ---
 
 ## **Resources**
