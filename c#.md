@@ -15,13 +15,26 @@ This guide is focused on all notes related to **C#** and **.net**. Whenever rele
 
 ---
 
+## Quick Tips
+- In VS Code You can press `ctrl` + `shift` + `p` on Windows or `cmd` + `shift` + `p` on Mac, to open the command palette. In Visual Studio there's a similar feature called Quick launch which can be opened with the same hotkeys or simply `ctrl` + `Q`.
+
+- You can use `ctrl` + `K` followed by `ctrl` + `D` to format the entire document, adding indents and spaces where needed. Alternatively, you can use the quick launch to find this and similar commands.
+
 <br>
+<br>
+
+---
 
 ## **Fundamentals**
 
 C# is the primary language of the .NET platform, a free, open-source, cross-platform development environment used to build applications for devices ranging from IoT to cloud services. It is a general-purpose, object-oriented language influenced by C, C++, and Java, designed for developer productivity and high performance while supporting functional techniques and low-level efficiency without unsafe code. With millions of users and strong ecosystem support across all .NET workloads, C# powers most of the .NET runtime and libraries, making it familiar, versatile, and widely adopted for modern app development.
 
 <br>
+<br>
+
+### Naming Convention
+In C# the naming convention for variables is `camelCase` starting with a lowercase letter then delimiting words by an uppercase. This applied to variables and method parameters. Most other things such as file names, class names, methods and properties are `PascalCase` or UpperCamelCase starting with a capital letter. Also, variables <mark> cannot start with a number</mark> but can start with an underscore.
+
 <br>
 
 ### Strings
@@ -48,10 +61,13 @@ C# is the primary language of the .NET platform, a free, open-source, cross-plat
 ...
 
 <br>
+<br>
 
-
-### Numbers
-...
+### Numbers and Math
+...Mentioned checked() which will output an error instead of a random number
+... Mention casting (int)42.1
+Mention 32bit arithmetics and 64bit arithmetics
+float and double are binary floating-point types so when doing math the float is converted to double. decimal is decimal floating point so cannot do math with float and double.
 
 <br>
 
@@ -65,16 +81,77 @@ C# is the primary language of the .NET platform, a free, open-source, cross-plat
 
 <br>
 
-#### Other Number Types
+#### Float
 ...
 
 <br>
 
-#### Math
+#### Double
+...
+
+<br>
+
+#### Decimal
 ...
 
 <br>
 <br>
+
+#### Var
+...
+
+<br>
+
+### List<T> (List of T)
+...`List<string> friends = new List<string>` | `var friends = new List<string>`
+
+<br>
+<br>
+
+### Conditionals and Loops
+... mention indentation(4 space/1 tab) and how brackets are on a new line.
+no braces means one line only, curly braces as long as u want.
+
+<br>
+
+#### If Statement
+...
+
+<br>
+
+#### Comparison Operators
+...For value types (like int, structs), == compares the actual values.
+
+For reference types, by default == compares references (whether two variables refer to the exact same object).
+
+Some reference types, such as string, override == to compare values (content) instead of references, making string comparisons intuitive.
+
+&& || | . + - * / == > < >= <= ++ --
+
+short circuiting
+
+<br>
+
+#### While
+...
+
+<br>
+
+#### Do While
+...
+
+<br>
+
+#### For Loops
+...
+
+<br>
+
+#### For Each
+...
+
+<br>
+
 ---
 
 ## **Resources**
