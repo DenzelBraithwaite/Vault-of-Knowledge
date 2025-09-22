@@ -272,6 +272,73 @@ foreach (int grade in highGrades)
 ...
 
 <br>
+<br>
+
+### Classes
+...A class defines the blueprint or template.
+
+A member is a component within that blueprint, such as a field, property, or method.
+
+An instance (or instantiation) of the class is a concrete object created in memory that holds specific values for those members.
+
+```c#
+// See https://aka.ms/new-console-template for more information
+
+// First hero using var and default class properties
+var hero = new SuperHero();
+
+// Second hero using explicity type and also customizing properties
+SuperHero otherHero = new SuperHero() {heroName = "Moonraker", realName = "Ms Moonerson", birthday = new DateOnly(1998, 02, 14)};
+
+// First villain using a class constructor and defining properties during instantiation.
+var evilVillain = new Villain("Slowster", "Saul Slogan", new DateOnly(1989, 12, 31));
+
+// Logging the values in a fun way.
+Console.WriteLine($"On the streets, they call me {hero.heroName}, but at home they simply refer to me as the original {hero.realName}!"
+  + $" For those who are closest to me, they know I was born {hero.birthday}."
+);
+Console.WriteLine($"\nIn the streets, they call me {otherHero.heroName}, my friends call me {otherHero.realName}!"
+  + $" My family know I was born {otherHero.birthday}."
+);
+Console.WriteLine($"\nBEHOLD! I am the infamous {evilVillain.villainName}, I have no friends so nobody calls me {evilVillain.realName}!"
+  + $" People estimate I was born around {evilVillain.dateOfBirth}."
+);
+
+// Create a superhero class
+public class SuperHero
+{
+  public string heroName = "Speed Runner";
+  public string realName = "Mr Quick";
+  public DateOnly birthday = new DateOnly(2000, 1, 1);
+}
+
+// Make villan class with old constructor syntax.
+public class Villain
+{
+  public Villain(string vName, string name, DateOnly birthday)
+  {
+    villainName = vName;
+    realName = name;
+    dateOfBirth = birthday;
+  }
+  readonly public string villainName;
+  readonly public string realName;
+  readonly public DateOnly dateOfBirth;
+}
+
+// Make villan class with new primary constructor syntax from C# 12.
+public class Villain(string villainName, string realName, DateOnly dateOfBirth)
+{
+  // If we don't include these, the "outside" world/users won't be able to access these properties.
+  public string VillainName { get; } = villainName;
+  public string RealName { get; } = realName;
+  public DateOnly DateOfBirth { get; } = dateOfBirth;
+}
+
+```
+The last example is a clear, idiomatic, and recommended way with C# 12 primary constructors.
+<br>
+<br>
 
 ---
 
