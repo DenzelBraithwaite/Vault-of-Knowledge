@@ -16,8 +16,8 @@ This guide is focused on all notes related to **C#** and **.net**. Whenever rele
 ---
 
 ## Quick Tips
+- C# uses semicolons `;` to denote the end of a line. This usually isn't necessary when closing code blocks `{}`. This is common for the C family of languages.
 - In VS Code You can press `ctrl` + `shift` + `p` on Windows or `cmd` + `shift` + `p` on Mac, to open the command palette. In Visual Studio there's a similar feature called Quick launch which can be opened with the same hotkeys or simply `ctrl` + `Q`.
-
 - You can use `ctrl` + `K` followed by `ctrl` + `D` to format the entire document, adding indents and spaces where needed. Alternatively, you can use the quick launch to find this and similar commands.
 
 <br>
@@ -30,136 +30,468 @@ This guide is focused on all notes related to **C#** and **.net**. Whenever rele
 C# is the primary language of the .NET platform, a free, open-source, cross-platform development environment used to build applications for devices ranging from IoT to cloud services. It is a general-purpose, object-oriented language influenced by C, C++, and Java, designed for developer productivity and high performance while supporting functional techniques and low-level efficiency without unsafe code. With millions of users and strong ecosystem support across all .NET workloads, C# powers most of the .NET runtime and libraries, making it familiar, versatile, and widely adopted for modern app development.
 
 <br>
-<br>
 
 ### C# Versions
-Here are some notable changes in c# versions that have shaped the language and brought it to the modern world.
+Here are some notable changes in C# versions that have shaped the language and brought it to the modern world.
 
-C#3(2007)
+#### C#3 (2007)
 - LINQ (Language Integrated Query): Unified querying for collections, objects, XML, and SQL—all with a declarative, SQL-like syntax directly in C#.
 - Implicit Typing (var): Cleaner code with type inference for locals.
 
-C#5(2012)
+<br>
+
+#### C#5 (2012)
 async/await Syntax: Brought first-class support for asnchronous programming, dramatically simplifying code that would otherwise be callback-heavy or complex.
 
-C#6-7(2015-2018)
+<br>
+
+#### C#6-7 (2015-2018)
 - Deconstruction: Allows extracting values fro man objext or tuple and assign it to a variable.
 - Index/Ranges (^1, ..): Elegant list slicing and reverse-indexing like Python and Javascript.
 - String interoplation: Adds a `$` syntax prefixing a string to denote a string that allows variables/code.
 
-C#8(2019)
+<br>
+
+#### C#8 (2019)
 Nullable Reference Types: Brought null-safety, closing one of C#'s biggest historic gaps compared to F# or Kotlin.'
 
-C#9-C#10(2020-2012)
+<br>
+
+#### C#9-C#10 (2020-2012)
 - Record Types: Immutable data objects for DDD and modern functional approaches.
 - Init-Only Properties: Helped with immutable structures and safe creation patterns.
 - Global Usings and File-Scoped Namespaces: Reduced clutter and standardized code style at scale.
 
-C#12(2023)
+<br>
+
+#### C#12 (2023)
 - Collections expressions:
   - Initialize lists and arrays using bracket syntax. `List<int> nums = [1, 2, 3]; // Instead of new List<int> { 1, 2, 3 }`
   - Spread operator `..` to merge collections.
-  ```
+  ```C#
   int[] a = [1, 2, 3];
   int[] b = [4, 5];
   int[] joined = [..a, ..b, 6, 7]; // Merges and appends[4][2][8]
   ```
 - Primary Constructors: Specify constructor parameters directly in the class/struct header, reducing boilerplate.
-``` class Point(int x, int y)
+```C#
+class Point(int x, int y)
 {
   // use x and y directly
 }
 ```
 
+<br>
+
+#### C#14 (2025)
+- Extension Members:
+  - Extends extension methods to support properties, operators, and static members.
+  - One of the largest evolutions of C#'s extensibility model since extension methods themselves
+
 LINQ, async/await, records, pattern matching, range/index operators, and collection expressions are the landmark features that steadily modernized C#, making it both expressive and competitive with dynamic languages like JS, Python, and Kotlin. Each provided a leap in ergonomics, safety, or performance—just as ES6 did for JavaScript.
 
 <br>
+
+### Operators
+#### Arithmetic Operators
+|Symbol|Name|Description|
+|:------:|----|-----------|
+|`+`|Addition|Adds two operands.|
+|`-`|Subtraction|Subtracts right from left operand.|
+|`*`|Multiplication|Multiplies operands.|
+|`.`|Division|Divides left by right operand.|
+|`%`|Modulus|Remainder of division.|
+|`++`|Increment|Increases value by 1.|
+|`--`|Decrement|Cecreases value by 1.|
+
 <br>
 
-### Naming Convention
-In C# the naming convention for variables is `camelCase` starting with a lowercase letter then delimiting words by an uppercase. This applied to variables and method parameters. Most other things such as file names, class names, methods and properties are `PascalCase` or UpperCamelCase starting with a capital letter. Also, variables <mark> cannot start with a number</mark> but can start with an underscore.
+#### Assignment Operators
+|Symbol|Name|Description|
+|:------:|----|-----------|
+|`=`|Assignment|Assigns right to left.|
+|`+=`|Add assignment|Adds and assigns.|
+|`-=`|Subtract assignment|Subtracts and assigns.|
+|`*=`|Multiply assignment|Multiplies and assigns.|
+|`/=`|Divide assignment|Divides and assigns.|
+|`%=`|Modulus assignment|Applies modulus and assigns.|
+|`&=`|AND assignment|Bitwise AND and assigns.|
+|`\|=`|OR assignment|Bitwise OR and assigns.|
+|`^=`|XOR assignment|Bitwise XOR and assigns.|
+|`<<=`|Left shift assignment|Shifts and assigns.|
+|`>>=`|Right shift assignment|Shifts and assigns.|
+|`??=`|Null-coalescing assignment|Assigns if left is null.|
+
+<br>
+
+#### Comparison/Relational Operators
+|Symbol|Name|Description|
+|:------:|----|-----------|
+|`==`|Equality|True if left equals right.|
+|`!=`|Inequality|True if not equal.|
+|`<`|Less than|True if left is less than right.|
+|`<=`|Less than or equal|True if left is less than or equal to right.|
+|`>`|Greater than|True if left is greater than right.|
+|`>=`|Greater than or equal|True if left is greater than or equal to right.|
+
+<br>
+
+#### Logical Operators
+|Symbol|Name|Description|
+|:------:|----|-----------|
+|`&&`|AND|True if both are true.|
+|`\|\|`|OR|True if either is true.|
+|`!`|NOT|True if operand is false.|
+
+<br>
+
+#### Bitwise and Shift Operators
+|Symbol|Name|Description|
+|:------:|----|-----------|
+|`&`|Bitwise AND|Bitwise AND for integer types.|
+|`\|`|Bitwise OR|Bitwise OR for integer types.|
+|`^`|Bitwise XOR|Bitwise XOR for integer types.|
+|`~`|Bitwise NOT|Bitwise complement.|
+|`<<`|Bitwise Left shift|Shifts bits to the left.|
+|`>>`|Bitwise Right shift|Shifts bits to the right.|
+
+<br>
+
+#### Other Operators
+|Symbol|Name|Description|
+|:------:|----|-----------|
+|`.`|Member access|Access member of a type or namespace.|
+|`?:`|Conditional (ternary)|Ternary conditional operator.|
+|`??`|Null-coalescing|Returns lefti f not null; otherwise, right.|
+|`?.`|Null-conditional|Calls or accesses right if left is not null.|
+|`[]`|Array/indexer access|Accesses element.|
+|`()`|Method call/grouping|Calls method or groups an expression|
+|`_>`|Pointer member access|Accesses member via pointer.|
+|`*`|Pointer deference|Dereferences a pointer.|
+|`&`|Address-of (_pointer_)|Returns address of variable.|
+|`sizeof`|Size of type|Gets size in bytes.|
+|`typeof`|Returns System.Type|Gets type object.|
+|`is`|Type compatibility|True if compatible types.|
+|`as`|Type conversaion|Converts or null|
+|`new`|Instantiation|Creates an object or array.|
+|`delegate`|Anonymous method|Used to declare delegate type instance.|
+|`checked`|Explicit overflow check|Check arithmetic for overflow.|
+|`unchecked`|Suppress overflow check|No overflow check.|
+|`default`|Default value assignment|Assigns default value for type.|
+|`nameof`|Result is string name|Gets string of variable/type/member name/|
+
+<br>
+<br>
+
+### Variables and Naming Conventions
+C#, like most other programming languages, uses variables to store and access data. In C# the naming convention for variables is `camelCase` starting with a lowercase letter then delimiting words by an uppercase. This applied to variables and method parameters. Most other things such as file names, class names, methods and properties are `PascalCase` or UpperCamelCase starting with a capital letter. Also, variables <mark> cannot start with a number</mark> but can start with an underscore.
+
+C# is a statically typed langauge that requires you to explicitly declares the type of every variable, except when using the `var` keyword. With `var`, the compiler infers the variable's type based on the assigned value at compile time.
+
+```C#
+  string aStringVariable = "some string"; // Explicitly declared as string.
+  int aNumber = 1; // Explicitly declared as int.
+  var anotherStringVariable = "Some other string"; // inferred as string
+  var anotherNumber = 2; // inferred as int
+```
+
+<br>
+
+### Comments
+Single line comments are denoted by prepending the code with two forward slashes `//`. Multi-line comments are denoted by typing your code between the opening `/*` and closing `*/`.
+
+```C#
+  // This is a single line comment.
+  
+  /*
+  This is
+  a multi-line
+  comment. */
+```
 
 <br>
 
 ### Strings
-...
+A string in C# is a series of characters between double quotes `"string"`. This can be a [string literal](#string-literal) or perhaps a value returned in the form of a string.
+
+```C#
+  string userResponse = Console.ReadLine(); // Reads input from the user, stored as a string.
+```
 
 <br>
 
 #### String Literal
-...
+A string literal is when we *literally* describe the exact string we want.
+
+```C#
+  string name = "This is a string literal";
+```
 
 <br>
 
 #### Concatenation
-...
+String concatenation is the act of adding multiple strings together to form one bigger string.
+
+```C#
+  string firstName = "Santa";
+  string lastName = "Clause";
+  string fullName = firstName + " " + lastName;
+  Console.Write(fullName); // Outputs "Santa Clause"
+```
 
 <br>
 
 #### Interpolation
-...
+String interpolation is when we want to mix code/variables within a string, with the output being a string. Many times this will more readable and concise than concatentation. It is denoted by a `$` symbol preceding the string. To allow the use of code/variables, you use `{}` curly/squiggly braces and write the code inside. The compiler will resolve and replace the code with the value.
+
+```C#
+  string firstName = "Santa";
+  string lastName = "Clause";
+  string fullName = $"{firstName} {lastName}";
+  Console.Write(fullName); // Outputs "Santa Clause"
+```
 
 <br>
 
 #### Verbatim Syntax and MultiLine Strings
-...
+Varbatim syntax is when we want the string to appear exactly as we've typed it. This may sound like a string literal, but the differences is that in normal strings, we can use certain special syntax such as  `\n` to create a new line. Because of this, sometimes we must use a backslash `\` followed by another character to perform some sort of action. The `\` however is invalid by itself in a string since the compiler is expecting special syntax. Therefor, it must be _escaped_ by another `\` like so `\\`. That would output a single `\`. Also, we can't naturally span a string over several lines without the use of `\n`. So, if we want the string to appear exactly as we typed it, including new lines and all special characters (_removing the ability to use special syntax like `\n`_), we need to prepend the string with the `@` symbol. This can be mixed with the `$` symbol for interoplation and can be before or after the `$`. E.g. `@$` or `$@` are valid.
+
+```C#
+  // Regular string literal.
+  string example1 = "I       am a string \n Now I am the same string on a new line. \\ <-- this backslash must be escaped or it will raise an error."
+  + "\nThis is concatenated and starts with a new line!";
+
+  /* Output:
+  "I       am a string
+  Now I am the same string on a new line. \ <-- this backslash must be escaped or it will raise an error.
+  This is concatenated and starts with a new line!"
+  */
+
+  // Verbatim Syntax
+  int randomNumber = 123;
+  string example2 = @$"I       am a string 
+  Now I am the same string on a new line. \ <--- this backslash is perfectly fine.
+  This is an interpolated variable on a new line, randomNumber = {randomNumber}!";
+
+  /* Output
+  I       am a string
+  Now I am the same string on a new line. \ <--- this backslash is perfectly fine.
+  This is an interpolated variable on a new line, randomNumber = 123!
+  */
+```
+
+#### Handy String Methods
+Here are a few string methods that are often used.
+
+```c#
+// Example string
+string bookExertPart1 = "In the shade of the house, in the sunshine on the river bank by the boats.";
+string bookExertPart2 = "In the shade of the sallow wood and the fig tree.";
+
+// Get length of string including whitespaces. Outputs 74.
+int sentenceLength = bookExertPart1.Length;
+
+// Joins two or more strings. The compiler converts the `+` operator to Concat() behind the scenes.
+string fullBookExert = String.Concat(bookExertPart1, bookExertPart2);
+
+
+
+
+/*
+
+
+Split(): Splits the string into substrings based on a delimiter.
+
+Substring(): Returns a portion (substring) of the string.
+
+Compare(): Compares two strings.
+
+Replace(): Replaces specified characters or substrings with new ones.
+
+Contains(): Checks if the string contains a specified substring.
+
+Join(): Joins an array of strings into a single string using a separator.
+
+Trim(): Removes leading and trailing whitespace.
+
+EndsWith(): Checks if the string ends with a specific substring.
+
+StartsWith(): Checks if the string starts with a specific substring.
+
+IndexOf(): Finds the index of the first occurrence of a character or substring.
+
+LastIndexOf(): Finds the index of the last occurrence of a character or substring.
+
+ToUpper(): Converts the string to uppercase.
+
+ToLower(): Converts the string to lowercase.
+
+Remove(): Removes characters from a string starting at a specified index.
+
+Insert(): Inserts a substring at a specified index.
+
+PadLeft() / PadRight(): Pads the string with spaces or specified characters to a certain length.
+
+ToCharArray(): Converts the string to a char array. */ 
+```
 
 <br>
 <br>
 
 ### Numbers and Math
-...Mentioned checked() which will output an error instead of a random number
-... Mention casting (int)42.1
-Mention 32bit arithmetics and 64bit arithmetics
-float and double are binary floating-point types so when doing math the float is converted to double. decimal is decimal floating point so cannot do math with float and double.
+There are quite a few number types in C#, so we will focus on the most common. Typically, you will either have a whole number (_42_), or a number with decimal point (_42.1_). Number types have limits, meaning not all of them can handle the same numbers. Some are designed to hold very large numbers while others can only hold numbers up to 255. This relates to how much memory is used to store the number.
+
+For simple numbers that are whole and not expected to exceed `2,147,483,648 to 2,147,483,647`, the most common choise is the `int` type. For bigger numbers, it's common to use `long` instead, which has a limit of `9,223,372,036,854,775,807`.
+
+```C#
+int age = 29; // int makes sense here since age will never exceed the maximum number.
+var anotherAge = 29; // The compiler will naturally assign this the int type if not explicity.
+
+long videoViews = 812334333685478; // Way too big to store in an int.
+var video2Views = 628934231635499; // Compiler can't fit this into an int, so will use a long.
+```
 
 <br>
 
-#### Int
-...
+For numbers that use decimal points, there are three common choices depending on your scenario.
+- float - Uses the `f` suffix. When Precision isn't important but performance is.
+- double - Optionally Uses the `d` suffix. When you want balance between precision and performance. This is generally recommended as the default type for most numbers with decimal points (_floating-point numbers).
+- decimal - Uses the `m` suffix. When precision is essential (_accounting, money_).
+
+<mark>When performing arithmetic operations, `floats` and `doubles` cannot be mixed with `decimals`</mark>
+(more about that [_here_](#arithmetics-with-floats-doubles-and-decimals)).
 
 <br>
 
-#### Long
-...
+```C#
+// float syntax, the 'f' is mandatory.
+float floatingNumber = 10.1f; // Outputs 10.1
+float floatingNumber2 = 10.1F; // Outputs 10.1
+
+// double syntax, the 'd' is optional.
+double doubleNumber = 10.1; // Outputs 10.1
+double doubleNumber2 = 10.1d; // Outputs 10.1
+double doubleNumber3 = 10.1D; // Outputs 10.1
+
+// decimal syntax, the 'm' is mandatory.
+decimal decimalNumber = 10.1m; // Outputs 10.1
+decimal decimalNumber2 = 10.1M; // Outputs 10.1
+```
 
 <br>
 
-#### Float
-...
+**Note:** If you attempt to store a floating-point number inside a type such as float but forget the `f` suffix, the compiler will default to `double` and then attempt to put that `double` into the type you explicitly stated, which will raise a compile-time error unless you used `var` or `double` as the type.
+
+```C#
+  float floatingNumber1 = 10.1f; // Valid, compiler sees float, user wants to store as float, all is good.
+  float floatingNumber2 = 10.1; // Error, compiler defaults to double, user wants float, doesn't work.
+  var floatingNumber3 = 10.1f; // Valid, compiler sees float, user let's compiler decide type, it becomes a float.
+  var floatingNumber3 = 10.1; // Valid, compiler defaults to double, user let's compiler decide, it becomes double.
+```
 
 <br>
 
-#### Double
-...
+#### Arithmetics with floats, doubles and decimals.
+`float`, `double` and `decimal` numbers have different memory sizes.
+
+- float - Uses 32 bits to store a number as a binary floating-point value, offering about 7 digits of percision.
+- double - Uses 64 bits to store a number as a binary floating-point value, offering 15-16 digits of precision.
+- decimal Uses 128 bits and is store in base 10 (_not binary_) which avoids typical rounding errors seen with binary floating-point types.
 
 <br>
 
-#### Decimal
-...
+Because of this, when performing arithmetics, it is impossible for these types to be mixed, since they handle arithmetics different. They use a different _calculator_ so to speak, where `float` and `double` use a binary (0-1) based calculator, `decimal` uses a decimal (0-9) based calculator.
+
+|Operand Type|Works Implicitly?|Requires Explicit Conversion?|Explanation|
+|:----------:|:---------------:|:---------------------------:|-----------|
+|float + float|Yes|No|Both are same type, implicit arithmetic works.|
+|float + double|Yes (to double)|No|float implicitly converts to double; result is double.|
+|float + decimal|No|Yes|decimal does not implicitly convert to/from float; explicit cast needed.|
+|double + double|Yes|No|Both are same type, implicit arithmetic works.|
+|double + decimal|No|Yes|decimal and double are incompatible; explicit conversion required.
+|decimal + decimal|Yes|No|Both are same type, implicit arithmetic works.
+
+<br>
+
+#### Checked Keyword
+The `checked` keyword enforces overflow checking. In a **checked context**, if an operation exceeds the storage capacity of the target type (_e.g. adding beyond `int.MaxValue`_), a `System.OverflowException` is thrown. In aun **unchecked context** (_the default for most builds_), overflow causes silent truncation or wraparound rather than exception (_meaning you won't get an error but your value will be inaccurate_). `checked` affects operations textually inside its scope, meaning only those operations written inside the `checked { }` block or expression use overflow checking.
+
+```C#
+  int c = int.MaxValue;
+  int d = a + 1; // Silently stores an incorrect value
+
+  checked
+  {
+    int a = int.MaxValue;
+    int b = a + 1; // Throws OverflowException
+  }
+```
+
+In essence, `checked` helps catch overflow errots in intergral math and conversions.
+
+<br>
+
+#### Casting
+Casting between numeric types explicitly attempts to convert one type to another. This can be useful when performing arithmetic operations on floating-points that cannot be implicitly converted such as `float` and a `decimal` (Refer to the above [table](#arithmetics-with-floats-doubles-and-decimals)).
+
+```C#
+float floatingNumber = 1.23f;
+decimal decimalNumber = 1.23m;
+
+// Error, cannot use `+` with float and decimal.
+var newFloatingNumber1 = floatingNumber + decimalNumber;
+
+// Outputs 2.46. Explicitly converts float to decimal. decimal + decimal is valid.
+var newFloatingNumber2 = (decimal)floatingNumber + decimalNumber;
+```
 
 <br>
 <br>
 
-#### Var
-...
+### Dynamic Type
+The `dynamic` type indicates that the variable and references to its members bypass compile-time type checking. It behaves like type `object` in most circumstances. <mark>Any non-null expression can be converted to the dynamic type.</mark> Type `dynamic` differs from type `object` in that the compiler doesn't resolve or type check operations that contain dynamic expressions. The dynamic type only exists at compile time, not run time; dynamic variables are compiled into variables of type `object`. Read more here &rarr; [Microsoft's official Learn C# Guide](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/reference-types#the-dynamic-type).
 
 <br>
+<br>
 
-### List<T> (List of T)
-...`List<string> friends = new List<string>` | `var friends = new List<string>`
-flexible, used for most operations.
+### List\<T> (List of T)
+`List<string> friends = new List<string>` | `var friends = new List<string>`
+flexible, used for most operations, the same thing as a JavaScript `Array` but with a different name. In C#, arrays have fixed lengths so you cannot add or remove items. here's an example of playing with a list of `char`; run this in a terminal to see the output.
+
+```C#
+// Initialize the alphabet to loop over
+List<char> alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+
+// The sentence we will use to count letter occurrences.
+string sentence = "The quick brown fox jumps over the lazy dog.";
+
+// A dictionary to keep track of how many times each letter appears.
+var alphabetCount = new Dictionary<char, int> {};
+
+Console.WriteLine("Analyze the following sentence: " + sentence + ".");
+Console.WriteLine($"That sentence has a total of {sentence.Count() - 9} letters.");
+Console.WriteLine($"It includes every letter of the alphabet but has {(sentence.Count() - 9) - 26} extra letters.");
+Console.WriteLine("So what are those extra letters? Well, let's count all of them");
+Console.WriteLine("----------------------------");
+
+// Count and store counts inside of our dicitonary.
+foreach(char letter in alphabet)
+{
+    int amount = sentence.Count(l => l == letter);
+    alphabetCount.Add(letter, amount);
+};
+
+// Log each letter with their rate of occurrence.
+foreach (var (key, value) in alphabetCount)
+{
+    Console.WriteLine($"{key} => {value}");
+};
+```
 
 <br>
 
 ### Arrays
-...Fixed, used for precision or performance, like when you know the amount won't change.
-Can add with 
-
-<br>
-
-### Working with Lists/Arrays
-...
+Arrays are fixed length collections which serve as rigid Lists<T>. It's useful for precision or performance when you know the amount won't change.
 
 <br>
 
@@ -275,13 +607,27 @@ foreach (int grade in highGrades)
 <br>
 
 ### Classes
-...A class defines the blueprint or template.
+...
+Add notes on parent classes, referred to as abstract classes if they serve no purpose alone and serve as a parent class (can look up notes on abstract classes).
+Can also add abstract methods when we want the child to define it.
+Also add notes on override method in child for abstract methods in parent to avoid IDE warning.
+```C#
+  public class Cat ()
+  {
+    // Older Syntax
+    public string Meow() {return "Meow!";}
+
+    // Newer Concise One Line Syntax
+    public string Meow() => "Meow!";
+  }
+```.
+A class defines the blueprint or template.
 
 A member is a component within that blueprint, such as a field, property, or method.
 
 An instance (or instantiation) of the class is a concrete object created in memory that holds specific values for those members.
 
-```c#
+```C#
 // See https://aka.ms/new-console-template for more information
 
 // First hero using var and default class properties
@@ -341,7 +687,41 @@ The last example is a clear, idiomatic, and recommended way with C# 12 primary c
 <br>
 
 ---
+## .NET
+...
 
+<br>
+<br>
+
+---
+## **Glossary**
+
+- **Asynchronous** &rarr; Non-blocking operations, code executes concurrently.
+- **Synchronous** &rarr; Code executing sequentially, blocking the flow until each task finishes.
+- **Compiled Language** &rarr; Source code is compiled into an executable binary (_machine code_) or intermediate format (_bytecode_) file (_finding errors during compilation_).
+- **Interpreted Language** &rarr; Code is executed line-by-line and errors are detected when the code is used, no executable file typically. Many modern interpreted languages like JavaScript compile source code into an intermediate format (_bytecode_) then the interpreter executes this bytecode line-by-line, which is why some errors (_e.g. missing bracket_) are caught **before** the code starts running.
+- **Strongly Typed** &rarr; Explicit type declarations e.g. `string name = "Name"` instead of `name = "Name"`.
+- **Dynamically (_loose_) Typed** &rarr; Variables aren't bound to specific data types (_string can become number_).
+- **Intermediate Language (IL)** &rarr; Low level, platform-independent programming language generated by a compiler. It serves as a bridge between human redable source code and raw machine code.
+- **Ahead-of-Time (AOT) compilation** &rarr; A technique that translates source code into machine code **before** the execution of a program.
+- **Just-in-Time (JIT) compilation** &rarr; A technique that translates source code into machine code **during** the execution of a program, rather than **before**. It combines the flexibility of an interpreted language with the speed of a compiled language.
+- **Thread** &rarr; A single sequence of instructions.
+- **Single-Threading/Multi-Threaded** &rarr; Single-threading executes tasks sequentially (_one at a time_); multi-threading runs multiple tasks concurrently.
+- **Blocking** &rarr; Main thread stops executing code while waiting for an operation to finish (_e.g. fetch_).
+- **I/O Tasks** &rarr; Network requests such as fetching and posting.
+- **Language Integrated Query (_LINQ_)** &rarr; A .NET feature that integrates data querying capabilities directly into .NET languages like **C#** allowing you to filter, sort, group and transform data from diverse data sources without needing separate query languages like SQL.
+- **.NET vs ASP.NET** &rarr; **.NET** is the overarching developer platform that lincudes the runtime, languages (_like C#_), and base libraries for everything from desktop apps to games. **ASP.NET** is specifically the extension of that platform used to build web applications and APIs.
+- **ASP.NET Core Web API vs ASP.NET Core MVC** &rarr; **ASP.NET Core Web API** is built to create data-only services (_like JSON or XML_) for other apps to consume, while **ASP.NET Core MVC** is designed to build full-stack web applications that serve user interfaces via HTML views.
+- **Blazor** &rarr; Microsoft's frontend framework. It allows you to build interactive web UIs using C# instead of JavaScript, running directly in the browser via WebAssembly
+- **NuGet** &rarr; The official package manager (_like **npm**_) for the .NET ecosystem.
+- **WebAssembly (__Wasm)__** &rarr; A low-level, binary instruction format that allows devs to run code written in languages like C# directly inside web browsers at near-native execution speeds.
+- **.cs** &rarr; The file extension denoting a c# file.
+- **...** &rarr; ...
+
+<br>
+<br>
+
+---
 ## **Resources**
 
 <br>
@@ -351,11 +731,17 @@ The last example is a clear, idiomatic, and recommended way with C# 12 primary c
 
 [Microsoft's Official C# Language Documentation](https://learn.microsoft.com/en-us/dotnet/csharp/)
 
+[Microsoft Copilot](https://copilot.microsoft.com/)
+
 [Complete C# Masterclass by Denis Panjuta](https://www.udemy.com/course/complete-csharp-masterclass/)
 
 [C# Cheat Sheet by Zero to Mastery (ZTM)](https://zerotomastery.io/cheatsheets/csharp-cheat-sheet/)
 
 [Perplexity AI](https://www.perplexity.ai/)
+
+[Google Gemini / AI Mode](https://gemini.google.com/app)
+
+[Chat GPT](https://chatgpt.com/)
 
 <br>
 <br>
