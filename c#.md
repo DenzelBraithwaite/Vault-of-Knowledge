@@ -284,55 +284,125 @@ Varbatim syntax is when we want the string to appear exactly as we've typed it. 
 Here are a few string methods that are often used.
 
 ```c#
-// Example string
-string bookExertPart1 = "In the shade of the house, in the sunshine on the river bank by the boats.";
-string bookExertPart2 = "In the shade of the sallow wood and the fig tree.";
+// Example strings
+string bookExcerptPart1 = "In the shade of the house, in the sunshine on the river bank by the boats. ";
+string bookExcerptPart2 = "In the shade of the sallow wood and the fig tree.";
+string name = "Denzel Braithwaite";
 
-// Get length of string including whitespaces. Outputs 74.
-int sentenceLength = bookExertPart1.Length;
+// ToUpper() - Converts the string to uppercase.
+string loudBookExcerpt = bookExcerptPart1.ToUpper(); // IN THE SHADE OF THE HOUSE, IN THE SUNSHINE ON THE RIVER BANK BY THE BOATS.
 
-// Joins two or more strings. The compiler converts the `+` operator to Concat() behind the scenes.
-string fullBookExert = String.Concat(bookExertPart1, bookExertPart2);
+// ToLower() - Converts the string to lowercase.
+string quietBookExcerpt = bookExcerptPart1.ToLower(); // in the shade of the house, in the sunshine on the river bank by the boats.
+
+// PadLeft() and PadRight() - Pads the string with spaces or specified characters to a certain length.
+// The int you pass as an argument is the desired length of the string, not the amount of padding to add.
+string paddedName = name.PadLeft(23); // the {name} variable has 18 chars, so 5 spaces were added to the start of the string to reach the desired 23 chars.
+paddedName = paddedName.PadRight(28); // the {name} variable has 23 chars, so 5 spaces were added to the end of the string to reach the desired 28 chars.
+Console.WriteLine($"[{paddedName}]"); // Outputs [     Denzel Braithwaite     ]
+string anotherPadExample = name.PadRight(20, '-'); // the {name} variable has 18 chars, so 2 dashes (-) were added to the end of the string to reach the desired 20 chars.
+Console.WriteLine($"[{anotherPadExample}]"); // Outputs [Denzel Braithwaite--]
+anotherPadExample = anotherPadExample.PadRight(10, '!'); // the {anotherPadExample} variable has 20 chars, so nothing was added to the end of the string since it is already over 10 chars.
+
+// Concat() - Joins two or more strings. The compiler converts the `+` operator to Concat() behind the scenes. Same as bookExcerptPart1 + bookExcerptPart2;
+string fullBookExcerpt = String.Concat(bookExcerptPart1, bookExcerptPart2);
+
+// Split() - Splits the string into substrings based on a delimiter.
+string[] rippedBook = fullBookExcerpt.Split(' '); // ["In", "the", "shade", "of", "the", "house", "in", "the", "sunshine", "on", "the", "river", "bank", "by", "the", "boats.", "..."] etc.
+
+// Join() - Converts arrays/lists/collections into a string via a separator, even if the array is mixed or doesn't contain strings.
+string repairedBook = String.Join(' ', rippedBook); // In the shade of the house, in the sunshine on the river bank by the boats. In the shade of the sallow wood and the fig tree.
+string repairedBookCopy = string.Join(' ', rippedBook); // Same thing, (s)tring is an alias for (S)tring.
+
+// IndexOf() - Finds the index of the first occurrence of a character or substring.
+int startIndex = bookExcerptPart1.IndexOf("in the sunshine on the river bank"); // 27
+
+// LastIndexOf() - Finds the index of the last occurrence of a character or substring.
+int lastIndex = fullBookExcerpt.LastIndexOf("the"); // 111
+
+// Substring() - Returns a portion (substring) of the string, if no end index is specified it will return the rest of the string from the start index.
+string bestPart = bookExcerptPart1.Substring(startIndex); // in the sunshine on the river bank by the boats.
+string worstPart = fullBookExcerpt.Substring(lastIndex); // the fig tree.
+
+// Compare() - Compares two strings to determine which comes first in lexical/alphabetical order. Returns either -1, 0, or 1.
+string fruitA = "Apple";
+string fruitB = "Banana";
+Console.WriteLine(String.Compare(fruitA, fruitB)); // Outputs -1 since "Apple" comes before "Banana"
+// Modern approach to ensure case-insensitive comparison
+Console.WriteLine(String.Compare(fruitA, "apple", StringComparison.OrdinalIgnoreCase)); // Outputs 0 since it is ignoring casing so "Apple" == "apple".
+
+// Replace() - Replaces specified characters or substrings with new ones. Arguments must be 2 strings or 2 chars, cannot be 1 string and 1 char.
+string improvedBookExcerpt = bookExcerptPart2.Replace("fig tree", "orange"); // In the shade of the sallow wood and the orange.
+
+// Contains() - Checks if the string contains a specified substring.
+bool gotAnyOranges = improvedBookExcerpt.Contains("orange"); // True
+// Many string methods support `StringComparison` for case-insensitive checks.
+gotAnyOranges = improvedBookExcerpt.Contains("Orange", StringComparison.OrdinalIgnoreCase); // True since now case-insensitive
+
+// Trim() - Removes leading and trailing whitespace.
+string paddedNameTrimmed = paddedName.Trim(); // [Denzel Braithwaite] (brackets added to visualize whitespace)
+
+// TrimStart() - Removes leading whitespace.
+string paddedNameTrimmedStart = paddedName.TrimStart(); // [Denzel Braithwaite     ] (brackets added to visualize whitespace)
+
+// TrimEnd() - Removes trailing whitespace.
+string paddedNameTrimmedEnd = paddedName.TrimEnd(); // [     Denzel Braithwaite] (brackets added to visualize whitespace)
+
+// StartsWith() - Checks if the string starts with a specific substring.
+bool didBookStartWithFigTree = fullBookExcerpt.StartsWith("fig tree."); // False
+
+// EndsWith() - Checks if the string ends with a specific substring.
+bool didBookEndWithFigTree = fullBookExcerpt.EndsWith("fig tree."); // True
+
+// Remove() - Removes characters from a string starting at a specified index. Will crash if not found since index will be -1.
+string stolenLastPage = fullBookExcerpt.Remove(fullBookExcerpt.IndexOf(bookExcerptPart2)); // In the shade of the house, in the sunshine on the river bank by the boats. 
+// Safer approach in case the substring is not found.
+int index = fullBookExcerpt.IndexOf(bookExcerptPart2);
+stolenLastPage = index >= 0 ? fullBookExcerpt.Remove(index) : fullBookExcerpt;
+Console.WriteLine(stolenLastPage);
+
+// Insert() - Inserts a substring at a specified index.
+string newFirstPage = bookExcerptPart1.Insert(0, "In a village far away at a time long ago. "); // In a village far away at a time long ago. In the shade of the house, in the sunshine on the river bank by the boats. 
+
+// ToCharArray() - Converts the string to a char array.
+char[] cutUpPage = newFirstPage.ToCharArray(); // ['I', 'n', ' ', 'a', ' ', 'v', 'i', 'l', 'l', 'a', 'g', 'e', '.'] etc.
+```
+
+<br>
+<br>
+
+### Chars
+It's important to remember that `char` and `string` do not mix. A `char` is a single character, whereas a `string` is a **sequence of characters**, even if it has length 1.
+
+```C#
+char c = 'a'; // Denoted with single quotes.
+string s = "a"; // Denoted with double quotes.
+
+c == s;      // ❌ This is an error: you can't compare char to string directly.
+c == s[0];   // ✅ This works: s[0] will return the char at that index.
+```
+
+Another example of a pitfall:
+
+```C#
+// sentence is a string, nothing fancy here.
+string sentence = "Howdy do partner?";
 
 
+// Count iterates over each CHAR in the sentence string, therefore `c` must be compared with another char.
+int count = sentence.Count(c => c == 'a'); // ✅ Comparing char with char.
+int badCount = sentence.Count(c => c == "a"); // ❌ Can't compare char with string.
+```
 
+So if this happens, an easy solution is to convert the `string` to a `char`.
 
-/*
-
-
-Split(): Splits the string into substrings based on a delimiter.
-
-Substring(): Returns a portion (substring) of the string.
-
-Compare(): Compares two strings.
-
-Replace(): Replaces specified characters or substrings with new ones.
-
-Contains(): Checks if the string contains a specified substring.
-
-Join(): Joins an array of strings into a single string using a separator.
-
-Trim(): Removes leading and trailing whitespace.
-
-EndsWith(): Checks if the string ends with a specific substring.
-
-StartsWith(): Checks if the string starts with a specific substring.
-
-IndexOf(): Finds the index of the first occurrence of a character or substring.
-
-LastIndexOf(): Finds the index of the last occurrence of a character or substring.
-
-ToUpper(): Converts the string to uppercase.
-
-ToLower(): Converts the string to lowercase.
-
-Remove(): Removes characters from a string starting at a specified index.
-
-Insert(): Inserts a substring at a specified index.
-
-PadLeft() / PadRight(): Pads the string with spaces or specified characters to a certain length.
-
-ToCharArray(): Converts the string to a char array. */ 
+```C#
+foreach (string letter in alphabet)
+{
+  char c = letter[0]; // Effectively converts the string to a char since letter is a string of length 1.
+  int amount = sentence.Count(l => l == c); // Now we can compare a char with a char.
+  Console.WriteLine($"{letter}: {amount}"); // Example output: E: 3
+}
 ```
 
 <br>

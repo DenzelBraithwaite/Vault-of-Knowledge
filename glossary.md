@@ -15,11 +15,11 @@ Web development involves learning a lot of new computer languages and also new t
 
 The material I've found is a mixture of:
 
-- Copilot
+- Google
+
+- AI e.g. Copilot, Perpelxity, ChatGPT
 
 - Wikipedia
-
-- Other various websites
 
 ---
 
@@ -27,7 +27,7 @@ The material I've found is a mixture of:
 
 ## **Glossary**
 
-**Extensive List of Common Web Development Terminology**
+**Extensive List of Common Web Development Terminology** <mark>(_Unfinished_)</mark>
 
 - **API (Application Programming Interface)**
 - **Treeshaking**
