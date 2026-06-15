@@ -229,6 +229,50 @@ A string literal is when we *literally* describe the exact string we want.
 
 <br>
 
+#### Raw String Literals
+A raw string literal is useful for creating multi-line strings and for providing a syntax that doesn't require escaping characters a normal **string literal** would (e.g. `"escape \"backslash\""` **&rarr;** `escape "backslash"`). It starts and ends with **at least three** double quotes (`"""`), if you want to add three double quotes **inside** the string then add extra double quotes to the start and end of the string.
+If the raw string literal is on one line, the double quotes(`"""`) need to be one the same line. If it spans multiple lines then the double quotes must be on their own line. You can read more on &rarr; [Microsoft's official Strings and string literals guide](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/#raw-string-literals).
+
+**Some useful exmaples from Microsoft's Guide:**
+```C#
+// ✅ Valid: Single line raw string literal requires double quotes on the same line.
+string singleLine = """Friends say "hello" as they pass by.""";
+
+// ✅ Valid: Multi-line raw string literal requires double quotes on their own line.
+string multiLine = """
+  "Hello World!" is typically the first program someone writes.
+  """;
+
+// ✅ Valid
+string embeddedXML = """
+  <element attr = "content">
+      <body style="normal">
+          Here is the main text
+      </body>
+      <footer>
+          Excerpts from "An amazing story"
+      </footer>
+  </element >
+  """;
+
+// ❌ Invalid: Characters appear on the same line as the opening quotes.
+var multiLineStart = """This
+  is the beginning of a string 
+  """;
+
+// ❌ Invalid: Characters appear on the same line as the closing quotes.
+var multiLineEnd = """
+  This is the beginning of a string """;
+
+// ❌ Invalid: Text cannot be outdented further than the closing tag.
+var noOutdenting = """
+    A line of text, this is allowed.
+Trying to outdent the second line, this is not allowed.
+    """;
+```
+
+<br>
+
 #### Concatenation
 String concatenation is the act of adding multiple strings together to form one bigger string.
 
@@ -289,13 +333,13 @@ string bookExcerptPart1 = "In the shade of the house, in the sunshine on the riv
 string bookExcerptPart2 = "In the shade of the sallow wood and the fig tree.";
 string name = "Denzel Braithwaite";
 
-// ToUpper() - Converts the string to uppercase.
+// 💡ToUpper() - Converts the string to uppercase.
 string loudBookExcerpt = bookExcerptPart1.ToUpper(); // IN THE SHADE OF THE HOUSE, IN THE SUNSHINE ON THE RIVER BANK BY THE BOATS.
 
-// ToLower() - Converts the string to lowercase.
+// 💡ToLower() - Converts the string to lowercase.
 string quietBookExcerpt = bookExcerptPart1.ToLower(); // in the shade of the house, in the sunshine on the river bank by the boats.
 
-// PadLeft() and PadRight() - Pads the string with spaces or specified characters to a certain length.
+// 💡PadLeft() and PadRight() - Pads the string with spaces or specified characters to a certain length.
 // The int you pass as an argument is the desired length of the string, not the amount of padding to add.
 string paddedName = name.PadLeft(23); // the {name} variable has 18 chars, so 5 spaces were added to the start of the string to reach the desired 23 chars.
 paddedName = paddedName.PadRight(28); // the {name} variable has 23 chars, so 5 spaces were added to the end of the string to reach the desired 28 chars.
@@ -304,67 +348,67 @@ string anotherPadExample = name.PadRight(20, '-'); // the {name} variable has 18
 Console.WriteLine($"[{anotherPadExample}]"); // Outputs [Denzel Braithwaite--]
 anotherPadExample = anotherPadExample.PadRight(10, '!'); // the {anotherPadExample} variable has 20 chars, so nothing was added to the end of the string since it is already over 10 chars.
 
-// Concat() - Joins two or more strings. The compiler converts the `+` operator to Concat() behind the scenes. Same as bookExcerptPart1 + bookExcerptPart2;
+// 💡Concat() - Joins two or more strings. The compiler converts the `+` operator to Concat() behind the scenes. Same as bookExcerptPart1 + bookExcerptPart2;
 string fullBookExcerpt = String.Concat(bookExcerptPart1, bookExcerptPart2);
 
-// Split() - Splits the string into substrings based on a delimiter.
+// 💡Split() - Splits the string into substrings based on a delimiter.
 string[] rippedBook = fullBookExcerpt.Split(' '); // ["In", "the", "shade", "of", "the", "house", "in", "the", "sunshine", "on", "the", "river", "bank", "by", "the", "boats.", "..."] etc.
 
-// Join() - Converts arrays/lists/collections into a string via a separator, even if the array is mixed or doesn't contain strings.
+// 💡Join() - Converts arrays/lists/collections into a string via a separator, even if the array is mixed or doesn't contain strings.
 string repairedBook = String.Join(' ', rippedBook); // In the shade of the house, in the sunshine on the river bank by the boats. In the shade of the sallow wood and the fig tree.
 string repairedBookCopy = string.Join(' ', rippedBook); // Same thing, (s)tring is an alias for (S)tring.
 
-// IndexOf() - Finds the index of the first occurrence of a character or substring.
+// 💡IndexOf() - Finds the index of the first occurrence of a character or substring.
 int startIndex = bookExcerptPart1.IndexOf("in the sunshine on the river bank"); // 27
 
-// LastIndexOf() - Finds the index of the last occurrence of a character or substring.
+// 💡LastIndexOf() - Finds the index of the last occurrence of a character or substring.
 int lastIndex = fullBookExcerpt.LastIndexOf("the"); // 111
 
-// Substring() - Returns a portion (substring) of the string, if no end index is specified it will return the rest of the string from the start index.
+// 💡Substring() - Returns a portion (substring) of the string, if no end index is specified it will return the rest of the string from the start index.
 string bestPart = bookExcerptPart1.Substring(startIndex); // in the sunshine on the river bank by the boats.
 string worstPart = fullBookExcerpt.Substring(lastIndex); // the fig tree.
 
-// Compare() - Compares two strings to determine which comes first in lexical/alphabetical order. Returns either -1, 0, or 1.
+// 💡Compare() - Compares two strings to determine which comes first in lexical/alphabetical order. Returns either -1, 0, or 1.
 string fruitA = "Apple";
 string fruitB = "Banana";
 Console.WriteLine(String.Compare(fruitA, fruitB)); // Outputs -1 since "Apple" comes before "Banana"
 // Modern approach to ensure case-insensitive comparison
 Console.WriteLine(String.Compare(fruitA, "apple", StringComparison.OrdinalIgnoreCase)); // Outputs 0 since it is ignoring casing so "Apple" == "apple".
 
-// Replace() - Replaces specified characters or substrings with new ones. Arguments must be 2 strings or 2 chars, cannot be 1 string and 1 char.
+// 💡Replace() - Replaces specified characters or substrings with new ones. Arguments must be 2 strings or 2 chars, cannot be 1 string and 1 char.
 string improvedBookExcerpt = bookExcerptPart2.Replace("fig tree", "orange"); // In the shade of the sallow wood and the orange.
 
-// Contains() - Checks if the string contains a specified substring.
+// 💡Contains() - Checks if the string contains a specified substring.
 bool gotAnyOranges = improvedBookExcerpt.Contains("orange"); // True
 // Many string methods support `StringComparison` for case-insensitive checks.
 gotAnyOranges = improvedBookExcerpt.Contains("Orange", StringComparison.OrdinalIgnoreCase); // True since now case-insensitive
 
-// Trim() - Removes leading and trailing whitespace.
+// 💡Trim() - Removes leading and trailing whitespace.
 string paddedNameTrimmed = paddedName.Trim(); // [Denzel Braithwaite] (brackets added to visualize whitespace)
 
-// TrimStart() - Removes leading whitespace.
+// 💡TrimStart() - Removes leading whitespace.
 string paddedNameTrimmedStart = paddedName.TrimStart(); // [Denzel Braithwaite     ] (brackets added to visualize whitespace)
 
-// TrimEnd() - Removes trailing whitespace.
+// 💡TrimEnd() - Removes trailing whitespace.
 string paddedNameTrimmedEnd = paddedName.TrimEnd(); // [     Denzel Braithwaite] (brackets added to visualize whitespace)
 
-// StartsWith() - Checks if the string starts with a specific substring.
+// 💡StartsWith() - Checks if the string starts with a specific substring.
 bool didBookStartWithFigTree = fullBookExcerpt.StartsWith("fig tree."); // False
 
-// EndsWith() - Checks if the string ends with a specific substring.
+// 💡EndsWith() - Checks if the string ends with a specific substring.
 bool didBookEndWithFigTree = fullBookExcerpt.EndsWith("fig tree."); // True
 
-// Remove() - Removes characters from a string starting at a specified index. Will crash if not found since index will be -1.
+// 💡Remove() - Removes characters from a string starting at a specified index. Will crash if not found since index will be -1.
 string stolenLastPage = fullBookExcerpt.Remove(fullBookExcerpt.IndexOf(bookExcerptPart2)); // In the shade of the house, in the sunshine on the river bank by the boats. 
 // Safer approach in case the substring is not found.
 int index = fullBookExcerpt.IndexOf(bookExcerptPart2);
 stolenLastPage = index >= 0 ? fullBookExcerpt.Remove(index) : fullBookExcerpt;
 Console.WriteLine(stolenLastPage);
 
-// Insert() - Inserts a substring at a specified index.
+// 💡Insert() - Inserts a substring at a specified index.
 string newFirstPage = bookExcerptPart1.Insert(0, "In a village far away at a time long ago. "); // In a village far away at a time long ago. In the shade of the house, in the sunshine on the river bank by the boats. 
 
-// ToCharArray() - Converts the string to a char array.
+// 💡ToCharArray() - Converts the string to a char array.
 char[] cutUpPage = newFirstPage.ToCharArray(); // ['I', 'n', ' ', 'a', ' ', 'v', 'i', 'l', 'l', 'a', 'g', 'e', '.'] etc.
 ```
 
