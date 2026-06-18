@@ -66,7 +66,7 @@ Nullable Reference Types: Brought null-safety, closing one of C#'s biggest histo
 
 #### C#12 (2023)
 - Collections expressions:
-  - Initialize lists and arrays using bracket syntax. `List<int> nums = [1, 2, 3]; // Instead of new List<int> { 1, 2, 3 }`
+  - Initialize lists and arrays using bracket syntax. `List<int> nums = [1, 2, 3];` Instead of `new List<int> { 1, 2, 3 };`
   - Spread operator `..` to merge collections.
   ```C#
   int[] a = [1, 2, 3];
@@ -189,10 +189,17 @@ C#, like most other programming languages, uses variables to store and access da
 C# is a statically typed langauge that requires you to explicitly declares the type of every variable, except when using the `var` keyword. With `var`, the compiler infers the variable's type based on the assigned value at compile time.
 
 ```C#
-  string aStringVariable = "some string"; // Explicitly declared as string.
-  int aNumber = 1; // Explicitly declared as int.
-  var anotherStringVariable = "Some other string"; // inferred as string
-  var anotherNumber = 2; // inferred as int
+  // Explicitly declared as string.
+  string aStringVariable = "some string";
+
+  // Explicitly declared as int.
+  int aNumber = 1;
+
+  // inferred as string
+  var anotherStringVariable = "Some other string";
+
+  // inferred as int
+  var anotherNumber = 2;
 ```
 
 <br>
@@ -202,11 +209,29 @@ Single line comments are denoted by prepending the code with two forward slashes
 
 ```C#
   // This is a single line comment.
+
+  // .NET Coding Conventions actually recommends
+  // using single line comment syntax
+  // for multiple lines e.g. code explanations.
+
+  /* This is an inline style for multi-line comments. */
   
   /*
-  This is
-  a multi-line
-  comment. */
+  This is "commented out"
+  style for quickly
+  commenting out a code block */
+
+  /*
+  This is also a multi-line
+  but should only be used at
+  the top of files as a legal/copyright header
+  */
+
+  /* Starred block style approach
+   * recommended for descriptions.
+   * Clean and easy to read.
+   * Typically at the top of the file.
+   */
 ```
 
 <br>
@@ -215,7 +240,8 @@ Single line comments are denoted by prepending the code with two forward slashes
 A string in C# is a series of characters between double quotes `"string"`. This can be a [string literal](#string-literal) or perhaps a value returned in the form of a string.
 
 ```C#
-  string userResponse = Console.ReadLine(); // Reads input from the user, stored as a string.
+  // Reads input from the user, stored as a string.
+  string userResponse = Console.ReadLine();
 ```
 
 <br>
@@ -231,17 +257,19 @@ A string literal is when we *literally* describe the exact string we want.
 
 #### Raw String Literals
 A raw string literal is useful for creating multi-line strings and for providing a syntax that doesn't require escaping characters a normal **string literal** would (e.g. `"escape \"backslash\""` **&rarr;** `escape "backslash"`). It starts and ends with **at least three** double quotes (`"""`), if you want to add three double quotes **inside** the string then add extra double quotes to the start and end of the string.
-If the raw string literal is on one line, the double quotes(`"""`) need to be one the same line. If it spans multiple lines then the double quotes must be on their own line. You can read more on &rarr; [Microsoft's official Strings and string literals guide](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/#raw-string-literals).
+If the raw string literal is on one line, the double quotes(`"""`) need to be one the same line. If it spans multiple lines then the double quotes must be on their own line. You can read more on &rarr; [Microsoft's official Learn C# Guide | Raw string literals](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/#raw-string-literals).
 
 **Some useful exmaples from Microsoft's Guide:**
 ```C#
 // ✅ Valid: Single line raw string literal requires double quotes on the same line.
 string singleLine = """Friends say "hello" as they pass by.""";
 
+
 // ✅ Valid: Multi-line raw string literal requires double quotes on their own line.
 string multiLine = """
   "Hello World!" is typically the first program someone writes.
   """;
+
 
 // ✅ Valid
 string embeddedXML = """
@@ -255,14 +283,17 @@ string embeddedXML = """
   </element >
   """;
 
+
 // ❌ Invalid: Characters appear on the same line as the opening quotes.
 var multiLineStart = """This
   is the beginning of a string 
   """;
 
+
 // ❌ Invalid: Characters appear on the same line as the closing quotes.
 var multiLineEnd = """
   This is the beginning of a string """;
+
 
 // ❌ Invalid: Text cannot be outdented further than the closing tag.
 var noOutdenting = """
@@ -311,6 +342,7 @@ Varbatim syntax is when we want the string to appear exactly as we've typed it. 
   This is concatenated and starts with a new line!"
   */
 
+
   // Verbatim Syntax
   int randomNumber = 123;
   string example2 = @$"I       am a string 
@@ -333,11 +365,14 @@ string bookExcerptPart1 = "In the shade of the house, in the sunshine on the riv
 string bookExcerptPart2 = "In the shade of the sallow wood and the fig tree.";
 string name = "Denzel Braithwaite";
 
+
 // 💡ToUpper() - Converts the string to uppercase.
 string loudBookExcerpt = bookExcerptPart1.ToUpper(); // IN THE SHADE OF THE HOUSE, IN THE SUNSHINE ON THE RIVER BANK BY THE BOATS.
 
+
 // 💡ToLower() - Converts the string to lowercase.
 string quietBookExcerpt = bookExcerptPart1.ToLower(); // in the shade of the house, in the sunshine on the river bank by the boats.
+
 
 // 💡PadLeft() and PadRight() - Pads the string with spaces or specified characters to a certain length.
 // The int you pass as an argument is the desired length of the string, not the amount of padding to add.
@@ -348,25 +383,32 @@ string anotherPadExample = name.PadRight(20, '-'); // the {name} variable has 18
 Console.WriteLine($"[{anotherPadExample}]"); // Outputs [Denzel Braithwaite--]
 anotherPadExample = anotherPadExample.PadRight(10, '!'); // the {anotherPadExample} variable has 20 chars, so nothing was added to the end of the string since it is already over 10 chars.
 
+
 // 💡Concat() - Joins two or more strings. The compiler converts the `+` operator to Concat() behind the scenes. Same as bookExcerptPart1 + bookExcerptPart2;
 string fullBookExcerpt = String.Concat(bookExcerptPart1, bookExcerptPart2);
 
+
 // 💡Split() - Splits the string into substrings based on a delimiter.
 string[] rippedBook = fullBookExcerpt.Split(' '); // ["In", "the", "shade", "of", "the", "house", "in", "the", "sunshine", "on", "the", "river", "bank", "by", "the", "boats.", "..."] etc.
+
 
 // 💡Join() - Converts arrays/lists/collections into a string via a separator, even if the array is mixed or doesn't contain strings.
 string repairedBook = String.Join(' ', rippedBook); // In the shade of the house, in the sunshine on the river bank by the boats. In the shade of the sallow wood and the fig tree.
 string repairedBookCopy = string.Join(' ', rippedBook); // Same thing, (s)tring is an alias for (S)tring.
 
+
 // 💡IndexOf() - Finds the index of the first occurrence of a character or substring.
 int startIndex = bookExcerptPart1.IndexOf("in the sunshine on the river bank"); // 27
+
 
 // 💡LastIndexOf() - Finds the index of the last occurrence of a character or substring.
 int lastIndex = fullBookExcerpt.LastIndexOf("the"); // 111
 
+
 // 💡Substring() - Returns a portion (substring) of the string, if no end index is specified it will return the rest of the string from the start index.
 string bestPart = bookExcerptPart1.Substring(startIndex); // in the sunshine on the river bank by the boats.
 string worstPart = fullBookExcerpt.Substring(lastIndex); // the fig tree.
+
 
 // 💡Compare() - Compares two strings to determine which comes first in lexical/alphabetical order. Returns either -1, 0, or 1.
 string fruitA = "Apple";
@@ -375,28 +417,36 @@ Console.WriteLine(String.Compare(fruitA, fruitB)); // Outputs -1 since "Apple" c
 // Modern approach to ensure case-insensitive comparison
 Console.WriteLine(String.Compare(fruitA, "apple", StringComparison.OrdinalIgnoreCase)); // Outputs 0 since it is ignoring casing so "Apple" == "apple".
 
+
 // 💡Replace() - Replaces specified characters or substrings with new ones. Arguments must be 2 strings or 2 chars, cannot be 1 string and 1 char.
 string improvedBookExcerpt = bookExcerptPart2.Replace("fig tree", "orange"); // In the shade of the sallow wood and the orange.
+
 
 // 💡Contains() - Checks if the string contains a specified substring.
 bool gotAnyOranges = improvedBookExcerpt.Contains("orange"); // True
 // Many string methods support `StringComparison` for case-insensitive checks.
 gotAnyOranges = improvedBookExcerpt.Contains("Orange", StringComparison.OrdinalIgnoreCase); // True since now case-insensitive
 
+
 // 💡Trim() - Removes leading and trailing whitespace.
 string paddedNameTrimmed = paddedName.Trim(); // [Denzel Braithwaite] (brackets added to visualize whitespace)
+
 
 // 💡TrimStart() - Removes leading whitespace.
 string paddedNameTrimmedStart = paddedName.TrimStart(); // [Denzel Braithwaite     ] (brackets added to visualize whitespace)
 
+
 // 💡TrimEnd() - Removes trailing whitespace.
 string paddedNameTrimmedEnd = paddedName.TrimEnd(); // [     Denzel Braithwaite] (brackets added to visualize whitespace)
+
 
 // 💡StartsWith() - Checks if the string starts with a specific substring.
 bool didBookStartWithFigTree = fullBookExcerpt.StartsWith("fig tree."); // False
 
+
 // 💡EndsWith() - Checks if the string ends with a specific substring.
 bool didBookEndWithFigTree = fullBookExcerpt.EndsWith("fig tree."); // True
+
 
 // 💡Remove() - Removes characters from a string starting at a specified index. Will crash if not found since index will be -1.
 string stolenLastPage = fullBookExcerpt.Remove(fullBookExcerpt.IndexOf(bookExcerptPart2)); // In the shade of the house, in the sunshine on the river bank by the boats. 
@@ -405,8 +455,10 @@ int index = fullBookExcerpt.IndexOf(bookExcerptPart2);
 stolenLastPage = index >= 0 ? fullBookExcerpt.Remove(index) : fullBookExcerpt;
 Console.WriteLine(stolenLastPage);
 
+
 // 💡Insert() - Inserts a substring at a specified index.
 string newFirstPage = bookExcerptPart1.Insert(0, "In a village far away at a time long ago. "); // In a village far away at a time long ago. In the shade of the house, in the sunshine on the river bank by the boats. 
+
 
 // 💡ToCharArray() - Converts the string to a char array.
 char[] cutUpPage = newFirstPage.ToCharArray(); // ['I', 'n', ' ', 'a', ' ', 'v', 'i', 'l', 'l', 'a', 'g', 'e', '.'] etc.
@@ -419,11 +471,17 @@ char[] cutUpPage = newFirstPage.ToCharArray(); // ['I', 'n', ' ', 'a', ' ', 'v',
 It's important to remember that `char` and `string` do not mix. A `char` is a single character, whereas a `string` is a **sequence of characters**, even if it has length 1.
 
 ```C#
-char c = 'a'; // Denoted with single quotes.
-string s = "a"; // Denoted with double quotes.
+// Denoted with single quotes.
+char c = 'a';
 
-c == s;      // ❌ This is an error: you can't compare char to string directly.
-c == s[0];   // ✅ This works: s[0] will return the char at that index.
+// Denoted with double quotes.
+string s = "a";
+
+// ❌ This is an error: you can't compare char to string directly.
+c == s;
+
+// ✅ This works: s[0] will return the char at that index.
+c == s[0];
 ```
 
 Another example of a pitfall:
@@ -453,23 +511,29 @@ foreach (string letter in alphabet)
 <br>
 
 ### Numbers and Math
-There are quite a few number types in C#, so we will focus on the most common. Typically, you will either have a whole number (_42_), or a number with decimal point (_42.1_). Number types have limits, meaning not all of them can handle the same numbers. Some are designed to hold very large numbers while others can only hold numbers up to 255. This relates to how much memory is used to store the number.
+There are quite a few number types in C#, so we will focus on the most common. Typically, you will either have a whole number (`42`), or a number with decimal point (`42.1`). Number types have limits, meaning not all of them can handle the same numbers. Some are designed to hold very large numbers while others can only hold numbers up to **255**. This relates to how much memory is used to store the number.
 
-For simple numbers that are whole and not expected to exceed `2,147,483,648 to 2,147,483,647`, the most common choise is the `int` type. For bigger numbers, it's common to use `long` instead, which has a limit of `9,223,372,036,854,775,807`.
+For simple numbers that are whole and not expected to exceed `2,147,483,648 to 2,147,483,647`, the most common choise is the `int` type. For bigger numbers, it's common to use `long` instead, which has a limit of `9,223,372,036,854,775,807` (_e.g. counting populations or file bytes_).
 
 ```C#
-int age = 29; // int makes sense here since age will never exceed the maximum number.
-var anotherAge = 29; // The compiler will naturally assign this the int type if not explicity.
+// int makes sense here since age will never exceed the maximum number.
+int age = 29;
 
-long videoViews = 812334333685478; // Way too big to store in an int.
-var video2Views = 628934231635499; // Compiler can't fit this into an int, so will use a long.
+// The compiler will naturally assign this the int type if not explicity.
+var anotherAge = 29;
+
+// Way too big to store in an int.
+long videoViews = 812334333685478;
+
+// Compiler can't fit this into an int, so will use a long.
+var video2Views = 628934231635499;
 ```
 
 <br>
 
 For numbers that use decimal points, there are three common choices depending on your scenario.
-- float - Uses the `f` suffix. When Precision isn't important but performance is.
-- double - Optionally Uses the `d` suffix. When you want balance between precision and performance. This is generally recommended as the default type for most numbers with decimal points (_floating-point numbers).
+- float - Uses the `f` suffix. When Precision isn't important but performance is. Useful when memory is restricted.
+- double - Optionally Uses the `d` suffix. When you want balance between precision and performance. This is generally recommended as the default type for most numbers with decimal points (_floating-point numbers). The compilor defaults to double, it is twice as precise as float and good for math.
 - decimal - Uses the `m` suffix. When precision is essential (_accounting, money_).
 
 <mark>When performing arithmetic operations, `floats` and `doubles` cannot be mixed with `decimals`</mark>
@@ -497,10 +561,17 @@ decimal decimalNumber2 = 10.1M; // Outputs 10.1
 **Note:** If you attempt to store a floating-point number inside a type such as float but forget the `f` suffix, the compiler will default to `double` and then attempt to put that `double` into the type you explicitly stated, which will raise a compile-time error unless you used `var` or `double` as the type.
 
 ```C#
-  float floatingNumber1 = 10.1f; // Valid, compiler sees float, user wants to store as float, all is good.
-  float floatingNumber2 = 10.1; // Error, compiler defaults to double, user wants float, doesn't work.
-  var floatingNumber3 = 10.1f; // Valid, compiler sees float, user let's compiler decide type, it becomes a float.
-  var floatingNumber3 = 10.1; // Valid, compiler defaults to double, user let's compiler decide, it becomes double.
+  // ✅ Valid: Compiler sees float, user wants to store as float, all is good.
+  float floatingNumber1 = 10.1f;
+
+  // ❌ Invalid: Compiler defaults to double, user wants float, doesn't work.
+  float floatingNumber2 = 10.1;
+
+  // ✅ Valid: Compiler sees float, user let's compiler decide type, it becomes a float.
+  var floatingNumber3 = 10.1f;
+
+  // ✅ Valid: Compiler defaults to double, user let's compiler decide, it becomes double.
+  var floatingNumber3 = 10.1;
 ```
 
 <br>
@@ -552,10 +623,10 @@ Casting between numeric types explicitly attempts to convert one type to another
 float floatingNumber = 1.23f;
 decimal decimalNumber = 1.23m;
 
-// Error, cannot use `+` with float and decimal.
+// ❌ Error, cannot use `+` with float and decimal.
 var newFloatingNumber1 = floatingNumber + decimalNumber;
 
-// Outputs 2.46. Explicitly converts float to decimal. decimal + decimal is valid.
+// ✅ Outputs 2.46. Explicitly converts float to decimal. decimal + decimal is valid.
 var newFloatingNumber2 = (decimal)floatingNumber + decimalNumber;
 ```
 
@@ -563,7 +634,69 @@ var newFloatingNumber2 = (decimal)floatingNumber + decimalNumber;
 <br>
 
 ### Dynamic Type
-The `dynamic` type indicates that the variable and references to its members bypass compile-time type checking. It behaves like type `object` in most circumstances. <mark>Any non-null expression can be converted to the dynamic type.</mark> Type `dynamic` differs from type `object` in that the compiler doesn't resolve or type check operations that contain dynamic expressions. The dynamic type only exists at compile time, not run time; dynamic variables are compiled into variables of type `object`. Read more here &rarr; [Microsoft's official Learn C# Guide](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/reference-types#the-dynamic-type).
+The `dynamic` type indicates that the variable and references to its members bypass compile-time type checking. It behaves like type `object` in most circumstances. <mark>Any non-null expression can be converted to the dynamic type.</mark> Type `dynamic` differs from type `object` in that the compiler doesn't resolve or type check operations that contain dynamic expressions. The dynamic type only exists at compile time, not run time; dynamic variables are compiled into variables of type `object`. Read more here &rarr; [Microsoft's official Learn C# Guide | The dynamic type](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/reference-types#the-dynamic-type).
+
+> **Note:** In C# all primitive value types can be treated as objects since they all inherit from the `System.Object` class. The difference between `var` and `dynamic` is that `var` lets the compiler look at the value on the right-side of the `=` operator (_called implicit typing_) and assign the type based on that at compile-time, whereas `dynamic` tells the compiler ignore this at compile-time and treat this as an object which can be anything during runtime.
+
+<br>
+<br>
+
+### Tuples
+Tuples are an ordered sequence of values with a fixed length. Each element of a tuple has a type and an optional name. Since tuples types are structural types, they don't need names like `string` or `int`. Tuple names should be **PascalCase**. A tuple type is defined by the number of members (_referred to as arity_), and the types of those members. Read more here &rarr; [Microsoft's official Learn C# Guide | Tuples](https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/tuples-and-types#tuples).
+
+> **Note:** In C#, _arity_ refers to the number of arguments, parameters, or type elements that a specific code construct accepts.
+
+<br>
+
+**Syntax**
+```C#
+// With names
+var someBook = (page1: "The quick brown fox", page2: "jumped over the lazy dog");
+
+// Without names with mixed types
+var noNameMixedTuple = ("Luigi", 2, true);
+```
+
+<br>
+
+You can also create new _tuples_ from existing ones using the `with` expression so long as the structure matches. What's important to remember is <mark>the names do not matter, only the type and amount of members</mark>.
+
+```C#
+// ✅ First we define a tuple
+var someBook = (page1: "The quick brown fox", page2: "jumped over the lazy god"); // Value: ("The quick brown fox", "jumped over the lazy god");
+
+
+// ✅ Then we create a new tuple using `with` and modify page2.
+var someBookReprinted = someBook with {page2 = "jumped over the lazy dog"}; // Value: ("The quick brown fox", "jumped over the lazy dog");
+
+
+// ❌ But here we try to add a new page that never existed, resulting in an error.
+// This is a problem because now we have page1, page2 and "page3"?
+var illegalModifiedCopyOfSomeBook = someBook with {page2 = "jumped over the lazy dog", page3 = "and the dog got angry"};
+
+
+// The issue with the line above is that it changes the STRUCTURE which cannot be implicitly converted.
+// ✅ Changing the names is valid since the amount of members and their types have not changed.
+var aBlankBook = (pageA: "", pageB: "");
+aBlankBook = someBook; // Value: ("The quick brown fox", "jumped over the lazy god");
+
+// ❌ Here we try to change the type of the page from string to int which cannot be implicitly converted.
+var aBookAboutNumbers = someBook with {page1 = 123};
+```
+
+Notice how the `Console.WriteLine(someBook)` doesn't care about the names, it prints: `("The quick brown fox", "jumped over the lazy god")`. <mark>The names are just compile-time syntactic sugar</mark>. Names or not, you can still access or modify tuple members with ease.
+
+```C#
+var marioBrothers = (olderBro: "Mario", youngerBro: "Luigi");
+
+// Modify
+marioBrothers.olderBro = "Toad";
+marioBrothers.Item2 = "Peach";
+
+// Access
+Console.WriteLine(marioBrothers.youngerBro); // Outputs Peach
+Console.WriteLine(marioBrothers.Item1); // Outputs Toad
+```
 
 <br>
 <br>
@@ -713,15 +846,15 @@ foreach (int grade in highGrades)
 ```
 
 <br>
+<br>
 
-#### 
+### Methods
 ...
 
 <br>
 <br>
 
 ### Classes
-...
 Add notes on parent classes, referred to as abstract classes if they serve no purpose alone and serve as a parent class (can look up notes on abstract classes).
 Can also add abstract methods when we want the child to define it.
 Also add notes on override method in child for abstract methods in parent to avoid IDE warning.
@@ -862,7 +995,8 @@ The last example is a clear, idiomatic, and recommended way with C# 12 primary c
 
 #### **Tools**
 
--   C# Playground &rarr; [Net Fiddle](https://dotnetfiddle.net/)
+- VS Code in Browser &rarr; [GitHub Codespace](https://github.com/codespaces)
+- C# Playground &rarr; [Net Fiddle](https://dotnetfiddle.net/)
 
 <br>
 <br>
