@@ -184,7 +184,7 @@ LINQ, async/await, records, pattern matching, range/index operators, and collect
 <br>
 
 ### Variables and Naming Conventions
-C#, like most other programming languages, uses variables to store and access data. In C# the naming convention for variables is `camelCase` starting with a lowercase letter then delimiting words by an uppercase. This applied to variables and method parameters. Most other things such as file names, class names, methods and properties are `PascalCase` or UpperCamelCase starting with a capital letter. Also, variables <mark> cannot start with a number</mark> but can start with an underscore.
+C#, like most other programming languages, uses variables to store and access data. In C# the naming convention for variables is `camelCase` starting with a lowercase letter then delimiting words by an uppercase. This applied to variables and method parameters. Most other things such as file names, class names, methods and properties are `PascalCase` or UpperCamelCase starting with a capital letter. Also, variables <mark style="background-color: #c48ac1">&nbsp; cannot start with a number&nbsp;</mark> but can start with an underscore.
 
 C# is a statically typed langauge that requires you to explicitly declares the type of every variable, except when using the `var` keyword. With `var`, the compiler infers the variable's type based on the assigned value at compile time.
 
@@ -536,7 +536,7 @@ For numbers that use decimal points, there are three common choices depending on
 - double - Optionally Uses the `d` suffix. When you want balance between precision and performance. This is generally recommended as the default type for most numbers with decimal points (_floating-point numbers). The compilor defaults to double, it is twice as precise as float and good for math.
 - decimal - Uses the `m` suffix. When precision is essential (_accounting, money_).
 
-<mark>When performing arithmetic operations, `floats` and `doubles` cannot be mixed with `decimals`</mark>
+<mark style="background-color: #c48ac1">&nbsp;When performing arithmetic operations, `floats` and `doubles` cannot be mixed with `decimals`&nbsp;</mark>
 (more about that [_here_](#arithmetics-with-floats-doubles-and-decimals)).
 
 <br>
@@ -634,7 +634,7 @@ var newFloatingNumber2 = (decimal)floatingNumber + decimalNumber;
 <br>
 
 ### Dynamic Type
-The `dynamic` type indicates that the variable and references to its members bypass compile-time type checking. It behaves like type `object` in most circumstances. <mark>Any non-null expression can be converted to the dynamic type.</mark> Type `dynamic` differs from type `object` in that the compiler doesn't resolve or type check operations that contain dynamic expressions. The dynamic type only exists at compile time, not run time; dynamic variables are compiled into variables of type `object`. Read more here &rarr; [Microsoft's official Learn C# Guide | The dynamic type](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/reference-types#the-dynamic-type).
+The `dynamic` type indicates that the variable and references to its members bypass compile-time type checking. It behaves like type `object` in most circumstances. <mark style="background-color: #c48ac1">&nbsp;Any non-null expression can be converted to the dynamic type.&nbsp;</mark> Type `dynamic` differs from type `object` in that the compiler doesn't resolve or type check operations that contain dynamic expressions. The dynamic type only exists at compile time, not run time; dynamic variables are compiled into variables of type `object`. Read more here &rarr; [Microsoft's official Learn C# Guide | The dynamic type](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/reference-types#the-dynamic-type).
 
 > **Note:** In C# all primitive value types can be treated as objects since they all inherit from the `System.Object` class. The difference between `var` and `dynamic` is that `var` lets the compiler look at the value on the right-side of the `=` operator (_called implicit typing_) and assign the type based on that at compile-time, whereas `dynamic` tells the compiler ignore this at compile-time and treat this as an object which can be anything during runtime.
 
@@ -644,7 +644,7 @@ The `dynamic` type indicates that the variable and references to its members byp
 ### Tuples
 Tuples are an ordered sequence of values with a fixed length. Each element of a tuple has a type and an optional name. Since tuples types are structural types, they don't need names like `string` or `int`. Tuple names should be **PascalCase**. A tuple type is defined by the number of members (_referred to as arity_), and the types of those members. Read more here &rarr; [Microsoft's official Learn C# Guide | Tuples](https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/tuples-and-types#tuples).
 
-> **Note:** In C#, _arity_ refers to the number of arguments, parameters, or type elements that a specific code construct accepts.
+> **Note:** In C#, _arity_ refers to the number of arguments, parameters, or type elements that a specific code construct accepts. You can assign a tuple to <mark style="background-color: #c48ac1">&nbsp;a tuple with the same arity and types&nbsp;</mark> even if the members have different names.
 
 <br>
 
@@ -659,7 +659,7 @@ var noNameMixedTuple = ("Luigi", 2, true);
 
 <br>
 
-You can also create new _tuples_ from existing ones using the `with` expression so long as the structure matches. What's important to remember is <mark>the names do not matter, only the type and amount of members</mark>.
+You can also create new _tuples_ from existing ones using the `with` expression so long as the structure matches. What's important to remember is <mark style="background-color: #c48ac1">&nbsp;the names do not matter, only the type and amount of members.&nbsp;</mark>
 
 ```C#
 // ✅ First we define a tuple
@@ -684,7 +684,7 @@ aBlankBook = someBook; // Value: ("The quick brown fox", "jumped over the lazy g
 var aBookAboutNumbers = someBook with {page1 = 123};
 ```
 
-Notice how the `Console.WriteLine(someBook)` doesn't care about the names, it prints: `("The quick brown fox", "jumped over the lazy god")`. <mark>The names are just compile-time syntactic sugar</mark>. Names or not, you can still access or modify tuple members with ease.
+Notice how the `Console.WriteLine(someBook)` doesn't care about the names, it prints: `("The quick brown fox", "jumped over the lazy god")`. <mark style="background-color: #c48ac1">&nbsp;The names are just compile-time syntactic sugar.&nbsp;</mark> Names or not, you can still access or modify tuple members with ease.
 
 ```C#
 var marioBrothers = (olderBro: "Mario", youngerBro: "Luigi");
@@ -701,10 +701,68 @@ Console.WriteLine(marioBrothers.Item1); // Outputs Toad
 <br>
 <br>
 
-### List\<T> (List of T)
-`List<string> friends = new List<string>` | `var friends = new List<string>`
-flexible, used for most operations, the same thing as a JavaScript `Array` but with a different name. In C#, arrays have fixed lengths so you cannot add or remove items. here's an example of playing with a list of `char`; run this in a terminal to see the output.
+### Record Type
+A record is a specialized type of _class_ or _struct_ <mark style="background-color: #c48ac1">&nbsp;designed to represent data rather than behaviour.&nbsp;</mark> Think of a record as a shipping label; if we print multiple shipping labels with the exact same information, they are essentially the same since all we care about is the information. This differs from typical class instances where <mark style="background-color: #c48ac1">&nbsp;the identity and behaviour is important.&nbsp;</mark> Imagine twins that are identical in every way, they are still unique people that **should not be used interchangeably** since they are in fact different.
 
+> **Note:** In C#, top-level statements must precede namespace and type declarations. This differs from other languages such as **JavaScript** which allows you to freely mix executable code (_e.g. `Console.log()`_), function declarations, and class definitions anywhere in a file. JavaScript _hoists_ function declarations to the top of their scope so you can call a function before it is defined. <mark style="background-color: #c48ac1">&nbsp;C# is strict and requires execution code to be at the very top of the file while _namespaces_, classes, structs, and _interfaces_ close the top-level statement section. **You cannot place any executable code below a type declaration!**&nbsp;</mark>
+
+<br>
+
+**Record Syntax**
+```C#
+var animal1 = new Animal("dog", "black");
+var animal2 = new Animal("dog", "black");
+Console.WriteLine(animal1 == animal2); // True, value is compared not reference
+
+// Remember this has to be at the bottom.
+public record Animal(string Species, string Color);
+```
+
+<br>
+
+**Compared to Classes**
+```C#
+var animal1 = new Animal("dog", "black");
+var animal2 = new Animal("dog", "black");
+Console.WriteLine(animal1 == animal2); // False, compares object identity by default
+
+// Remember this has to be at the bottom.
+public class Animal (string Species, string Color)
+  {
+    // Properties
+    public string Species { get; set; } = Species;
+    public string Color { get; set; } = Color;
+  }
+```
+
+The records are still 2 different objects in memory but their equality is based on their value not their reference. Reference equality asks: "**Are these the exact same object?**" Value equality asks: "**Do these objects contain the same data?**". Records generate value-based equality members (_including `==`_) by default. This causes two record instances with the same data to be considered equal, even when they are different objects in memory.
+
+<br>
+
+> **Note:** By default, the equality operator (`==`) performs value equality for built-in value types and reference equality (identity) for reference types. However, user-defined value types (structs) do not automatically support the `==` operator, and specific reference types override this behavior.
+
+<br>
+
+You can also use the `with` expression to create a new record instance from an existing one.
+```C#
+var animal1 = new Animal("dog", "black");
+var animal2 = animal1 with { Color = "white"};
+Console.WriteLine(animal2); // Animal { Species = dog, Color = white }
+
+public record Animal(string Species, string Color);
+```
+
+You can read more on Tuples and types here &rarr; [Microsoft's official Learn C# Guide | Tuples and Types](https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/tuples-and-types#tuples) and a deep dive on _Records_ here &rarr; [Microsoft's official Learn C# Guide | Records](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/records)
+
+<br>
+<br>
+
+### List\<T> (List of T)
+The `List<T>` type stores sequences of elements; you specify the type of the elements between the angle brackets. Unlike the [array](#arrays) type which has a fixed length, the `List<T>` type can grow or shrink, so you can `Add()` or `Remove()` elements. It's the same thing as a JavaScript `Array` but with a different name.
+
+<br>
+
+**Try running the following code to see the output.**
 ```C#
 // Initialize the alphabet to loop over
 List<char> alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
@@ -724,14 +782,14 @@ Console.WriteLine("----------------------------");
 // Count and store counts inside of our dicitonary.
 foreach(char letter in alphabet)
 {
-    int amount = sentence.Count(l => l == letter);
-    alphabetCount.Add(letter, amount);
+  int amount = sentence.Count(l => l == letter);
+  alphabetCount.Add(letter, amount);
 };
 
 // Log each letter with their rate of occurrence.
 foreach (var (key, value) in alphabetCount)
 {
-    Console.WriteLine($"{key} => {value}");
+  Console.WriteLine($"{key} => {value}");
 };
 ```
 
@@ -750,12 +808,34 @@ Arrays are fixed length collections which serve as rigid Lists<T>. It's useful f
 <br>
 
 #### Add
-...
+Adds an item to a collection.
+
+```C#
+List<string> users = ["Jim", "Pam", "Michael", "Dwight", "Stanley"];
+users.Add("Holly");
+
+// Outputs Jim Pam Michael Dwight Stanley Holly (on their own lines)
+foreach (string u in users)
+{
+ Console.WriteLine(u);   
+}
+```
 
 <br>
 
 #### Remove
-...
+Removes an item from a collection.
+
+```C#
+List<string> users = ["Jim", "Pam", "Michael", "Dwight", "Stanley"];
+users.Remove("Jim");
+
+// Outputs Pam Michael Dwight Stanley (on their own lines)
+foreach (string u in users)
+{
+ Console.WriteLine(u);   
+}
+```
 
 <br>
 
@@ -779,47 +859,185 @@ Arrays are fixed length collections which serve as rigid Lists<T>. It's useful f
 
 <br>
 
-### Conditionals and Loops
-... mention indentation(4 space/1 tab) and how brackets are on a new line.
-no braces means one line only, curly braces as long as u want.
+### Branches and Loops
+Branches and loops are the core control flow mechanisms in C# that dictate how code executes based on conditions or repetitions. Without them, your program would simply run sequentially from top to bottom.
+
+> In C# code indentation is for human readers. The language doesn't treat indentation or white space as significant.
 
 <br>
 
 #### If Statement
-...
+The `if` statement allows you to evaluate a condition as either `true` or `false` and execute code accordingly. The condition is always wrapped in parentheses `()`.
+
+> **Note:** C# is a strongly typed language, unlike JavaScript there is no such thing as _truthy_ or _falsy_. Conditions must be explicit booleans or implicitly converted to `true` or `false`. That's also why there is no _strict_ equality operator like in JS, there isn't a need.
 
 <br>
 
-#### Comparison Operators
-...For value types (like int, structs), == compares the actual values.
+```C#
+int gasInLitres = 10;
+int distanceInKM = 100;
 
-For reference types, by default == compares references (whether two variables refer to the exact same object).
+// ✅ Using curly braces is recommended for clarity and to avoid accidentally adding a statement that is not scoped to the condition branch.
+if (gasInLitres > 25)
+{
+  Console.WriteLine("Time to hit the road!");
+}
+else
+{
+  Console.WriteLine("You are running low on gas, you won't make it at this rate.");
+}
 
-Some reference types, such as string, override == to compare values (content) instead of references, making string comparisons intuitive.
+// ⚠️ This is functional but risks making a mistake by adding a line after that always runs.
+// This syntax only allows one statement immediately following the condition/else.
+int bucketCapacityInLitres = 10;
+int litresOfWater = 8;
 
-&& || | . + - * / == > < >= <= ++ --
-
-short circuiting
+if (litresOfWater < bucketCapacityInLitres)
+  Console.WriteLine("Keep filling...");
+else
+  Console.WriteLine("Bucket is full!");
+  Console.WriteLine("I SAID STOP THE BUCKET IS FULL!!!"); // ⚠️ This will always run!
+```
 
 <br>
 
 #### While
+Loops are an important concept for creating larger programs as they allow you to execute statements more than once. Paired with `if` statements, this concept is very powerful for repeating operations that rely on a condition. The `while` statement checks a condition and executes the statement following the `while`.
+
+```C#
+int bossHealth = 100;
+int heroDamage = 10;
+
+Console.WriteLine($"You encounter a boss with {bossHealth} HP, you prepare for battle.");
+while (bossHealth > 0)
+{
+    bossHealth -= heroDamage;
+    Console.Write($"You deal {heroDamage} damage. ");
+
+    if (bossHealth == 0)
+    {
+        Console.WriteLine($"The boss struggles to fight back as he drops to his knees in agony. His HP has reached {bossHealth}.");
+    }
+    else
+    {
+        Console.WriteLine($"The boss continues to fight back with {bossHealth} HP.");
+    }
+}
+Console.WriteLine($"The boss lets out a final scream as it perishes, you have vanquished the boss!");
+
+/* OUTPUT
+ * You encounter a boss with 100 HP, you prepare for battle.
+ * You deal 10 damage. The boss continues to fight back with 90 HP.
+ * You deal 10 damage. The boss continues to fight back with 80 HP.
 ...
+ * You deal 10 damage. The boss continues to fight back with 10 HP.
+ * You deal 10 damage. The boss struggles to fight back as he drops to his knees in agony. His HP has reached 0.
+ * The boss lets out a final scream as it perishes, you have vanquished the boss!
+ */
+```
 
 <br>
 
 #### Do While
-...
+The `do{} while()` loop is nearly identical to the `while` loop except no matter what it will always execute the code within the curly braces **once** before checking to see if the condition has been satified since the code blcok comes before the `if` statement.
 
+```C#
+int bossHealth = 100;
+int heroDamage = 10;
+
+Console.WriteLine($"You encounter a boss with {bossHealth} HP, you prepare for battle.");
+do
+{
+    bossHealth -= heroDamage;
+    Console.Write($"You deal {heroDamage} damage. ");
+
+    if (bossHealth == 0)
+    {
+        Console.WriteLine($"The boss struggles to fight back as he drops to his knees in agony. His HP has reached {bossHealth}.");
+    }
+    else
+    {
+        Console.WriteLine($"The boss continues to fight back with {bossHealth} HP.");
+    }
+}
+while (bossHealth > 0);
+Console.WriteLine($"The boss lets out a final scream as it perishes, you have vanquished the boss!");
+
+/* OUTPUT
+ * You encounter a boss with 100 HP, you prepare for battle.
+ * You deal 10 damage. The boss continues to fight back with 90 HP.
+ * You deal 10 damage. The boss continues to fight back with 80 HP.
+...
+ * You deal 10 damage. The boss continues to fight back with 10 HP.
+ * You deal 10 damage. The boss struggles to fight back as he drops to his knees in agony. His HP has reached 0.
+ * The boss lets out a final scream as it perishes, you have vanquished the boss!
+ */
+```
 <br>
 
 #### For Loops
+A traditional `for` loop organizes everything you need to repeat a task on a single line: a **starting point** (counter), a **rule** to decide when to stop (condition), and a step to move to the next item (**iterator**).
+
+> **Note:** The first section of a for loop must be an expression like `int i = 0` or empty `;`.
+
+<br>
+
+```C#
+int bossHealth = 100;
+int heroDamage = 10;
+
+Console.WriteLine($"You encounter a boss with {bossHealth} HP, you prepare for battle.");
+for (; bossHealth > 0; bossHealth -= heroDamage)
+{
+    Console.Write($"You deal {heroDamage} damage. ");
+
+    if ((bossHealth - heroDamage) == 0)
+    {
+        Console.WriteLine($"The boss struggles to fight back as he drops to his knees in agony. His HP has reached {bossHealth - heroDamage}.");
+    }
+    else
+    {
+        Console.WriteLine($"The boss continues to fight back with {bossHealth - heroDamage} HP.");
+    }
+}
+Console.WriteLine($"The boss lets out a final scream as it perishes, you have vanquished the boss!");
+
+/* OUTPUT
+ * You encounter a boss with 100 HP, you prepare for battle.
+ * You deal 10 damage. The boss continues to fight back with 90 HP.
+ * You deal 10 damage. The boss continues to fight back with 80 HP.
 ...
+ * You deal 10 damage. The boss continues to fight back with 10 HP.
+ * You deal 10 damage. The boss struggles to fight back as he drops to his knees in agony. His HP has reached 0.
+ * The boss lets out a final scream as it perishes, you have vanquished the boss!
+ */
+```
 
 <br>
 
 #### For Each
-...
+The `for each` loop repeats its statement for every item in s sequence of items, you most often use it with _collections_.
+
+```C#
+List<string> newUsers = ["Anonymous 123", "Anonymous 274", "Anonymous 251", "Anonymous 466", "Anonymous 325", "Anonymous 472"];
+
+foreach (string user in newUsers)
+{
+  if (user.Contains('5'))
+    Console.WriteLine($"{user} has left the chatroom.");
+  else
+    Console.WriteLine($"{user} has joined the chatroom.");
+}
+
+/* Outputs
+ * Anonymous 123 has joined the chatroom.
+ * Anonymous 274 has joined the chatroom.
+ * Anonymous 251 has left the chatroom.
+ * Anonymous 466 has joined the chatroom.
+ * Anonymous 325 has left the chatroom.
+ * Anonymous 472 has joined the chatroom.
+ */
+```
 
 <br>
 
