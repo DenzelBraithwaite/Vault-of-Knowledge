@@ -16,9 +16,13 @@ This guide is focused on all notes related to **C#** and **.net**. Whenever rele
 ---
 
 ## Quick Tips
+- C# is a truly object-oriented programming language meaning technically everything inherits from the `object` class.
+- C# uses 4 tab spaces instead of 2. Both are allowed but 4 is the convention.
 - C# uses semicolons `;` to denote the end of a line. This usually isn't necessary when closing code blocks `{}`. This is common for the C family of languages.
 - In VS Code You can press `ctrl` + `shift` + `p` on Windows or `cmd` + `shift` + `p` on Mac, to open the command palette. In Visual Studio there's a similar feature called Quick launch which can be opened with the same hotkeys or simply `ctrl` + `Q`.
 - You can use `ctrl` + `K` followed by `ctrl` + `D` to format the entire document, adding indents and spaces where needed. Alternatively, you can use the quick launch to find this and similar commands.
+- number types (`int`, `short`, `long`), floating types (`float`, `double`, `decimal`), logical type (`bool`), and character type (`char`) are value types.
+- `string`, `dynamic`, `class`, `array`, `interface`, `record`, and `object` types are **reference types**.
 
 <br>
 <br>
@@ -77,7 +81,7 @@ Nullable Reference Types: Brought null-safety, closing one of C#'s biggest histo
 ```C#
 class Point(int x, int y)
 {
-  // use x and y directly
+    // use x and y directly
 }
 ```
 
@@ -184,22 +188,31 @@ LINQ, async/await, records, pattern matching, range/index operators, and collect
 <br>
 
 ### Variables and Naming Conventions
-C#, like most other programming languages, uses variables to store and access data. In C# the naming convention for variables is `camelCase` starting with a lowercase letter then delimiting words by an uppercase. This applied to variables and method parameters. Most other things such as file names, class names, methods and properties are `PascalCase` or UpperCamelCase starting with a capital letter. Also, variables <mark style="background-color: #c48ac1">&nbsp; cannot start with a number&nbsp;</mark> but can start with an underscore.
+C#, like most other programming languages, uses variables to store and access data. In C# the naming convention for variables is **camelCase** starting with a lowercase letter then delimiting words by an uppercase. This applied to variables and method parameters. Most other things such as file names, class names, methods and properties are **PascalCase** or UpperCamelCase starting with a capital letter. Also, variables <mark style="background-color: #c48ac1">&nbsp; cannot start with a number&nbsp;</mark> but can start with an underscore.
 
 C# is a statically typed langauge that requires you to explicitly declares the type of every variable, except when using the `var` keyword. With `var`, the compiler infers the variable's type based on the assigned value at compile time.
 
 ```C#
-  // Explicitly declared as string.
-  string aStringVariable = "some string";
+// Explicitly declared as string.
+string aStringVariable = "some string";
 
-  // Explicitly declared as int.
-  int aNumber = 1;
+// Explicitly declared as int.
+int aNumber = 1;
 
-  // inferred as string
-  var anotherStringVariable = "Some other string";
+// inferred as string
+var anotherStringVariable = "Some other string";
 
-  // inferred as int
-  var anotherNumber = 2;
+// inferred as int
+var anotherNumber = 2;
+```
+
+<br>
+
+### Constants
+Constants are immutable variables that cannot be changed. They typically follow the **PascalCase** naming convention beginning with an uppercase letter.
+
+```C#
+const int YearOfBirth = 1996;
 ```
 
 <br>
@@ -208,30 +221,30 @@ C# is a statically typed langauge that requires you to explicitly declares the t
 Single line comments are denoted by prepending the code with two forward slashes `//`. Multi-line comments are denoted by typing your code between the opening `/*` and closing `*/`.
 
 ```C#
-  // This is a single line comment.
+// This is a single line comment.
 
-  // .NET Coding Conventions actually recommends
-  // using single line comment syntax
-  // for multiple lines e.g. code explanations.
+// .NET Coding Conventions actually recommends
+// using single line comment syntax
+// for multiple lines e.g. code explanations.
 
-  /* This is an inline style for multi-line comments. */
-  
-  /*
-  This is "commented out"
-  style for quickly
-  commenting out a code block */
+/* This is an inline style for multi-line comments. */
 
-  /*
-  This is also a multi-line
-  but should only be used at
-  the top of files as a legal/copyright header
+/*
+This is "commented out"
+style for quickly
+commenting out a code block */
+
+/*
+This is also a multi-line
+but should only be used at
+the top of files as a legal/copyright header
+*/
+
+/* Starred block style approach
+  * recommended for descriptions.
+  * Clean and easy to read.
+  * Typically at the top of the file.
   */
-
-  /* Starred block style approach
-   * recommended for descriptions.
-   * Clean and easy to read.
-   * Typically at the top of the file.
-   */
 ```
 
 <br>
@@ -240,8 +253,8 @@ Single line comments are denoted by prepending the code with two forward slashes
 A string in C# is a series of characters between double quotes `"string"`. This can be a [string literal](#string-literal) or perhaps a value returned in the form of a string.
 
 ```C#
-  // Reads input from the user, stored as a string.
-  string userResponse = Console.ReadLine();
+// Reads input from the user, stored as a string.
+string userResponse = Console.ReadLine();
 ```
 
 <br>
@@ -250,7 +263,7 @@ A string in C# is a series of characters between double quotes `"string"`. This 
 A string literal is when we *literally* describe the exact string we want.
 
 ```C#
-  string name = "This is a string literal";
+string name = "This is a string literal";
 ```
 
 <br>
@@ -267,39 +280,39 @@ string singleLine = """Friends say "hello" as they pass by.""";
 
 // ✅ Valid: Multi-line raw string literal requires double quotes on their own line.
 string multiLine = """
-  "Hello World!" is typically the first program someone writes.
-  """;
+    "Hello World!" is typically the first program someone writes.
+    """;
 
 
 // ✅ Valid
 string embeddedXML = """
-  <element attr = "content">
-      <body style="normal">
-          Here is the main text
-      </body>
-      <footer>
-          Excerpts from "An amazing story"
-      </footer>
-  </element >
-  """;
+    <element attr = "content">
+        <body style="normal">
+            Here is the main text
+        </body>
+        <footer>
+            Excerpts from "An amazing story"
+        </footer>
+    </element >
+    """;
 
 
 // ❌ Invalid: Characters appear on the same line as the opening quotes.
 var multiLineStart = """This
-  is the beginning of a string 
-  """;
+    is the beginning of a string 
+    """;
 
 
 // ❌ Invalid: Characters appear on the same line as the closing quotes.
 var multiLineEnd = """
-  This is the beginning of a string """;
+    This is the beginning of a string """;
 
 
 // ❌ Invalid: Text cannot be outdented further than the closing tag.
 var noOutdenting = """
-    A line of text, this is allowed.
-Trying to outdent the second line, this is not allowed.
-    """;
+        A line of text, this is allowed.
+    Trying to outdent the second line, this is not allowed.
+        """;
 ```
 
 <br>
@@ -308,10 +321,10 @@ Trying to outdent the second line, this is not allowed.
 String concatenation is the act of adding multiple strings together to form one bigger string.
 
 ```C#
-  string firstName = "Santa";
-  string lastName = "Clause";
-  string fullName = firstName + " " + lastName;
-  Console.Write(fullName); // Outputs "Santa Clause"
+string firstName = "Santa";
+string lastName = "Clause";
+string fullName = firstName + " " + lastName;
+Console.Write(fullName); // Outputs "Santa Clause"
 ```
 
 <br>
@@ -320,10 +333,10 @@ String concatenation is the act of adding multiple strings together to form one 
 String interpolation is when we want to mix code/variables within a string, with the output being a string. Many times this will more readable and concise than concatentation. It is denoted by a `$` symbol preceding the string. To allow the use of code/variables, you use `{}` curly/squiggly braces and write the code inside. The compiler will resolve and replace the code with the value.
 
 ```C#
-  string firstName = "Santa";
-  string lastName = "Clause";
-  string fullName = $"{firstName} {lastName}";
-  Console.Write(fullName); // Outputs "Santa Clause"
+string firstName = "Santa";
+string lastName = "Clause";
+string fullName = $"{firstName} {lastName}";
+Console.Write(fullName); // Outputs "Santa Clause"
 ```
 
 <br>
@@ -332,28 +345,28 @@ String interpolation is when we want to mix code/variables within a string, with
 Varbatim syntax is when we want the string to appear exactly as we've typed it. This may sound like a string literal, but the differences is that in normal strings, we can use certain special syntax such as  `\n` to create a new line. Because of this, sometimes we must use a backslash `\` followed by another character to perform some sort of action. The `\` however is invalid by itself in a string since the compiler is expecting special syntax. Therefor, it must be _escaped_ by another `\` like so `\\`. That would output a single `\`. Also, we can't naturally span a string over several lines without the use of `\n`. So, if we want the string to appear exactly as we typed it, including new lines and all special characters (_removing the ability to use special syntax like `\n`_), we need to prepend the string with the `@` symbol. This can be mixed with the `$` symbol for interoplation and can be before or after the `$`. E.g. `@$` or `$@` are valid.
 
 ```C#
-  // Regular string literal.
-  string example1 = "I       am a string \n Now I am the same string on a new line. \\ <-- this backslash must be escaped or it will raise an error."
-  + "\nThis is concatenated and starts with a new line!";
+// Regular string literal.
+string example1 = "I       am a string \n Now I am the same string on a new line. \\ <-- this backslash must be escaped or it will raise an error."
++ "\nThis is concatenated and starts with a new line!";
 
-  /* Output:
-  "I       am a string
-  Now I am the same string on a new line. \ <-- this backslash must be escaped or it will raise an error.
-  This is concatenated and starts with a new line!"
-  */
+/* Output:
+"I       am a string
+Now I am the same string on a new line. \ <-- this backslash must be escaped or it will raise an error.
+This is concatenated and starts with a new line!"
+*/
 
 
-  // Verbatim Syntax
-  int randomNumber = 123;
-  string example2 = @$"I       am a string 
-  Now I am the same string on a new line. \ <--- this backslash is perfectly fine.
-  This is an interpolated variable on a new line, randomNumber = {randomNumber}!";
+// Verbatim Syntax
+int randomNumber = 123;
+string example2 = @$"I       am a string 
+Now I am the same string on a new line. \ <--- this backslash is perfectly fine.
+This is an interpolated variable on a new line, randomNumber = {randomNumber}!";
 
-  /* Output
-  I       am a string
-  Now I am the same string on a new line. \ <--- this backslash is perfectly fine.
-  This is an interpolated variable on a new line, randomNumber = 123!
-  */
+/* Output
+I       am a string
+Now I am the same string on a new line. \ <--- this backslash is perfectly fine.
+This is an interpolated variable on a new line, randomNumber = 123!
+*/
 ```
 
 #### Handy String Methods
@@ -501,9 +514,9 @@ So if this happens, an easy solution is to convert the `string` to a `char`.
 ```C#
 foreach (string letter in alphabet)
 {
-  char c = letter[0]; // Effectively converts the string to a char since letter is a string of length 1.
-  int amount = sentence.Count(l => l == c); // Now we can compare a char with a char.
-  Console.WriteLine($"{letter}: {amount}"); // Example output: E: 3
+    char c = letter[0]; // Effectively converts the string to a char since letter is a string of length 1.
+    int amount = sentence.Count(l => l == c); // Now we can compare a char with a char.
+    Console.WriteLine($"{letter}: {amount}"); // Example output: E: 3
 }
 ```
 
@@ -561,17 +574,17 @@ decimal decimalNumber2 = 10.1M; // Outputs 10.1
 **Note:** If you attempt to store a floating-point number inside a type such as float but forget the `f` suffix, the compiler will default to `double` and then attempt to put that `double` into the type you explicitly stated, which will raise a compile-time error unless you used `var` or `double` as the type.
 
 ```C#
-  // ✅ Valid: Compiler sees float, user wants to store as float, all is good.
-  float floatingNumber1 = 10.1f;
+// ✅ Valid: Compiler sees float, user wants to store as float, all is good.
+float floatingNumber1 = 10.1f;
 
-  // ❌ Invalid: Compiler defaults to double, user wants float, doesn't work.
-  float floatingNumber2 = 10.1;
+// ❌ Invalid: Compiler defaults to double, user wants float, doesn't work.
+float floatingNumber2 = 10.1;
 
-  // ✅ Valid: Compiler sees float, user let's compiler decide type, it becomes a float.
-  var floatingNumber3 = 10.1f;
+// ✅ Valid: Compiler sees float, user let's compiler decide type, it becomes a float.
+var floatingNumber3 = 10.1f;
 
-  // ✅ Valid: Compiler defaults to double, user let's compiler decide, it becomes double.
-  var floatingNumber3 = 10.1;
+// ✅ Valid: Compiler defaults to double, user let's compiler decide, it becomes double.
+var floatingNumber3 = 10.1;
 ```
 
 <br>
@@ -602,14 +615,14 @@ Because of this, when performing arithmetics, it is impossible for these types t
 The `checked` keyword enforces overflow checking. In a **checked context**, if an operation exceeds the storage capacity of the target type (_e.g. adding beyond `int.MaxValue`_), a `System.OverflowException` is thrown. In aun **unchecked context** (_the default for most builds_), overflow causes silent truncation or wraparound rather than exception (_meaning you won't get an error but your value will be inaccurate_). `checked` affects operations textually inside its scope, meaning only those operations written inside the `checked { }` block or expression use overflow checking.
 
 ```C#
-  int c = int.MaxValue;
-  int d = a + 1; // Silently stores an incorrect value
+int c = int.MaxValue;
+int d = a + 1; // Silently stores an incorrect value
 
-  checked
-  {
+checked
+{
     int a = int.MaxValue;
     int b = a + 1; // Throws OverflowException
-  }
+}
 ```
 
 In essence, `checked` helps catch overflow errots in intergral math and conversions.
@@ -728,11 +741,11 @@ Console.WriteLine(animal1 == animal2); // False, compares object identity by def
 
 // Remember this has to be at the bottom.
 public class Animal (string Species, string Color)
-  {
+{
     // Properties
     public string Species { get; set; } = Species;
     public string Color { get; set; } = Color;
-  }
+}
 ```
 
 The records are still 2 different objects in memory but their equality is based on their value not their reference. Reference equality asks: "**Are these the exact same object?**" Value equality asks: "**Do these objects contain the same data?**". Records generate value-based equality members (_including `==`_) by default. This causes two record instances with the same data to be considered equal, even when they are different objects in memory.
@@ -753,6 +766,16 @@ public record Animal(string Species, string Color);
 ```
 
 You can read more on Tuples and types here &rarr; [Microsoft's official Learn C# Guide | Tuples and Types](https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/tuples-and-types#tuples) and a deep dive on _Records_ here &rarr; [Microsoft's official Learn C# Guide | Records](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/records)
+
+<br>
+<br>
+
+### Arrays
+Arrays are fixed length collections which serve as rigid _Lists<T>_. It's useful for precision or performance when you know the amount won't change. This may be confusing if you are coming from a language such as _JavaScript_ where arrays are flexible; in _C#_ `List<T>` are very similar to the JavaScript `Array`.
+
+```C#
+string[] bestFriends = ["Larry", "Curly", "Moe"];
+```
 
 <br>
 <br>
@@ -782,28 +805,37 @@ Console.WriteLine("----------------------------");
 // Count and store counts inside of our dicitonary.
 foreach(char letter in alphabet)
 {
-  int amount = sentence.Count(l => l == letter);
-  alphabetCount.Add(letter, amount);
+    int amount = sentence.Count(l => l == letter);
+    alphabetCount.Add(letter, amount);
 };
 
 // Log each letter with their rate of occurrence.
 foreach (var (key, value) in alphabetCount)
 {
-  Console.WriteLine($"{key} => {value}");
+    Console.WriteLine($"{key} => {value}");
 };
 ```
 
 <br>
 
-### Arrays
-Arrays are fixed length collections which serve as rigid Lists<T>. It's useful for precision or performance when you know the amount won't change.
+#### Accessing index
+Easily access an element in a collection via its index. Use square bracket notation to target the element, use the caret (`^`) symbol to start from the end where `[0]` means the first element in 0-indexed collections and `^1` targets the last element.
+
+```C#
+string[] bestFriends = ["Larry", "Curly", "Moe"];
+Console.WriteLine(bestFriends[0]); // Larry
+Console.WriteLine(bestFriends[^1]); // More
+```
 
 <br>
 
-#### Accessing index
-[0]
-[^1]
-[2..4] e.g. foreach (string name in names[2..4])
+#### Count
+Counts the amount of elements in a collection.
+
+```C#
+List<string> users = ["Jim", "Pam", "Michael", "Dwight", "Stanley"];
+Console.WriteLine(users.Count); // Outputs: 5
+```
 
 <br>
 
@@ -817,7 +849,7 @@ users.Add("Holly");
 // Outputs Jim Pam Michael Dwight Stanley Holly (on their own lines)
 foreach (string u in users)
 {
- Console.WriteLine(u);   
+    Console.WriteLine(u);   
 }
 ```
 
@@ -833,30 +865,83 @@ users.Remove("Jim");
 // Outputs Pam Michael Dwight Stanley (on their own lines)
 foreach (string u in users)
 {
- Console.WriteLine(u);   
+    Console.WriteLine(u);   
 }
 ```
 
 <br>
 
-#### Clear
-...
-
-<br>
-
 #### Contains
-...
+Determines whether an element is in the `List<T>`.
+
+```C#
+List<string> users = ["Jim", "Pam", "Michael", "Dwight", "Stanley"];
+Console.WriteLine(users.Contains("Pam")); // Outputs: true
+Console.WriteLine(users.Contains("pam")); // Outputs: false
+```
 
 <br>
 
 #### Sort
-...
+Sorts the elements or a portion of the elements in the `List<T>` on the spot. It returns `void` so you cannot _log_ it directly.
+
+```C#
+// ✅ List is sorted alphabetically by default then logged.
+List<string> users = ["Jim", "Pam", "Michael", "Dwight", "Stanley"];
+users.Sort();
+foreach (string user in users)
+{
+    Console.WriteLine(user);
+}
+
+// ❌ Invalid, will not compile.
+Console.WriteLine(users.Sort());
+
+// A quick way to sort by descending is to use Sort() -> Reverse()
+List<int> numbers = [2, 1, 5, 7, 10];
+numbers.Sort();
+numbers.Reverse();
+foreach (int num in numbers)
+{
+    Console.WriteLine(num);
+}
+```
 
 <br>
 
 #### IndexOf
-...
+Gets the index of an element in the `List<T>`.
 
+```C#
+List<string> users = ["Jim", "Pam", "Michael", "Dwight", "Stanley"];
+Console.WriteLine(users.IndexOf("Michael")); // Outputs: 2
+Console.WriteLine(users.IndexOf("michael")); // ⚠️ Outputs: -1 since it does not exist.
+```
+
+> **Note:** You might not know if an item is in the list, so always check the index returned by `IndexOf()`. If it's `-1`, the item wasn't found.
+
+<br>
+
+#### Clear
+Removes all elements from the `List<T>`.
+
+```C#
+List<string> users = ["Jim", "Pam", "Michael", "Dwight", "Stanley"];
+users.Clear();
+Console.WriteLine(users.Count); // Outputs: 0
+```
+
+<br>
+<br>
+
+### Dictionary<TKey,TValue>
+A Dictionary is a representation of a collection of keys and values.
+
+```C#
+
+```
+
+<br>
 <br>
 
 ### Branches and Loops
@@ -880,11 +965,11 @@ int distanceInKM = 100;
 // ✅ Using curly braces is recommended for clarity and to avoid accidentally adding a statement that is not scoped to the condition branch.
 if (gasInLitres > 25)
 {
-  Console.WriteLine("Time to hit the road!");
+    Console.WriteLine("Time to hit the road!");
 }
 else
 {
-  Console.WriteLine("You are running low on gas, you won't make it at this rate.");
+    Console.WriteLine("You are running low on gas, you won't make it at this rate.");
 }
 
 // ⚠️ This is functional but risks making a mistake by adding a line after that always runs.
@@ -893,10 +978,53 @@ int bucketCapacityInLitres = 10;
 int litresOfWater = 8;
 
 if (litresOfWater < bucketCapacityInLitres)
-  Console.WriteLine("Keep filling...");
+    Console.WriteLine("Keep filling...");
 else
-  Console.WriteLine("Bucket is full!");
-  Console.WriteLine("I SAID STOP THE BUCKET IS FULL!!!"); // ⚠️ This will always run!
+    Console.WriteLine("Bucket is full!");
+    Console.WriteLine("I SAID STOP THE BUCKET IS FULL!!!"); // ⚠️ This will always run!
+```
+
+<br>
+
+#### Switch Statement
+A `switch` statement executes the statements in the first _switch_ section whose case pattern matches the expression. You can accomplish the same thing with an `if` statement but <mark style="background-color: #c48ac1">&nbsp;_switch_ statements are useful for testing a **single** variable against multiple values.&nbsp;</mark> `if` statements are intended for more flexible use. In **C#** all case sections must end with the `break` keyword, the compiler enforces this rule and will raise an error if it is omitted. This is to prevent _fall-through_ where the execution from one case can flow to another. The same is true for the `default` case.
+
+> **Note:** Each `case` must be a compile-time constant, not a variable that can change at runtime. Also, you can use the `return` and `throw` statements to pass control out of a switch statement and avoid `break`. Read more here &rarr; [Microsoft's official Learn C# Guide | Selection statements](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements#the-switch-statement)
+
+<br>
+
+```C#
+const int YearOfBirth = 1996;
+int currentYear = 2026;
+
+// ✅ Valid Switch Statement
+switch (currentYear)
+{
+    // This will not execute
+    case < YearOfBirth:
+        Console.WriteLine("You aren't even born yet!");
+        break;
+
+    // This will execute
+    case > YearOfBirth:
+        Console.WriteLine("You were already born!");
+        goto default; // This avoids the need for `break` and executs the `default:` as well!
+
+    // Optional fallback if none of the cases match. Can be placed in any order but typically at the end.
+    default:
+        Console.WriteLine("I can't figure out if you were born yet or not...");
+        break;
+}
+
+// ❌ This is invalid because `currentYear` is not a compile-time constant and may change.
+switch (YearOfBirth)
+{
+    case > currentYear:
+        Console.WriteLine("You aren't even born yet!");
+        break;
+    
+    // etc...
+}
 ```
 
 <br>
@@ -1023,10 +1151,10 @@ List<string> newUsers = ["Anonymous 123", "Anonymous 274", "Anonymous 251", "Ano
 
 foreach (string user in newUsers)
 {
-  if (user.Contains('5'))
-    Console.WriteLine($"{user} has left the chatroom.");
-  else
-    Console.WriteLine($"{user} has joined the chatroom.");
+    if (user.Contains('5'))
+        Console.WriteLine($"{user} has left the chatroom.");
+    else
+        Console.WriteLine($"{user} has joined the chatroom.");
 }
 
 /* Outputs
@@ -1051,15 +1179,15 @@ List<int> grades = [21, 42, 63, 84, 99];
 // Deferred execution means it is not executed immediately when it is defined but only when you enumerate over it.
 // The "Question", not yet executed (deferred execution). Query Expression.
 IEnumerable<int> highGrades =
-  from grade in grades // required
-  where grade >= 80 // optional
-  orderby grade descending // optional
-  select grade; // must end in select or group.
+    from grade in grades // required
+    where grade >= 80 // optional
+    orderby grade descending // optional
+    select grade; // must end in select or group.
 
 // The "Answer", executing the query.
 foreach (int grade in highGrades)
 {
-  Console.WriteLine($"{grade}, congrats!");
+    Console.WriteLine($"{grade}, congrats!");
 }
 ```
 
@@ -1077,14 +1205,14 @@ Add notes on parent classes, referred to as abstract classes if they serve no pu
 Can also add abstract methods when we want the child to define it.
 Also add notes on override method in child for abstract methods in parent to avoid IDE warning.
 ```C#
-  public class Cat ()
-  {
+public class Cat ()
+{
     // Older Syntax
     public string Meow() {return "Meow!";}
 
     // Newer Concise One Line Syntax
     public string Meow() => "Meow!";
-  }
+}
 ```.
 A class defines the blueprint or template.
 
@@ -1118,32 +1246,32 @@ Console.WriteLine($"\nBEHOLD! I am the infamous {evilVillain.villainName}, I hav
 // Create a superhero class
 public class SuperHero
 {
-  public string heroName = "Speed Runner";
-  public string realName = "Mr Quick";
-  public DateOnly birthday = new DateOnly(2000, 1, 1);
+    public string heroName = "Speed Runner";
+    public string realName = "Mr Quick";
+    public DateOnly birthday = new DateOnly(2000, 1, 1);
 }
 
 // Make villan class with old constructor syntax.
 public class Villain
 {
-  public Villain(string vName, string name, DateOnly birthday)
-  {
-    villainName = vName;
-    realName = name;
-    dateOfBirth = birthday;
-  }
-  readonly public string villainName;
-  readonly public string realName;
-  readonly public DateOnly dateOfBirth;
+    public Villain(string vName, string name, DateOnly birthday)
+    {
+        villainName = vName;
+        realName = name;
+        dateOfBirth = birthday;
+    }
+    readonly public string villainName;
+    readonly public string realName;
+readonly public DateOnly dateOfBirth;
 }
 
 // Make villan class with new primary constructor syntax from C# 12.
 public class Villain(string villainName, string realName, DateOnly dateOfBirth)
 {
   // If we don't include these, the "outside" world/users won't be able to access these properties.
-  public string VillainName { get; } = villainName;
-  public string RealName { get; } = realName;
-  public DateOnly DateOfBirth { get; } = dateOfBirth;
+    public string VillainName { get; } = villainName;
+    public string RealName { get; } = realName;
+    public DateOnly DateOfBirth { get; } = dateOfBirth;
 }
 
 ```
