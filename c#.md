@@ -13,28 +13,6 @@ This guide is focused on all notes related to **C#** and **.net**. Whenever rele
 
 <br>
 
----
-
-## Quick Tips
-- C# is a truly object-oriented programming language meaning technically everything inherits from the `object` class.
-- C# uses 4 tab spaces instead of 2. Both are allowed but 4 is the convention.
-- C# uses semicolons `;` to denote the end of a line. This usually isn't necessary when closing code blocks `{}`. This is common for the C family of languages.
-- In VS Code You can press `ctrl` + `shift` + `p` on Windows or `cmd` + `shift` + `p` on Mac, to open the command palette. In Visual Studio there's a similar feature called Quick launch which can be opened with the same hotkeys or simply `ctrl` + `Q`.
-- You can use `ctrl` + `K` followed by `ctrl` + `D` to format the entire document, adding indents and spaces where needed. Alternatively, you can use the quick launch to find this and similar commands.
-- number types (`int`, `short`, `long`), floating types (`float`, `double`, `decimal`), logical type (`bool`), and character type (`char`) are value types.
-- `string`, `dynamic`, `class`, `array`, `interface`, `record`, and `object` types are **reference types**.
-
-<br>
-<br>
-
----
-
-## **Fundamentals**
-
-C# is the primary language of the .NET platform, a free, open-source, cross-platform development environment used to build applications for devices ranging from IoT to cloud services. It is a general-purpose, object-oriented language influenced by C, C++, and Java, designed for developer productivity and high performance while supporting functional techniques and low-level efficiency without unsafe code. With millions of users and strong ecosystem support across all .NET workloads, C# powers most of the .NET runtime and libraries, making it familiar, versatile, and widely adopted for modern app development.
-
-<br>
-
 ### C# Versions
 Here are some notable changes in C# versions that have shaped the language and brought it to the modern world.
 
@@ -93,6 +71,26 @@ class Point(int x, int y)
   - One of the largest evolutions of C#'s extensibility model since extension methods themselves
 
 LINQ, async/await, records, pattern matching, range/index operators, and collection expressions are the landmark features that steadily modernized C#, making it both expressive and competitive with dynamic languages like JS, Python, and Kotlin. Each provided a leap in ergonomics, safety, or performance—just as ES6 did for JavaScript.
+
+---
+
+### Quick Tips
+- C# is a truly object-oriented programming language meaning technically everything inherits from the `object` class.
+- C# uses 4 tab spaces instead of 2. Both are allowed but 4 is the convention.
+- C# uses semicolons `;` to denote the end of a line. This usually isn't necessary when closing code blocks `{}`. This is common for the C family of languages.
+- In VS Code You can press `ctrl` + `shift` + `p` on Windows or `cmd` + `shift` + `p` on Mac, to open the command palette. In Visual Studio there's a similar feature called Quick launch which can be opened with the same hotkeys or simply `ctrl` + `Q`.
+- You can use `ctrl` + `K` followed by `ctrl` + `D` to format the entire document, adding indents and spaces where needed. Alternatively, you can use the quick launch to find this and similar commands.
+- number types (`int`, `short`, `long`), floating types (`float`, `double`, `decimal`), logical type (`bool`), and character type (`char`) are value types.
+- `string`, `dynamic`, `class`, `array`, `interface`, `record`, and `object` types are **reference types**.
+
+<br>
+<br>
+
+---
+
+## **Fundamentals**
+
+C# is the primary language of the .NET platform, a free, open-source, cross-platform development environment used to build applications for devices ranging from IoT to cloud services. It is a general-purpose, object-oriented language influenced by C, C++, and Java, designed for developer productivity and high performance while supporting functional techniques and low-level efficiency without unsafe code. With millions of users and strong ecosystem support across all .NET workloads, C# powers most of the .NET runtime and libraries, making it familiar, versatile, and widely adopted for modern app development.
 
 <br>
 
@@ -654,122 +652,6 @@ The `dynamic` type indicates that the variable and references to its members byp
 <br>
 <br>
 
-### Tuples
-Tuples are an ordered sequence of values with a fixed length. Each element of a tuple has a type and an optional name. Since tuples types are structural types, they don't need names like `string` or `int`. Tuple names should be **PascalCase**. A tuple type is defined by the number of members (_referred to as arity_), and the types of those members. Read more here &rarr; [Microsoft's official Learn C# Guide | Tuples](https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/tuples-and-types#tuples).
-
-> **Note:** In C#, _arity_ refers to the number of arguments, parameters, or type elements that a specific code construct accepts. You can assign a tuple to <mark style="background-color: #c48ac1">&nbsp;a tuple with the same arity and types&nbsp;</mark> even if the members have different names.
-
-<br>
-
-**Syntax**
-```C#
-// With names
-var someBook = (page1: "The quick brown fox", page2: "jumped over the lazy dog");
-
-// Without names with mixed types
-var noNameMixedTuple = ("Luigi", 2, true);
-```
-
-<br>
-
-You can also create new _tuples_ from existing ones using the `with` expression so long as the structure matches. What's important to remember is <mark style="background-color: #c48ac1">&nbsp;the names do not matter, only the type and amount of members.&nbsp;</mark>
-
-```C#
-// ✅ First we define a tuple
-var someBook = (page1: "The quick brown fox", page2: "jumped over the lazy god"); // Value: ("The quick brown fox", "jumped over the lazy god");
-
-
-// ✅ Then we create a new tuple using `with` and modify page2.
-var someBookReprinted = someBook with {page2 = "jumped over the lazy dog"}; // Value: ("The quick brown fox", "jumped over the lazy dog");
-
-
-// ❌ But here we try to add a new page that never existed, resulting in an error.
-// This is a problem because now we have page1, page2 and "page3"?
-var illegalModifiedCopyOfSomeBook = someBook with {page2 = "jumped over the lazy dog", page3 = "and the dog got angry"};
-
-
-// The issue with the line above is that it changes the STRUCTURE which cannot be implicitly converted.
-// ✅ Changing the names is valid since the amount of members and their types have not changed.
-var aBlankBook = (pageA: "", pageB: "");
-aBlankBook = someBook; // Value: ("The quick brown fox", "jumped over the lazy god");
-
-// ❌ Here we try to change the type of the page from string to int which cannot be implicitly converted.
-var aBookAboutNumbers = someBook with {page1 = 123};
-```
-
-Notice how the `Console.WriteLine(someBook)` doesn't care about the names, it prints: `("The quick brown fox", "jumped over the lazy god")`. <mark style="background-color: #c48ac1">&nbsp;The names are just compile-time syntactic sugar.&nbsp;</mark> Names or not, you can still access or modify tuple members with ease.
-
-```C#
-var marioBrothers = (olderBro: "Mario", youngerBro: "Luigi");
-
-// Modify
-marioBrothers.olderBro = "Toad";
-marioBrothers.Item2 = "Peach";
-
-// Access
-Console.WriteLine(marioBrothers.youngerBro); // Outputs Peach
-Console.WriteLine(marioBrothers.Item1); // Outputs Toad
-```
-
-<br>
-<br>
-
-### Record Type
-A record is a specialized type of _class_ or _struct_ <mark style="background-color: #c48ac1">&nbsp;designed to represent data rather than behaviour.&nbsp;</mark> Think of a record as a shipping label; if we print multiple shipping labels with the exact same information, they are essentially the same since all we care about is the information. This differs from typical class instances where <mark style="background-color: #c48ac1">&nbsp;the identity and behaviour is important.&nbsp;</mark> Imagine twins that are identical in every way, they are still unique people that **should not be used interchangeably** since they are in fact different.
-
-> **Note:** In C#, top-level statements must precede namespace and type declarations. This differs from other languages such as **JavaScript** which allows you to freely mix executable code (_e.g. `Console.log()`_), function declarations, and class definitions anywhere in a file. JavaScript _hoists_ function declarations to the top of their scope so you can call a function before it is defined. <mark style="background-color: #c48ac1">&nbsp;C# is strict and requires execution code to be at the very top of the file while _namespaces_, classes, structs, and _interfaces_ close the top-level statement section. **You cannot place any executable code below a type declaration!**&nbsp;</mark>
-
-<br>
-
-**Record Syntax**
-```C#
-var animal1 = new Animal("dog", "black");
-var animal2 = new Animal("dog", "black");
-Console.WriteLine(animal1 == animal2); // True, value is compared not reference
-
-// Remember this has to be at the bottom.
-public record Animal(string Species, string Color);
-```
-
-<br>
-
-**Compared to Classes**
-```C#
-var animal1 = new Animal("dog", "black");
-var animal2 = new Animal("dog", "black");
-Console.WriteLine(animal1 == animal2); // False, compares object identity by default
-
-// Remember this has to be at the bottom.
-public class Animal (string Species, string Color)
-{
-    // Properties
-    public string Species { get; set; } = Species;
-    public string Color { get; set; } = Color;
-}
-```
-
-The records are still 2 different objects in memory but their equality is based on their value not their reference. Reference equality asks: "**Are these the exact same object?**" Value equality asks: "**Do these objects contain the same data?**". Records generate value-based equality members (_including `==`_) by default. This causes two record instances with the same data to be considered equal, even when they are different objects in memory.
-
-<br>
-
-> **Note:** By default, the equality operator (`==`) performs value equality for built-in value types and reference equality (identity) for reference types. However, user-defined value types (structs) do not automatically support the `==` operator, and specific reference types override this behavior.
-
-<br>
-
-You can also use the `with` expression to create a new record instance from an existing one.
-```C#
-var animal1 = new Animal("dog", "black");
-var animal2 = animal1 with { Color = "white"};
-Console.WriteLine(animal2); // Animal { Species = dog, Color = white }
-
-public record Animal(string Species, string Color);
-```
-
-You can read more on Tuples and types here &rarr; [Microsoft's official Learn C# Guide | Tuples and Types](https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/tuples-and-types#tuples) and a deep dive on _Records_ here &rarr; [Microsoft's official Learn C# Guide | Records](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/records)
-
-<br>
-<br>
-
 ### Arrays
 Arrays are fixed length collections which serve as rigid _Lists<T>_. It's useful for precision or performance when you know the amount won't change. This may be confusing if you are coming from a language such as _JavaScript_ where arrays are flexible; in _C#_ `List<T>` are very similar to the JavaScript `Array`.
 
@@ -929,16 +811,6 @@ Removes all elements from the `List<T>`.
 List<string> users = ["Jim", "Pam", "Michael", "Dwight", "Stanley"];
 users.Clear();
 Console.WriteLine(users.Count); // Outputs: 0
-```
-
-<br>
-<br>
-
-### Dictionary<TKey,TValue>
-A Dictionary is a representation of a collection of keys and values.
-
-```C#
-
 ```
 
 <br>
@@ -1168,6 +1040,7 @@ foreach (string user in newUsers)
 ```
 
 <br>
+<br>
 
 ### LINQ (Language Integrated Query)
 Differs from other langauges like JavaScript where you create a string from another language like `SQL` e.g. `Select * from games` which is not integrated and is not checked for mistakes. It is built to be used somewhere else. LINQ on the other hand is integrated into the language and has words like `from`, `select`, `where`, `in`, etc. The compiler can evaluate this **query syntax** for mistakes. It is not `SQL`, it is a language integrated query.
@@ -1194,31 +1067,292 @@ foreach (int grade in highGrades)
 <br>
 <br>
 
-### Methods
-...
+### Dictionary<TKey,TValue>
+A Dictionary is a representation of a collection of keys and values.
+
+```C#
+// ✅ Modern Dictionary initialization syntax.
+Dictionary<int, string> phoneBook1 = new Dictionary<int, string> ();
+
+// ✅ `var` is fine and preferred when the right-hand side is obvious.
+var phoneBook2 = new Dictionary<int, string> ();
+
+// ✅ An even more concise syntax.
+Dictionary<int, string> phoneBook3 = new ();
+
+// ⚠️ Technically creates an empty dictionary as well but it's preferred to use the above-mentioned syntax.
+Dictionary<int, string> phoneBook4 = new Dictionary<int, string> { };
+
+// ✅ Modern syntax that behaves like repeated assignments to keys rather than `Add()` calls. Allows you to assign the same key more than once, replacing the earlier value.
+var modernPhoneBook = new Dictionary<string, int>
+{
+    ["John Doe"] = 1234567890,
+    ["Jane Doe"] = 0987654321
+};
+var modernPhoneBook2 = new Dictionary<int, string>
+{
+    [1234567890] = "John Doe",
+    [0987654321] = "Jane Doe"
+};
+
+// ⚠️ Valid but legacy syntax that behaves repeated `Add()` so duplicate keys throw an exception.
+var legacyPhoneBook = new Dictionary<string, int>
+{
+    { "John Doe", 1234567890 },
+    { "Jane Doe", 0987654321 }
+};
+```
+
+<br>
+<br>
+
+### Tuples
+Tuples are an ordered sequence of values with a fixed length. Each element of a tuple has a type and an optional name. Since tuples types are structural types, they don't need names like `string` or `int`. Tuple names should be **PascalCase**. A tuple type is defined by the number of members (_referred to as arity_), and the types of those members. Read more here &rarr; [Microsoft's official Learn C# Guide | Tuples](https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/tuples-and-types#tuples).
+
+> **Note:** In C#, _arity_ refers to the number of arguments, parameters, or type elements that a specific code construct accepts. You can assign a tuple to <mark style="background-color: #c48ac1">&nbsp;a tuple with the same arity and types&nbsp;</mark> even if the members have different names.
+
+<br>
+
+**Syntax**
+```C#
+// With names
+var someBook = (page1: "The quick brown fox", page2: "jumped over the lazy dog");
+
+// Without names with mixed types
+var noNameMixedTuple = ("Luigi", 2, true);
+```
+
+<br>
+
+You can also create new _tuples_ from existing ones using the `with` expression so long as the structure matches. What's important to remember is <mark style="background-color: #c48ac1">&nbsp;the names do not matter, only the type and amount of members.&nbsp;</mark>
+
+```C#
+// ✅ First we define a tuple
+var someBook = (page1: "The quick brown fox", page2: "jumped over the lazy god"); // Value: ("The quick brown fox", "jumped over the lazy god");
+
+
+// ✅ Then we create a new tuple using `with` and modify page2.
+var someBookReprinted = someBook with {page2 = "jumped over the lazy dog"}; // Value: ("The quick brown fox", "jumped over the lazy dog");
+
+
+// ❌ But here we try to add a new page that never existed, resulting in an error.
+// This is a problem because now we have page1, page2 and "page3"?
+var illegalModifiedCopyOfSomeBook = someBook with {page2 = "jumped over the lazy dog", page3 = "and the dog got angry"};
+
+
+// The issue with the line above is that it changes the STRUCTURE which cannot be implicitly converted.
+// ✅ Changing the names is valid since the amount of members and their types have not changed.
+var aBlankBook = (pageA: "", pageB: "");
+aBlankBook = someBook; // Value: ("The quick brown fox", "jumped over the lazy god");
+
+// ❌ Here we try to change the type of the page from string to int which cannot be implicitly converted.
+var aBookAboutNumbers = someBook with {page1 = 123};
+```
+
+Notice how the `Console.WriteLine(someBook)` doesn't care about the names, it prints: `("The quick brown fox", "jumped over the lazy god")`. <mark style="background-color: #c48ac1">&nbsp;The names are just compile-time syntactic sugar.&nbsp;</mark> Names or not, you can still access or modify tuple members with ease.
+
+```C#
+var marioBrothers = (olderBro: "Mario", youngerBro: "Luigi");
+
+// Modify
+marioBrothers.olderBro = "Toad";
+marioBrothers.Item2 = "Peach";
+
+// Access
+Console.WriteLine(marioBrothers.youngerBro); // Outputs Peach
+Console.WriteLine(marioBrothers.Item1); // Outputs Toad
+```
+
+<br>
+<br>
+
+### Record Type
+A record is a specialized type of _class_ or _struct_ <mark style="background-color: #c48ac1">&nbsp;designed to represent data rather than behaviour.&nbsp;</mark> Think of a record as a shipping label; if we print multiple shipping labels with the exact same information, they are essentially the same since all we care about is the information. This differs from typical class instances where <mark style="background-color: #c48ac1">&nbsp;the identity and behaviour is important.&nbsp;</mark> Imagine twins that are identical in every way, they are still unique people that **should not be used interchangeably** since they are in fact different.
+
+> **Note:** In C#, top-level statements must precede namespace and type declarations. This differs from other languages such as **JavaScript** which allows you to freely mix executable code (_e.g. `Console.log()`_), function declarations, and class definitions anywhere in a file. JavaScript _hoists_ function declarations to the top of their scope so you can call a function before it is defined. <mark style="background-color: #c48ac1">&nbsp;C# is strict and requires execution code to be at the very top of the file while _namespaces_, classes, structs, and _interfaces_ close the top-level statement section. **You cannot place any executable code below a type declaration!**&nbsp;</mark>
+
+<br>
+
+**Record Syntax**
+```C#
+var animal1 = new Animal("dog", "black");
+var animal2 = new Animal("dog", "black");
+Console.WriteLine(animal1 == animal2); // True, value is compared not reference
+
+// Remember this has to be at the bottom.
+public record Animal(string Species, string Color);
+```
+
+<br>
+
+**Compared to Classes**
+```C#
+var animal1 = new Animal("dog", "black");
+var animal2 = new Animal("dog", "black");
+Console.WriteLine(animal1 == animal2); // False, compares object identity by default
+
+// Remember this has to be at the bottom.
+public class Animal (string Species, string Color)
+{
+    // Properties
+    public string Species { get; set; } = Species;
+    public string Color { get; set; } = Color;
+}
+```
+
+The records are still 2 different objects in memory but their equality is based on their value not their reference. Reference equality asks: "**Are these the exact same object?**" Value equality asks: "**Do these objects contain the same data?**". Records generate value-based equality members (_including `==`_) by default. This causes two record instances with the same data to be considered equal, even when they are different objects in memory.
+
+<br>
+
+> **Note:** By default, the equality operator (`==`) performs value equality for built-in value types and reference equality (identity) for reference types. However, user-defined value types (structs) do not automatically support the `==` operator, and specific reference types override this behavior.
+
+<br>
+
+You can also use the `with` expression to create a new record instance from an existing one.
+```C#
+var animal1 = new Animal("dog", "black");
+var animal2 = animal1 with { Color = "white"};
+Console.WriteLine(animal2); // Animal { Species = dog, Color = white }
+
+public record Animal(string Species, string Color);
+```
+
+You can read more on Tuples and types here &rarr; [Microsoft's official Learn C# Guide | Tuples and Types](https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/tuples-and-types#tuples) and a deep dive on _Records_ here &rarr; [Microsoft's official Learn C# Guide | Records](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/records)
+
+<br>
+<br>
+
+### Structure types (_struct_)
+A _struct_ is like a blueprint or a template. Components inside a sruct definition are called members (_e.g. fields, properties and methods_). An instance of the struct is a concrete object created in memory that holds specific values for those members. A _structure type_ is a **value type** that can encapsulate data and related functionality. It can be defined directly inside a namespace, at the file level, or nested inside a class. A _struct_ is a standalone, top-level type just like a _class_ with very similar syntax. The variables defined in a struct are called _fields_. It is recommended to use a _constructor_ when defining a struct so you can specify field values during instantiation.
+
+> **Note:** The constructor name must be identical with the struct name.
+
+<br>
+
+```C#
+Console.WriteLine(Player.Description); // Outputs: The `Player` struct is a structure type that...
+var player1 = new Player();
+var player2 = new Player("Luigi", 100, 25);
+player1.Name = "Kaz";
+player1.GetStats(); // Outputs: The player Kaz has 0HP and 0DMG.
+player1.Train(10);
+player1.Rest();
+player1.Name = "Zak";
+player1.GetStats(); // Outputs: The player Zak has 50HP and 10DMG.
+player2.GetStats(); // Outputs: The player Luigi has 100HP and 25DMG.
+
+public struct Player
+{
+    /* public: Accessible from outside of this struct definition.
+     * private: Only accessible from within the struct definition.
+     * static: Only accessible on the struct itself not an instance of the struct.
+     * get: Can read the field value e.g. Console.Write(structInstance.FieldValue)
+     * set: Can modify the field value e.g. structInstance.FieldValue = aNewValue
+     */
+
+    public static string Description = "The `Player` struct is a structure type that...";
+    public string Name { get; set; }
+    public int Health { get; private set; }
+    public int Damage { get; private set; }
+
+    // Constructor (optional but recommended), allows you to specify field values during instantiation.
+    public Player(string name, int health, int damage)
+    {
+        Health = health;
+        Damage = damage;
+        Name = name;
+    }
+
+    public void GetStats()
+    {
+        Console.WriteLine($"The player {Name} has {Health}HP and {Damage}DMG.");
+    }
+
+    public void Train(int dmg)
+    {
+        Damage += dmg;
+    }
+
+    public void Rest()
+    {
+        RaiseHealth(50);
+    }
+
+    private void RaiseHealth(int hp)
+    {
+        Health += hp;
+    }
+}
+```
+
+Structs can also be `readonly` declaring it as immutable. All data members of a `readonly` struct must be read-only. You can read more on &rarr; [Microsoft's official Learn C# Guide | Structure types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct#readonly-struct)
 
 <br>
 <br>
 
 ### Classes
-Add notes on parent classes, referred to as abstract classes if they serve no purpose alone and serve as a parent class (can look up notes on abstract classes).
-Can also add abstract methods when we want the child to define it.
-Also add notes on override method in child for abstract methods in parent to avoid IDE warning.
+A class is like a blueprint or a template. Components inside a class definition are called members (_e.g. fields, properties and methods_). An instance of the class is a concrete object created in memory that holds specific values for those members. A _class type_ is a **reference type** that can encapsulate data and related functionality. It can be defined directly inside a namespace, at the file level, or nested inside another class. A _class_ is a standalone, top-level type just like a _struct_ with very similar syntax. The variables defined in a class are called _fields_. It is recommended to use a _constructor_ when defining a class so you can specify field values during instantiation.
+
+> **Note:** The fundamental difference between a _struct_ and a _class_ is that classes are _reference_ type whereas structs are _value_ type. While their syntax looks almost identical they behave completely differently.
+
+<br>
+
 ```C#
-public class Cat ()
+Console.WriteLine(Player.Description); // Outputs: The `Player` class is a class type that...
+var player1 = new Player("mario", 90, 30);
+player1.Name = "Mario";
+player1.Train(5);
+player1.Rest();
+player1.GetStats(); // Outputs: The player Mario has 140HP and 35DMG.
+
+public class Player
 {
-    // Older Syntax
-    public string Meow() {return "Meow!";}
+    /* public: Accessible from outside of this class definition.
+     * private: Only accessible from within the class definition.
+     * static: Only accessible on the class itself not an instance of the class.
+     * get: Can read the field value e.g. Console.Write(classInstance.FieldValue)
+     * set: Can modify the field value e.g. classInstance.FieldValue = aNewValue
+     */
 
-    // Newer Concise One Line Syntax
-    public string Meow() => "Meow!";
+    // here `const` is automatically `static`, preferred over `static` when the value won't change.
+    public const string Description = "The `Player` class is a class type that...";
+    public string Name { get; set; }
+    public int Health { get; private set; }
+    public int Damage { get; private set; }
+
+    // Constructor (optional but recommended), allows you to specify field values during instantiation.
+    public Player(string name, int health, int damage)
+    {
+        Health = health;
+        Damage = damage;
+        Name = name;
+    }
+
+    public void GetStats()
+    {
+        Console.WriteLine($"The player {Name} has {Health}HP and {Damage}DMG.");
+    }
+
+    public void Train(int dmg)
+    {
+        Damage += dmg;
+    }
+
+    public void Rest()
+    {
+        RaiseHealth(50);
+    }
+
+    private void RaiseHealth(int hp)
+    {
+        Health += hp;
+    }
 }
-```.
-A class defines the blueprint or template.
+```
 
-A member is a component within that blueprint, such as a field, property, or method.
+<br>
 
-An instance (or instantiation) of the class is a concrete object created in memory that holds specific values for those members.
+Another example with some different syntax, some more legacy and some more modern.
 
 ```C#
 // See https://aka.ms/new-console-template for more information
@@ -1275,7 +1409,49 @@ public class Villain(string villainName, string realName, DateOnly dateOfBirth)
 }
 
 ```
+
 The last example is a clear, idiomatic, and recommended way with C# 12 primary constructors.
+
+<br>
+<br>
+
+### Methods
+A method is a reusable code block that belongs to a _type_ and contains a series of statements. You execute the method by calling it (_e.g. `MethodName()`_). Methods can optionally expect _arguments_ as well which must be provided during the method call (_unless they have default values_). In C#, unlike JavaScript, <mark style="background-color: #c48ac1">&nbsp;you generally do not write standalone functions at the top level of a file. Instead, reusable code is usually defined as a _method_ inside a class, struct, or other type.&nbsp;</mark> The term _function_ is sometimes used casually, but in C# the more accurate term is _method_. A method can be static, so it does not require an object instance, but it still belongs to a _type_. The naming convention is PascalCase/UpperCamelCase.
+
+```C#
+var pet = new Dog();
+pet.GetDescription();
+pet.Bark();
+
+public class Animal
+{
+    private string Description { get; } = "An animal";
+
+    public void GetDescription()
+    {
+        Console.WriteLine(Description);
+    }
+}
+
+public class Dog : Animal
+{
+    public string Name { get; } = "Goddard";
+    public void Bark()
+    {
+        Console.WriteLine("Bork Bork!");
+    }
+}
+```
+
+#### Async Methods
+You can create asynchronous methods with the `async` keyword. Using the `async` modifier allows you to use the `await` operator in the method. When the `await` expression is reached, progress in the method stops until the awaited task completes.
+
+```C#
+// TODO...
+```
+
+You can read more on &rarr; [Microsoft's official Learn C# Guide | Methods](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/methods)
+
 <br>
 <br>
 
