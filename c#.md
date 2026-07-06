@@ -1457,7 +1457,22 @@ You can read more on &rarr; [Microsoft's official Learn C# Guide | Methods](http
 
 ---
 ## .NET
-...
+_.NET_ is a free, open-source, & cross-platform development platform that supports _C#_, _F#_ and more. You can build almost anything with _.NET_ including web apps & services, mobile apps, desktop apps, cloud native apps, APIs and more. It's important to note that _.NET_ and _.NET Framework_ are **not the same thing**; _.NET Framework_ is the first rendition of _.NET(V. 5+)_ that only runs on Windows. _.NET_ is the modernized version which runs on Linux, MacOS, and Windows.
+
+|.NET _(V. 5+)_|.NET Framework _(V. <= 4.8.1)_|
+|:--:|--------------|
+|Runs on Linux, macos, & Windows|Only runs on Windows|
+|Open-source & accepts contributions from community|Source code available but does not accept contributions|
+|All the innovation happens here! Supports more application types and delivers higher performance|Security & reliability bug fixes only|
+|Not shipped with operating system|Included in Windows & updated by Windows updates|
+|**Recommended** for new development|**Not recommended** for new development|
+
+> **Note:** For Windows machines it's best to use _Visual Studio_ and for MacOS it's best to use _Rider_; using _VS Code_ with a few extensions is also a valid option.
+
+<br>
+
+### next....
+blah
 
 <br>
 <br>
