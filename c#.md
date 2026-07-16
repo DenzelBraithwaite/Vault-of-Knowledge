@@ -1455,8 +1455,30 @@ You can read more on &rarr; [Microsoft's official Learn C# Guide | Methods](http
 <br>
 <br>
 
+### Exception Handling
+In **C#** you can handle exceptions easily with a `try`, `catch` block, controlling what happens if the code succeeds and what happens when it fails.
+
+```C#
+try
+{
+  // Code that might throw an exception.
+}
+catch (SpecificException ex) // Catches specific exceptions, allowing tailored responses.
+{
+    // Handle this specific error.
+}
+finally
+{
+    // Cleanup code. Executes regardless of whether an exception was thrown.
+}
+```
+_Snippet above taken from [Zerotomastery C# Cheatsheet](https://zerotomastery.io/cheatsheets/csharp-cheat-sheet/#basic-structure)_
+
+<br>
+<br>
+
 ---
-## .NET
+## .NET (_dotnet_)
 _.NET_ is a free, open-source, & cross-platform development platform that supports _C#_, _F#_ and more. You can build almost anything with _.NET_ including web apps & services, mobile apps, desktop apps, cloud native apps, APIs and more. It's important to note that _.NET_ and _.NET Framework_ are **not the same thing**; _.NET Framework_ is the first rendition of _.NET(V. 5+)_ that only runs on Windows. _.NET_ is the modernized version which runs on Linux, MacOS, and Windows.
 
 |.NET _(V. 5+)_|.NET Framework _(V. <= 4.8.1)_|
@@ -1471,8 +1493,140 @@ _.NET_ is a free, open-source, & cross-platform development platform that suppor
 
 <br>
 
-### next....
-blah
+### Quick Tips
+- The .NET tools (_Microsoft_) collects usage data and is shared with the community. You can opt-out of telemetry by going in your terminal (_anywhere_) and setting the `DOTNET_CLI_TELEMETRY_OPTOUT` environment variable to `1`. The following commands are for **bash(_MacOS/Linux_)**, the command varies with OS.
+  - **Command** &rarr; `export DOTNET_CLI_TELEMETRY_OPTOUT=1`.
+  - **Confirm** &rarr; `echo $DOTNET_CLI_TELEMETRY_OPTOUT` (_should output 1_).
+- It is not required but considered **best practice** to create a custom `ToString()` method for every class you create to override the default behaviour and output the data contained in your class. By default, `ToString()` returns the fully qualified name of the class (e.g. _Namespace.ClassName_), which provides no information about the specific object instance.
+
+<br>
+<br>
+
+### Minimal API CRUD Operations
+Here's an example of how to configure a minimal API that you can test in your IDE (_Riders or Visual Studio_). There are two main things we need to do. First, we define the endpoints with the appropriate HTTP verb and handler function. Second, we will create `http` files that will serve as client requests to those endpoints.
+
+<br>
+
+#### Creating the Endpoints and Handlers
+- **GET** `/endpoint` for fetching all resources.
+- **GET** `/endpoint/{id}` for fetching a specific resource.
+- **POST** `/endpoint` for adding a resource.
+- **PUT** `/endpoint/{id}` for replacing a resources (_similar to `PATCH` which updates/modifies a resource_).
+- **DELETE** `/endpoint/{id}` for deleting a specific resource.
+
+<br>
+
+```C#
+/* Endpoints allow us to define how a request should be processed by a server.
+ * There are 3 components that are important for defining how requests should be handled.
+ * HTTP Request -> MapGet()
+ * URL Route -> "/endpoint"
+ * Handler -> Code executed when a request matches a method and route.
+ * Example -> app.MapGet("/", () => "Hello World!");
+ */
+
+// This lets us use the <Results> type
+using Microsoft.AspNetCore.Http.HttpResults;
+
+// Boilerplate - Provides us with APIs for configuring the application host.
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+
+// We will use a list of Patient Files to practice CRUD requests (PatientFile is a record dfined below).
+List<PatientFile> patientFiles = [ new PatientFile(0, "Kaz", 30, new DateOnly(1996, 01, 01), true) ];
+
+// Now we will create our handlers to handle requests.
+// `GET` request will return the patient list.
+app.MapGet("/patients", () => patientFiles);
+
+// Next we create a route parameter that can target a specific resource.
+// We specify a return type of <Ok> with a <PatientFile> in the body of the response or simply <NotFound>.
+app.MapGet("/patients/{id}", Results<Ok<PatientFile>, NotFound>(int id) =>
+{
+    // `SingleOrDefault` provided by LINQ here only makes sense since we already have our deserialized list locally. For a real async request we may want to use an if statement checking for response status codes e.g. `response.isSuccessStatusCode`
+    PatientFile? patient = patientFiles.SingleOrDefault(p => p.Id == id);
+    return patient is null ? TypedResults.NotFound() : TypedResults.Ok(patient);
+});
+
+// `POST` requests will add a patient file to the list. `TypedResults.Created()` returns a strongly typed result object. C# can infer it from the lambda body so no need for explicit type return.
+app.MapPost("/patients", (PatientFile patient) =>
+{
+    patientFiles.Add(patient);
+
+    // We use `TypedResults` to return a strongly typed response. We use `Created` to return a 201 - Good.
+    return TypedResults.Created("/patients/{id}", patient);
+});
+
+// `Put` requests will completely replace a specified resource.
+app.MapPut("/patients/{id}", Results<Ok<PatientFile>, NotFound> (int id, PatientFile patient) =>
+{
+    // If we can't find the resource we will return a 404 - Not Found.
+    PatientFile? result = patientFiles.FirstOrDefault(p => p.Id == id);
+    if (result is null) return TypedResults.NotFound();
+    
+    // Otherwise find and replace the resource then return a 204 - No Content
+    int index = patientFiles.FindIndex(p => p.Id == result.Id);
+    patientFiles[index] = patient;
+    return TypedResults.Ok(patient);
+});
+
+// `Delete` requests will delete a specific patient file from the list.
+app.MapDelete("/patients/{id}", Results<NoContent, NotFound> (int id) =>
+{
+    // If we can't find the resource we will return a 404 - Not Found.
+    int result = patientFiles.FindIndex(p => p.Id == id);
+    if (result == -1) return TypedResults.NotFound();
+    
+    // Otherwise, remove all instances of the id found in the list and return a 204 - No Content.
+    patientFiles.RemoveAll(p => p.Id == id);
+    return TypedResults.NoContent();
+});
+
+app.Run();
+
+public record PatientFile (int Id, string Name, int Age, DateOnly BirthDate, bool Alive);
+```
+
+<br>
+
+#### Creating HTTP Files (_Requests_)
+These `HTTP` files are very minmal and serve as examples of requests, the resource IDs have been hardcoded.
+
+```http
+// Contents of GetPatients.http
+GET http://localhost:5001/patients
+
+// Contents of GetPatient.http
+GET http://localhost:5001/patients/1
+
+// Contents of PostPatient.http
+POST http://localhost:5001/patients
+content-type: application/json
+
+{
+    "id": 1,
+    "name": "Eli",
+    "age": 30,
+    "birthDate": "1996-02-14",
+    "alive": true
+}
+
+// Contents of PutPatient.http
+PUT http://localhost:5001/patients/0
+content-type: application/json
+
+{
+    "id": 0,
+    "name": "Steven",
+    "age": 45,
+    "birthDate": "1981-01-01",
+    "alive": false
+}
+
+// Contents of DeletePatient.http
+DELETE http://localhost:5001/patients/1
+
+```
 
 <br>
 <br>
