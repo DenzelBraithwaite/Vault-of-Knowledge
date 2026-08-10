@@ -1590,7 +1590,7 @@ public record PatientFile (int Id, string Name, int Age, DateOnly BirthDate, boo
 <br>
 
 #### Creating HTTP Files (_Requests_)
-These `HTTP` files are very minmal and serve as examples of requests, the resource IDs have been hardcoded.
+These `HTTP` files are very minimal and serve as examples of requests, the resource IDs have been hardcoded.
 
 ```http
 // Contents of GetPatients.http
@@ -1626,6 +1626,167 @@ content-type: application/json
 // Contents of DeletePatient.http
 DELETE http://localhost:5001/patients/1
 
+```
+
+<br>
+<br>
+
+#### Middlewares
+Middlewares are a piece of code that can run before and after each request is processed. They are a powerful way to execute common functionality on each request.
+
+> Middlewares will run on all requests, so they are an ideal place to add _logging_, _authentication_, error handling, and more.
+
+<br>
+
+```C#
+// TODO: get working
+using Microsoft.AspNetCore.Rewrite;
+
+// Redirecting requests from one route to another without defining extra handlers.
+app.UseRewriter(new RewriteOptions().AddRedirect("/endpoint/(.*)", "redirected-endpoint"));
+```
+
+<br>
+<br>
+
+### Connecting to a Database (_SQL_)
+To connect to an SQL database you will need a few things:
+1. In your API folder (_backend_) create a `data/` folder and `models/` folder.
+2. Create `data/AppDbContext.cs` where we will use [EF Core]('https://learn.microsoft.com/en-us/ef/core/') (_allows you to prepare queries and execute them_).
+3. Create `models/<YourModel>.cs` e.g. `models/Teachers.cs` (_each model is a class_).
+4. Inside `appsettings.json` make sure to add your server/db information and credentials (_connection string_).
+5. [Map your endpoints](#creating-the-endpoints-and-handlers).
+6. Hit the endpoints from frontent using created queryable entry points for the model.
+
+<br>
+
+#### Inside `appsettings.json`
+```json
+{
+ //...other settings
+  "ConnectionStrings": {
+    "NameOfDbConnection": "Server=<SERVER,PORT>;Database=<DATABASE>;User Id=USER;Password=PWD;TrustServerCertificate=True;"
+  }
+}
+```
+
+<br>
+
+#### Inside `Teacher.cs` (_`<ModelName>.cs`_)
+```C#
+namespace SimpleWebApp.Api.Models;
+
+public class Teacher
+{
+    public int EmployeeId { get; }
+    public string FirstName { get; } = string.Empty;
+    public string LastName { get; } = string.Empty;
+    public string Email { get; } = string.Empty;
+}
+```
+
+<br>
+
+#### Inside `AppDbContext.cs`
+```C#
+// Enables syntax like: DbContext, DbSet, DbContextOptions, ModelBuilder, ToListAsync()
+using Microsoft.EntityFrameworkCore;
+// The folder where the model classes are located, otherwise would have to <SimpleWebApp.Api.Models.ModelName> ModelName.
+using SimpleWebApp.Api.Models;
+// For organization and avoiding naming conflicts (name of backend/api/data folder).
+namespace SimpleWebApp.Api.Data;
+
+/* AppDbContext is the doorway between C# and SQL. In this example we create a db context that exposes a query source called "Teachers" and "Students".
+ * Teachers represent records from a SQL Server table.
+ * Students represent records from a SQL Server view.
+ * This DB context does not fetch data by itself, it tells "Entity Framework Core": When the API asks for Teacher records, here is how those records relate to the database.
+ * EF Core uses the rules defined in AppDbContext to generate and execute SQL.
+ * DbContext translates LINQ into SQL, executes queries, manages db connections, etc.
+ * A DbContext is normally created for a unit of work--typically one HTTP request.
+ */
+
+public class AppDbContext : DbContext
+{
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+    {
+    }
+    
+    // DbSet<T> gives the endpoint a queryable entry point for this model (a c# collection-like entry point).
+    // Example: db.Teachers.ToListAsync() eventually executes a database query.
+    public DbSet<Teacher> Teachers => Set<Teacher>();
+    public DbSet<Student> Students => Set<Student>();
+    
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        // For ALL models, modelBuilder says “Configure how the model(e.g. Teacher) C# type maps to the database.”
+        modelBuilder.Entity<Teacher>(entity =>
+        {
+            // Database Object
+            entity.ToTable("teachers");
+            
+            // Identity (primary key)
+            entity.HasKey(t => t.EmployeeId);
+            
+            //Properties
+            // HasColumnName("col_name") means "C#: Model.FieldName" is mapped to the value from "SQL: field_name". 
+            entity.Property(t => t.EmployeeId).HasColumnName("employee_id");
+            entity.Property(t => t.FirstName).HasColumnName("first_name");
+            entity.Property(t => t.LastName) .HasColumnName("last_name");
+            entity.Property(t => t.Email).HasColumnName("email");
+        });
+        
+        // Another example of adding a modelBuilder
+        modelBuilder.Entity<Student>(entity =>
+        {
+            // DatabaseObject: ToView() Tells EF Core use an existing SQL view.
+            entity.ToView("view_all_students");
+            
+            // If no identity(PK) such as a view, configure as keyless entity instead.
+            entity.HasNoKey();
+            
+            // Properties
+            entity.Property(s => s.StudentId).HasColumnName("student_id");
+            entity.Property(s => s.FirstName).HasColumnName("first_name");
+            entity.Property(s => s.LastName) .HasColumnName("last_name");
+            entity.Property(s => s.Email).HasColumnName("email");
+        });
+    }
+}
+```
+
+<br>
+
+#### Inside `Program.cs` (_where we defined endpoints_)
+```C#
+using Microsoft.EntityFrameworkCore;
+using SimpleWebApp.Api.Data;
+
+// Basic example
+app.MapGet("/teachers", async (AppDbContext db, string firstName) =>
+{
+    var teachers = await db.Teachers // <-- we use db.Teachers that we created
+        .Where(t => t.FirstName == firstName)
+        .OrderBy(t => t.FirstName)
+        .ToListAsync(); // Executes query
+
+    return Results.Ok(teachers);
+});
+```
+
+<br>
+
+#### Inside `App.svelte` (_where we contact our backend API via our endpoints_)
+```ts
+// Basic example
+async function getTeachers(): Promise<void> {
+  const response = await fetch('http://localhost:1234/teachers?first_name=Denzel');
+
+  if (!response.ok) {
+    throw new Error(`Failed to fetch teachers: ${response.status}`);
+  }
+
+  teachers = await response.json();
+}
 ```
 
 <br>
