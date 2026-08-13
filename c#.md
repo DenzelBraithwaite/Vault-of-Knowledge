@@ -1639,12 +1639,13 @@ Middlewares are a piece of code that can run before and after each request is pr
 <br>
 
 ```C#
-// TODO: get working
 using Microsoft.AspNetCore.Rewrite;
 
 // Redirecting requests from one route to another without defining extra handlers.
 app.UseRewriter(new RewriteOptions().AddRedirect("/endpoint/(.*)", "redirected-endpoint"));
 ```
+
+<mark>Will add more notes on middlewares...</mark>
 
 <br>
 <br>
@@ -1656,7 +1657,7 @@ To connect to an SQL database you will need a few things:
 3. Create `models/<YourModel>.cs` e.g. `models/Teachers.cs` (_each model is a class_).
 4. Inside `appsettings.json` make sure to add your server/db information and credentials (_connection string_).
 5. [Map your endpoints](#creating-the-endpoints-and-handlers).
-6. Hit the endpoints from frontent using created queryable entry points for the model.
+6. Hit the endpoints from frontend using created queryable entry points for the model.
 
 <br>
 
