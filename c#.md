@@ -50,13 +50,13 @@ Nullable Reference Types: Brought null-safety, closing one of C#'s biggest histo
 - Collections expressions:
   - Initialize lists and arrays using bracket syntax. `List<int> nums = [1, 2, 3];` Instead of `new List<int> { 1, 2, 3 };`
   - Spread operator `..` to merge collections.
-  ```C#
+  ```CS
   int[] a = [1, 2, 3];
   int[] b = [4, 5];
   int[] joined = [..a, ..b, 6, 7]; // Merges and appends[4][2][8]
   ```
 - Primary Constructors: Specify constructor parameters directly in the class/struct header, reducing boilerplate.
-```C#
+```CS
 class Point(int x, int y)
 {
     // use x and y directly
@@ -190,7 +190,7 @@ C#, like most other programming languages, uses variables to store and access da
 
 C# is a statically typed langauge that requires you to explicitly declares the type of every variable, except when using the `var` keyword. With `var`, the compiler infers the variable's type based on the assigned value at compile time.
 
-```C#
+```CS
 // Explicitly declared as string.
 string aStringVariable = "some string";
 
@@ -209,7 +209,7 @@ var anotherNumber = 2;
 ### Constants
 Constants are immutable variables that cannot be changed. They typically follow the **PascalCase** naming convention beginning with an uppercase letter.
 
-```C#
+```CS
 const int YearOfBirth = 1996;
 ```
 
@@ -218,7 +218,7 @@ const int YearOfBirth = 1996;
 ### Comments
 Single line comments are denoted by prepending the code with two forward slashes `//`. Multi-line comments are denoted by typing your code between the opening `/*` and closing `*/`.
 
-```C#
+```CS
 // This is a single line comment.
 
 // .NET Coding Conventions actually recommends
@@ -250,7 +250,7 @@ the top of files as a legal/copyright header
 ### Strings
 A string in C# is a series of characters between double quotes `"string"`. This can be a [string literal](#string-literal) or perhaps a value returned in the form of a string.
 
-```C#
+```CS
 // Reads input from the user, stored as a string.
 string userResponse = Console.ReadLine();
 ```
@@ -260,7 +260,7 @@ string userResponse = Console.ReadLine();
 #### String Literal
 A string literal is when we *literally* describe the exact string we want.
 
-```C#
+```CS
 string name = "This is a string literal";
 ```
 
@@ -271,7 +271,7 @@ A raw string literal is useful for creating multi-line strings and for providing
 If the raw string literal is on one line, the double quotes(`"""`) need to be one the same line. If it spans multiple lines then the double quotes must be on their own line. You can read more on &rarr; [Microsoft's official Learn C# Guide | Raw string literals](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/#raw-string-literals).
 
 **Some useful exmaples from Microsoft's Guide:**
-```C#
+```CS
 // ✅ Valid: Single line raw string literal requires double quotes on the same line.
 string singleLine = """Friends say "hello" as they pass by.""";
 
@@ -318,7 +318,7 @@ var noOutdenting = """
 #### Concatenation
 String concatenation is the act of adding multiple strings together to form one bigger string.
 
-```C#
+```CS
 string firstName = "Santa";
 string lastName = "Clause";
 string fullName = firstName + " " + lastName;
@@ -330,7 +330,7 @@ Console.Write(fullName); // Outputs "Santa Clause"
 #### Interpolation
 String interpolation is when we want to mix code/variables within a string, with the output being a string. Many times this will more readable and concise than concatentation. It is denoted by a `$` symbol preceding the string. To allow the use of code/variables, you use `{}` curly/squiggly braces and write the code inside. The compiler will resolve and replace the code with the value.
 
-```C#
+```CS
 string firstName = "Santa";
 string lastName = "Clause";
 string fullName = $"{firstName} {lastName}";
@@ -342,7 +342,7 @@ Console.Write(fullName); // Outputs "Santa Clause"
 #### Verbatim Syntax and MultiLine Strings
 Varbatim syntax is when we want the string to appear exactly as we've typed it. This may sound like a string literal, but the differences is that in normal strings, we can use certain special syntax such as  `\n` to create a new line. Because of this, sometimes we must use a backslash `\` followed by another character to perform some sort of action. The `\` however is invalid by itself in a string since the compiler is expecting special syntax. Therefor, it must be _escaped_ by another `\` like so `\\`. That would output a single `\`. Also, we can't naturally span a string over several lines without the use of `\n`. So, if we want the string to appear exactly as we typed it, including new lines and all special characters (_removing the ability to use special syntax like `\n`_), we need to prepend the string with the `@` symbol. This can be mixed with the `$` symbol for interoplation and can be before or after the `$`. E.g. `@$` or `$@` are valid.
 
-```C#
+```CS
 // Regular string literal.
 string example1 = "I       am a string \n Now I am the same string on a new line. \\ <-- this backslash must be escaped or it will raise an error."
 + "\nThis is concatenated and starts with a new line!";
@@ -370,7 +370,7 @@ This is an interpolated variable on a new line, randomNumber = 123!
 #### Handy String Methods
 Here are a few string methods that are often used.
 
-```c#
+```cS
 // Example strings
 string bookExcerptPart1 = "In the shade of the house, in the sunshine on the river bank by the boats. ";
 string bookExcerptPart2 = "In the shade of the sallow wood and the fig tree.";
@@ -481,7 +481,7 @@ char[] cutUpPage = newFirstPage.ToCharArray(); // ['I', 'n', ' ', 'a', ' ', 'v',
 ### Chars
 It's important to remember that `char` and `string` do not mix. A `char` is a single character, whereas a `string` is a **sequence of characters**, even if it has length 1.
 
-```C#
+```CS
 // Denoted with single quotes.
 char c = 'a';
 
@@ -497,7 +497,7 @@ c == s[0];
 
 Another example of a pitfall:
 
-```C#
+```CS
 // sentence is a string, nothing fancy here.
 string sentence = "Howdy do partner?";
 
@@ -509,7 +509,7 @@ int badCount = sentence.Count(c => c == "a"); // ❌ Can't compare char with str
 
 So if this happens, an easy solution is to convert the `string` to a `char`.
 
-```C#
+```CS
 foreach (string letter in alphabet)
 {
     char c = letter[0]; // Effectively converts the string to a char since letter is a string of length 1.
@@ -526,7 +526,7 @@ There are quite a few number types in C#, so we will focus on the most common. T
 
 For simple numbers that are whole and not expected to exceed `2,147,483,648 to 2,147,483,647`, the most common choise is the `int` type. For bigger numbers, it's common to use `long` instead, which has a limit of `9,223,372,036,854,775,807` (_e.g. counting populations or file bytes_).
 
-```C#
+```CS
 // int makes sense here since age will never exceed the maximum number.
 int age = 29;
 
@@ -552,7 +552,7 @@ For numbers that use decimal points, there are three common choices depending on
 
 <br>
 
-```C#
+```CS
 // float syntax, the 'f' is mandatory.
 float floatingNumber = 10.1f; // Outputs 10.1
 float floatingNumber2 = 10.1F; // Outputs 10.1
@@ -571,7 +571,7 @@ decimal decimalNumber2 = 10.1M; // Outputs 10.1
 
 **Note:** If you attempt to store a floating-point number inside a type such as float but forget the `f` suffix, the compiler will default to `double` and then attempt to put that `double` into the type you explicitly stated, which will raise a compile-time error unless you used `var` or `double` as the type.
 
-```C#
+```CS
 // ✅ Valid: Compiler sees float, user wants to store as float, all is good.
 float floatingNumber1 = 10.1f;
 
@@ -612,7 +612,7 @@ Because of this, when performing arithmetics, it is impossible for these types t
 #### Checked Keyword
 The `checked` keyword enforces overflow checking. In a **checked context**, if an operation exceeds the storage capacity of the target type (_e.g. adding beyond `int.MaxValue`_), a `System.OverflowException` is thrown. In aun **unchecked context** (_the default for most builds_), overflow causes silent truncation or wraparound rather than exception (_meaning you won't get an error but your value will be inaccurate_). `checked` affects operations textually inside its scope, meaning only those operations written inside the `checked { }` block or expression use overflow checking.
 
-```C#
+```CS
 int c = int.MaxValue;
 int d = a + 1; // Silently stores an incorrect value
 
@@ -630,7 +630,7 @@ In essence, `checked` helps catch overflow errots in intergral math and conversi
 #### Casting
 Casting between numeric types explicitly attempts to convert one type to another. This can be useful when performing arithmetic operations on floating-points that cannot be implicitly converted such as `float` and a `decimal` (Refer to the above [table](#arithmetics-with-floats-doubles-and-decimals)).
 
-```C#
+```CS
 float floatingNumber = 1.23f;
 decimal decimalNumber = 1.23m;
 
@@ -655,7 +655,7 @@ The `dynamic` type indicates that the variable and references to its members byp
 ### Arrays
 Arrays are fixed length collections which serve as rigid _Lists<T>_. It's useful for precision or performance when you know the amount won't change. This may be confusing if you are coming from a language such as _JavaScript_ where arrays are flexible; in _C#_ `List<T>` are very similar to the JavaScript `Array`.
 
-```C#
+```CS
 string[] bestFriends = ["Larry", "Curly", "Moe"];
 ```
 
@@ -668,7 +668,7 @@ The `List<T>` type stores sequences of elements; you specify the type of the ele
 <br>
 
 **Try running the following code to see the output.**
-```C#
+```CS
 // Initialize the alphabet to loop over
 List<char> alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
@@ -703,7 +703,7 @@ foreach (var (key, value) in alphabetCount)
 #### Accessing index
 Easily access an element in a collection via its index. Use square bracket notation to target the element, use the caret (`^`) symbol to start from the end where `[0]` means the first element in 0-indexed collections and `^1` targets the last element.
 
-```C#
+```CS
 string[] bestFriends = ["Larry", "Curly", "Moe"];
 Console.WriteLine(bestFriends[0]); // Larry
 Console.WriteLine(bestFriends[^1]); // More
@@ -714,7 +714,7 @@ Console.WriteLine(bestFriends[^1]); // More
 #### Count
 Counts the amount of elements in a collection.
 
-```C#
+```CS
 List<string> users = ["Jim", "Pam", "Michael", "Dwight", "Stanley"];
 Console.WriteLine(users.Count); // Outputs: 5
 ```
@@ -724,7 +724,7 @@ Console.WriteLine(users.Count); // Outputs: 5
 #### Add
 Adds an item to a collection.
 
-```C#
+```CS
 List<string> users = ["Jim", "Pam", "Michael", "Dwight", "Stanley"];
 users.Add("Holly");
 
@@ -740,7 +740,7 @@ foreach (string u in users)
 #### Remove
 Removes an item from a collection.
 
-```C#
+```CS
 List<string> users = ["Jim", "Pam", "Michael", "Dwight", "Stanley"];
 users.Remove("Jim");
 
@@ -756,7 +756,7 @@ foreach (string u in users)
 #### Contains
 Determines whether an element is in the `List<T>`.
 
-```C#
+```CS
 List<string> users = ["Jim", "Pam", "Michael", "Dwight", "Stanley"];
 Console.WriteLine(users.Contains("Pam")); // Outputs: true
 Console.WriteLine(users.Contains("pam")); // Outputs: false
@@ -767,7 +767,7 @@ Console.WriteLine(users.Contains("pam")); // Outputs: false
 #### Sort
 Sorts the elements or a portion of the elements in the `List<T>` on the spot. It returns `void` so you cannot _log_ it directly.
 
-```C#
+```CS
 // ✅ List is sorted alphabetically by default then logged.
 List<string> users = ["Jim", "Pam", "Michael", "Dwight", "Stanley"];
 users.Sort();
@@ -794,7 +794,7 @@ foreach (int num in numbers)
 #### IndexOf
 Gets the index of an element in the `List<T>`.
 
-```C#
+```CS
 List<string> users = ["Jim", "Pam", "Michael", "Dwight", "Stanley"];
 Console.WriteLine(users.IndexOf("Michael")); // Outputs: 2
 Console.WriteLine(users.IndexOf("michael")); // ⚠️ Outputs: -1 since it does not exist.
@@ -807,7 +807,7 @@ Console.WriteLine(users.IndexOf("michael")); // ⚠️ Outputs: -1 since it does
 #### Clear
 Removes all elements from the `List<T>`.
 
-```C#
+```CS
 List<string> users = ["Jim", "Pam", "Michael", "Dwight", "Stanley"];
 users.Clear();
 Console.WriteLine(users.Count); // Outputs: 0
@@ -830,7 +830,7 @@ The `if` statement allows you to evaluate a condition as either `true` or `false
 
 <br>
 
-```C#
+```CS
 int gasInLitres = 10;
 int distanceInKM = 100;
 
@@ -865,7 +865,7 @@ A `switch` statement executes the statements in the first _switch_ section whose
 
 <br>
 
-```C#
+```CS
 const int YearOfBirth = 1996;
 int currentYear = 2026;
 
@@ -904,7 +904,7 @@ switch (YearOfBirth)
 #### While
 Loops are an important concept for creating larger programs as they allow you to execute statements more than once. Paired with `if` statements, this concept is very powerful for repeating operations that rely on a condition. The `while` statement checks a condition and executes the statement following the `while`.
 
-```C#
+```CS
 int bossHealth = 100;
 int heroDamage = 10;
 
@@ -941,7 +941,7 @@ Console.WriteLine($"The boss lets out a final scream as it perishes, you have va
 #### Do While
 The `do{} while()` loop is nearly identical to the `while` loop except no matter what it will always execute the code within the curly braces **once** before checking to see if the condition has been satified since the code blcok comes before the `if` statement.
 
-```C#
+```CS
 int bossHealth = 100;
 int heroDamage = 10;
 
@@ -982,7 +982,7 @@ A traditional `for` loop organizes everything you need to repeat a task on a sin
 
 <br>
 
-```C#
+```CS
 int bossHealth = 100;
 int heroDamage = 10;
 
@@ -1018,7 +1018,7 @@ Console.WriteLine($"The boss lets out a final scream as it perishes, you have va
 #### For Each
 The `for each` loop repeats its statement for every item in s sequence of items, you most often use it with _collections_.
 
-```C#
+```CS
 List<string> newUsers = ["Anonymous 123", "Anonymous 274", "Anonymous 251", "Anonymous 466", "Anonymous 325", "Anonymous 472"];
 
 foreach (string user in newUsers)
@@ -1045,7 +1045,7 @@ foreach (string user in newUsers)
 ### LINQ (Language Integrated Query)
 Differs from other langauges like JavaScript where you create a string from another language like `SQL` e.g. `Select * from games` which is not integrated and is not checked for mistakes. It is built to be used somewhere else. LINQ on the other hand is integrated into the language and has words like `from`, `select`, `where`, `in`, etc. The compiler can evaluate this **query syntax** for mistakes. It is not `SQL`, it is a language integrated query.
 
-```C#
+```CS
 // Data
 List<int> grades = [21, 42, 63, 84, 99];
 
@@ -1070,7 +1070,7 @@ foreach (int grade in highGrades)
 ### Dictionary<TKey,TValue>
 A Dictionary is a representation of a collection of keys and values.
 
-```C#
+```CS
 // ✅ Modern Dictionary initialization syntax.
 Dictionary<int, string> phoneBook1 = new Dictionary<int, string> ();
 
@@ -1114,7 +1114,7 @@ Tuples are an ordered sequence of values with a fixed length. Each element of a 
 <br>
 
 **Syntax**
-```C#
+```CS
 // With names
 var someBook = (page1: "The quick brown fox", page2: "jumped over the lazy dog");
 
@@ -1126,7 +1126,7 @@ var noNameMixedTuple = ("Luigi", 2, true);
 
 You can also create new _tuples_ from existing ones using the `with` expression so long as the structure matches. What's important to remember is <mark style="background-color: #c48ac1">&nbsp;the names do not matter, only the type and amount of members.&nbsp;</mark>
 
-```C#
+```CS
 // ✅ First we define a tuple
 var someBook = (page1: "The quick brown fox", page2: "jumped over the lazy god"); // Value: ("The quick brown fox", "jumped over the lazy god");
 
@@ -1151,7 +1151,7 @@ var aBookAboutNumbers = someBook with {page1 = 123};
 
 Notice how the `Console.WriteLine(someBook)` doesn't care about the names, it prints: `("The quick brown fox", "jumped over the lazy god")`. <mark style="background-color: #c48ac1">&nbsp;The names are just compile-time syntactic sugar.&nbsp;</mark> Names or not, you can still access or modify tuple members with ease.
 
-```C#
+```CS
 var marioBrothers = (olderBro: "Mario", youngerBro: "Luigi");
 
 // Modify
@@ -1174,7 +1174,7 @@ A record is a specialized type of _class_ or _struct_ <mark style="background-co
 <br>
 
 **Record Syntax**
-```C#
+```CS
 var animal1 = new Animal("dog", "black");
 var animal2 = new Animal("dog", "black");
 Console.WriteLine(animal1 == animal2); // True, value is compared not reference
@@ -1186,7 +1186,7 @@ public record Animal(string Species, string Color);
 <br>
 
 **Compared to Classes**
-```C#
+```CS
 var animal1 = new Animal("dog", "black");
 var animal2 = new Animal("dog", "black");
 Console.WriteLine(animal1 == animal2); // False, compares object identity by default
@@ -1209,7 +1209,7 @@ The records are still 2 different objects in memory but their equality is based 
 <br>
 
 You can also use the `with` expression to create a new record instance from an existing one.
-```C#
+```CS
 var animal1 = new Animal("dog", "black");
 var animal2 = animal1 with { Color = "white"};
 Console.WriteLine(animal2); // Animal { Species = dog, Color = white }
@@ -1229,7 +1229,7 @@ A _struct_ is like a blueprint or a template. Components inside a sruct definiti
 
 <br>
 
-```C#
+```CS
 Console.WriteLine(Player.Description); // Outputs: The `Player` struct is a structure type that...
 var player1 = new Player();
 var player2 = new Player("Luigi", 100, 25);
@@ -1297,7 +1297,7 @@ A class is like a blueprint or a template. Components inside a class definition 
 
 <br>
 
-```C#
+```CS
 Console.WriteLine(Player.Description); // Outputs: The `Player` class is a class type that...
 var player1 = new Player("mario", 90, 30);
 player1.Name = "Mario";
@@ -1354,7 +1354,7 @@ public class Player
 
 Another example with some different syntax, some more legacy and some more modern.
 
-```C#
+```CS
 // See https://aka.ms/new-console-template for more information
 
 // First hero using var and default class properties
@@ -1418,7 +1418,7 @@ The last example is a clear, idiomatic, and recommended way with C# 12 primary c
 ### Methods
 A method is a reusable code block that belongs to a _type_ and contains a series of statements. You execute the method by calling it (_e.g. `MethodName()`_). Methods can optionally expect _arguments_ as well which must be provided during the method call (_unless they have default values_). In C#, unlike JavaScript, <mark style="background-color: #c48ac1">&nbsp;you generally do not write standalone functions at the top level of a file. Instead, reusable code is usually defined as a _method_ inside a class, struct, or other type.&nbsp;</mark> The term _function_ is sometimes used casually, but in C# the more accurate term is _method_. A method can be static, so it does not require an object instance, but it still belongs to a _type_. The naming convention is PascalCase/UpperCamelCase.
 
-```C#
+```CS
 var pet = new Dog();
 pet.GetDescription();
 pet.Bark();
@@ -1446,7 +1446,7 @@ public class Dog : Animal
 #### Async Methods
 You can create asynchronous methods with the `async` keyword. Using the `async` modifier allows you to use the `await` operator in the method. When the `await` expression is reached, progress in the method stops until the awaited task completes.
 
-```C#
+```CS
 // TODO...
 ```
 
@@ -1458,7 +1458,7 @@ You can read more on &rarr; [Microsoft's official Learn C# Guide | Methods](http
 ### Exception Handling
 In **C#** you can handle exceptions easily with a `try`, `catch` block, controlling what happens if the code succeeds and what happens when it fails.
 
-```C#
+```CS
 try
 {
   // Code that might throw an exception.
@@ -1516,7 +1516,7 @@ Here's an example of how to configure a minimal API that you can test in your ID
 
 <br>
 
-```C#
+```CS
 /* Endpoints allow us to define how a request should be processed by a server.
  * There are 3 components that are important for defining how requests should be handled.
  * HTTP Request -> MapGet()
@@ -1638,7 +1638,7 @@ Middlewares are a piece of code that can run before and after each request is pr
 
 <br>
 
-```C#
+```CS
 using Microsoft.AspNetCore.Rewrite;
 
 // Redirecting requests from one route to another without defining extra handlers.
@@ -1674,7 +1674,7 @@ To connect to an SQL database you will need a few things:
 <br>
 
 #### Inside `Teacher.cs` (_`<ModelName>.cs`_)
-```C#
+```CS
 namespace SimpleWebApp.Api.Models;
 
 public class Teacher
@@ -1689,7 +1689,7 @@ public class Teacher
 <br>
 
 #### Inside `AppDbContext.cs`
-```C#
+```CS
 // Enables syntax like: DbContext, DbSet, DbContextOptions, ModelBuilder, ToListAsync()
 using Microsoft.EntityFrameworkCore;
 // The folder where the model classes are located, otherwise would have to <SimpleWebApp.Api.Models.ModelName> ModelName.
@@ -1758,7 +1758,7 @@ public class AppDbContext : DbContext
 <br>
 
 #### Inside `Program.cs` (_where we defined endpoints_)
-```C#
+```CS
 using Microsoft.EntityFrameworkCore;
 using SimpleWebApp.Api.Data;
 
