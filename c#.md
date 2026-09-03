@@ -1651,6 +1651,76 @@ app.UseRewriter(new RewriteOptions().AddRedirect("/endpoint/(.*)", "redirected-e
 <br>
 
 ### Connecting to a Database (_SQL_)
+<mark>I have to update this to be more accurate and include DTOs and change models to Entities</mark>
+<br>
+<strong>SQL Table:</strong> The actual table in the database storing your data in rows.
+
+<strong>Entity:</strong> The live object in your code that represents a speific ro in that table.
+
+<strong>DTO:</strong> The shape of data your API accepts and returns, typically a stripped down version of the entity.
+
+<strong>DB Context:</strong> The connection manager that reads from the database and saves yoru changes back to it.
+
+DTOs give you a boundary so you don't expose your entire entity and you don't allow clients to post whatever they want.
+
+```
+backend/
+│
+├── Data/
+│   └── WorkshopDbContext.cs
+│
+├── Entities/
+│   └── WorkshopEvent.cs
+│
+├── DTO/
+│   ├── WorkshopEventRequest.cs
+│   └── WorkshopEventResponse.cs
+│
+└── Program.cs
+
+--------------------------------------------------------------------------------
+
+Frontend
+   │
+   │  WorkshopEventRequest
+   ▼
+┌──────────────┐
+│     API      │
+└──────┬───────┘
+       │
+       │ convert
+       ▼
+ WorkshopEvent
+       │
+       ▼
+   SQL Server
+       │
+       │ generated ID
+       ▼
+ WorkshopEvent
+       │
+       │ convert
+       ▼
+WorkshopEventResponse
+       │
+       ▼
+    Frontend
+    
+--------------------------------------------------------------------------------
+                    YOUR API
+                       │
+                       ▼
+Frontend ──────► Endpoint ──────► DTO ──────► Entity ──────► EF Core ──────► SQL
+  JSON             │               │             │                         DB
+ camelCase         │               │             │
+                   │               │             └── PascalCase
+                   │               │
+                   │               └── API contract
+                   │
+                   └── decides what operation is happening
+
+                   POST /api/workshop-events
+```
 To connect to an SQL database you will need a few things:
 1. In your API folder (_backend_) create a `data/` folder and `models/` folder.
 2. Create `data/AppDbContext.cs` where we will use [EF Core]('https://learn.microsoft.com/en-us/ef/core/') (_allows you to prepare queries and execute them_).
