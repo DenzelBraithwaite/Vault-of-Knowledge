@@ -396,10 +396,12 @@ Example from [Svelte 5 Runes - the Complete Guide](https://fullstacksveltekit.co
 <br>
 
 ### **Inspect**
-The `$inspect` rune is used to declare a reactive variable.
+The `$inspect` rune is used to automatically log a snapshot of the state whenever it changes.
 
 ```ts
  let carFuel = $state(100);
+ 
+ $inspect(carFuel);
 ```
 
 <br>
