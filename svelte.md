@@ -251,16 +251,166 @@ In web development, **signals** are one of the key primitives of reactive progra
 
 
 ### **State**
+The `$state()` rune is used to declare a reactive variable.
 
+```svelte
+<script lang="ts">
+  let carFuel = $state(100); // Deeply reactive by default
+  let carFuel2 = $state.raw(100); // Not deeply reactive.
+
+  console.log($state.snapshop(carFuel)) // Takes a non-reactive snapshop of a deeply reactive $state.
+</script>
+```
+
+<br>
+
+### **Derived**
+The `$derived()` rune is used for computed values, it declares a variable that is computed based on reactive dependencies.
+
+```svelte
+<script lang="ts">
+  const reserveFuelCapacity = 200;
+  let carFuel = $state(100);
+
+  // Simple one-line logic.
+  let totalFuel = $derived(carFuel + reserveFuelCapacity);
+
+  // If you need multi-statement logic.
+  let preciseTotalFuel = $derived.by(() => {
+    let sum = 0;
+    carFuel + reserveFuelCapacity;
+
+    return sum;
+  });
+</script>
+```
+
+<br>
+
+### **Effect**
+The `$effect()` rune is used for side effects. It runs a function when the component mounts or when its dependencies change. It can be useful for persisting data to storage or loading data on first run. Use `$derived()` when you want to calculate a new value from other state. Use `$effect()` when you need to run side effects (like fetching data or talking to the DOM) after state changes.
+
+```svelte
+<script lang="ts">
+  let count = $state(0);
+
+  $effect(() => {
+    document.title = `count: ${count}`;
+  });
+</script>
+```
+_Example taken from [Svelte 5 Runes - the Complete Guide](https://fullstacksveltekit.com/blog/svelte-5-runes) by Justin Ahinon_
+
+<br>
 
 ### **Props**
+The peroperty rune `$props()` is used to pass data from one component down to its children.
 
+#### Inside Parent
+```svelte
+<script lang="ts">
+  import Book from './Book.svelte';
 
-### **Effects**
+  let title = "V for Vendetta"
+  let author = "Alan Moore"
+</script>
 
-### **Snippets**
+<Book {title} {author}/>
+```
 
+#### Inside Child
+```svelte
+<script lang="ts">
+  // Can specify default values as well.
+  let { title, author = 'unknown' } = $props();
+</script>
 
+<article>
+  <p>{title}</p>
+  <p>Written by {author}</p>
+</article>
+
+<style>
+	article {
+		border: 2px solid black;
+		height: 200px;
+		width: 100px;
+	}
+</style>
+```
+
+<br>
+<br>
+
+If the properties of an object correspond to the component's expected props, we can _spread_ them onto the component instead.
+
+#### Inside Parent
+```svelte
+<script lang="ts">
+	import PackageInfo from './PackageInfo.svelte';
+
+	const pkg = {
+		name: 'svelte',
+		version: 5,
+		description: 'blazing fast',
+		website: 'https://svelte.dev'
+	};
+</script>
+
+<PackageInfo {...pkg} />
+```
+
+#### Inside Child
+```svelte
+<script>
+	let { name, version, description, website } = $props();
+</script>
+
+<p>
+	The <code>{name}</code> package is {description}. Download version {version} from
+	<a href="https://www.npmjs.com/package/{name}">npm</a> and <a href={website}>learn more here</a>
+</p>
+```
+
+<br>
+
+![img here](/img/svelte/svelte_screenshot_props.png)
+
+_Examples taken from [Svelte's official tutorial](https://svelte.dev/tutorial/svelte/spread-props)_
+
+<br>
+
+#### Props.id
+For ARIA attributes that need to link a label to an input, `$props.id()` returns a stable ID that survives SSR hydration. It's better than `Math.random()` tricks.
+
+```svelte
+<script lang="ts">
+  const uid = $props.id();
+</script>
+
+<label for="{uid}-email">Email</label>
+<input id="{uid}-email" type="email" />
+```
+Example from [Svelte 5 Runes - the Complete Guide](https://fullstacksveltekit.com/blog/svelte-5-runes) - by Justin Ahinon
+
+<br>
+
+### **Inspect**
+The `$inspect` rune is used to declare a reactive variable.
+
+```ts
+ let carFuel = $state(100);
+```
+
+<br>
+
+### **Declaring Runes in a Non-Svelte File**
+Runes are typically only available in `.svelte` files, but you can help your compiler understand them by modifying the file extension.
+
+- ❌ Filename.js / Filename.ts
+- ✅ Filename.svelte.js / Filename.svelte.ts
+
+<br>
 <br>
 
 ---
@@ -278,7 +428,13 @@ For a more complete guide with more examples, visit:
 
 - [Svelte.dev](https://svelte.dev/) - Official website and documentation
 
+- [Svelte 5 Runes - the Complete Guide](https://fullstacksveltekit.com/blog/svelte-5-runes) - Article by Justin Ahinon
+
+- [Understanding Svelte 5 Runes](https://dev.to/mikehtmlallthethings/understanding-svelte-5-runes-derived-vs-effect-1hh): `$derived` vs `$effect`
+
 - Youtube, they have great videos that can help.
+
+- Various A.I. generated content (_gemini, perplexity, copilot, chatGPT_)
 
 <br>
 <br>
